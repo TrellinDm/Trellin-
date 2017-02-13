@@ -1,4 +1,3 @@
-
 // import '../App.js';
 import React, { Component } from 'react';
 import CommentBox from './comments.js';
