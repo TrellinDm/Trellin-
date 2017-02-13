@@ -1,4 +1,3 @@
-
 // import '../App.js';
 import React, { Component } from 'react';
 import CommentBox from './comments.js';
@@ -8,8 +7,6 @@ import './messaging.scss';
 const profileImageThree = {backgroundImage: 'url(' + 'http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg' + ')'}
 const profileImageOne = {backgroundImage: 'url(' + "http://kingofwallpapers.com/jack-black/jack-black-005.jpg" + ')'}
 const profileImageTwo = {backgroundImage: 'url(' + "http://www.gannett-cdn.com/-mm-/67c23b55d461f83e96855358c4bee23b00420bd6/c=334-0-5437-3836&r=x404&c=534x401/local/-/media/USATODAY/USATODAY/2014/04/03//1396538883000-James-Franco.jpg" + ')'}
-
-
 
 class Timeline extends React.Component {
   constructor(){
@@ -67,7 +64,7 @@ class Timeline extends React.Component {
             <p>Jack Black</p>
           </div>
         </div>
-        <div className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </div>
+        <button className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </button>
         {listNodes}
       </section>
     );
