@@ -1,0 +1,153 @@
+
+/*Comment container*/
+.comment-container{
+  width: 750px;
+  /*margin: 10px;*/
+}
+.comment-header{
+  background: lightblue;
+  width: 101%;
+}
+.comment-header p{
+  padding: 10px;
+  background: lightblue;
+  font-size: 1.2rem;
+  color: rgba(0,0,0, .6);
+}
+.comment-box{
+  width:100%;
+  height: 100px;
+  resize: none;
+  font-size: 1rem;
+  margin: -20px 0 0 0;
+}
+.post-button{
+  background: lightblue;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1rem;
+  opacity: .7;
+  float:right;
+  margin: 0 0 30px;
+}
+.post-button:hover{
+  background: lightblue;
+  opacity: 1;
+}
+.single-comment-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 35px 0 0 0;
+  min-height: 200px;
+  width: 100%;
+  border: 1px solid rgba(0,0,0, .2);
+}
+.post-reply{
+  position: absolute;
+  border: none;
+  padding: 5px 10px;
+  font-size: .8rem;
+  opacity: .7;
+  float:right;
+  margin: 0 0 30px;
+  bottom: -26px ;
+  right: 4px;
+}
+.post-reply button{
+  background: rgba(0,0,0, 0);
+  border: none;
+  margin-left: 10px;
+  border-bottom: 1px solid rgba(0,0,0, .2);
+}
+.post-reply button:hover{
+  background: rgba(0,0,0, 0);
+  border: none;
+  margin-left: 10px;
+  border-bottom: 1px solid rgba(0,0,0, .8);
+}
+.post-reply button img{
+  width: 15px;
+  margin: 0 0 -4px 0;
+}
+.interact-bar{
+  position: absolute;
+  border: none;
+  padding: 5px 10px;
+  font-size: .8rem;
+  opacity: .7;
+  float:right;
+  margin: 0 0 30px;
+  bottom: -26px ;
+  left: 0px;
+}
+.single-comment-head p{
+  padding: 0 0 0 10px;
+}
+.single-comment-head {
+  top: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  background: rgba(0,0,0, .07);
+  font-size: 1.2rem;
+}
+.single-comment-profilePic{
+  background-image: url('http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 0 0 0 10px;
+}
+.single-comment-body{
+  padding: 10px 5px;
+  font-size: 1rem;
+  width: 90%;
+  min-height: 150px;
+  border-top: 1px solid rgba(0,0,0, .1);
+  border-bottom: 1px solid rgba(0,0,0, .1);
+  margin: 69px 0 33px 0;
+  background: rgba(0,0,0, .03);
+}
+.interact-basic{
+  display: inline-block;
+  margin: 0 0 0 10px;
+  opacity: .7;
+}
+.interact-basic:hover{
+  opacity: 1;
+}
+.reply-section{
+  position: relative;
+  padding: 15px 10px 5px 10px;
+  width: 97.8%;
+  min-height: 100px;
+  background: rgba(0,0,0, .07);
+}
+.single-reply{
+  position: relative;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(0,0,0, .3);
+  padding: 5px 5px 40px 5px;
+}
+.comment-bar{
+      width: 97.6%;
+  display: flex;
+  bottom: -30px;
+  padding: 8px;
+  border-top: 1px solid rgba(0,0,0, .2);
+}
+.single-reply-content{
+  margin: 65px 10px 10px 10px;
+}
+.horizontal-line{
+  margin: 40px 0 0 -5%;
+  width: 110%;
+  height: 2px;
+  background-color: rgba(0,0,0, .2);
+}
