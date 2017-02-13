@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import ProfileHeader from './ProfileHeader';
 
 class Profile extends Component {
   render() {
     return (
-      <div>This is a test.</div>
+      <div>
+        <ProfileHeader />
+      </div>
     )
   }
 }
