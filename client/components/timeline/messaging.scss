@@ -151,3 +151,80 @@
   height: 2px;
   background-color: rgba(0,0,0, .2);
 }
+// Timeline Section
+.timelineSection{
+  display: flex;
+  justify-content: center;
+}
+.centerTimeline{
+  width: 700px;
+  height: auto;
+
+}
+// left SIIIIDE
+.timeline-profileInfo{
+  margin: 20px 20px 10px 10px;
+  width: 350px;
+  height: 400px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.timeline-profileInfo .profile-image{
+  margin: 20px 0 0 0;
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.timeline-contactList{
+  margin: 20px 20px 10px 20px;
+  width: 250px;
+  height: 400px;
+  border: 1px solid black;
+}
+.profile-name-wrap:first-child{
+  margin: 50px;
+}
+.profile-name-wrap {
+  text-align: center;
+  width: 80%;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0,0,0, .2);
+}
+.profile-name-wrap p{
+  margin: 0;
+  font-size: 1.5rem;
+}
+.profile-name-wrap p span{
+  text-decoration: underline;
+}
+.profile-name-wrap .edit-profile{
+  font-size: 1.2rem;
+  text-align: center;
+  color: #0077B5;
+}
+.timeline-contact-wrap{
+  padding: 5px;
+  border-bottom: 1px solid rgba(0,0,0, .2);
+  display: flex;
+  font-size: 1.7rem;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+}
+.timeline-contact-wrap p{
+  margin: 0 0 0 0;
+}
+.timeline-contact-wrap .single-comment-profilePic{
+  margin: 0 10px 0 0;
+}
+.profileInfo-title{
+  font-size: 2rem;
+  margin: 10px;
+  width: 70%;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0, .1);
+}

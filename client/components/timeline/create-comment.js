@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './messaging.scss';
 
 class CreateCommentBox extends React.Component {
   render() {
