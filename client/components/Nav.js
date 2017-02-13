@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 
 class Nav extends Component {
   render() {
     return (
       <div>
-        Hello World
+        <div>home</div>
+        <Link to="/timeline"><div>timeline</div></Link>
       </div>
     )
   }
