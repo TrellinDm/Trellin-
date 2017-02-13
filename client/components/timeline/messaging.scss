@@ -228,3 +228,19 @@
   text-align: center;
   border-bottom: 1px solid rgba(0,0,0, .1);
 }
+.trello-lists{
+  position: absolute;
+  width: 400px;
+  right: 0;
+  height:100%;
+  background: lightblue;
+}
+.trello-lists div{
+  padding: 20px;
+  border:1px solid rgba(0,0,0, .2);
+}
+.trello-button{
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}

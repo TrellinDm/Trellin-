@@ -12,7 +12,27 @@ const profileImageTwo = {backgroundImage: 'url(' + "http://www.gannett-cdn.com/-
 
 
 class Timeline extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      showLists: false
+    };
+  }
   render() {
+
+    let listNodes;
+    let listsButton = 'Show Lists';
+    if(this.state.showLists){
+    listNodes =  <div className="trello-lists">
+        <div>{this.state.showLists}...</div>
+        <div>list</div>
+        <div>list</div>
+        <div>list</div>
+        <div>list</div>
+        <div>list</div>
+      </div>
+    listsButton = 'hide lists';
+    }
     return (
       <section className="timelineSection">
         <div className="timeline-profileInfo">
@@ -47,9 +67,17 @@ class Timeline extends React.Component {
             <p>Jack Black</p>
           </div>
         </div>
+        <div className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </div>
+        {listNodes}
       </section>
     );
   }
+  listClick() {
+    this.setState({
+      showLists: !this.state.showLists
+    });
+  }
 }
+
 
 export default Timeline;
