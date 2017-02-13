@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import axios from 'axios';
+import Nav from './components/Nav.js';
 
 
 export default class App extends Component {
@@ -13,7 +15,11 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+
         <button onClick={this.test}> test Endpoint</button>
+        <Nav />
+        {this.props.children}
+
       </div>
     );
   }
