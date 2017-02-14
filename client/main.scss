@@ -1,0 +1,120 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.5em;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+.button-dark-blue {
+  border: 1px solid #1b5480;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+  padding: 7px 13px;
+  font-weight: bold;
+  color: white;
+  background: -webkit-linear-gradient(top, #287bbc 0%,#23639a 100%);
+  box-sizing: border-box;
+}
+.button-dark-blue:hover,
+.button-dark-blue:focus {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.35);
+  background: -webkit-linear-gradient(top, #2672ae 0%,#1e4f7e 100%);
+}
+
+.button-gray {
+  border: 1px solid #a7a7a7;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 7px 13px;
+  font-weight: bold;
+  color: #666;
+  background: -webkit-linear-gradient(top, #f2f2f2 0%,#e9e9e9 32%,#d8d8d8 74%,#d1d1d1 100%);
+  box-sizing: border-box;
+}
+.button-gray:hover,
+.button-gray:focus {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  background: -webkit-linear-gradient(top, #e8e8e8 0%,#e3e3e3 13%,#d7d7d7 32%,#b9b9b9 71%,#a9a9a9 100%);
+}
+
+.hover-edit {
+  background: rgb(235,235,235);
+  padding: 2px 5px;
+}
+.hover-edit:hover,
+.hover-edit:focus {
+  background: rgb(202,236,252);
+}
+
+.hover-edit-text {
+  background: rgb(235,235,235);
+  padding: 2px 5px;
+}
+.hover-edit-text:hover,
+.hover-edit-text:focus {
+  background: rgb(202,236,252);
+  color: #00a0dc;
+  cursor: pointer;
+}
+
+.button-add {
+  color: #696c6f;
+  background: #eee;
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  border: none;
+}
+.button-add:hover,
+.button-add:focus {
+  color: #0077b5;
+  background-color: #f1f3f5;
+  cursor: pointer;
+}
+
+.section-shadow {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15), -1px 0 0 rgba(0,0,0,0.03), 1px 0 0 rgba(0,0,0,0.03), 0 1px 0 rgba(0,0,0,0.12);
+}
+
+.button-connect {
+  color: #fff;
+  background: #0077b5;
+  border: none;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  width: 100%;
+}
+.button-connect:hover,
+.button-connect:focus {
+  background: #046293;
+  cursor: pointer;
+}
+
+.input-main {
+  border: 1px solid #ccc;
+  background: #fdfdfd;
+  border-radius: 2px;
+  padding: 5px 6px 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.1) inset;
+  color: #333;
+}
