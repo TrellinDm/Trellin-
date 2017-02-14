@@ -3,7 +3,7 @@ var path = require('path');
 
 
 module.exports = {
-  // devtool:'source-map',
+  devtool:'source-map',
   entry:[
     // 'webpack/hot/dev-server',
     // 'webpack-hot-middleware/client?',
@@ -20,7 +20,7 @@ module.exports = {
 
   plugins: [
     // new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    // new webpack.NoErrorsPlugin()
     // new webpack.optimize.OccurenceOrderPlugin(),
     // new HtmlWebpackPlugin({template:'./client/index.html'})
   ],
@@ -51,7 +51,7 @@ module.exports = {
   }
 
   // ,devServer: {
-	// 	contentBase: './'
-	// 	, historyApiFallback: true
+	// 	contentBase: './build'
+	// 	// , historyApiFallback: true
 	// }
 }
