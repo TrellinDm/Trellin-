@@ -1,4 +1,5 @@
 node_modules
 config
-build/bundle.js
-.idea
+build
+
+!build/index.html
