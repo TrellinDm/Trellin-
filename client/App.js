@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import axios from 'axios';
 import Nav from './components/Nav.js';
+import './reset.scss';
 import './main.scss';
-
 
 export default class App extends Component {
 
@@ -16,11 +16,8 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <button className="button-dark-blue" onClick={this.test}> test Endpoint</button>
         <Nav />
         {this.props.children}
-
       </div>
     );
   }
