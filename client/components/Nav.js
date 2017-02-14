@@ -6,8 +6,8 @@ import trellcard from '../src/trellcard.svg';
 import './nav.scss';
 
 class Nav extends Component {
-  render() {
-    return (
+	render() {
+		return (
       <div className="navBar">
         <div className="navLeft">
           <Link to="/timeline"><img src={logo} /></Link>
@@ -22,8 +22,8 @@ class Nav extends Component {
           </div>
         </div>
       </div>
-    )
-  }
+		)
+	}
 }
 
 export default Nav;

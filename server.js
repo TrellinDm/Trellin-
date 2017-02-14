@@ -17,6 +17,7 @@ app.use(express.static(__dirname + '/build'));
 var testCtrl = require('./server/testCtrl');
 
 app.post('/test', testCtrl.Create)
+app.post('/getMessages', testCtrl.getMessages)
 
 app.listen(app.get('port'), function () {
   console.log('Running localhost', app.get('port'))

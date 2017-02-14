@@ -12,5 +12,13 @@ module.exports = {
         res.json(result);
       }
     })
+  },
+  getMessages: function (req, res) {
+    let userid = 3;
+    db.getMessages([userid], function (err, result) {
+        console.log(err);
+        console.log(result);
+        res.status(200).send(result)
+    })
   }
 }
