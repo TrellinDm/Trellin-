@@ -19,9 +19,9 @@ class CommentBox extends React.Component {
           <div className="single-comment-container">
             <div className="single-comment-head">
               <div className="single-comment-profilePic"></div>
-              <p>Marcus Ogden</p>
+              <p>{this.props.author}</p>
             </div>
-            <div className="single-comment-body">{exampleComment}</div>
+            <div className="single-comment-body">{this.props.body}</div>
               <div className="post-reply">
                 <button className="">Edit</button>
                 <button className="">Reply</button>

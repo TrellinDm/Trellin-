@@ -18,7 +18,7 @@ class IndustryPopup extends Component {
 	
 	render() {
 		return (
-			<div>
+			<div className="name-popup-box">
 				<p>Country</p>
 				<input type="text"/>
 				<p>City</p>

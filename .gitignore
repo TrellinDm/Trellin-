@@ -2,4 +2,8 @@ node_modules
 config
 build
 .idea
+<<<<<<< HEAD
 !build/index.html
+=======
+!build/index.html
+>>>>>>> 998061891df1cd9513e6320d0d95ba2b9947beb0

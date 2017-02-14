@@ -18,7 +18,7 @@ class HeadlinePopup extends Component {
 	
 	render() {
 		return (
-			<div>
+			<div className="name-popup-box">
 				<p>Your professional headline</p>
 				<input type="text"/>
 				<button onClick={this.onSave} >Save</button>
