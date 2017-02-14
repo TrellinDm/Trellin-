@@ -2,15 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d782e499-99ac-4f1a-a185-b081efee2dab" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/search.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/components/Lists/Card.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/components/Lists/List.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/components/Lists/List.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/components/nav.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/getMessages.sql" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/db/test.sql" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/build/reset.css" afterPath="$PROJECT_DIR$/client/reset.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/index.html" afterPath="$PROJECT_DIR$/build/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/App.js" afterPath="$PROJECT_DIR$/client/App.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/Nav.js" afterPath="$PROJECT_DIR$/client/components/Nav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/profile/Profile.js" afterPath="$PROJECT_DIR$/client/components/profile/Profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/profile/ProfileHeader.js" afterPath="$PROJECT_DIR$/client/components/profile/ProfileHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/profile/popups/HeadlinePopup.js" afterPath="$PROJECT_DIR$/client/components/profile/popups/HeadlinePopup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/profile/popups/IndustryPopup.js" afterPath="$PROJECT_DIR$/client/components/profile/popups/IndustryPopup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/profile/popups/NamePopup.js" afterPath="$PROJECT_DIR$/client/components/profile/popups/NamePopup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/timeline/Timeline.js" afterPath="$PROJECT_DIR$/client/components/timeline/Timeline.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/timeline/comments.js" afterPath="$PROJECT_DIR$/client/components/timeline/comments.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/components/timeline/messaging.scss" afterPath="$PROJECT_DIR$/client/components/timeline/messaging.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/testCtrl.js" afterPath="$PROJECT_DIR$/server/testCtrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,7 +61,7 @@
             <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileSidebar.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="144">
-                  <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                  <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -59,8 +71,10 @@
             <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileCertifications.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="160">
-                  <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                  <folding />
+                  <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                  <folding>
+                    <marker date="1487099419000" expanded="true" signature="104:202" ph="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -69,8 +83,10 @@
             <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileEducation.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="160">
-                  <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                  <folding />
+                  <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                  <folding>
+                    <marker date="1487099653000" expanded="true" signature="99:187" ph="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -79,8 +95,10 @@
             <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileSkills.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="160">
-                  <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                  <folding />
+                  <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                  <folding>
+                    <marker date="1487099653000" expanded="true" signature="96:178" ph="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -89,8 +107,10 @@
             <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileFollowing.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="160">
-                  <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                  <folding />
+                  <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                  <folding>
+                    <marker date="1487099653000" expanded="true" signature="99:187" ph="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -99,11 +119,31 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="profileStyles.scss" pinned="false" current-in-tab="true">
+          <file leaf-file-name="profileStyles.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/components/profile/profileStyles.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="80">
                   <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="64">
+                  <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Nav.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/components/Nav.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="320">
+                  <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -133,8 +173,6 @@
         <option value="$PROJECT_DIR$/client/components/profile/NamePopup.js" />
         <option value="$PROJECT_DIR$/client/components/profile/HeadlinePopup.js" />
         <option value="$PROJECT_DIR$/client/components/profile/ProfileSummary.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/client/components/Nav.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/components/profile/popups/NamePopup.js" />
         <option value="$PROJECT_DIR$/client/components/profile/popups/IndustryPopup.js" />
@@ -149,6 +187,8 @@
         <option value="$PROJECT_DIR$/client/components/profile/ProfileSidebar.js" />
         <option value="$PROJECT_DIR$/client/components/profile/Profile.js" />
         <option value="$PROJECT_DIR$/client/components/profile/profileStyles.scss" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/client/components/Nav.js" />
       </list>
     </option>
   </component>
@@ -416,7 +456,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="20497000" />
+=======
+    <option name="totallyTimeSpent" value="20729000" />
+>>>>>>> master
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="-114" width="1920" height="1080" extended-state="0" />
@@ -431,7 +475,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960506" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21849594" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38922763" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15218537" sideWeight="0.50455135" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -477,7 +521,7 @@
         <state relative-caret-position="192">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -497,7 +541,7 @@
         <state relative-caret-position="1056">
           <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="29" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -557,14 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.babelrc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -601,14 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
           <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/Nav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -658,7 +686,7 @@
         <state relative-caret-position="816">
           <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -674,24 +702,30 @@
     <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileFollowing.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <marker date="1487099653000" expanded="true" signature="99:187" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileSkills.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <marker date="1487099653000" expanded="true" signature="96:178" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileEducation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <marker date="1487099653000" expanded="true" signature="99:187" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -700,7 +734,7 @@
         <state relative-caret-position="272">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -732,15 +766,17 @@
     <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileCertifications.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <marker date="1487099419000" expanded="true" signature="104:202" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/profile/ProfileSidebar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -759,6 +795,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/Nav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>
