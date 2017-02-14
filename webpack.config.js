@@ -37,7 +37,7 @@ module.exports = {
         loader: 'style-loader!css-loader!sass-loader'
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|svg)$/,
         loader: 'file-loader'
         // options: {
         //   name: '[path][name].[hash].[ext]',
