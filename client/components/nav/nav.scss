@@ -36,7 +36,7 @@
 }
 
 #placeholderImg {
-  background-image: url('../src/search.png');
+  background-image: url('../../src/search.png');
   background-size: 18px;
   background-repeat: no-repeat;
   background-position: 15px;
@@ -81,4 +81,26 @@
 
 .me-hover:hover {
   cursor: pointer
+}
+
+.account-settings {
+  width: 130px;
+  height: 85px;
+  background: #293e4a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+}
+
+.account-settings img {
+  width: 26px;
+  margin-bottom: 2px;
+}
+
+.account-settings a {
+  text-decoration: none;
+  color: #e1e9ed;
 }
