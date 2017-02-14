@@ -1,0 +1,111 @@
+#container{
+  margin:0 auto;
+  width:60%;
+  overflow:auto;
+  clear:both;
+  margin-top: 20px;
+  }
+
+.profile-col-left {
+  overflow:auto;
+  width:70%;
+  float:left;
+  }
+
+.profile-col-right {
+  width:30%;
+  float:left;
+  }
+
+.header-box,.experience-box,.certifications-box,.education-box,.skills-box,.following-box {
+  border: black solid 1px;
+  margin: 0 2% 2% 0;
+  }
+
+//////
+// Header Box
+//////
+.header-box {
+  height: auto;
+  border: black solid 1px;
+
+  }
+
+.popup:hover {
+  cursor: pointer;
+  background: #CAECFC;
+  }
+
+.name-popup-box {
+  position: relative;
+  width: 15vw;
+  height: auto;
+  background-color: #fff;
+  text-align: center;
+  border: solid #737373 0.5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  }
+
+.pencil {
+  position: relative;
+  display: inline-block;
+  background-color: #E9E9E9;
+  background: url('https://d30y9cdsu7xlg0.cloudfront.net/png/1170-200.png') center no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  margin-left: 3px;
+  }
+
+.pencil:hover {
+  background: #7c8dfc;
+  }
+
+//////
+// Sidebar Box
+//////
+.sidebar-box {
+  height: 800px;
+  border: black solid 1px;
+  }
+
+//////
+// Experience Box
+//////
+.experience-box {
+  top: 365px;
+  height: 200px;
+  }
+
+//////
+// Certifications Box
+//////
+.certifications-box {
+  top: 585px;
+  height: 200px;
+  }
+
+//////
+// Education Box
+//////
+.education-box {
+  top: 805px;
+  height: 200px;
+  }
+
+//////
+// Skills Box
+//////
+.skills-box {
+  top: 1025px;
+  height: 200px;
+  }
+
+//////
+// Following Box
+//////
+.following-box {
+  top: 1245px;
+  height: 200px;
+  }

@@ -7,6 +7,7 @@ class Nav extends Component {
       <div>
         <div>home</div>
         <Link to="/timeline"><div>timeline</div></Link>
+        <Link to="/profile"><div>Profile</div></Link>
       </div>
     )
   }
