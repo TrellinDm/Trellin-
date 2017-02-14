@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import logo from '../src/logo.png';
+import network from '../src/network.svg';
+import trellcard from '../src/trellcard.svg';
 import './nav.scss';
 
 class Nav extends Component {
@@ -12,9 +14,12 @@ class Nav extends Component {
           <input className="searchBar" id="placeholderImg" placeholder="Search" />
         </div>
         <div className="navRight">
-          <Link to="/connections">My Network</Link>
-          <Link to="/trello">Trello</Link>
-          <div>Me</div>
+          <Link to="/connections"><img src={network} />My Network</Link>
+          <Link id="trell-card" to="/trello"><img src={trellcard} />Trello</Link>
+          <div className="me-hover">
+            <div className="profile-icon"></div>
+            <a>Me</a>
+          </div>
         </div>
       </div>
     )
