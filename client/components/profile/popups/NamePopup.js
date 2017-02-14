@@ -18,7 +18,7 @@ class NamePopup extends Component {
 	
 	render() {
 		return (
-			<div>
+			<div className="name-popup-box">
 				<p>Name</p>
 				<input type="text"/>
 				<input type="text"/>

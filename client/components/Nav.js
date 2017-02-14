@@ -4,8 +4,8 @@ import logo from '../src/logo.png';
 import './nav.scss';
 
 class Nav extends Component {
-  render() {
-    return (
+	render() {
+		return (
       <div className="navBar">
         <div className="navLeft">
           <Link to="/timeline"><img src={logo} /></Link>
@@ -17,8 +17,8 @@ class Nav extends Component {
           <div>Me</div>
         </div>
       </div>
-    )
-  }
+		)
+	}
 }
 
 export default Nav;

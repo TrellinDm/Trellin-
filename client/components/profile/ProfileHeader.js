@@ -37,25 +37,32 @@ class ProfileHeader extends Component {
 	  var connectionNum = 2834;
     
     return (
-      <div>
+      <div className="header-box">
         <div className="profile-pic">
           <img src="../src/profile pic.png" alt="Profile Picture" />
           <div className="profile-pic-hover">
             <img src="../src/photo.svg" /> Change Photo
           </div>
         </div>
+        
         <div className="profile-name">
-          <h1 onClick={this.toggleName} >Your Name Here</h1>
+          <div onClick={this.toggleName} className="popup">
+            Your Name Here
+            <div className="pencil"></div>
+          </div>
 	        {this.state.name ? <NamePopup /> : null}
         </div>
+        
         <div className="profile-headline">
-          <h1 onClick={this.toggleHeadline} >Student and Devmountain</h1>
+          <div onClick={this.toggleHeadline} className="popup">Student and Devmountain</div>
 		      {this.state.headline ? <HeadlinePopup /> : null}
         </div>
+        
         <div className="profile-industry">
-          <h1 onClick={this.toggleIndustry} >Industry/Location</h1>
+          <div onClick={this.toggleIndustry} className="popup">Industry/Location</div>
 		      {this.state.industry ? <IndustryPopup /> : null}
         </div>
+        
         <div>Current: {current}</div>
         <div>Education: {education}</div>
         <div>
