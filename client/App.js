@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import axios from 'axios';
-import Nav from './components/Nav.js';
+import Nav from './components/nav/Nav.js';
 import './reset.scss';
 import './main.scss';
 
