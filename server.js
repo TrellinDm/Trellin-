@@ -10,13 +10,14 @@ app.use(cors());
 app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname + '/build'));
 
-var connect = massive.connectSync({connectionString: "postgres://inyrrfgq:u-AbK09TtmHRwYVJeTZNs32smn1W2MJ5@babar.elephantsql.com:5432/inyrrfgq"});
+var connect = massive.connectSync({connectionString: "postgres://inyrrfgq:n44M05nu0byEfJ26llJ2UFUdlgzWMk0M@babar.elephantsql.com:5432/inyrrfgq"});
 app.set('db', connect);
 var db = app.get('db');
 
 var testCtrl = require('./server/testCtrl');
 
 app.post('/test', testCtrl.Create)
+app.post('/getMessages', testCtrl.getMessages)
 
 app.listen(app.get('port'), function () {
   console.log('Running localhost', app.get('port'))
