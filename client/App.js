@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import axios from 'axios';
 import Nav from './components/Nav.js';
+import './main.scss';
 
 
 export default class App extends Component {
@@ -13,10 +14,11 @@ export default class App extends Component {
     })
   }
   render() {
+    console.log('hello');
     return (
       <div className="App">
 
-        <button onClick={this.test}> test Endpoint</button>
+        <button className="button-dark-blue" onClick={this.test}> test Endpoint</button>
         <Nav />
         {this.props.children}
 
