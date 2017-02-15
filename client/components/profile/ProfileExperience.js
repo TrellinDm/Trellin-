@@ -16,8 +16,24 @@ export default class ProfileSidebar extends Component {
 							</a>
 						</div>
 					</div>
-					<div className="add-text-blue" >Add Location <div className="question-icon"></div></div>
-					<div className="add-text-blue" >Add Description <div className="question-icon"></div></div>
+					<div className="add-text-blue" >Add Location
+						<div id="tooltip">
+							<a>
+								<div className="question-icon">
+									<div className="profile-text"><span>Time Period:</span> <span>Show how your career has progressed over time</span></div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div className="add-text-blue" >Add Description
+						<div id="tooltip">
+							<a>
+								<div className="question-icon">
+									<div className="profile-text"><span>Time Period:</span> <span>Show how your career has progressed over time</span></div>
+								</div>
+							</a>
+						</div>
+					</div>
 				</div>
 				<div className="bottom-add">
 					<div className="bottom-add-text">Add position</div>

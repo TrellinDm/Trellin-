@@ -84,7 +84,7 @@
   color: #0077b5;
   }
 
-// Question mark icon and hover
+// Question mark icon and hover popup
 .question-icon {
   display: inline-block;
   background: url('https://www.measuretn.gov:444/ReportCard/Content/Images/Icons/Gray%20question%20mark.png') center no-repeat;
@@ -93,7 +93,31 @@
   background-size: contain;
   }
 
+#tooltip {
+  margin-left: 5px;
+  position: relative;
+  display: inline-block;
+  }
 
+#tooltip a span {
+  display: none;
+  color: white;
+  }
+
+#tooltip a:hover span {
+  display: block;
+  position: absolute;
+  width: 200px;
+  background: #fff;
+  height: auto;
+  left: 30px;
+  top: -18px;
+  color: black;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 5px 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
 
 
@@ -158,35 +182,23 @@
   margin-left: 7px;
   }
 
-#tooltip {
-  margin-left: 5px;
-  position: relative;
-  display: inline-block;
+.connections-float-R {
+  float: right;
+  line-height: 15px;
   }
 
-#tooltip a span {
-  display: none;
-  color: white;
-  }
-
-#tooltip a:hover span {
-  display: block;
-  position: absolute;
-  width: 200px;
-  background: #fff;
-  height: auto;
-  left: 30px;
-  top: -18px;
+.connections-num {
+  font-size: 20px;
   color: black;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 5px 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-weight: bold;
+  text-align: right;
   }
 
-
-
-
+.sm-gray-text {
+  font-size: 11px;
+  color: #afb2b5;
+  text-align: center;
+  }
 
 
 //////

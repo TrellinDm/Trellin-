@@ -35,7 +35,7 @@ class ProfileHeader extends Component {
     
     var current = ['devmountain ', 'some other place'];
 	  var education = ['devmountain ', 'some other place'];
-	  var connectionNum = 2834;
+	  var connectionNum = 283;
     
     return (
       <div className="header-box">
@@ -57,9 +57,11 @@ class ProfileHeader extends Component {
             </div>
             {this.state.name ? <NamePopup /> : null}
           </div>
-	        
+	        <div className="add-text-blue" >Add Headline
+		        
+	        </div>
           <div className="profile-headline">
-            <div onClick={this.toggleHeadline} className="popup profile-text">Student and Devmountain</div>
+            <div onClick={this.toggleHeadline} className="popup profile-text">Devmountain</div>
             {this.state.headline ? <HeadlinePopup /> : null}
           </div>
           
@@ -68,11 +70,11 @@ class ProfileHeader extends Component {
             {this.state.industry ? <IndustryPopup /> : null}
           </div>
           
-          <div className="profile-text">Current: {current}</div>
-          <div className="profile-text">Education: {education}</div>
-          <div>
-            <div>{connectionNum}</div>
-            <div className="float-R profile-text">Connections</div>
+	        <div className="profile-text"><span className="sm-gray-text">Current</span> {current}</div>
+	        <div className="profile-text"><span className="sm-gray-text">Education</span> {education}</div>
+          <div className="connections-float-R">
+            <div className="connections-num">{connectionNum}</div>
+            <div className="sm-gray-text">connections</div>
           </div>
         </div>
       </div>
