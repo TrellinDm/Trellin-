@@ -1,9 +1,9 @@
 import React, {Component } from 'react';
-// import Card from './Login';
+import List from './List';
 import {connect} from 'react-redux';
 import './List.scss';
 
-class List extends Component {
+class Trello extends Component {
   constructor(props) {
     super(props)
 
@@ -11,7 +11,9 @@ class List extends Component {
 
   render() {
     return (
-      
+      <div className='trello'>
+        <List/>
+      </div>
     )
   }
 }
@@ -20,4 +22,4 @@ function mapStateToProps(state) {
 
 }
 
-export default
+export default Trello;

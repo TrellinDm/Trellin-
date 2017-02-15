@@ -5,7 +5,7 @@ import Connections from './components/Connections';
 import Login from './components/Login';
 import Profile from './components/profile/Profile';
 import Timeline from './components/timeline/Timeline';
-// import Trello from './components/Trello';
+import Trello from './components/trello/Trello.js';
 import App from './App';
 
 export default (
@@ -14,7 +14,7 @@ export default (
     <Route path="/" component={App}>
       <Route path="/timeline" component={Timeline}/>
       <Route path="/profile" component={Profile}/>
-
+      <Route path="/trello" component={Trello}/>
       <Route path="/connections" component={Connections}/>
     </Route>
   </Router>
