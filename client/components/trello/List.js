@@ -1,8 +1,9 @@
 import React, {Component } from 'react';
-import {updateList} from '../../reducers/listReducer'
+import {saveList} from '../../reducers/listReducer'
 import {connect} from 'react-redux';
 import './List.scss';
 import axios from 'axios';
+import Card from './Card';
 
 class List extends Component {
   constructor(props) {
@@ -28,8 +29,8 @@ class List extends Component {
     axios.post('/list', this.state).then(res => {//work with arrow function
       //but if you use function it will not with function
         console.log(res.data);
-        this.props.updateList(
-          {all: res.data}
+        this.props.saveList(
+           res.data[0]
         )
       })
   }
@@ -42,17 +43,23 @@ class List extends Component {
   //   var list = this.props.list.map( (elm, i) =>{
   //     return <li key={i}>{elm.title}</li>
   // })
-  console.log(this.props.list);
+
     return (
 
-      <div className='list'>
-        <div>
-          <ul>
-             </ul>
-        </div>
+      <div className='allList'>
 
-        <div>
-          <input onChange={this.handleChange} />
+        {this.props.list.all.map( (elm, i) =>{
+          return (<div className='list' key={elm.id}>
+          <h3>{elm.title}</h3>
+          <br/>
+          <Card/>
+          </div>)
+        })}
+
+
+
+        <div className='addList'>
+          <input className='input-main' onChange={this.handleChange} />
           <button onClick={this.postList} className='button-gray'>Create list</button>
         </div>
       </div>
@@ -70,7 +77,7 @@ class List extends Component {
 
 
 const mapDispatchToActions = {
-  updateList
+  saveList
 }
 
 export default connect(mapStateToProps, mapDispatchToActions)(List);
