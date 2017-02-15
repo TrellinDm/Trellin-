@@ -2,6 +2,9 @@
   height: 85px;
   background: #293e4a;
   display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
 }
 
 .navBar .navLeft {

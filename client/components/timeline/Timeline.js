@@ -4,6 +4,7 @@ import CommentBox from './comments.js';
 import CreateCommentBox from './create-comment.js';
 import './messaging.scss';
 import axios from 'axios';
+import {Link} from 'react-router';
 
 const profileImageThree = {backgroundImage: 'url(' + 'http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg' + ')'}
 const profileImageOne = {backgroundImage: 'url(' + "http://kingofwallpapers.com/jack-black/jack-black-005.jpg" + ')'}
@@ -17,26 +18,20 @@ class Timeline extends React.Component {
       messages:  []
     };
   }
-
-  getMessages() {
-    axios.post('/getMessages').then(res => {
-      console.log(res.data);
-      // let data = res.data
-      // // let messageArray ;
-      // // for( var i = 0; i < data.length; i++){
-      // //   messageArray.push(data[i])
-      // // }
-      this.setState({
-        messages: res.data
-      });
-      console.log(this.state.messages)
-    })
-  }
+  componentDidMount() {
+      axios.post('/getMessages').then(res => {
+        console.log(res.data);
+        this.setState({
+          messages: res.data
+        });
+        console.log(this.state.messages)
+      })
+ }
 
   render() {
     let listMessages = this.state.messages.map( function(mes, i) {
         return (
-          <CommentBox author={mes.userid} body={mes.message} />
+          <CommentBox key={i} author={mes.userid} body={mes.message} />
         )
       })
 
@@ -59,7 +54,7 @@ class Timeline extends React.Component {
           <div className="profile-image single-comment-profilePic" style={profileImageThree}></div>
           <div className="profile-name-wrap">
             <p>Welcome, Marcus!</p>
-            <p className="edit-profile">View Profile</p>
+            <Link to="/profile">View Profile</Link>
           </div>
           <div className="profile-name-wrap">
             <p><span>15</span> Connections</p>
@@ -67,8 +62,8 @@ class Timeline extends React.Component {
           </div>
         </div>
         <div className="centerTimeline">
-          {listMessages}
           <CreateCommentBox/>
+          {listMessages}
         </div>
         <div className="timeline-profileInfo">
           <div className="profileInfo-title">Connections</div>
@@ -85,7 +80,6 @@ class Timeline extends React.Component {
             <p>Jack Black</p>
           </div>
         </div>
-        <button className="messages-button" onClick={this.getMessages.bind(this)}>get messages </button>
         <button className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </button>
         {listNodes}
       </section>
