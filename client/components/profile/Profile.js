@@ -11,17 +11,19 @@ import "./profileStyles.scss";
 class Profile extends Component {
   render() {
     return (
-      <div id="container">
-        <div className="profile-col-left">
-          <ProfileHeader />
-          <ProfileExperience />
-          <ProfileCertifications/>
-          <ProfileEducation/>
-          <ProfileSkills/>
-          <ProfileFollowing/>
-        </div>
-        <div className="profile-col-right">
-          <ProfileSidebar />
+      <div className="profile-background">
+        <div className="container">
+          <div className="profile-col-left">
+            <ProfileHeader />
+            <ProfileExperience />
+            <ProfileCertifications/>
+            <ProfileEducation/>
+            <ProfileSkills/>
+            <ProfileFollowing/>
+          </div>
+          <div className="profile-col-right">
+            <ProfileSidebar />
+          </div>
         </div>
       </div>
     )

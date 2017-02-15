@@ -38,36 +38,39 @@ class ProfileHeader extends Component {
     
     return (
       <div className="header-box">
-        <div className="profile-pic">
-          <img src="../src/profile pic.png" alt="Profile Picture" />
-          <div className="profile-pic-hover">
-            <img src="../src/photo.svg" /> Change Photo
+        <div className="profile-pic-container">
+          <div className="profile-pic">
+		        {/*<img src="../src/profile pic.png" alt="Profile Picture" />*/}
+		        {/*<div className="profile-pic-hover">*/}
+		        {/*<img src="../src/photo.svg" /> Change Photo*/}
+		        {/*</div>*/}
           </div>
         </div>
-        
-        <div className="profile-name">
-          <div onClick={this.toggleName} className="popup">
-            Your Name Here
-            <div className="pencil"></div>
+        <div className="header-info-container">
+          <div className="profile-name">
+            <div onClick={this.toggleName} className="popup">
+              <span className="title-text">John Doe</span>
+              <div className="pencil"></div>
+            </div>
+            {this.state.name ? <NamePopup /> : null}
           </div>
-	        {this.state.name ? <NamePopup /> : null}
-        </div>
-        
-        <div className="profile-headline">
-          <div onClick={this.toggleHeadline} className="popup">Student and Devmountain</div>
-		      {this.state.headline ? <HeadlinePopup /> : null}
-        </div>
-        
-        <div className="profile-industry">
-          <div onClick={this.toggleIndustry} className="popup">Industry/Location</div>
-		      {this.state.industry ? <IndustryPopup /> : null}
-        </div>
-        
-        <div>Current: {current}</div>
-        <div>Education: {education}</div>
-        <div>
-          <div>{connectionNum}</div>
-          <div>Connections</div>
+          
+          <div className="profile-headline">
+            <div onClick={this.toggleHeadline} className="popup profile-text">Student and Devmountain</div>
+            {this.state.headline ? <HeadlinePopup /> : null}
+          </div>
+          
+          <div className="profile-industry profile-text">
+            <div onClick={this.toggleIndustry} className="popup">Industry/Location</div>
+            {this.state.industry ? <IndustryPopup /> : null}
+          </div>
+          
+          <div className="profile-text">Current: {current}</div>
+          <div className="profile-text">Education: {education}</div>
+          <div>
+            <div>{connectionNum}</div>
+            <div className="float-R profile-text">Connections</div>
+          </div>
         </div>
       </div>
     )
