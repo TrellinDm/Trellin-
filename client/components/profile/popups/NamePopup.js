@@ -20,10 +20,10 @@ class NamePopup extends Component {
 		return (
 			<div className="name-popup-box">
 				<p>Name</p>
-				<input type="text"/>
-				<input type="text"/>
-				<button onClick={this.onSave} >Save</button>
-				<button onClick={this.onCancel} >Cancel</button>
+				<input className="input-main" type="text"/>
+				<input className="input-main" type="text"/>
+				<button className="button-dark-blue" onClick={this.onSave} >Save</button>
+				<button className="button-gray" onClick={this.onCancel} >Cancel</button>
 			</div>
 		)
 	}

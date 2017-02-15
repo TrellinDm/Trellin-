@@ -29,45 +29,53 @@ class ProfileHeader extends Component {
 	toggleIndustry() {
 		this.setState({industry : !this.state.industry})
 	}
+	
   
   render() {
     
     var current = ['devmountain ', 'some other place'];
 	  var education = ['devmountain ', 'some other place'];
-	  var connectionNum = 2834;
+	  var connectionNum = 283;
     
     return (
       <div className="header-box">
-        <div className="profile-pic">
-          <img src="../src/profile pic.png" alt="Profile Picture" />
-          <div className="profile-pic-hover">
-            <img src="../src/photo.svg" /> Change Photo
+	      
+        <div className="profile-pic-container">
+          <div className="profile-pic">
+		        {/*<img src="../src/profile pic.png" alt="Profile Picture" />*/}
+		        {/*<div className="profile-pic-hover">*/}
+		        {/*<img src="../src/photo.svg" /> Change Photo*/}
+		        {/*</div>*/}
           </div>
         </div>
-        
-        <div className="profile-name">
-          <div onClick={this.toggleName} className="popup">
-            Your Name Here
-            <div className="pencil"></div>
+	      
+        <div className="header-info-container">
+          <div className="profile-name">
+            <div onClick={this.toggleName} className="popup">
+              <span className="title-text">John Doe</span>
+              <div className="pencil-lg"></div>
+            </div>
+            {this.state.name ? <NamePopup /> : null}
           </div>
-	        {this.state.name ? <NamePopup /> : null}
-        </div>
-        
-        <div className="profile-headline">
-          <div onClick={this.toggleHeadline} className="popup">Student and Devmountain</div>
-		      {this.state.headline ? <HeadlinePopup /> : null}
-        </div>
-        
-        <div className="profile-industry">
-          <div onClick={this.toggleIndustry} className="popup">Industry/Location</div>
-		      {this.state.industry ? <IndustryPopup /> : null}
-        </div>
-        
-        <div>Current: {current}</div>
-        <div>Education: {education}</div>
-        <div>
-          <div>{connectionNum}</div>
-          <div>Connections</div>
+	        <div className="add-text-blue" >Add Headline
+		        
+	        </div>
+          <div className="profile-headline">
+            <div onClick={this.toggleHeadline} className="popup profile-text">Devmountain</div>
+            {this.state.headline ? <HeadlinePopup /> : null}
+          </div>
+          
+          <div className="profile-industry profile-text">
+            <div onClick={this.toggleIndustry} className="popup">Industry/Location</div>
+            {this.state.industry ? <IndustryPopup /> : null}
+          </div>
+          
+	        <div className="profile-text"><span className="sm-gray-text">Current</span> {current}</div>
+	        <div className="profile-text"><span className="sm-gray-text">Education</span> {education}</div>
+          <div className="connections-float-R">
+            <div className="connections-num">{connectionNum}</div>
+            <div className="sm-gray-text">connections</div>
+          </div>
         </div>
       </div>
     )
