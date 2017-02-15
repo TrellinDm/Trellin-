@@ -17,26 +17,20 @@ class Timeline extends React.Component {
       messages:  []
     };
   }
-
-  getMessages() {
-    axios.post('/getMessages').then(res => {
-      console.log(res.data);
-      // let data = res.data
-      // // let messageArray ;
-      // // for( var i = 0; i < data.length; i++){
-      // //   messageArray.push(data[i])
-      // // }
-      this.setState({
-        messages: res.data
-      });
-      console.log(this.state.messages)
-    })
-  }
+  componentDidMount() {
+      axios.post('/getMessages').then(res => {
+        console.log(res.data);
+        this.setState({
+          messages: res.data
+        });
+        console.log(this.state.messages)
+      })
+ }
 
   render() {
     let listMessages = this.state.messages.map( function(mes, i) {
         return (
-          <CommentBox author={mes.userid} body={mes.message} />
+          <CommentBox key={i} author={mes.userid} body={mes.message} />
         )
       })
 
@@ -67,8 +61,8 @@ class Timeline extends React.Component {
           </div>
         </div>
         <div className="centerTimeline">
-          {listMessages}
           <CreateCommentBox/>
+          {listMessages}
         </div>
         <div className="timeline-profileInfo">
           <div className="profileInfo-title">Connections</div>
@@ -85,7 +79,6 @@ class Timeline extends React.Component {
             <p>Jack Black</p>
           </div>
         </div>
-        <button className="messages-button" onClick={this.getMessages.bind(this)}>get messages </button>
         <button className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </button>
         {listNodes}
       </section>

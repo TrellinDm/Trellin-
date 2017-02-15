@@ -19,6 +19,7 @@ var listCtrl = require('./server/listCtrl')
 
 app.post('/test', testCtrl.Create)
 app.post('/getMessages', testCtrl.getMessages)
+app.post('/createNewMessage', testCtrl.createNewMessage)
 
 //------------------------LIST ENDPOINTS-----------------------
 app.get('/lists', listCtrl.GetAll);
