@@ -1,12 +1,21 @@
 const UPDATE_LIST = 'UPDATE_LIST';
+const SAVE_LIST = 'SAVE_LIST';
 
-const list = { };
+const list = {
+  all: []
+  };
 
-export default (state = list, action) => {
+export default (state = list, action = []) => {
 console.log(action);
   switch (action.type) {
     case UPDATE_LIST:
-      return Object.assign({}, state, action.payload)
+      return Object.assign({}, state, {all: action.data})
+      break;
+
+    case SAVE_LIST:
+      let arr = Array.from(state.all);
+      arr.push(action.data)
+      return Object.assign({}, state, {all: arr})
 
     default: return state
   }
@@ -15,9 +24,16 @@ console.log(action);
 /// make another case to push the single list
 
 export function updateList (data) {
-  console.log('he');
+  console.log('up');
   return {
     type: UPDATE_LIST,
-    payload: data
+     data
+  }
+}
+
+export function saveList (data) {
+  return {
+    type: SAVE_LIST,
+     data
   }
 }
