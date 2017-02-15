@@ -1,0 +1,106 @@
+.navBar {
+  height: 85px;
+  background: #293e4a;
+  display: flex;
+}
+
+.navBar .navLeft {
+  width: 600px;
+}
+
+.navBar .navLeft img {
+  height: 100%;
+  padding: 20px;
+  margin-left: 29px;
+}
+
+.navBar .navLeft .searchBar {
+  position: absolute;
+  margin-top: 20px;
+  padding: 12px;
+  font-family: Arial, serif;
+  border: none;
+  color: #293e4a;
+  width: 310px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 3px;
+  background: #e1e9ed;
+  padding-left: 43px;
+}
+
+.navBar .navLeft .searchBar::-webkit-input-placeholder {
+   color: #293e4a;
+   font-size: 20px;
+   font-weight: 500;
+}
+
+#placeholderImg {
+  background-image: url('../../src/search.png');
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 15px;
+}
+
+.navBar .navRight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  right: 0;
+  position: absolute;
+  margin-right: 55px;
+  width: 250px;
+}
+
+.navBar .navRight a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #e1e9ed;
+  text-decoration: none;
+}
+
+#trell-card {
+  margin-bottom: -4px;
+}
+
+#trell-card img {
+  width: 18px;
+  margin-bottom: 3px;
+}
+
+.navBar .navRight .profile-icon {
+  background-image: url('http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.me-hover:hover {
+  cursor: pointer
+}
+
+.account-settings {
+  width: 130px;
+  height: 85px;
+  background: #293e4a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+}
+
+.account-settings img {
+  width: 26px;
+  margin-bottom: 2px;
+}
+
+.account-settings a {
+  text-decoration: none;
+  color: #e1e9ed;
+}
