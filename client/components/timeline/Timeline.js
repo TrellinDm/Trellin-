@@ -4,6 +4,7 @@ import CommentBox from './comments.js';
 import CreateCommentBox from './create-comment.js';
 import './messaging.scss';
 import axios from 'axios';
+import {Link} from 'react-router';
 
 const profileImageThree = {backgroundImage: 'url(' + 'http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg' + ')'}
 const profileImageOne = {backgroundImage: 'url(' + "http://kingofwallpapers.com/jack-black/jack-black-005.jpg" + ')'}
@@ -53,7 +54,7 @@ class Timeline extends React.Component {
           <div className="profile-image single-comment-profilePic" style={profileImageThree}></div>
           <div className="profile-name-wrap">
             <p>Welcome, Marcus!</p>
-            <p className="edit-profile">View Profile</p>
+            <Link to="/profile">View Profile</Link>
           </div>
           <div className="profile-name-wrap">
             <p><span>15</span> Connections</p>
