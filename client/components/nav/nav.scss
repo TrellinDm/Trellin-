@@ -107,3 +107,35 @@
   text-decoration: none;
   color: #e1e9ed;
 }
+
+.search-results {
+  background: #293e4a;
+  position: absolute;
+  width: 374px;
+  margin-left: 176px;
+}
+
+.search-result {
+  height: 60px;
+  display: flex;
+  width: 374px;
+  justify-content: space-between;
+  align-items: center;
+  border-left: solid 6px white;
+}
+
+.search-result img {
+  height: 45px;
+  width: 45px;
+  margin: 0px 12px;
+}
+
+.search-result p {
+  color: #e1e9ed;
+  padding: 12px;
+}
+
+.search-result:hover {
+  cursor: pointer;
+  border-left: solid 6px #0077b5;
+}
