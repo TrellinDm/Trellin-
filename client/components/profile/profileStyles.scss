@@ -1,24 +1,44 @@
+// Background color/img profile page
 .profile-background {
   background-color: #E9E9E9;
   }
 
+// Name in headline box
 .title-text {
   font-size: 26px;
   font-weight: bold;
   }
 
-.profile-text {
-  font-size: 13px;
+// Titles to info boxes
+.title-text-gray {
+  padding-top: 25px;
+  padding-left: 25px;
+  font-size: 26px;
+  color: #afb2b5;
   }
 
+// Text within info boxes
+.profile-text {
+  font-size: 13px;
+  text-decoration: none;
+  }
+
+// Add info link text within info boxes
+.add-text-blue {
+  font-size: 14px;
+  color: #006fa6;
+  }
+
+// Outer container holding the info boxes
 .container{
   margin:0 auto;
   width:60%;
   overflow:auto;
   clear:both;
-  padding-top: 20px;
+  padding-top: 105px;
   }
 
+// Left and Right columns within .container
 .profile-col-left {
   overflow:auto;
   width:70%;
@@ -30,47 +50,87 @@
   float:left;
   }
 
+// container within info box to hold user data
+.box-info {
+  width: 100%;
+  line-height: 25px;
+  padding: 22px 4% 30px 4%;
+  }
+
+
 .header-box,.experience-box,.certifications-box,.education-box,.skills-box,.following-box {
   border: black solid 1px;
   margin: 0 2% 2% 0;
   }
 
+// Link, text, and hover styling at bottom of info boxes
+.bottom-add {
+  width: 100%;
+  height: 40px;
+  background-color: lightgray;
+  }
+
+.bottom-add:hover {
+  background-color: #F1F3F5;
+  }
+
+.bottom-add-text {
+  font-size: 14px;
+  line-height: 38px;
+  text-align: center;
+  }
+
+.bottom-add-text:hover {
+  color: #0077b5;
+  }
+
+// Question mark icon and hover
+.question-icon {
+  display: inline-block;
+  background: url('https://www.measuretn.gov:444/ReportCard/Content/Images/Icons/Gray%20question%20mark.png') center no-repeat;
+  width: 13px;
+  height: 13px;
+  background-size: contain;
+  }
+
+
+
+
+
 //////
 // Header Box
 //////
 .header-box {
+  padding: 10px 10px;
   height: auto;
-  border: black solid 1px;
+  border: gray solid 1px;
   background-color: white;
+  line-height: 25px;
   }
 
 .profile-pic-container {
-  width: 33%;
-  //background-color: red;
+  width: 35%;
   display: inline-block;
-  padding: 1% 1% 1% 1%;
+  padding: 2% 1% 1% 1%;
   margin:0 auto;
   overflow:auto;
   clear:both;
-
   }
 
 .profile-pic {
   background: url('https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg') center no-repeat;
   background-size: contain;
   width: 100%;
-  height: 175px;
+  height: 190px;
   }
 
 .header-info-container {
-  width: 63%;
-  //background-color: #00a0dc;
+  width: 65%;
   display: inline-block;
   padding: 1% 1% 1% 1%;
   margin:0 auto;
   overflow:auto;
   clear:both;
-
   }
 
 .popup:hover {
@@ -89,26 +149,52 @@
   padding: 10px;
   }
 
-.pencil {
-  position: relative;
+.pencil-lg {
   display: inline-block;
   background: #e9e9e9 url('https://d30y9cdsu7xlg0.cloudfront.net/png/1170-200.png') no-repeat center;
   background-size: contain;
   width: 20px;
   height: 20px;
-  margin-left: 3px;
+  margin-left: 7px;
   }
 
-.pencil:hover {
-  background: #7c8dfc;
+#tooltip {
+  margin-left: 5px;
+  position: relative;
+  display: inline-block;
   }
+
+#tooltip a span {
+  display: none;
+  color: white;
+  }
+
+#tooltip a:hover span {
+  display: block;
+  position: absolute;
+  width: 200px;
+  background: #fff;
+  height: auto;
+  left: 30px;
+  top: -18px;
+  color: black;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 5px 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+
+
+
+
 
 //////
 // Sidebar Box
 //////
 .sidebar-box {
   height: 800px;
-  border: black solid 1px;
+  border: gray solid 1px;
   background-color: white;
   }
 
@@ -117,8 +203,9 @@
 //////
 .experience-box {
   top: 365px;
-  height: 200px;
+  height: auto;
   background-color: white;
+  border: gray solid 1px;
   }
 
 //////
@@ -126,8 +213,9 @@
 //////
 .certifications-box {
   top: 585px;
-  height: 200px;
+  height: auto;
   background-color: white;
+  border: gray solid 1px;
   }
 
 //////
@@ -135,8 +223,9 @@
 //////
 .education-box {
   top: 805px;
-  height: 200px;
+  height: auto;
   background-color: white;
+  border: gray solid 1px;
   }
 
 //////
@@ -144,8 +233,9 @@
 //////
 .skills-box {
   top: 1025px;
-  height: 200px;
+  height: auto;
   background-color: white;
+  border: gray solid 1px;
   }
 
 //////
@@ -153,6 +243,7 @@
 //////
 .following-box {
   top: 1245px;
-  height: 200px;
+  height: auto;
   background-color: white;
+  border: gray solid 1px;
   }

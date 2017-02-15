@@ -29,6 +29,7 @@ class ProfileHeader extends Component {
 	toggleIndustry() {
 		this.setState({industry : !this.state.industry})
 	}
+	
   
   render() {
     
@@ -38,6 +39,7 @@ class ProfileHeader extends Component {
     
     return (
       <div className="header-box">
+	      
         <div className="profile-pic-container">
           <div className="profile-pic">
 		        {/*<img src="../src/profile pic.png" alt="Profile Picture" />*/}
@@ -46,15 +48,16 @@ class ProfileHeader extends Component {
 		        {/*</div>*/}
           </div>
         </div>
+	      
         <div className="header-info-container">
           <div className="profile-name">
             <div onClick={this.toggleName} className="popup">
               <span className="title-text">John Doe</span>
-              <div className="pencil"></div>
+              <div className="pencil-lg"></div>
             </div>
             {this.state.name ? <NamePopup /> : null}
           </div>
-          
+	        
           <div className="profile-headline">
             <div onClick={this.toggleHeadline} className="popup profile-text">Student and Devmountain</div>
             {this.state.headline ? <HeadlinePopup /> : null}
