@@ -14,7 +14,9 @@ module.exports = {
       }
     })
   },
+
   GetAll: function (req, res) {
+    console.log('hello');
     db.get_lists(function (err, result) {
         console.log(err);
         console.log(result);

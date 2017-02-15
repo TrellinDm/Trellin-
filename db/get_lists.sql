@@ -1,1 +1,1 @@
-SELECT * FROM lists
+SELECT * FROM lists;

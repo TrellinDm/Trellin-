@@ -26,25 +26,43 @@ class List extends Component {
   postList() {
   var self  = this
     axios.post('/list', this.state).then(res => {//work with arrow function
-      //but if you use function it will not with function 
+      //but if you use function it will not with function
         console.log(res.data);
         this.props.updateList(
-          res.data
+          {all: res.data}
         )
       })
   }
+  // <ul>
+  //   {this.props.list.map( (elm, i) =>{
+  //     return elm.title
+  // })} </ul>
 
   render() {
+  //   var list = this.props.list.map( (elm, i) =>{
+  //     return <li key={i}>{elm.title}</li>
+  // })
+  console.log(this.props.list);
     return (
+
       <div className='list'>
-        <input onChange={this.handleChange} />
-        <button onClick={this.postList} className='button-gray'>Create list</button>
+        <div>
+          <ul>
+             </ul>
+        </div>
+
+        <div>
+          <input onChange={this.handleChange} />
+          <button onClick={this.postList} className='button-gray'>Create list</button>
+        </div>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
+
+
+ const mapStateToProps = state => {
   return {
     list: state.list
   }
