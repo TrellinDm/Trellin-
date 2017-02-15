@@ -15,9 +15,16 @@ app.use(express.static(__dirname + '/build'));
 // var db = app.get('db');
 
 var testCtrl = require('./server/testCtrl');
+var listCtrl = require('./server/listCtrl')
 
 app.post('/test', testCtrl.Create)
 app.post('/getMessages', testCtrl.getMessages)
+app.post('/createNewMessage', testCtrl.createNewMessage)
+
+//------------------------LIST ENDPOINTS-----------------------
+app.get('/lists', listCtrl.GetAll);
+app.post('/list', listCtrl.Create);
+
 
 app.listen(app.get('port'), function () {
   console.log('Running localhost', app.get('port'))
