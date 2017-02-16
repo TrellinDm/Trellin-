@@ -18,7 +18,7 @@ var testCtrl = require('./server/testCtrl');
 
 var ConnectionCtrl = require('./server/ConnectionCtrl');
 var listCtrl = require('./server/listCtrl');
-var pofileCtrl = require('./server/profileCtrl');
+var profileCtrl = require('./server/profileCtrl');
 
 app.post('/test', testCtrl.Create);
 app.post('/getMessages', testCtrl.getMessages);
