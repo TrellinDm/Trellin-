@@ -17,6 +17,7 @@ class Nav extends Component {
 		}
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.toggleResults = this.toggleResults.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	toggleMenu() {
@@ -25,6 +26,20 @@ class Nav extends Component {
 
 	toggleResults() {
 		this.props.toggleResults();
+	}
+
+	handleClick(e) {
+		if (e.target.className !== 'search-result' && this.props.showResults) {
+			this.props.toggleResults();
+		}
+	}
+
+	componentWillMount() {
+		document.addEventListener('click', this.handleClick, false);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('click', this.handleClick, false);
 	}
 
 	render() {
