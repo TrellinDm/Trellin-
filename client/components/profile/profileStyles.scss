@@ -111,21 +111,24 @@ hr {
 .bottom-add {
   width: 100%;
   height: 40px;
-  background-color: #e4e4e4;
+  background-color: rgba(51, 114, 165, 0.82);
   }
 
 .bottom-add:hover {
-  background-color: #F1F3F5;
+  background-color: rgba(220, 237, 255, 0.82);
+  //border: solid dodgerblue 1px;
   }
 
 .bottom-add-text {
   font-size: 14px;
   line-height: 38px;
   text-align: center;
+  font-weight: bolder;
+  color: white;
   }
 
 .bottom-add-text:hover {
-  color: #0077b5;
+  color: #000;
   }
 
 // Question mark icon and hover popup
@@ -171,7 +174,7 @@ hr {
 .header-box {
   padding: 10px 10px;
   height: auto;
-  border: gray solid 1px;
+  box-shadow: 3px 3px 10px #888888;
   background-color: white;
   line-height: 25px;
   }
@@ -259,30 +262,14 @@ hr {
   height: 148px;
   margin: 0 .5% 1.5% 1%;
   background-color: white;
-  border: gray solid 1px;
+  border: black solid 0.1rem;
+  box-shadow: 3px 3px 10px #888888;
   }
-
-
-.section-bottom-add {
-  width: 100%;
-  height: 40px;
-  background-color: #e4e4e4;
-  z-index: 1;
-  }
-
-.section-bottom-add:hover {
-
-  }
-
-.add-section:hover {
-  background-color: #F1F3F5;
-  z-index: 5;
-  }
-
 
 .section-view-more {
   height: auto;
-  border: gray solid 1px;
+  border: black solid 0.1rem;
+  box-shadow: 3px 3px 10px #888888;
   background-color: white;
   line-height: 25px;
   margin: -1% 2% 2% 0;
@@ -330,7 +317,8 @@ hr {
 //////
 .sidebar-box {
   height: auto;
-  border: gray solid 1px;
+  border: black solid 0.1rem;
+  box-shadow: 3px 3px 10px #888888;
   background-color: white;
   padding: 25px 25px;
   margin-bottom: 15px;
@@ -338,7 +326,8 @@ hr {
 
 .course-box {
   height: auto;
-  border: gray solid 1px;
+  border: black solid 0.1rem;
+  box-shadow: 3px 3px 10px #888888;
   background-color: white;
   padding: 25px 25px;
   }
@@ -404,7 +393,7 @@ hr {
 .experience-box {
   height: auto;
   background-color: white;
-  border: gray solid 1px;
+  box-shadow: 3px 3px 10px #888888;
   margin-top: 5px;
   }
 
@@ -414,7 +403,7 @@ hr {
 .certifications-box {
   height: auto;
   background-color: white;
-  border: gray solid 1px;
+  box-shadow: 3px 3px 10px #888888;
   }
 
 //////
@@ -423,7 +412,7 @@ hr {
 .education-box {
   height: auto;
   background-color: white;
-  border: gray solid 1px;
+  box-shadow: 3px 3px 10px #888888;
   }
 
 //////
@@ -432,7 +421,7 @@ hr {
 .skills-box {
   height: auto;
   background-color: white;
-  border: gray solid 1px;
+  box-shadow: 3px 3px 10px #888888;
   }
 
 //////
@@ -441,5 +430,5 @@ hr {
 .following-box {
   height: auto;
   background-color: white;
-  border: gray solid 1px;
+  box-shadow: 3px 3px 10px #888888;
   }

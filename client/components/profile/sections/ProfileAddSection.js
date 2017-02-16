@@ -13,7 +13,7 @@ export default class ProfileAddSection extends Component {
 						<div className="gray-text">This can help you find a new job, get a promotion, or transfer overseas.</div>
 					</div>
 					<div className="section-info"></div>
-					<div className="section-bottom-add">
+					<div className="bottom-add">
 						<div className="bottom-add-text">Add language</div>
 					</div>
 				</div>
