@@ -87,6 +87,7 @@
 }
 
 .account-settings {
+  z-index: 100;
   width: 130px;
   height: 85px;
   margin-top: 85px;
@@ -107,6 +108,10 @@
 .account-settings a {
   text-decoration: none;
   color: #e1e9ed;
+}
+
+.search-results a {
+  text-decoration: none;
 }
 
 .search-results {
