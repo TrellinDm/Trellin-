@@ -11,11 +11,15 @@ class Trello extends Component {
 
   }
   componentDidMount() {
-    axios.get('/lists')
-      .then( res => {
-        console.log(res.data);
-        this.props.updateList(res.data)
-      })
+    console.log(this.props.list);
+
+      axios.get('/lists')
+        .then( res => {
+          console.log(res.data);
+          this.props.updateList( res.data)
+        })
+
+
   }
 
   render() {
@@ -27,12 +31,14 @@ class Trello extends Component {
   }
 }
 
-function mapStateToProps(state) {
-
+const mapStateToProps = state => {
+ return {
+   list: state.list
+ }
 }
 
 const mapDispatchToActions = {
-  updateList
+ updateList
 }
 
-export default connect(null, mapDispatchToActions)(Trello);
+export default connect(mapStateToProps, mapDispatchToActions)(Trello);

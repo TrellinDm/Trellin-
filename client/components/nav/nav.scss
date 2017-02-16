@@ -87,14 +87,16 @@
 }
 
 .account-settings {
+  z-index: 100;
   width: 130px;
   height: 85px;
+  margin-top: 85px;
   background: #293e4a;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   right: 0;
 }
 
@@ -106,4 +108,42 @@
 .account-settings a {
   text-decoration: none;
   color: #e1e9ed;
+}
+
+.search-results a {
+  text-decoration: none;
+}
+
+.search-results {
+  z-index: 100;
+  background: #293e4a;
+  position: fixed;
+  margin-top: 85px;
+  width: 374px;
+  margin-left: 176px;
+}
+
+.search-result {
+  height: 60px;
+  display: flex;
+  width: 374px;
+  justify-content: space-between;
+  align-items: center;
+  border-left: solid 6px white;
+}
+
+.search-result img {
+  height: 45px;
+  width: 45px;
+  margin: 0px 12px;
+}
+
+.search-result p {
+  color: #e1e9ed;
+  padding: 12px;
+}
+
+.search-result:hover {
+  cursor: pointer;
+  border-left: solid 6px #0077b5;
 }
