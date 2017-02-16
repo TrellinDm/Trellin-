@@ -1,0 +1,30 @@
+.connections {
+  margin-top: 85px;
+  position: absolute;
+  display: flex;
+  padding: 30px;
+}
+
+.connections .conn {
+  max-width: 175px;
+  min-width: 175px;
+  margin-right: 20px;
+  background: white;
+}
+
+.connections .conn img {
+  width: 100%;
+}
+
+.connections .conn .conn-info {
+  padding: 5px;
+  margin-top: -8px;
+}
+
+.connections .conn .conn-info p:nth-child(1) {
+  font-weight: bold;
+}
+
+.connections .conn .conn-info p:nth-child(2) {
+  font-size: 13px;
+}
