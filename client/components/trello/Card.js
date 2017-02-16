@@ -10,41 +10,44 @@ class Card extends Component {
     super(props)
 
     this.state = {
-      newCard: ''
+      content: '',
+      list_id: this.props.listId,
+      allCards: []
     }
 
     this.handleChange = this.handleChange.bind(this);
-    this.postList = this.postList.bind(this);
+    this.postCard = this.postCard.bind(this);
     // this.props.updateList = this.props.updateList.bind(this);
   }
 
   handleChange(e) {
-    this.setState({
-      newCard: e.target.value
-    })
+    this.state.content = e.target.value
   }
 
-  postList() {
-  var self  = this
-    axios.post('/list', this.state).then(res => {//work with arrow function
-      //but if you use function it will not with function
+  postCard() {
 
+    axios.post('/card', this.state).then(res => {
+      this.state.allCards.push(res.data)
+        this.setState({allCards: this.state.allCards})
       })
   }
 
 
   render() {
-
+    console.log(this.state.allCards);
 
     return (
 
       <div >
-
-
-
-        <div className='addList'>
+        <ul>
+        {this.state.allCards.map( (elm, i) => {
+            console.log(elm);
+          return (<li key={i}>{elm[0].content}</li>)
+        })}
+      </ul>
+        <div >
           <input className='input-main' onChange={this.handleChange} />
-          <button onClick={this.postList} className='button-gray'>Add Card</button>
+          <button onClick={this.postCard} className='button-gray'>Add Card</button>
         </div>
       </div>
     )
