@@ -10,9 +10,9 @@ app.use(cors());
 app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname + '/build'));
 
-// var connect = massive.connectSync({connectionString: "postgres://inyrrfgq:n44M05nu0byEfJ26llJ2UFUdlgzWMk0M@babar.elephantsql.com:5432/inyrrfgq"});
-// app.set('db', connect);
-// var db = app.get('db');
+var connect = massive.connectSync({connectionString: "postgres://inyrrfgq:n44M05nu0byEfJ26llJ2UFUdlgzWMk0M@babar.elephantsql.com:5432/inyrrfgq"});
+app.set('db', connect);
+var db = app.get('db');
 
 var testCtrl = require('./server/testCtrl');
 var listCtrl = require('./server/listCtrl')
@@ -25,6 +25,11 @@ app.post('/createNewMessage', testCtrl.createNewMessage)
 app.get('/lists', listCtrl.GetAll);
 app.post('/list', listCtrl.Create);
 
+
+//======================Cards Endpoints========================
+var cardCtrl = require('./server/cardCtrl');
+
+app.post('/card', cardCtrl.Create);
 
 app.listen(app.get('port'), function () {
   console.log('Running localhost', app.get('port'))

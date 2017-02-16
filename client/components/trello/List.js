@@ -19,9 +19,8 @@ class List extends Component {
   }
 
   handleChange(e) {
-    this.setState({
-      newList: e.target.value
-    })
+    this.state.newList = e.target.value
+
   }
 
   postList() {
@@ -52,7 +51,7 @@ class List extends Component {
           return (<div className='list' key={elm.id}>
           <h3>{elm.title}</h3>
           <br/>
-          <Card/>
+          <Card listId={elm.id}/>
           </div>)
         })}
 
