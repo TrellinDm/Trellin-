@@ -17,7 +17,8 @@ app.use(express.static(__dirname + '/build'));
 var testCtrl = require('./server/testCtrl');
 
 var ConnectionCtrl = require('./server/ConnectionCtrl');
-var listCtrl = require('./server/listCtrl')
+var listCtrl = require('./server/listCtrl');
+var profileCtrl = require('./server/profileCtrl');
 
 app.post('/test', testCtrl.Create);
 app.post('/getMessages', testCtrl.getMessages);
@@ -32,6 +33,28 @@ app.post('/list', listCtrl.Create);
 var cardCtrl = require('./server/cardCtrl');
 
 app.post('/card', cardCtrl.Create);
+
+//`````````````````````PROFILE ENDPOINTS```````````````````````
+app.post('/profile/language/set', profileCtrl.getLanguage);
+app.post('/profile/language/get', profileCtrl.setLanguage);
+app.post('/profile/summary/set', profileCtrl.getSummary);
+app.post('/profile/summary/get', profileCtrl.setSummary);
+app.post('/profile/certifications/set', profileCtrl.getCertifications);
+app.post('/profile/certifications/get', profileCtrl.setCertifications);
+app.post('/profile/education/set', profileCtrl.getEducation);
+app.post('/profile/education/get', profileCtrl.setEducation);
+app.post('/profile/skills/set', profileCtrl.getSkills);
+app.post('/profile/skills/get', profileCtrl.setSkills);
+app.post('/profile/experience/set', profileCtrl.getExperience);
+app.post('/profile/experience/get', profileCtrl.setExperience);
+app.post('/profile/volunteer/set', profileCtrl.getVolunteer);
+app.post('/profile/volunteer/get', profileCtrl.setVolunteer);
+app.post('/profile/personal/set', profileCtrl.getPersonal);
+app.post('/profile/personal/get', profileCtrl.setPersonal);
+app.post('/profile/awards/set', profileCtrl.getAwards);
+app.post('/profile/awards/get', profileCtrl.setAwards);
+app.post('/profile/courses/set', profileCtrl.getCourses);
+app.post('/profile/courses/get', profileCtrl.setCourses);
 
 
 app.listen(app.get('port'), function () {
