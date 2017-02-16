@@ -6,7 +6,7 @@ module.exports = {
     db.test(['hello2'], function (err, result) {
       if (err) {
 
-        console.log(err);
+        // console.log(err);
         res.status(500).send(err)
       } else {
         res.json(result);
@@ -16,13 +16,13 @@ module.exports = {
   getMessages: function (req, res) {
     let userid = 3;
     db.getMessages([userid], function (err, result) {
-        console.log(err);
-        console.log(result);
+        // console.log(err);
+        // console.log(result);
         res.status(200).send(result)
     })
   },
   createNewMessage: function (req, res) {
-    console.log(req.body)
+    // console.log(req.body)
     let data = req.body
     let userid = data.userid;
     let listid = data.listid;
@@ -30,7 +30,7 @@ module.exports = {
     let message = data.message;
     let messageid = 3;
     db.createNewMessage([userid, messageid, message,listid, type ], function (err, result) {
-        console.log(result)
+        // console.log(result)
         res.status(200).send(result)
     })
   }
