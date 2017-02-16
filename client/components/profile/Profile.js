@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ProfileHeader from './ProfileHeader';
-import ProfileExperience from './ProfileExperience';
-import ProfileCertifications from './ProfileCertifications';
-import ProfileEducation from './ProfileEducation';
-import ProfileSkills from './ProfileSkills';
-import ProfileFollowing from './ProfileFollowing';
-import ProfileSidebar from './ProfileSidebar';
-import ProfileAddSection from './ProfileAddSection';
+import ProfileHeader from './sections/ProfileHeader';
+import ProfileExperience from './sections/ProfileExperience';
+import ProfileCertifications from './sections/ProfileCertifications';
+import ProfileEducation from './sections/ProfileEducation';
+import ProfileSkills from './sections/ProfileSkills';
+import ProfileFollowing from './sections/ProfileFollowing';
+import ProfileSidebar from './sections/ProfileSidebar';
+import ProfileAddSection from './sections/ProfileAddSection';
 import "./profileStyles.scss";
 
 class Profile extends Component {
