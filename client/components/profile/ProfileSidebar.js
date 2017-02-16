@@ -62,7 +62,15 @@ class ProfileSidebar extends Component {
 							<span className="level"/>
 						</div>
 					</div><hr/>
+					<div className="advertisement"></div>
+					<hr/>
 					<span className="sm-text">Who's Viewed Your Profile</span>
+				</div>
+				<div className="course-box">
+					<div><span className="sm-text">Add new skills with these courses</span></div>
+					<hr/>
+					<hr/>
+					<hr/>
 				</div>
 			</div>
 			
