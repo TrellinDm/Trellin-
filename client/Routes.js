@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route, hashHistory } from "react-router";
 
-import Connections from './components/Connections';
+import Connections from './components/connections/Connections';
 import Login from './components/Login';
 import Profile from './components/profile/Profile';
 import Timeline from './components/timeline/Timeline';
