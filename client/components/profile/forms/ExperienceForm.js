@@ -1,17 +1,64 @@
 import React, { Component } from 'react';
 import SkyLight from 'react-skylight';
+import {addExperience} from '../../../reducers/profileReducer';
+import { connect } from 'react-redux';
+import axios from 'axios';
 
-export default class ExperienceForm extends Component {
+class ExperienceForm extends Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
-			
+			title: '',
+			location: '',
+			company: '',
+			begdate: '',
+			enddate: '',
+			description: ''
 		}
+		this.addNewExperience = this.addNewExperience.bind(this);
+		this.saveTitle = this.saveTitle.bind(this);
+		this.saveLocation = this.saveLocation.bind(this);
+		this.saveCompany = this.saveCompany.bind(this);
+		this.saveBeg = this.saveBeg.bind(this);
+		this.saveEnd = this.saveEnd.bind(this);
+		this.saveDescription = this.saveDescription.bind(this);
 	}
-	
+
+	addNewExperience() {
+		var experience = this.state;
+		experience.id = 1;
+		axios.post('/setExperience', experience).then(() => {
+			this.props.addExperience(this.state);
+		});
+	}
+
+	saveTitle(e) {
+		this.setState({ title: e.target.value });
+	}
+
+	saveLocation(e) {
+		this.setState({ location: e.target.value });
+	}
+
+	saveCompany(e) {
+		this.setState({ company: e.target.value });
+	}
+
+	saveBeg(e) {
+		this.setState({ begdate: e.target.value });
+	}
+
+	saveEnd(e) {
+		this.setState({ enddate: e.target.value });
+	}
+
+	saveDescription(e) {
+		this.setState({ description: e.target.value });
+	}
+
 	render() {
-		
+
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
@@ -20,9 +67,9 @@ export default class ExperienceForm extends Component {
 			marginLeft: '-25%',
 			padding: '30px',
 		};
-		
+
 		return (
-			
+
 		<div className="add-section">
 			{/*Experience Section*/}
 			<div className="icon-box">
@@ -36,17 +83,17 @@ export default class ExperienceForm extends Component {
 			<button className="bottom-add" onClick={() => this.refs.experience.show()}><div className="bottom-add-text-section">Add experience</div></button>
 			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="experience" title="Add Experience">
 				<div>Title</div>
-				<input type="text"/>
+				<input type="text" onChange={this.saveTitle}/>
 				<div>Location</div>
-				<input type="text"/>
+				<input type="text" onChange={this.saveLocation}/>
 				<div>Company</div>
-				<input type="text"/>
+				<input type="text" onChange={this.saveCompany}/>
 				<div>Activities and societies</div>
 				<div>Time period</div>
 				<div>From Year</div>
-				<input type="month" id="myMonth" value="2014-05" />
+				<input type="date" id="myMonth" onChange={this.saveBeg} />
 				<div>To Year (or expected)</div>
-				<input type="month" id="myMonth" value="2014-05" />
+				<input type="date" id="myMonth" onChange={this.saveEnd} />
 				<div>
 					<label className="switch">
 						<input type="checkbox" />
@@ -56,15 +103,20 @@ export default class ExperienceForm extends Component {
 				</div>
 				<div>Description</div>
 				<div>
-					<textarea rows="6" cols="100" />
+					<textarea rows="6" cols="100" onChange={this.saveDescription}/>
 				</div>
 				<div>
-					<button className="button-dark-blue">Save</button>
+					<button className="button-dark-blue" onClick={(event) => { this.addNewExperience(); this.refs.experience.hide()}}>Save</button>
 				</div>
 			</SkyLight>
 		</div>
-		
+
 		)
 	}
 }
 
+const mapDispatchToProps = {
+  addExperience: addExperience
+}
+
+export default connect(null, mapDispatchToProps)(ExperienceForm);

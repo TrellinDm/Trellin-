@@ -1,17 +1,46 @@
 import React, { Component } from 'react';
 import SkyLight from 'react-skylight';
+import {addCourse} from '../../../reducers/profileReducer';
+import { connect } from 'react-redux';
+import axios from 'axios';
 
-export default class CoursesForm extends Component {
+class CoursesForm extends Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
-			
+			name: '',
+			course_no: '',
+			associated: ''
 		}
+		this.addNewCourse = this.addNewCourse.bind(this);
+		this.saveName = this.saveName.bind(this);
+		this.saveCourseNo = this.saveCourseNo.bind(this);
+		this.saveAssociated = this.saveAssociated.bind(this);
 	}
-	
+
+	addNewCourse() {
+		var course = this.state;
+		course.id = 1;
+		axios.post('/setCourses', course).then(() => {
+			this.props.addCourse(this.state);
+		});
+	}
+
+	saveName(e) {
+		this.setState({ name: e.target.value });
+	}
+
+	saveCourseNo(e) {
+		this.setState({ course_no: e.target.value });
+	}
+
+	saveAssociated(e) {
+		this.setState({ associated: e.target.value });
+	}
+
 	render() {
-		
+
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
@@ -20,16 +49,16 @@ export default class CoursesForm extends Component {
 			marginLeft: '-25%',
 			padding: '30px',
 		};
-		
+
 		return (
-			
+
 		<div className="add-section">
 			{/*Courses Section*/}
 			<div className="icon-box">
 				<div className="icon10"></div>
 			</div>
 			<div className="mini-info-box">
-				
+
 				{/*Courses popup form*/}
 				<div className="section-title-text">Courses</div>
 				<div className="gray-text">Showing more information about your background will help you get found for more opportunities.</div>
@@ -38,18 +67,23 @@ export default class CoursesForm extends Component {
 			<button className="bottom-add" onClick={() => this.refs.courses.show()}><div className="bottom-add-text-section">Add courses</div></button>
 			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="courses" title="Add Courses">
 				<div>Course name</div>
-				<input type="text"/>
+				<input type="text" onChange={this.saveName}/>
 				<div>Number</div>
-				<input type="text"/>
+				<input type="text" onChange={this.saveCourseNo}/>
 				<div>Associcated with</div>
-				<input type="text"/>
+				<input type="text" onChange={this.saveAssociated}/>
 				<div>
-					<button className="button-dark-blue">Save</button>
+					<button className="button-dark-blue" onClick={(event) => { this.addNewCourse(); this.refs.courses.hide()}}>Save</button>
 				</div>
 			</SkyLight>
 		</div>
-		
+
 		)
 	}
 }
 
+const mapDispatchToProps = {
+  addCourse: addCourse
+}
+
+export default connect(null, mapDispatchToProps)(CoursesForm);
