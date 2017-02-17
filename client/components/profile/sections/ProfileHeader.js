@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import NamePopup from './popups/NamePopup';
-import HeadlinePopup from './popups/HeadlinePopup';
-import IndustryPopup from './popups/IndustryPopup';
+import NamePopup from '../headlineForms/NamePopup';
+import HeadlinePopup from '../headlineForms/HeadlinePopup';
+import IndustryPopup from '../headlineForms/IndustryPopup';
 
 class ProfileHeader extends Component {
   constructor(props){
