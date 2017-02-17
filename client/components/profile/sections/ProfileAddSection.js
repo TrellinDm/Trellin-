@@ -6,7 +6,7 @@ export default class ProfileAddSection extends Component {
 			<div className="add-section-box">
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon1"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Language</div>
@@ -19,7 +19,7 @@ export default class ProfileAddSection extends Component {
 				</div>
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon2"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Summary</div>
@@ -32,7 +32,7 @@ export default class ProfileAddSection extends Component {
 				</div>
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon3"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Certifications</div>
@@ -45,7 +45,7 @@ export default class ProfileAddSection extends Component {
 				</div>
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon4"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Education</div>
@@ -58,7 +58,7 @@ export default class ProfileAddSection extends Component {
 				</div>
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon5"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Skills</div>
@@ -71,7 +71,7 @@ export default class ProfileAddSection extends Component {
 				</div>
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon6"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Experience</div>
@@ -84,7 +84,7 @@ export default class ProfileAddSection extends Component {
 				</div>
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon7"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Personal Details</div>
@@ -97,7 +97,7 @@ export default class ProfileAddSection extends Component {
 				</div>
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon8"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Volunteering Experience</div>
@@ -110,7 +110,7 @@ export default class ProfileAddSection extends Component {
 				</div>
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon9"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Honors and Awards</div>
@@ -123,7 +123,7 @@ export default class ProfileAddSection extends Component {
 				</div>
 				<div className="add-section">
 					<div className="icon-box">
-						<div className="icon-img"></div>
+						<div className="icon10"></div>
 					</div>
 					<div className="mini-info-box">
 						<div className="section-title-text">Courses</div>
