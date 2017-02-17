@@ -7,6 +7,15 @@ export default class ProfileAddSection extends Component {
 	}
 	
 	render () {
+		
+		const style = {
+			width: '50%',
+			height: 'auto',
+			marginTop: '-300px',
+			marginLeft: '-25%',
+			padding: '30px',
+		};
+		
 		return (
 			<div className="add-section-box">
 				<div className="add-section">
@@ -19,11 +28,20 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.language.show()}><div className="bottom-add-text-section">Add language</div></button>
-					<SkyLight hideOnOverlayClicked ref="language" title="Add Language">
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="language" title="Add Language">
 						<div>language</div>
 						<input type="text"/>
 						<div>proficiency</div>
 						<input type="text"/>
+						<div>
+							<label className="switch">
+								<input type="checkbox" />
+								<div className="slider round"></div>
+							</label>
+							<div>Do not update my network
+								<div>Your connections will not see this change in your feed or email</div>
+							</div>
+						</div>
 						<div>
 							<button className="button-dark-blue">Save</button>
 						</div>
@@ -39,8 +57,13 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.summary.show()}><div className="bottom-add-text-section">Add summary</div></button>
-					<SkyLight hideOnOverlayClicked ref="summary" title="Summary">
-						summary form goes here...
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="summary" title="Add Summary">
+						<div>
+							<textarea rows="20" cols="100" />
+						</div>
+						<div>
+							<button className="button-dark-blue">Save</button>
+						</div>
 					</SkyLight>
 				</div>
 				<div className="add-section">
@@ -53,8 +76,30 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.certification.show()}><div className="bottom-add-text-section">Add certifications</div></button>
-					<SkyLight hideOnOverlayClicked ref="certification" title="Certification">
-						Certification form goes here...
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="certification" title="Add Certification">
+						<div>Certification name</div>
+						<input type="text"/>
+						<div>Certification authority</div>
+						<input type="text"/>
+						<div>License number</div>
+						<input type="text"/>
+						<div>Time period</div>
+						<div>From</div>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>To</div>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>
+							<label className="switch">
+								<input type="checkbox" />
+								<div className="slider round"></div>
+							</label>
+							This certification does not expire
+						</div>
+						<div>Certification Url</div>
+						<input type="text"/>
+						<div>
+							<button className="button-dark-blue">Save</button>
+						</div>
 					</SkyLight>
 				</div>
 				<div className="add-section">
@@ -67,8 +112,26 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.education.show()}><div className="bottom-add-text-section">Add education</div></button>
-					<SkyLight hideOnOverlayClicked ref="education" title="Education">
-						Education form goes here...
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="education" title="Education">
+						<div>School</div>
+						<input type="text"/>
+						<div>Degree</div>
+						<input type="text"/>
+						<div>Field of study</div>
+						<input type="text"/>
+						<div>Grade</div>
+						<input type="text"/>
+						<div>Activities and societies</div>
+						<div>
+							<textarea rows="6" cols="100" />
+						</div>
+						<div>From Year</div>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>To Year (or expected)</div>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>
+							<button className="button-dark-blue">Save</button>
+						</div>
 					</SkyLight>
 				</div>
 				<div className="add-section">
@@ -81,8 +144,12 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.skills.show()}><div className="bottom-add-text-section">Add skills</div></button>
-					<SkyLight hideOnOverlayClicked ref="skills" title="Skills">
-						Skills form goes here...
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="skills" title="Skills">
+						<div>Skills</div>
+						<input type="text"/>
+						<div>
+							<button className="button-dark-blue">Save</button>
+						</div>
 					</SkyLight>
 				</div>
 				<div className="add-section">
@@ -95,8 +162,12 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.experience.show()}><div className="bottom-add-text-section">Add experience</div></button>
-					<SkyLight hideOnOverlayClicked ref="experience" title="Experience">
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="experience" title="Experience">
+						
 						Experience form goes here...
+						<div>
+							<button className="button-dark-blue">Save</button>
+						</div>
 					</SkyLight>
 				</div>
 				<div className="add-section">
@@ -109,8 +180,12 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.details.show()}><div className="bottom-add-text-section">Add personal details</div></button>
-					<SkyLight hideOnOverlayClicked ref="details" title="Personal Details">
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="details" title="Personal Details">
+						
 						Personal details form goes here...
+						<div>
+							<button className="button-dark-blue">Save</button>
+						</div>
 					</SkyLight>
 				</div>
 				<div className="add-section">
@@ -123,8 +198,12 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.volunteer.show()}><div className="bottom-add-text-section">Add volunteering experience</div></button>
-					<SkyLight hideOnOverlayClicked ref="volunteer" title="Volunteer Experience">
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="volunteer" title="Volunteer Experience">
+						
 						Volunteer experience goes here...
+						<div>
+							<button className="button-dark-blue">Save</button>
+						</div>
 					</SkyLight>
 				</div>
 				<div className="add-section">
@@ -137,8 +216,12 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.awards.show()}><div className="bottom-add-text-section">Add honors and awards</div></button>
-					<SkyLight hideOnOverlayClicked ref="awards" title="Honors and Awards">
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="awards" title="Honors and Awards">
+						
 						Honors and awards form goes here...
+						<div>
+							<button className="button-dark-blue">Save</button>
+						</div>
 					</SkyLight>
 				</div>
 				<div className="add-section">
@@ -151,8 +234,12 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.courses.show()}><div className="bottom-add-text-section">Add courses</div></button>
-					<SkyLight hideOnOverlayClicked ref="courses" title="Courses">
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="courses" title="Courses">
+						
 						Courses form goes here...
+						<div>
+							<button className="button-dark-blue">Save</button>
+						</div>
 					</SkyLight>
 				</div>
 			</div>
