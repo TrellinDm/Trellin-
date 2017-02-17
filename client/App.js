@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {saveId} from './reducers/userReducer';
 
 import axios from 'axios';
 import Nav from './components/nav/Nav.js';
 import './reset.scss';
 import './main.scss';
 
-export default class App extends Component {
+ class App extends Component {
 
-  test () {
-    axios.post('/test').then(res => {
-      console.log(res.data);
-    })
+  constructor(props) {
+    super(props)
+    if(!this.props.user.id) {
+      axios.get('/auth/me').then( res => {
+console.log(res);
+
+        this.props.saveId(res.data)
+      }).catch( err => {
+        console.log('not logged in');
+      })
+    }
   }
+
   render() {
-    console.log('hello');
+
     return (
       <div className="App">
         <Nav />
@@ -23,3 +32,15 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToActions = {
+  saveId
+}
+
+export default connect(mapStateToProps, mapDispatchToActions)(App)

@@ -65,7 +65,12 @@ class Nav extends Component {
           <Link to="/connections"><img src={network} />My Network</Link>
           <Link id="trell-card" to="/trello"><img src={trellcard} />Trello</Link>
           <div className="me-hover" onClick={this.toggleMenu}>
-            <div className="profile-icon"></div>
+            <div className="profile-icon">
+					{ this.props.user.picture ? (<img className='image-icon' src={this.props.user.picture}/>)
+						:
+						(<img className='image-icon' src='http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg'/>)
+		 			}
+            </div>
             <a>Me</a>
           </div>
         </div>
@@ -88,7 +93,8 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
   return {
     connections: state.search.updatedConnections,
-		showResults: state.search.showResults
+		showResults: state.search.showResults,
+		user: state.user
   }
 }
 
