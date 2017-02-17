@@ -13,7 +13,7 @@ class ProfileSidebar extends Component {
 	}
 	
 	componentDidMount() {
-		this.fillMeter(75);
+		this.fillMeter(23);
 }
 	
 
@@ -29,10 +29,10 @@ class ProfileSidebar extends Component {
 	
 	if (percent <= 0) {
 		$(".level").css("top", "67px");
-		$(".level").text("Beginner");
+		$(".level").text("Noob");
 	} else if (percent <= 25) {
 		$(".fill").css('background', "#FF6D3E");
-		$(".level").text("Beginner");
+		$(".level").text("Noob");
 	} else if (percent <= 50) {
 		$(".fill").css('background', "#F2C548");
 		$(".level").text("Intermediate");
