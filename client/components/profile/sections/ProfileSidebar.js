@@ -13,7 +13,7 @@ class ProfileSidebar extends Component {
 	}
 	
 	componentDidMount() {
-		this.fillMeter(23);
+		this.fillMeter(84);
 }
 	
 
