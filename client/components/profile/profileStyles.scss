@@ -133,6 +133,20 @@ hr {
   cursor: pointer;
   }
 
+.bottom-add-text-section {
+  font-size: 14px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: bolder;
+  color: white;
+  }
+
+.bottom-add-text-section:hover {
+  color: #000;
+  cursor: pointer;
+  }
+
+
 // Question mark icon and hover popup
 .question-icon {
   display: inline-block;
@@ -355,14 +369,14 @@ hr {
   }
 
 .icon6 {
-  background: url('../../../client/src/Apartment.jpg') center no-repeat;
+  background: url('../../../client/src/Surgeon.jpg') center no-repeat;
   width: 80%;
   height: 90px;
   background-size: contain;
   }
 
 .icon7 {
-  background: url('../../../client/src/Surgeon.jpg') center no-repeat;
+  background: url('../../../client/src/Apartment.jpg') center no-repeat;
   width: 80%;
   height: 90px;
   background-size: contain;
