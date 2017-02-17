@@ -10,7 +10,7 @@ export default combineReducers({
   search,
   list,
   connections,
-  user
+  user,
   profile
 
 });
