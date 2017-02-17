@@ -2,11 +2,43 @@ let app = require('../server.js') ;
 let db = app.get('db');
 
 module.exports = {
-  getLanguage: function(req, res) {
-    db.getLanguage(req.body.id, function(err, result) {
-      res.status(200).send(result);
+
+  getUserInformation: function(req, res) {
+    var userInfo = {};
+    db.getLanguage(req.body.id, function(err, response) {
+      userInfo.language = response;
+      db.getSummary(req.body.id, function(err, response) {
+        userInfo.summary = response;
+        db.getCertifications(req.body.id, function(err, response) {
+          userInfo.certications = response;
+          db.getEducation(req.body.id, function(err, response) {
+            userInfo.education = response;
+            db.getSkills(req.body.id, function(err, response) {
+              userInfo.skills = response;
+              db.getExperience(req.body.id, function(err, response) {
+                userInfo.experience = response;
+                db.getPersonal(req.body.id, function(err, response) {
+                  userInfo.personal = response;
+                  db.getVolunteer(req.body.id, function(err, response) {
+                    userInfo.volunteer = response;
+                    db.getAwards(req.body.id, function(err, response) {
+                      userInfo.awards = response;
+                      db.getCourses(req.body.id, function(err, response) {
+                        userInfo.courses = response;
+                        res.status(200).send(userInfo);
+                      });
+                    });
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
     });
+
   },
+
   setLanguage: function(req, res) {
     var newLanguage = [
       req.body.id,
@@ -18,11 +50,6 @@ module.exports = {
     });
   },
 
-  getSummary: function(req, res) {
-    db.getSummary(req.body.id, function(err, result) {
-      res.status(200).send(result);
-    });
-  },
   setSummary: function(req, res) {
     var newSummary = [
       req.body.id,
@@ -33,11 +60,6 @@ module.exports = {
     });
   },
 
-  getCertifications: function(req, res) {
-    db.getCertifications(req.body.id, function(err, result) {
-      res.status(200).send(result);
-    });
-  },
   setCertifications: function(req, res) {
     var newCertifications = [
       req.body.id,
@@ -54,11 +76,6 @@ module.exports = {
     });
   },
 
-  getEducation: function(req, res) {
-    db.getEducation(req.body.id, function(err, result) {
-      res.status(200).send(result);
-    });
-  },
   setEducation: function(req, res) {
     var newEducation = [
       req.body.id,
@@ -75,11 +92,6 @@ module.exports = {
     });
   },
 
-  getSkills: function(req, res) {
-    db.getSkills(req.body.id, function(err, result) {
-      res.status(200).send(result);
-    });
-  },
   setSkills: function(req, res) {
     var newSkills = [
       req.body.id,
@@ -90,11 +102,6 @@ module.exports = {
     });
   },
 
-  getExperience: function(req, res) {
-    db.getExperience(req.body.id, function(err, result) {
-      res.status(200).send(result);
-    });
-  },
   setExperience: function(req, res) {
     var newExperience = [
       req.body.id,
@@ -110,11 +117,6 @@ module.exports = {
     });
   },
 
-  getVolunteer: function(req, res) {
-    db.getVolunteer(req.body.id, function(err, result) {
-      res.status(200).send(result);
-    });
-  },
   setVolunteer: function(req, res) {
     var newVolunteer = [
       req.body.id,
@@ -130,11 +132,6 @@ module.exports = {
     });
   },
 
-  getPersonal: function(req, res) {
-    db.getPersonal(req.body.id, function(err, result) {
-      res.status(200).send(result);
-    });
-  },
   setPersonal: function(req, res) {
     var newPersonal = [
       req.body.id,
@@ -146,11 +143,6 @@ module.exports = {
     });
   },
 
-  getAwards: function(req, res) {
-    db.getAwards(req.body.id, function(err, result) {
-      res.status(200).send(result);
-    });
-  },
   setAwards: function(req, res) {
     var newAwards = [
       req.body.id,
@@ -165,11 +157,6 @@ module.exports = {
     });
   },
 
-  getCourses: function(req, res) {
-    db.getCourses(req.body.id, function(err, result) {
-      res.status(200).send(result);
-    });
-  },
   setCourses: function(req, res) {
     var newCourses = [
       req.body.id,

@@ -133,6 +133,20 @@ hr {
   cursor: pointer;
   }
 
+.bottom-add-text-section {
+  font-size: 14px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: bolder;
+  color: white;
+  }
+
+.bottom-add-text-section:hover {
+  color: #000;
+  cursor: pointer;
+  }
+
+
 // Question mark icon and hover popup
 .question-icon {
   display: inline-block;
@@ -140,8 +154,75 @@ hr {
   width: 13px;
   height: 13px;
   background-size: contain;
+  margin-left: 5px;
   }
 
+.popup-pad {
+  padding: 6px;
+  }
+
+
+// This is the toggle switch in the profile section forms
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 30px;
+  }
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  }
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  }
+
+input:checked + .slider {
+  background-color: #2196F3;
+  }
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+  }
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  }
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  }
+
+.slider.round:before {
+  border-radius: 50%;
+  }
+
+
+// Delete this popup once all converted to the new style
 #tooltip {
   margin-left: 5px;
   position: relative;
@@ -290,13 +371,6 @@ hr {
   padding: 5px 0 0 15px;
   }
 
-.icon-img {
-  background: url('http://bestwatchapps.s3.amazonaws.com/media/logos/2016/04/25/kekanto-guia-da-cidade_1d029a33.png') center no-repeat;
-  background-size: contain;
-  width: 80%;
-  height: 90px;
-  }
-
 .mini-info-box {
   width: 70%;
   height: 108px;
@@ -314,6 +388,78 @@ hr {
   color: #AFB1B4;
   line-height: 16px;
   }
+
+.icon1 {
+  background: url('../../../client/src/Smartphone-Message.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+.icon2 {
+  background: url('../../../client/src/Checklist.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+.icon3 {
+  background: url('../../../client/src/Paper-Plane.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+.icon4 {
+  background: url('../../../client/src/Student-3.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+.icon5 {
+  background: url('../../../client/src/Ninja.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+.icon6 {
+  background: url('../../../client/src/Surgeon.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+.icon7 {
+  background: url('../../../client/src/Apartment.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+.icon8 {
+  background: url('../../../client/src/Street-View.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+.icon9 {
+  background: url('../../../client/src/Medal-2.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+.icon10 {
+  background: url('../../../client/src/Tablet-Chart.jpg') center no-repeat;
+  width: 80%;
+  height: 90px;
+  background-size: contain;
+  }
+
+
 
 //////
 // Sidebar Box
@@ -435,3 +581,9 @@ hr {
   background-color: white;
   box-shadow: 2px 2px 8px #888888;
   }
+
+
+
+
+
+
