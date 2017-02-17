@@ -1,13 +1,10 @@
 import React from "react";
 import { Router, Route, hashHistory } from "react-router";
 
-<<<<<<< HEAD
-import Connections from './components/Connections';
+
 import Login from './components/login/Login';
-=======
 import Connections from './components/connections/Connections';
-import Login from './components/Login';
->>>>>>> master
+
 import Profile from './components/profile/Profile';
 import Timeline from './components/timeline/Timeline';
 import Trello from './components/trello/Trello.js';
