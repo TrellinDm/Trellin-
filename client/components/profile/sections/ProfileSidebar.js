@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 
 
-
-
-
-
 class ProfileSidebar extends Component {
 	constructor(props){
-	super(props)
+	super(props);
 		this.fillMeter=this.fillMeter.bind(this)
 	}
 	

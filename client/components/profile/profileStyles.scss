@@ -133,6 +133,20 @@ hr {
   cursor: pointer;
   }
 
+.bottom-add-text-section {
+  font-size: 14px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: bolder;
+  color: white;
+  }
+
+.bottom-add-text-section:hover {
+  color: #000;
+  cursor: pointer;
+  }
+
+
 // Question mark icon and hover popup
 .question-icon {
   display: inline-block;
@@ -140,8 +154,75 @@ hr {
   width: 13px;
   height: 13px;
   background-size: contain;
+  margin-left: 5px;
   }
 
+.popup-pad {
+  padding: 6px;
+  }
+
+
+// This is the toggle switch in the profile section forms
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 30px;
+  }
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  }
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  }
+
+input:checked + .slider {
+  background-color: #2196F3;
+  }
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+  }
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  }
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  }
+
+.slider.round:before {
+  border-radius: 50%;
+  }
+
+
+// Delete this popup once all converted to the new style
 #tooltip {
   margin-left: 5px;
   position: relative;
@@ -344,14 +425,14 @@ hr {
   }
 
 .icon6 {
-  background: url('../../../client/src/Apartment.jpg') center no-repeat;
+  background: url('../../../client/src/Surgeon.jpg') center no-repeat;
   width: 80%;
   height: 90px;
   background-size: contain;
   }
 
 .icon7 {
-  background: url('../../../client/src/Surgeon.jpg') center no-repeat;
+  background: url('../../../client/src/Apartment.jpg') center no-repeat;
   width: 80%;
   height: 90px;
   background-size: contain;
@@ -500,3 +581,9 @@ hr {
   background-color: white;
   box-shadow: 2px 2px 8px #888888;
   }
+
+
+
+
+
+
