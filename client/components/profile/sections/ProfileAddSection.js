@@ -4,10 +4,15 @@ import SkyLight from 'react-skylight';
 export default class ProfileAddSection extends Component {
 	constructor(props){
 		super(props);
+		
+		this.state = {
+			
+		}
 	}
 	
 	render () {
 		
+		// Style formatting of form popup container
 		const style = {
 			width: '50%',
 			height: 'auto',
@@ -18,6 +23,8 @@ export default class ProfileAddSection extends Component {
 		
 		return (
 			<div className="add-section-box">
+				
+				{/*Language Section*/}
 				<div className="add-section">
 					<div className="icon-box">
 						<div className="icon1"></div>
@@ -27,6 +34,8 @@ export default class ProfileAddSection extends Component {
 						<div className="gray-text">This can help you find a new job, get a promotion, or transfer overseas.</div>
 					</div>
 					<div className="section-info"></div>
+					
+					{/*Language popup form*/}
 					<button className="bottom-add" onClick={() => this.refs.language.show()}><div className="bottom-add-text-section">Add language</div></button>
 					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="language" title="Add Language">
 						<div>language</div>
@@ -38,15 +47,17 @@ export default class ProfileAddSection extends Component {
 								<input type="checkbox" />
 								<div className="slider round"></div>
 							</label>
-							<div>Do not update my network
-								<div>Your connections will not see this change in your feed or email</div>
-							</div>
+							Do not update my network
+							<div>Your connections will not see this change in your feed or email</div>
 						</div>
 						<div>
 							<button className="button-dark-blue">Save</button>
 						</div>
 					</SkyLight>
 				</div>
+				
+				
+				{/*Summary Section*/}
 				<div className="add-section">
 					<div className="icon-box">
 						<div className="icon2"></div>
@@ -56,6 +67,8 @@ export default class ProfileAddSection extends Component {
 						<div className="gray-text">Adding a summary is a quick and easy way to highlight your experience and interests.</div>
 					</div>
 					<div className="section-info"></div>
+					
+					{/*Summary popup form*/}
 					<button className="bottom-add" onClick={() => this.refs.summary.show()}><div className="bottom-add-text-section">Add summary</div></button>
 					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="summary" title="Add Summary">
 						<div>
@@ -66,11 +79,16 @@ export default class ProfileAddSection extends Component {
 						</div>
 					</SkyLight>
 				</div>
+				
+				
+				{/*Certification Section*/}
 				<div className="add-section">
 					<div className="icon-box">
 						<div className="icon3"></div>
 					</div>
 					<div className="mini-info-box">
+						
+						{/*Certification popup form*/}
 						<div className="section-title-text">Certifications</div>
 						<div className="gray-text">Members with a certification on their profile get double the profile views.</div>
 					</div>
@@ -102,6 +120,9 @@ export default class ProfileAddSection extends Component {
 						</div>
 					</SkyLight>
 				</div>
+				
+				
+				{/*Education Section*/}
 				<div className="add-section">
 					<div className="icon-box">
 						<div className="icon4"></div>
@@ -111,8 +132,10 @@ export default class ProfileAddSection extends Component {
 						<div className="gray-text">Members with a school on their profile get 7 times more profile views.</div>
 					</div>
 					<div className="section-info"></div>
+					
+					{/*LEducation popup form*/}
 					<button className="bottom-add" onClick={() => this.refs.education.show()}><div className="bottom-add-text-section">Add education</div></button>
-					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="education" title="Education">
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="education" title="Add Education">
 						<div>School</div>
 						<input type="text"/>
 						<div>Degree</div>
@@ -134,6 +157,9 @@ export default class ProfileAddSection extends Component {
 						</div>
 					</SkyLight>
 				</div>
+				
+				
+				{/*Skills Section*/}
 				<div className="add-section">
 					<div className="icon-box">
 						<div className="icon5"></div>
@@ -143,8 +169,10 @@ export default class ProfileAddSection extends Component {
 						<div className="gray-text">Members with skills on their profile get 4 times as many profile views.</div>
 					</div>
 					<div className="section-info"></div>
+					
+					{/*Skills popup form*/}
 					<button className="bottom-add" onClick={() => this.refs.skills.show()}><div className="bottom-add-text-section">Add skills</div></button>
-					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="skills" title="Skills">
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="skills" title="Add Skills">
 						<div>Skills</div>
 						<input type="text"/>
 						<div>
@@ -162,81 +190,161 @@ export default class ProfileAddSection extends Component {
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.experience.show()}><div className="bottom-add-text-section">Add experience</div></button>
-					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="experience" title="Experience">
-						
-						Experience form goes here...
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="experience" title="Add Experience">
+						<div>Title</div>
+						<input type="text"/>
+						<div>Location</div>
+						<input type="text"/>
+						<div>Company</div>
+						<input type="text"/>
+						<div>Activities and societies</div>
+						<div>Time period</div>
+						<div>From Year</div>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>To Year (or expected)</div>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>
+							<label className="switch">
+								<input type="checkbox" />
+								<div className="slider round"></div>
+							</label>
+							I currently work here
+						</div>
+						<div>Description</div>
+						<div>
+							<textarea rows="6" cols="100" />
+						</div>
 						<div>
 							<button className="button-dark-blue">Save</button>
 						</div>
 					</SkyLight>
 				</div>
+				
+				
+				{/*Personal Details Section*/}
 				<div className="add-section">
 					<div className="icon-box">
 						<div className="icon7"></div>
 					</div>
 					<div className="mini-info-box">
+						
+						{/*Personal Details popup form*/}
 						<div className="section-title-text">Personal Details</div>
 						<div className="gray-text">You can control who will see this information.</div>
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.details.show()}><div className="bottom-add-text-section">Add personal details</div></button>
-					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="details" title="Personal Details">
-						
-						Personal details form goes here...
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="details" title="Add Personal Details">
+						<div>Birthday</div>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>Marital status</div>
+						<select name="status">
+							<option value="single">Single</option>
+							<option value="married">Married</option>
+							<option value="divorced">Divorced</option>
+							<option value="widowed">Widowed</option>
+						</select>
 						<div>
 							<button className="button-dark-blue">Save</button>
 						</div>
 					</SkyLight>
 				</div>
+				
+				
+				{/*Volunteering Experience Section*/}
 				<div className="add-section">
 					<div className="icon-box">
 						<div className="icon8"></div>
 					</div>
 					<div className="mini-info-box">
+						
+						{/*Volunteering Experience popup form*/}
 						<div className="section-title-text">Volunteering Experience</div>
 						<div className="gray-text">1 in 5 managers hired someone because of their volunteer experiences.</div>
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.volunteer.show()}><div className="bottom-add-text-section">Add volunteering experience</div></button>
-					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="volunteer" title="Volunteer Experience">
-						
-						Volunteer experience goes here...
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="volunteer" title="Add Volunteering Experience">
+						<div>Organization</div>
+						<input type="text"/>
+						<div>Role</div>
+						<input type="text"/>
+						<div>Cause</div>
+						<input type="text"/>
+						<div>Date</div>
+						<div>From Year</div>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>To Year (or expected)</div>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>
+							<label className="switch">
+								<input type="checkbox" />
+								<div className="slider round"></div>
+							</label>
+							I currently volunteer here
+						</div>
+						<div>Description</div>
+						<div>
+							<textarea rows="6" cols="100" />
+						</div>
 						<div>
 							<button className="button-dark-blue">Save</button>
 						</div>
 					</SkyLight>
 				</div>
+				
+				
+				{/*Honors and Awards Section*/}
 				<div className="add-section">
 					<div className="icon-box">
 						<div className="icon9"></div>
 					</div>
 					<div className="mini-info-box">
+						
+						{/*Honors and Awards popup form*/}
 						<div className="section-title-text">Honors and Awards</div>
 						<div className="gray-text">Show the recognition you’ve earned.</div>
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.awards.show()}><div className="bottom-add-text-section">Add honors and awards</div></button>
-					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="awards" title="Honors and Awards">
-						
-						Honors and awards form goes here...
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="awards" title="Add Honors and Awards">
+						<div>Title</div>
+						<input type="text"/>
+						<div>Associated with</div>
+						<input type="text"/>
+						<div>Issuer</div>
+						<input type="text"/>
+						<input type="month" id="myMonth" value="2014-05" />
+						<div>Description</div>
+						<div>
+							<textarea rows="6" cols="100" />
+						</div>
 						<div>
 							<button className="button-dark-blue">Save</button>
 						</div>
 					</SkyLight>
 				</div>
+				
+				{/*Courses Section*/}
 				<div className="add-section">
 					<div className="icon-box">
 						<div className="icon10"></div>
 					</div>
 					<div className="mini-info-box">
+						
+						{/*Courses popup form*/}
 						<div className="section-title-text">Courses</div>
 						<div className="gray-text">Showing more information about your background will help you get found for more opportunities.</div>
 					</div>
 					<div className="section-info"></div>
 					<button className="bottom-add" onClick={() => this.refs.courses.show()}><div className="bottom-add-text-section">Add courses</div></button>
-					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="courses" title="Courses">
-						
-						Courses form goes here...
+					<SkyLight dialogStyles={style} hideOnOverlayClicked ref="courses" title="Add Courses">
+						<div>Course name</div>
+						<input type="text"/>
+						<div>Number</div>
+						<input type="text"/>
+						<div>Associcated with</div>
+						<input type="text"/>
 						<div>
 							<button className="button-dark-blue">Save</button>
 						</div>
