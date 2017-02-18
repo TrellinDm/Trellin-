@@ -10,7 +10,7 @@ module.exports = {
       db.getSummary(req.body.id, function(err, response) {
         userInfo.summary = response;
         db.getCertifications(req.body.id, function(err, response) {
-          userInfo.certications = response;
+          userInfo.certifications = response;
           db.getEducation(req.body.id, function(err, response) {
             userInfo.education = response;
             db.getSkills(req.body.id, function(err, response) {
@@ -40,6 +40,7 @@ module.exports = {
   },
 
   setLanguage: function(req, res) {
+    console.log(req.body);
     var newLanguage = [
       req.body.id,
       req.body.language,
@@ -80,12 +81,12 @@ module.exports = {
     var newEducation = [
       req.body.id,
       req.body.school,
-      req.body.begdate,
-      req.body.enddate,
+      req.body.degree,
       req.body.field,
       req.body.grade,
       req.body.activities,
-      req.body.description
+      req.body.begdate,
+      req.body.enddate
     ];
     db.setEducation(newEducation, function(err, result) {
       res.status(200).send(result);
@@ -124,6 +125,7 @@ module.exports = {
       req.body.role,
       req.body.cause,
       req.body.begdate,
+      req.body.enddate,
       req.body.current,
       req.body.description
     ];
