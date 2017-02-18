@@ -34,13 +34,14 @@ class PersonalForm extends Component {
 	}
 
 	render() {
-
+		
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
 			height: 'auto',
 			marginTop: '-300px',
 			marginLeft: '-25%',
+			paddingBottom: '70px',
 			padding: '30px',
 		};
 
@@ -60,16 +61,16 @@ class PersonalForm extends Component {
 			<div className="section-info"></div>
 			<button className="bottom-add" onClick={() => this.refs.details.show()}><div className="bottom-add-text-section">Add personal details</div></button>
 			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="details" title="Add Personal Details">
-				<div>Birthday</div>
-				<input type="date" id="myMonth" onChange={this.saveBirthday} />
-				<div>Marital status</div>
-				<select name="status" onChange={this.saveMarital}>
+				<div className="form-title">Birthday</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveBirthday} />
+				<div className="form-title">Marital status</div>
+				<select className="form-input" name="status" onChange={this.saveMarital}>
 					<option value="single">Single</option>
 					<option value="married">Married</option>
 					<option value="divorced">Divorced</option>
 					<option value="widowed">Widowed</option>
 				</select>
-				<div>
+				<div className="form-btn">
 					<button className="button-dark-blue" onClick={(event) => { this.addNewPersonal(); this.refs.details.hide()}}>Save</button>
 				</div>
 			</SkyLight>

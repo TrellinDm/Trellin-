@@ -28,13 +28,14 @@ class SummaryForm extends Component {
 	}
 
 	render() {
-
+		
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
 			height: 'auto',
 			marginTop: '-300px',
 			marginLeft: '-25%',
+			paddingBottom: '70px',
 			padding: '30px',
 		};
 
@@ -55,9 +56,9 @@ class SummaryForm extends Component {
 				<button className="bottom-add" onClick={() => this.refs.summary.show()}><div className="bottom-add-text-section">Add summary</div></button>
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="summary" title="Add Summary">
 					<div>
-						<textarea rows="20" cols="100" onChange={this.saveSummary}/>
+						<textarea rows="17" cols="110" onChange={this.saveSummary}/>
 					</div>
-					<div>
+					<div className="form-btn">
 						<button className="button-dark-blue" onClick={(event) => { this.addNewSummary(); this.refs.summary.hide()}}>Save</button>
 					</div>
 				</SkyLight>

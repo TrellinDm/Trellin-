@@ -34,13 +34,14 @@ class LanguageForm extends Component {
 	}
 
 	render() {
-
+		
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
 			height: 'auto',
 			marginTop: '-300px',
 			marginLeft: '-25%',
+			paddingBottom: '70px',
 			padding: '30px',
 		};
 
@@ -60,19 +61,16 @@ class LanguageForm extends Component {
 				{/*Language popup form*/}
 				<button className="bottom-add" onClick={() => this.refs.language.show()}><div className="bottom-add-text-section">Add language</div></button>
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="language" title="Add Language">
-					<div>language</div>
-					<input type="text" onChange={this.saveLanguage}/>
-					<div>proficiency</div>
-					<input type="text" onChange={this.saveProficiency}/>
 					<div>
-						<label className="switch">
-							<input type="checkbox" />
-							<div className="slider round"></div>
-						</label>
-						Do not update my network
-						<div>Your connections will not see this change in your feed or email</div>
+						<div className="form-title">language</div>
+						<input className="form-input" type="text" onChange={this.saveLanguage}/>
 					</div>
 					<div>
+						<div className="form-title">proficiency</div>
+						<input className="form-input" type="text" onChange={this.saveProficiency}/>
+					</div>
+
+					<div className="form-btn">
 						<button className="button-dark-blue" onClick={(event) => { this.addNewLanguage(); this.refs.language.hide()}}>Save</button>
 					</div>
 				</SkyLight>

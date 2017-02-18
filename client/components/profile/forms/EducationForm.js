@@ -64,13 +64,14 @@ class EducationForm extends Component {
 	}
 
 	render() {
-
+		
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
 			height: 'auto',
 			marginTop: '-300px',
 			marginLeft: '-25%',
+			paddingBottom: '70px',
 			padding: '30px',
 		};
 
@@ -90,25 +91,25 @@ class EducationForm extends Component {
 			{/*LEducation popup form*/}
 			<button className="bottom-add" onClick={() => this.refs.education.show()}><div className="bottom-add-text-section">Add education</div></button>
 			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="education" title="Add Education">
-				<div>School</div>
-				<input type="text" onChange={this.saveSchool}/>
-				<div>Degree</div>
-				<input type="text" onChange={this.saveDegree}/>
-				<div>Field of study</div>
-				<input type="text" onChange={this.saveField}/>
-				<div>Grade</div>
-				<input type="text" onChange={this.saveGrade}/>
-				<div>Activities and societies</div>
+				<div className="form-title">School</div>
+				<input className="form-input" type="text" onChange={this.saveSchool}/>
+				<div className="form-title">Degree</div>
+				<input className="form-input" type="text" onChange={this.saveDegree}/>
+				<div className="form-title">Field of study</div>
+				<input className="form-input" type="text" onChange={this.saveField}/>
+				<div className="form-title">Grade</div>
+				<input className="form-input" type="text" onChange={this.saveGrade}/>
+				<div className="form-title">Activities and societies</div>
 				<div>
-					<textarea rows="6" cols="100" onChange={this.saveActivities}/>
+					<textarea rows="6" cols="127" onChange={this.saveActivities}/>
 				</div>
-				<div>From Year</div>
-				<input type="date" id="myMonth" onChange={this.saveBeg}/>
-				<div>To Year (or expected)</div>
-				<input type="date" id="myMonth" onChange={this.saveEnd}/>
-				<div>
+				<div className="form-title">From Year</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveBeg}/>
+				<div className="form-title">To Year (or expected)</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveEnd}/>
+				<divc className="form-btn">
 					<button className="button-dark-blue" onClick={(event) => { this.addNewEducation(); this.refs.education.hide()}}>Save</button>
-				</div>
+				</divc>
 			</SkyLight>
 		</div>
 

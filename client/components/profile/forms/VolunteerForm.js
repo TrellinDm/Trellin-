@@ -65,6 +65,7 @@ class VolunteerForm extends Component {
 			height: 'auto',
 			marginTop: '-300px',
 			marginLeft: '-25%',
+			paddingBottom: '70px',
 			padding: '30px',
 		};
 
@@ -84,29 +85,29 @@ class VolunteerForm extends Component {
 			<div className="section-info"></div>
 			<button className="bottom-add" onClick={() => this.refs.volunteer.show()}><div className="bottom-add-text-section">Add volunteering experience</div></button>
 			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="volunteer" title="Add Volunteering Experience">
-				<div>Organization</div>
-				<input type="text" onChange={this.saveOrganization}/>
-				<div>Role</div>
-				<input type="text" onChange={this.saveRole}/>
-				<div>Cause</div>
-				<input type="text" onChange={this.saveCause}/>
-				<div>Date</div>
-				<div>From Year</div>
-				<input type="date" id="myMonth" onChange={this.saveBeg}/>
-				<div>To Year (or expected)</div>
-				<input type="date" id="myMonth" onChange={this.saveEnd}/>
+				<div className="form-title">Organization</div>
+				<input className="form-input" type="text" onChange={this.saveOrganization}/>
+				<div className="form-title">Role</div>
+				<input className="form-input" type="text" onChange={this.saveRole}/>
+				<div className="form-title">Cause</div>
+				<input className="form-input" type="text" onChange={this.saveCause}/>
+				<div className="form-title">Date</div>
+				<div className="form-title">From Year</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveBeg}/>
+				<div className="form-title">To Year (or expected)</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveEnd}/>
 				<div>
 					<label className="switch">
-						<input type="checkbox" />
+						<input className="form-input" type="checkbox" />
 						<div className="slider round"></div>
 					</label>
 					I currently volunteer here
 				</div>
-				<div>Description</div>
+				<div className="form-title">Description</div>
 				<div>
-					<textarea rows="6" cols="100" onChange={this.saveDescription}/>
+					<textarea rows="6" cols="127" onChange={this.saveDescription}/>
 				</div>
-				<div>
+				<div className="form-btn">
 					<button className="button-dark-blue" onClick={(event) => { this.addNewVolunteer(); this.refs.volunteer.hide()}}>Save</button>
 				</div>
 			</SkyLight>

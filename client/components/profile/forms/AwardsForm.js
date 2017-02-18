@@ -52,13 +52,14 @@ class AwardsForm extends Component {
 	}
 
 	render() {
-
+		
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
 			height: 'auto',
 			marginTop: '-300px',
 			marginLeft: '-25%',
+			paddingBottom: '70px',
 			padding: '30px',
 		};
 
@@ -78,18 +79,19 @@ class AwardsForm extends Component {
 			<div className="section-info"></div>
 			<button className="bottom-add" onClick={() => this.refs.awards.show()}><div className="bottom-add-text-section">Add honors and awards</div></button>
 			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="awards" title="Add Honors and Awards">
-				<div>Title</div>
-				<input type="text" onChange={this.saveTitle}/>
-				<div>Associated with</div>
-				<input type="text" onChange={this.saveAssociated}/>
-				<div>Issuer</div>
-				<input type="text" onChange={this.saveIssuer}/>
-				<input type="date" id="myMonth" onChange={this.saveRecieved}/>
-				<div>Description</div>
+				<div className="form-title">Title</div>
+				<input className="form-input" type="text" onChange={this.saveTitle}/>
+				<div className="form-title">Associated with</div>
+				<input className="form-input" type="text" onChange={this.saveAssociated}/>
+				<div className="form-title">Issuer</div>
+				<input className="form-input" type="text" onChange={this.saveIssuer}/>
+				<div className="form-title">Date recieved</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveRecieved}/>
+				<div className="form-title">Description</div>
 				<div>
-					<textarea rows="6" cols="100" onChange={this.saveDescription} />
+					<textarea rows="6" cols="127" onChange={this.saveDescription} />
 				</div>
-				<div>
+				<div className="form-btn">
 					<button className="button-dark-blue" onClick={(event) => { this.addNewAward(); this.refs.awards.hide()}}>Save</button>
 				</div>
 			</SkyLight>
