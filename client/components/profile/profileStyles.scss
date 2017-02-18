@@ -574,8 +574,33 @@ input:checked + .slider:before {
   box-shadow: 2px 2px 8px #888888;
   }
 
+//////
+// Forms
+//////
 
+.form-btn {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  }
 
+.float-left {
+  float: left;
+  }
 
+.form-title {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  }
+
+.form-input {
+  width: 100%;
+  height: 24px;
+  margin-bottom: 12px;
+  float: left;
+  font-size: 14px;
+  border: solid #363636 1px;
+  }
 
 

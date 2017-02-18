@@ -58,13 +58,14 @@ class ExperienceForm extends Component {
 	}
 
 	render() {
-
+		
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
 			height: 'auto',
 			marginTop: '-300px',
 			marginLeft: '-25%',
+			paddingBottom: '70px',
 			padding: '30px',
 		};
 
@@ -82,30 +83,29 @@ class ExperienceForm extends Component {
 			<div className="section-info"></div>
 			<button className="bottom-add" onClick={() => this.refs.experience.show()}><div className="bottom-add-text-section">Add experience</div></button>
 			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="experience" title="Add Experience">
-				<div>Title</div>
-				<input type="text" onChange={this.saveTitle}/>
-				<div>Location</div>
-				<input type="text" onChange={this.saveLocation}/>
-				<div>Company</div>
-				<input type="text" onChange={this.saveCompany}/>
-				<div>Activities and societies</div>
-				<div>Time period</div>
-				<div>From Year</div>
-				<input type="date" id="myMonth" onChange={this.saveBeg} />
-				<div>To Year (or expected)</div>
-				<input type="date" id="myMonth" onChange={this.saveEnd} />
+				<div className="form-title">Title</div>
+				<input className="form-input" type="text" onChange={this.saveTitle}/>
+				<div className="form-title">Location</div>
+				<input className="form-input" type="text" onChange={this.saveLocation}/>
+				<div className="form-title">Company</div>
+				<input className="form-input" type="text" onChange={this.saveCompany}/>
+				<div className="form-title">Time period</div>
+				<div className="form-title">From Year</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveBeg} />
+				<div className="form-title">To Year (or expected)</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveEnd} />
 				<div>
 					<label className="switch">
-						<input type="checkbox" />
+						<input className="form-input" type="checkbox" />
 						<div className="slider round"></div>
 					</label>
 					I currently work here
 				</div>
-				<div>Description</div>
+				<div className="form-title">Description</div>
 				<div>
-					<textarea rows="6" cols="100" onChange={this.saveDescription}/>
+					<textarea rows="6" cols="127" onChange={this.saveDescription}/>
 				</div>
-				<div>
+				<div className="form-btn">
 					<button className="button-dark-blue" onClick={(event) => { this.addNewExperience(); this.refs.experience.hide()}}>Save</button>
 				</div>
 			</SkyLight>

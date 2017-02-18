@@ -58,13 +58,14 @@ class CertificationsForm extends Component {
 	}
 
 	render() {
-
+		
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
 			height: 'auto',
 			marginTop: '-300px',
 			marginLeft: '-25%',
+			paddingBottom: '70px',
 			padding: '30px',
 		};
 
@@ -85,17 +86,17 @@ class CertificationsForm extends Component {
 			<div className="section-info"></div>
 			<button className="bottom-add" onClick={() => this.refs.certification.show()}><div className="bottom-add-text-section">Add certifications</div></button>
 			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="certification" title="Add Certification">
-				<div>Certification name</div>
-				<input type="text" onChange={this.saveName}/>
-				<div>Certification authority</div>
-				<input type="text" onChange={this.saveAuthority}/>
-				<div>License number</div>
-				<input type="text" onChange={this.saveLicenseNo}/>
-				<div>Time period</div>
-				<div>From</div>
-				<input type="date" id="myMonth" onChange={this.saveBeg}/>
-				<div>To</div>
-				<input type="date" id="myMonth" onChange={this.saveEnd}/>
+				<div className="form-title">Certification name</div>
+				<input className="form-input" type="text" onChange={this.saveName}/>
+				<div className="form-title">Certification authority</div>
+				<input className="form-input" type="text" onChange={this.saveAuthority}/>
+				<div className="form-title">License number</div>
+				<input className="form-input" type="text" onChange={this.saveLicenseNo}/>
+				<div className="form-title">Time period</div>
+				<div className="form-title">From</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveBeg}/>
+				<div className="form-title">To</div>
+				<input className="form-input" type="date" id="myMonth" onChange={this.saveEnd}/>
 				<div>
 					<label className="switch">
 						<input type="checkbox" />
@@ -103,9 +104,9 @@ class CertificationsForm extends Component {
 					</label>
 					This certification does not expire
 				</div>
-				<div>Certification Url</div>
-				<input type="text" onChange={this.saveUrl}/>
-				<div>
+				<div className="form-title">Certification Url</div>
+				<input className="form-input" type="text" onChange={this.saveUrl}/>
+				<div className="form-btn">
 					<button className="button-dark-blue" onClick={(event) => { this.addNewCertification(); this.refs.certification.hide()}}>Save</button>
 				</div>
 			</SkyLight>

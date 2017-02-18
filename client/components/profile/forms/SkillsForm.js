@@ -28,13 +28,14 @@ class SkillsForm extends Component {
 	}
 
 	render() {
-
+		
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
 			height: 'auto',
 			marginTop: '-300px',
 			marginLeft: '-25%',
+			paddingBottom: '70px',
 			padding: '30px',
 		};
 
@@ -54,9 +55,9 @@ class SkillsForm extends Component {
 			{/*Skills popup form*/}
 			<button className="bottom-add" onClick={() => this.refs.skills.show()}><div className="bottom-add-text-section">Add skills</div></button>
 			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="skills" title="Add Skills">
-				<div>Skills</div>
-				<input type="text" onChange={this.saveSkill}/>
-				<div>
+				<div className="form-title">Skills</div>
+				<input className="form-input" type="text" onChange={this.saveSkill}/>
+				<div className="form-btn">
 					<button className="button-dark-blue" onClick={(event) => { this.addNewSkill(); this.refs.skills.hide()}}>Save</button>
 				</div>
 			</SkyLight>
