@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
+import SkyLight from 'react-skylight';
 
-class ProfileSummary extends Component {
+export default class ProfileSummary extends Component {
 	
+	render() {
+		return (
+			//Language section box
+			<div className="education-box">
+				<div className="title-text-gray">Summary<div className="gray-pencil"></div></div>
+				<div className="box-info">User's summary goes here....</div>
+			</div>
+		)
+	}
 }
-
-
-
-export default ProfileSummary;

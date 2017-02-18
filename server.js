@@ -26,9 +26,9 @@ app.use(passport.session());
 app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname + '/build'));
 
-var connect = massive.connectSync({connectionString: "postgres://inyrrfgq:n44M05nu0byEfJ26llJ2UFUdlgzWMk0M@babar.elephantsql.com:5432/inyrrfgq"});
-app.set('db', connect);
-var db = app.get('db');
+// var connect = massive.connectSync({connectionString: "postgres://inyrrfgq:n44M05nu0byEfJ26llJ2UFUdlgzWMk0M@babar.elephantsql.com:5432/inyrrfgq"});
+// app.set('db', connect);
+// var db = app.get('db');
 
 var testCtrl = require('./server/testCtrl');
 var ConnectionCtrl = require('./server/ConnectionCtrl');
