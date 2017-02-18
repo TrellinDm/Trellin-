@@ -74,14 +74,19 @@
 }
 
 .navBar .navRight .profile-icon {
-  background-image: url('http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg');
-  background-position: center;
-  background-size: cover;
-  height: 25px;
-  width: 25px;
+  // background-image: url('http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg');
+  // background-position: center;
+  // background-size: cover;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
 }
 
+.image-icon {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
 .me-hover:hover {
   cursor: pointer
 }
