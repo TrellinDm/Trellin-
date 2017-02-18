@@ -54,7 +54,6 @@ export default class LanguageForm extends Component {
 					</div>
 				</SkyLight>
 			</div>
-		
 		)
 	}
 }

@@ -58,7 +58,6 @@ export default class EducationForm extends Component {
 				</div>
 			</SkyLight>
 		</div>
-		
 		)
 	}
 }

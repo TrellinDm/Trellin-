@@ -15,6 +15,7 @@ class ProfileAddSection extends Component {
 
 	render () {
 		return (
+			
 			<div className="add-section-box">
 				{!this.props.languageShow ? <LanguageForm className="add-section" /> : null}
 				{!this.props.summaryShow ? <SummaryForm className="add-section" /> : null}

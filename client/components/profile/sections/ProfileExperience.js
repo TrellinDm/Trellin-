@@ -1,50 +1,49 @@
-import React, { Component } from 'react'
-import ToolTip from 'react-portal-tooltip'
+import React, { Component } from 'react';
+import ToolTip from 'react-portal-tooltip';
+
 
 class ProfileExperience extends Component {
 	constructor(props){
 		super(props);
 		
 		this.state = {
-			isTooltipActive: false,
-			isTooltipActive1: false,
-			isTooltipActive2: false
+			activeExperience1: false,
+			activeExperience2: false,
+			activeExperience3: false
 		};
 	}
 	
-	showTooltip() {
-		this.setState({isTooltipActive: true})
+	showExperience1() {
+		this.setState({activeExperience1: true})
 	}
-	hideTooltip() {
-		this.setState({isTooltipActive: false})
-	}
-	
-	showTooltip1() {
-		this.setState({isTooltipActive1: true})
-	}
-	hideTooltip1() {
-		this.setState({isTooltipActive1: false})
+	hideExperience1() {
+		this.setState({activeExperience1: false})
 	}
 	
-	showTooltip2() {
-		this.setState({isTooltipActive2: true})
+	showExperience2() {
+		this.setState({activeExperience2: true})
 	}
-	hideTooltip2() {
-		this.setState({isTooltipActive2: false})
+	hideExperience2() {
+		this.setState({activeExperience2: false})
 	}
 	
-	
+	showExperience3() {
+		this.setState({activeExperience3: true})
+	}
+	hideExperience3() {
+		this.setState({activeExperience3: false})
+	}
 	
 	render () {
 		return (
 			<div className="experience-box">
-				<div className="title-text-gray">Experience</div>
+				<div className="title-text-gray">Experience<div className="gray-pencil"></div></div>
 				<div className="box-info">
 					<div className="user-data">Users experience goes here...</div>
 					
 					<div className="add-text-blue">Add Time Period
-						<div onMouseEnter={this.showTooltip.bind(this)} onMouseLeave={this.hideTooltip.bind(this)} id="text" className="question-icon"></div>
-						<ToolTip active={this.state.isTooltipActive} position="right" arrow="center" parent="#text">
+						<div onMouseEnter={this.showExperience1.bind(this)} onMouseLeave={this.hideExperience1.bind(this)} id="Experience1" className="question-icon"></div>
+						<ToolTip active={this.state.activeExperience1} position="right" arrow="center" parent="#Experience1">
 							<div className="popup-pad">
 								<div className="sm-text">Time Period</div>
 								<div className="profile-text">Show how your career has progressed over time</div>
@@ -52,9 +51,9 @@ class ProfileExperience extends Component {
 						</ToolTip>
 					</div>
 					
-					<div className="add-text-blue" >Add Location
-						<div onMouseEnter={this.showTooltip1.bind(this)} onMouseLeave={this.hideTooltip1.bind(this)} id="text1" className="question-icon"></div>
-						<ToolTip active={this.state.isTooltipActive1} position="right" arrow="center" parent="#text1">
+					<div className="add-text-blue">Add Location
+						<div onMouseEnter={this.showExperience2.bind(this)} onMouseLeave={this.hideExperience2.bind(this)} id="Experience2" className="question-icon"></div>
+						<ToolTip active={this.state.activeExperience2} position="right" arrow="center" parent="#Experience2">
 							<div className="popup-pad">
 								<div className="sm-text">Location</div>
 								<div className="profile-text">Members with a location get 3 times more profile views</div>
@@ -62,9 +61,9 @@ class ProfileExperience extends Component {
 						</ToolTip>
 					</div>
 					
-					<div className="add-text-blue" >Add Description
-						<div onMouseEnter={this.showTooltip2.bind(this)} onMouseLeave={this.hideTooltip2.bind(this)} id="text2" className="question-icon"></div>
-						<ToolTip active={this.state.isTooltipActive2} position="right" arrow="center" parent="#text2">
+					<div className="add-text-blue">Add Description
+						<div onMouseEnter={this.showExperience3.bind(this)} onMouseLeave={this.hideExperience3.bind(this)} id="Experience3" className="question-icon"></div>
+						<ToolTip active={this.state.activeExperience3} position="right" arrow="center" parent="#Experience3">
 							<div className="popup-pad">
 								<div className="sm-text">Description</div>
 								<div className="profile-text">Recruiters are more likely to reach out to members with a job description.</div>
