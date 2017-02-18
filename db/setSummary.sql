@@ -1,3 +1,3 @@
-insert into awards (id, summary)
-values ($1, $2);
+insert into summary (id, summary)
+values ($1, $2)
 returning *;
