@@ -16,6 +16,8 @@ import {addInfo} from '../../reducers/profileReducer';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import "./profileStyles.scss";
+import $ from 'jquery';
+
 
 class Profile extends Component {
 
@@ -26,18 +28,25 @@ class Profile extends Component {
   }
 
   render() {
+	
+
+    
     return (
       <div className="profile-background">
         <div className="container">
           <div className="profile-col-left">
             <ProfileHeader />
             <div><span className="sm-text-gray">Add a section to your profile - </span><span className="smlr-text-gray">be discovered for your next career step.</span></div>
-            <ProfileAddSection />
-            <div className="section-view-more">
+            
+            <div id="flip" className="section-view-more">
               <div className="bottom-add">
                 <div className="bottom-add-text">View More  ▽</div>
               </div>
             </div>
+            <div id="panel" >
+              <ProfileAddSection />
+            </div>
+            
             <ProfileSummary />
             <ProfileLanguage />
             <ProfileCertifications />
@@ -57,6 +66,12 @@ class Profile extends Component {
     )
   }
 }
+
+$(document).ready(function(){
+	$("#flip").click(function(){
+		$("#panel").slideToggle("slow");
+	});
+});
 
 const mapDispatchToProps = {
   addInfo: addInfo

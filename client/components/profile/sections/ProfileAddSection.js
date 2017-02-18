@@ -11,11 +11,11 @@ import VolunteerForm from '../../../../client/components/profile/forms/Volunteer
 import EducationForm from '../../../../client/components/profile/forms/EducationForm.js';
 import { connect } from 'react-redux';
 
+
 class ProfileAddSection extends Component {
 
 	render () {
 		return (
-			
 			<div className="add-section-box">
 				{!this.props.languageShow ? <LanguageForm className="add-section" /> : null}
 				{!this.props.summaryShow ? <SummaryForm className="add-section" /> : null}
@@ -30,7 +30,7 @@ class ProfileAddSection extends Component {
 			</div>
 		)
 	}
-};
+}
 
 function mapStateToProps(state) {
   return {
