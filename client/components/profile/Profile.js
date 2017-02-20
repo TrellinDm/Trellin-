@@ -25,9 +25,9 @@ class Profile extends Component {
     axios.post('/getUserInformation', {id: 1}).then(res => {
       this.props.addInfo(res.data);
     });
-	
-    
-	
+
+
+
 	  $(document).ready(function() {
 		  $(".toggle_container").hide();
 		  $("button.reveal").click(function() {
@@ -40,20 +40,13 @@ class Profile extends Component {
 			  return false;
 		  });
 	  });
-    
-    
-	  // $(document).ready(function(){
-		 //  $("#flip").click(function(){
-			//   $("#panel").slideToggle("slow");
-		 //  });
-	  // });
-	  
-	  
+
+
   }
 
-  
-  
-  
+
+
+
   render() {
     return (
       <div className="profile-background">
@@ -61,30 +54,21 @@ class Profile extends Component {
           <div className="profile-col-left">
             <ProfileHeader />
             <div><span className="sm-text-gray">Add a section to your profile - </span><span className="smlr-text-gray">be discovered for your next career step.</span></div>
-  
+
             <div className="section-view-more">
               <button className="reveal"> View More  ▼ </button><div className="toggle_container"><div className="block"> <ProfileAddSection /> </div></div>
             </div>
-            
-            
-            
-            {/*<div id="flip" className="section-view-more">*/}
-              {/*<div className="bottom-add">*/}
-                {/*<div className="bottom-add-text">View More  ▽</div>*/}
-              {/*</div>*/}
-            {/*</div>*/}
-            {/*<div id="panel" ></div>*/}
-            
-            <ProfileSummary />
-            <ProfileLanguage />
-            <ProfileCertifications />
-            <ProfileCourses />
-            <ProfileAwards />
-            <ProfileEducation />
-            <ProfileSkills />
-            <ProfileExperience />
-            <ProfilePersonal />
-            <ProfileVolunteer />
+
+            {this.props.summaryShow ? <ProfileSummary /> : null}
+            {this.props.languageShow ? <ProfileLanguage /> : null}
+            {this.props.certificationsShow ? <ProfileCertifications /> : null}
+            {this.props.coursesShow ? <ProfileCourses /> : null}
+            {this.props.awardsShow ? <ProfileAwards /> : null}
+            {this.props.educationShow ? <ProfileEducation /> : null}
+            {this.props.skillsShow ? <ProfileSkills /> : null}
+            {this.props.experienceShow ? <ProfileExperience /> : null}
+            {this.props.personalShow ? <ProfilePersonal /> : null}
+            {this.props.volunteerShow ? <ProfileVolunteer /> : null}
           </div>
           <div className="profile-col-right">
             <ProfileSidebar />
@@ -101,7 +85,16 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
   return {
-    languageShow: state.profile.languageShow
+    languageShow: state.profile.languageShow,
+		summaryShow: state.profile.summaryShow,
+	  certificationsShow: state.profile.certificationsShow,
+	  coursesShow: state.profile.coursesShow,
+	  awardsShow: state.profile.awardsShow,
+	  educationShow: state.profile.educationShow,
+	  skillsShow: state.profile.skillsShow,
+	  experienceShow: state.profile.experienceShow,
+	  personalShow: state.profile.personalShow,
+	  volunteerShow: state.profile.volunteerShow
   }
 }
 
