@@ -173,7 +173,7 @@ hr {
 /* Hide default HTML checkbox */
 .switch input {display:none;}
 
-/* The slider */
+/* Toggle switch in profile forms */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -323,6 +323,22 @@ input:checked + .slider:before {
   text-align: center;
   }
 
+//Class for the section slide down menu
+.reveal    {
+  border: black solid 0.1rem;
+  box-shadow: 2px 2px 8px #888888;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(51, 114, 165, 0.82);
+  font-size: 14px;
+  line-height: 38px;
+  text-align: center;
+  font-weight: bolder;
+  color: white;
+  }
+
 //////
 // Add Section Box
 //////
@@ -344,11 +360,8 @@ input:checked + .slider:before {
 
 .section-view-more {
   height: auto;
-  border: black solid 0.1rem;
-  box-shadow: 2px 2px 8px #888888;
-  background-color: white;
   line-height: 25px;
-  margin: -1% 2% 2% 0;
+  margin: 0 2% 0 0;
   }
 
 .section-info {
@@ -450,6 +463,7 @@ input:checked + .slider:before {
   height: 90px;
   background-size: contain;
   }
+
 
 
 
@@ -603,4 +617,18 @@ input:checked + .slider:before {
   border: solid #363636 1px;
   }
 
-
+#example {
+  position: relative;
+  }
+#example-checkbox {
+  display: none;
+  }
+#example-checkbox:checked + #example:after {
+  content: "Hide";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  }

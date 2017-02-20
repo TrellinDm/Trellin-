@@ -25,27 +25,55 @@ class Profile extends Component {
     axios.post('/getUserInformation', {id: 1}).then(res => {
       this.props.addInfo(res.data);
     });
+	
+    
+	
+	  $(document).ready(function() {
+		  $(".toggle_container").hide();
+		  $("button.reveal").click(function() {
+			  $(this).toggleClass("active").next().slideToggle("fast");
+			  if ($.trim($(this).text()) === 'View More  ▼') {
+				  $(this).text('View Less  ▲');
+			  } else {
+				  $(this).text('View More  ▼');
+			  }
+			  return false;
+		  });
+	  });
+    
+    
+	  // $(document).ready(function(){
+		 //  $("#flip").click(function(){
+			//   $("#panel").slideToggle("slow");
+		 //  });
+	  // });
+	  
+	  
   }
 
+  
+  
+  
   render() {
-	
-
-    
     return (
       <div className="profile-background">
         <div className="container">
           <div className="profile-col-left">
             <ProfileHeader />
             <div><span className="sm-text-gray">Add a section to your profile - </span><span className="smlr-text-gray">be discovered for your next career step.</span></div>
+  
+            <div className="section-view-more">
+              <button className="reveal"> View More  ▼ </button><div className="toggle_container"><div className="block"> <ProfileAddSection /> </div></div>
+            </div>
             
-            <div id="flip" className="section-view-more">
-              <div className="bottom-add">
-                <div className="bottom-add-text">View More  ▽</div>
-              </div>
-            </div>
-            <div id="panel" >
-              <ProfileAddSection />
-            </div>
+            
+            
+            {/*<div id="flip" className="section-view-more">*/}
+              {/*<div className="bottom-add">*/}
+                {/*<div className="bottom-add-text">View More  ▽</div>*/}
+              {/*</div>*/}
+            {/*</div>*/}
+            {/*<div id="panel" ></div>*/}
             
             <ProfileSummary />
             <ProfileLanguage />
@@ -66,12 +94,6 @@ class Profile extends Component {
     )
   }
 }
-
-$(document).ready(function(){
-	$("#flip").click(function(){
-		$("#panel").slideToggle("slow");
-	});
-});
 
 const mapDispatchToProps = {
   addInfo: addInfo
