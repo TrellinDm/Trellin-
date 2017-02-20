@@ -9,6 +9,7 @@ const ADDPERS = 'profile/ADDPERS';
 const ADDSKILL = 'profile/ADDSKILL';
 const ADDSUMMARY = 'profile/ADDSUMMARY';
 const ADDVOLUN = 'profile/ADDVOLUN';
+const LANGCLICKED = 'profile/LANGCLICKED';
 
 const initialState = {
   languageShow: false,
@@ -31,7 +32,8 @@ const initialState = {
   experienceArray: [],
   personalArray: [],
   volunteerArray: [],
-  profileStrength: 0
+  profileStrength: 0,
+  addLanguageClicked: false
 }
 
 function storeInfo(state, userInfo) {
@@ -51,51 +53,65 @@ function storeInfo(state, userInfo) {
 }
 
 export default function reducer(state=initialState, action) {
+  console.log(action)
   switch (action.type) {
     case ADDINFO:
-      var newState = storeInfo(state, action.payload);
-      return Object.assign({}, newState);
+      var stateCopy = Object.assign({}, state);
+      var newState = storeInfo(stateCopy, action.payload);
+      return Object.assign({}, state, newState);
     case ADDAWARD:
-      state.awardsArray.unshift(action.payload);
-      state.awardsShow = true;
-      return Object.assign({}, state);
+      var awards = Array.from(state.awardsArray);
+      awards.unshift(action.payload);
+      return Object.assign({}, state, {awardsArray: awards, awardsShow: true});
     case ADDCERT:
-      state.certificationsArray.unshift(action.payload);
-      state.certificationsShow = true;
-      return Object.assign({}, state);
+      var certifications = Array.from(state.certificationsArray);
+      certifications.unshift(action.payload);
+      return Object.assign({}, state, {certificationsArray: certifications, certificationsShow: true});
     case ADDCOURSE:
-      state.coursesArray.unshift(action.payload);
-      state.coursesShow = true;
-      return Object.assign({}, state);
+      var courses = Array.from(state.coursesArray);
+      courses.unshift(action.payload);
+      return Object.assign({}, state, {coursesArray: courses, coursesShow: true});
     case ADDEDU:
-      state.educationArray.unshift(action.payload);
-      state.educationShow = true;
-      return Object.assign({}, state);
+      var education = Array.from(state.educationArray);
+      education.unshift(action.payload);
+      return Object.assign({}, state, {educationArray: education, educationShow: true});
     case ADDEXP:
-      state.experienceArray.unshift(action.payload);
-      state.experienceShow = true;
-      return Object.assign({}, state);
+      var experience = Array.from(state.experienceArray);
+      experience.unshift(action.payload);
+      return Object.assign({}, state, {experienceArray: experience, experienceShow: true});
     case ADDLANG:
-      state.languageArray.unshift(action.payload);
-      state.languageShow = true;
-      return Object.assign({}, state);
+      var language = Array.from(state.languageArray);
+      language.unshift(action.payload);
+      return Object.assign({}, state, {languageArray: language, languageShow: true});
     case ADDPERS:
-      state.personalArray.unshift(action.payload);
-      state.personalShow = true;
-      return Object.assign({}, state);
+      var personal = Array.from(state.personalArray);
+      personal.unshift(action.payload);
+      return Object.assign({}, state, {personalArray: personal, personalShow: true});
     case ADDSKILL:
-      state.skillsArray.unshift(action.payload);
-      state.skillsShow = true;
-      return Object.assign({}, state);
+      var skills = Array.from(state.skillsArray);
+      skills.unshift(action.payload);
+      return Object.assign({}, state, {skillsArray: skills, skillsShow: true});
     case ADDSUMMARY:
-      state.summaryArray.unshift(action.payload);
-      state.summaryShow = true;
-      return Object.assign({}, state);
+      var summary = Array.from(state.summaryArray);
+      summary.unshift(action.payload);
+      return Object.assign({}, state, {summaryArray: summary, summaryShow: true});
     case ADDVOLUN:
-      state.volunteerArray.unshift(action.payload);
-      state.volunteerShow = true;
-      return Object.assign({}, state);
-    default: return state;
+      var volunteer = Array.from(state.volunteerArray);
+      volunteer.unshift(action.payload);
+      return Object.assign({}, state, {volunteerArray: volunteer, volunteerShow: true});
+      case LANGCLICKED:
+      return Object.assign({}, state, {addLanguageClicked: action.payload});
+      console.log(newState)
+      return newState
+    default:
+      return state;
+  }
+}
+
+export function languageClicked(tog) {
+  return {
+    type: LANGCLICKED,
+    payload: tog
   }
 }
 

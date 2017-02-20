@@ -94,7 +94,7 @@ class ProfileAwards extends Component {
 
 				</div>
 				<div className="bottom-add">
-					<div className="bottom-add-text">Add award</div>
+					<div className="bottom-add-text">Edit award</div>
 				</div>
 			</div>
 		)

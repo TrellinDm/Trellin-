@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SkyLight from 'react-skylight';
 import {addLanguage} from '../../../reducers/profileReducer';
+import {languageClicked} from '../../../reducers/profileReducer';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -15,6 +16,7 @@ class LanguageForm extends Component {
 		this.addNewLanguage = this.addNewLanguage.bind(this);
 		this.saveLanguage = this.saveLanguage.bind(this);
 		this.saveProficiency = this.saveProficiency.bind(this);
+		console.log(this.props.addLanguageClicked);
 	}
 
 	addNewLanguage() {
@@ -33,9 +35,12 @@ class LanguageForm extends Component {
 		this.setState({ proficiency: e.target.value });
 	}
 
+	componentWillUpdate() {
+		console.log("Updating");
+	}
+
 	render() {
-		
-		// Style formatting of form popup container
+
 		const style = {
 			width: '50%',
 			height: 'auto',
@@ -45,43 +50,45 @@ class LanguageForm extends Component {
 			padding: '30px',
 		};
 
+		if (this.props.addLanguageClicked) {
+			if (!this.refs.language.state.isVisible) {
+				this.refs.language.show();
+			}
+		} else if (this.refs.language) {
+			this.refs.language.hide();
+		}
+
 		return (
 
-			<div className="add-section">
-				{/*Language Section*/}
-				<div className="icon-box">
-					<div className="icon1"></div>
+			<SkyLight dialogStyles={style} hideOnOverlayClicked ref="language" title="Add Language">
+				<div>
+					<div className="form-title">language</div>
+					<input className="form-input" type="text" onChange={this.saveLanguage}/>
 				</div>
-				<div className="mini-info-box">
-					<div className="section-title-text">Language</div>
-					<div className="gray-text">This can help you find a new job, get a promotion, or transfer overseas.</div>
+				<div>
+					<div className="form-title">proficiency</div>
+					<input className="form-input" type="text" onChange={this.saveProficiency}/>
 				</div>
-				<div className="section-info"></div>
 
-				{/*Language popup form*/}
-				<button className="bottom-add" onClick={() => this.refs.language.show()}><div className="bottom-add-text-section">Add language</div></button>
-				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="language" title="Add Language">
-					<div>
-						<div className="form-title">language</div>
-						<input className="form-input" type="text" onChange={this.saveLanguage}/>
-					</div>
-					<div>
-						<div className="form-title">proficiency</div>
-						<input className="form-input" type="text" onChange={this.saveProficiency}/>
-					</div>
-
-					<div className="form-btn">
-						<button className="button-dark-blue" onClick={(event) => { this.addNewLanguage(); this.refs.language.hide()}}>Save</button>
-					</div>
-				</SkyLight>
-			</div>
+				<div className="form-btn">
+					<button className="button-dark-blue" onClick={(event) => { this.addNewLanguage(); this.props.languageClicked(false)}}>Save</button>
+				</div>
+			</SkyLight>
 
 		)
 	}
 }
 
 const mapDispatchToProps = {
-  addLanguage: addLanguage
+	addLanguage: addLanguage,
+	languageClicked: languageClicked
 }
 
-export default connect(null, mapDispatchToProps)(LanguageForm);
+function mapStateToProps(state) {
+	console.log('STATE IS', state)
+	return {
+		addLanguageClicked: state.profile.addLanguageClicked
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LanguageForm);
