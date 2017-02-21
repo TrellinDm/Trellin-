@@ -6,25 +6,28 @@ import $ from 'jquery';
 
 const exampleComment = "This is the comment I am using as an example of a single imported comment";
 const exampleReply = "This is the REPLY REPLY I am using as an example of a single imported comment";
-const CommentNum = 3
-const likesNum = 12
+const CommentNum = 3;
+const likesNum = 12;
 const chevronImg = "https://d30y9cdsu7xlg0.cloudfront.net/png/221782-200.png";
 
 
 class CommentBox extends Component {
   
 	componentDidMount() {
-	  
 		$(document).ready(function() {
+			let flag = false;
 			$(".toggle_container").hide();
 			$("button.comment-reveal").click(function() {
-				$(this).toggleClass("active").next().stop().slideToggle("slow");
-				if ($.trim($(this).text()) === 'Comments') {
-					$(this).text('Collapse ' + ' ▲');
-				} else {
-					$(this).text('Comments');
+				if(!flag){
+					$(this).toggleClass("active").next().stop().slideDown("slow")
+					flag = true;
+						$(this).text('Collapse  ▲');
 				}
-				return false;
+				else {
+					$(this).toggleClass("active").next().stop().slideUp("slow")
+					flag = false;
+					$(this).text('View Comments');
+				}
 			});
 		});
 	}
@@ -47,13 +50,12 @@ class CommentBox extends Component {
               <div className="interact-basic interact-likes">{likesNum} Likes</div>
               <div className="interact-basic ">|</div>
               <div className="interact-basic interact-likes">{CommentNum} Comments
-              
               </div>
             </div>
           </div>
   
-          <button className="comment-reveal"> Comments </button>
-          <div className="toggle_container">
+          <button className="comment-reveal" > View Comments </button>
+          <div className="toggle_container" >
             <div className="block">
               <ReplyBox className="comment-profilePic" author="Jack black" body={exampleComment}/>
               <ReplyBox className="comment-profilePic" author="James Franco" body={exampleComment}/>

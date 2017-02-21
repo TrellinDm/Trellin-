@@ -48,6 +48,7 @@ class Timeline extends Component {
       <div className="profile-background">
         <div className="container-Timeline">
           
+          {/*Left profile box*/}
           <div className="timeline-col-left">
             <div className="profile-box">
               <div className="profile-image comment-profilePic"></div>
@@ -64,11 +65,13 @@ class Timeline extends Component {
             </div>
           </div>
           
+          {/*Middle comments box*/}
           <div className="timeline-col-mid">
             <CreateCommentBox />
             {listMessages}
           </div>
           
+          {/*Right connections box*/}
           <div className="timeline-col-right">
             <div className="connection-box">
               <div className="profileInfo-title">Connections</div>

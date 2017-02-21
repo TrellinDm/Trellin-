@@ -25,9 +25,7 @@ class Profile extends Component {
     axios.post('/getUserInformation', {id: 1}).then(res => {
       this.props.addInfo(res.data);
     });
-	
-    
-	
+	  
 	  $(document).ready(function() {
 		  $(".toggle_container").hide();
 		  $("button.reveal").click(function() {
@@ -40,19 +38,8 @@ class Profile extends Component {
 			  return false;
 		  });
 	  });
-    
-    
-	  // $(document).ready(function(){
-		 //  $("#flip").click(function(){
-			//   $("#panel").slideToggle("slow");
-		 //  });
-	  // });
-	  
-	  
   }
-
-  
-  
+	
   
   render() {
     return (
@@ -65,16 +52,6 @@ class Profile extends Component {
             <div className="section-view-more">
               <button className="reveal"> View More  ▼ </button><div className="toggle_container"><div className="block"> <ProfileAddSection /> </div></div>
             </div>
-            
-            
-            
-            {/*<div id="flip" className="section-view-more">*/}
-              {/*<div className="bottom-add">*/}
-                {/*<div className="bottom-add-text">View More  ▽</div>*/}
-              {/*</div>*/}
-            {/*</div>*/}
-            {/*<div id="panel" ></div>*/}
-            
             <ProfileSummary />
             <ProfileLanguage />
             <ProfileCertifications />
