@@ -1,8 +1,61 @@
+.container-Timeline{
+  margin:0 5%;
+  width:100%;
+  clear:both;
+  padding-top: 105px;
+  }
+
+// Left and Right columns within .container
+.timeline-col-left {
+  width:25%;
+  }
+
+.timeline-col-mid {
+  width:40%;
+  margin: 0 25%;
+  }
+
+.timeline-col-right {
+  width:25%;
+  }
+
+.profile-box {
+  width: 20%;
+  background-color: white;
+  position: fixed;
+  left: 8%;
+  top: 105px;
+  padding: 15px;
+  height: 400px;
+  border: 1px solid black;
+  }
+
+.comment-box{
+  width:100%;
+  height: 100px;
+  resize: none;
+  font-size: 1rem;
+  background-color: white;
+  padding: 15px;
+  }
+
+.connection-box {
+  position: fixed;
+  top: 105px;
+  left: 72%;
+  width: 20%;
+  height: auto;
+  background-color: white;
+  border: 1px solid black;
+  padding: 15px;
+  }
+
+
+
 
 /*Comment container*/
 .comment-container{
   width: 750px;
-  /*margin: 10px;*/
 }
 .comment-header{
   background: lightblue;
@@ -15,14 +68,7 @@
   color: rgba(0,0,0, .6);
   margin: 10px 0 0 0;
 }
-.comment-box{
-  width:100%;
-  height: 100px;
-  resize: none;
-  font-size: 1rem;
-  margin: 0px 0 0 0;
-  padding: 0px;
-}
+
 .post-button{
   background: lightblue;
   border: none;
@@ -138,7 +184,7 @@
   padding: 5px 5px 40px 5px;
 }
 .comment-bar{
-      width: 97.6%;
+  width: 97.6%;
   display: flex;
   bottom: -30px;
   padding: 8px;
@@ -158,35 +204,40 @@
   display: flex;
   justify-content: center;
 }
+
 .centerTimeline{
-  width: 700px;
+  //margin-top: 105px;
+  width: 100%;
   height: auto;
 
 }
 // left SIIIIDE
-.timeline-profileInfo{
-  margin: 20px;
-  width: 350px;
-  height: 400px;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.timeline-profileInfo .profile-image{
-  margin: 20px 0 0 0;
-  padding: 10px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid black;
-}
-.timeline-contactList{
-  margin: 20px 20px 10px 20px;
-  width: 250px;
-  height: 400px;
-  border: 1px solid black;
-}
+//.timeline-profileInfo{
+  ////position: fixed;
+  //margin: 20px;
+  //padding: 5px;
+  //width: 100%;
+  //height: 400px;
+  //border: 1px solid black;
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
+//}
+
+//.timeline-profileInfo .profile-image{
+//  margin: 20px 0 0 0;
+//  padding: 10px;
+//  width: 100px;
+//  height: 100px;
+//  border-radius: 50%;
+//  border: 1px solid black;
+//}
+//.timeline-contactList{
+//  margin: 20px 20px 10px 20px;
+//  width: 250px;
+//  height: 400px;
+//  border: 1px solid black;
+//}
 .profile-name-wrap:first-child{
   margin: 50px;
 }
