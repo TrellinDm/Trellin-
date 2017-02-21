@@ -1,5 +1,5 @@
 // import '../App.js';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import CommentBox from './comments.js';
 import CreateCommentBox from './create-comment.js';
 import './messaging.scss';
@@ -10,7 +10,7 @@ const profileImageThree = {backgroundImage: 'url(' + 'http://res.cloudinary.com/
 const profileImageOne = {backgroundImage: 'url(' + "http://kingofwallpapers.com/jack-black/jack-black-005.jpg" + ')'}
 const profileImageTwo = {backgroundImage: 'url(' + "http://www.gannett-cdn.com/-mm-/67c23b55d461f83e96855358c4bee23b00420bd6/c=334-0-5437-3836&r=x404&c=534x401/local/-/media/USATODAY/USATODAY/2014/04/03//1396538883000-James-Franco.jpg" + ')'}
 
-class Timeline extends React.Component {
+class Timeline extends Component {
   constructor(){
     super();
     this.state = {
@@ -49,42 +49,63 @@ class Timeline extends React.Component {
     listsButton = 'hide lists';
     }
     return (
-      <section className="timelineSection">
-        <div className="timeline-profileInfo">
-          <div className="profile-image single-comment-profilePic" style={profileImageThree}></div>
-          <div className="profile-name-wrap">
-            <p>Welcome, Marcus!</p>
-            <Link to="/profile">View Profile</Link>
+      <div className="profile-background">
+        <div className="container-Timeline">
+          
+          
+          <div className="timeline-col-left">
+            <div className="profile-box">
+              <div className="profile-image single-comment-profilePic" style={profileImageThree}></div>
+              <div className="profile-name-wrap">
+                <p>Welcome, Marcus!</p>
+                <Link to="/profile">View Profile</Link>
+              </div>
+              <div className="profile-name-wrap">
+                <p><span>15</span> Connections</p>
+                <p className="edit-profile">My Network</p>
+              </div>
+            </div>
           </div>
-          <div className="profile-name-wrap">
-            <p><span>15</span> Connections</p>
-            <p className="edit-profile">My Network</p>
+          
+          
+          <div className="timeline-col-mid">
+            <div className="comment-box">
+	            <CreateCommentBox />
+	            {listMessages}
+            </div>
           </div>
+          
+          
+          <div className="timeline-col-right">
+            <div className="connection-box">
+              <div className="timeline-profileInfo">
+                <div className="profileInfo-title">Connections</div>
+                <div className="timeline-contact-wrap">
+                  <div className="single-comment-profilePic"></div>
+                  <p>Marcus Ogden</p>
+                </div>
+                <div className="timeline-contact-wrap">
+                  <div className="single-comment-profilePic" style={profileImageOne}></div>
+                  <p>Jack Black</p>
+                </div>
+                <div className="timeline-contact-wrap">
+                  <div className="single-comment-profilePic" style={profileImageTwo}></div>
+                  <p>Jack Black</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
         </div>
-        <div className="centerTimeline">
-          <CreateCommentBox/>
-          {listMessages}
-        </div>
-        <div className="timeline-profileInfo">
-          <div className="profileInfo-title">Connections</div>
-          <div className="timeline-contact-wrap">
-            <div className="single-comment-profilePic"></div>
-            <p>Marcus Ogden</p>
-          </div>
-          <div className="timeline-contact-wrap">
-            <div className="single-comment-profilePic" style={profileImageOne}></div>
-            <p>Jack Black</p>
-          </div>
-          <div className="timeline-contact-wrap">
-            <div className="single-comment-profilePic" style={profileImageTwo}></div>
-            <p>Jack Black</p>
-          </div>
-        </div>
-        <button className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </button>
-        {listNodes}
-      </section>
+
+
+        {/*<button className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </button>*/}
+        {/*{listNodes}*/}
+      </div>
     );
   }
+  
   listClick() {
     this.setState({
       showLists: !this.state.showLists
