@@ -6,10 +6,6 @@ import './messaging.scss';
 import axios from 'axios';
 import {Link} from 'react-router';
 
-const profileImageThree = {backgroundImage: 'url(' + 'http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg' + ')'}
-const profileImageOne = {backgroundImage: 'url(' + "http://kingofwallpapers.com/jack-black/jack-black-005.jpg" + ')'}
-const profileImageTwo = {backgroundImage: 'url(' + "http://www.gannett-cdn.com/-mm-/67c23b55d461f83e96855358c4bee23b00420bd6/c=334-0-5437-3836&r=x404&c=534x401/local/-/media/USATODAY/USATODAY/2014/04/03//1396538883000-James-Franco.jpg" + ')'}
-
 class Timeline extends Component {
   constructor(){
     super();
@@ -33,7 +29,7 @@ class Timeline extends Component {
         return (
           <CommentBox key={i} author={mes.userid} body={mes.message} />
         )
-      })
+      });
 
     let listNodes;
     let listsButton = 'Show Lists';
@@ -52,56 +48,50 @@ class Timeline extends Component {
       <div className="profile-background">
         <div className="container-Timeline">
           
-          
           <div className="timeline-col-left">
             <div className="profile-box">
-              <div className="profile-image single-comment-profilePic" style={profileImageThree}></div>
+              <div className="profile-image comment-profilePic"></div>
               <div className="profile-name-wrap">
-                <p>Welcome, Marcus!</p>
-                <Link to="/profile">View Profile</Link>
+                <p>Welcome, John Doe</p>
+                <Link to="/profile" className="profile-link"> View Profile </Link>
               </div>
               <div className="profile-name-wrap">
                 <p><span>15</span> Connections</p>
-                <p className="edit-profile">My Network</p>
+                <Link to="/connections" className="profile-link"> My Network </Link>
               </div>
+              <button className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </button>
+	            {listNodes}
             </div>
           </div>
-          
           
           <div className="timeline-col-mid">
-            <div className="comment-box">
-	            <CreateCommentBox />
-	            {listMessages}
-            </div>
+            <CreateCommentBox />
+            {listMessages}
           </div>
-          
           
           <div className="timeline-col-right">
             <div className="connection-box">
-              <div className="timeline-profileInfo">
-                <div className="profileInfo-title">Connections</div>
-                <div className="timeline-contact-wrap">
-                  <div className="single-comment-profilePic"></div>
-                  <p>Marcus Ogden</p>
-                </div>
-                <div className="timeline-contact-wrap">
-                  <div className="single-comment-profilePic" style={profileImageOne}></div>
-                  <p>Jack Black</p>
-                </div>
-                <div className="timeline-contact-wrap">
-                  <div className="single-comment-profilePic" style={profileImageTwo}></div>
-                  <p>Jack Black</p>
-                </div>
+              <div className="profileInfo-title">Connections</div>
+              <div className="timeline-contact-wrap">
+                <div className="comment-profilePic"></div>
+                <p>Marcus Ogden</p>
+              </div>
+              <div className="timeline-contact-wrap">
+                <div className="comment-profilePic"></div>
+                <p>Erik Golden</p>
+              </div>
+              <div className="timeline-contact-wrap">
+                <div className="comment-profilePic"></div>
+                <p>Marc-Andy Noel Jeune</p>
+              </div>
+              <div className="timeline-contact-wrap">
+                <div className="comment-profilePic"></div>
+                <p>William Cox</p>
               </div>
             </div>
           </div>
-          
-          
         </div>
-
-
-        {/*<button className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </button>*/}
-        {/*{listNodes}*/}
+        
       </div>
     );
   }

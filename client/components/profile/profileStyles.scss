@@ -104,7 +104,7 @@ hr {
 
 
 .header-box,.experience-box,.certifications-box,.education-box,.skills-box,.following-box {
-  border: black solid 1px;
+  border: 1px solid #575757;
   margin: 0 2% 2% 0;
   }
 
@@ -325,7 +325,7 @@ input:checked + .slider:before {
 
 //Class for the section slide down menu
 .reveal    {
-  border: black solid 0.1rem;
+  border: 1px solid #575757;
   box-shadow: 2px 2px 8px #888888;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -354,7 +354,7 @@ input:checked + .slider:before {
   height: 148px;
   margin: 0 .5% 1.5% 1%;
   background-color: white;
-  border: black solid 0.1rem;
+  border: 1px solid #575757;
   box-shadow: 2px 2px 8px #888888;
   }
 
@@ -472,7 +472,7 @@ input:checked + .slider:before {
 //////
 .sidebar-box {
   height: auto;
-  border: black solid 0.1rem;
+  border: 1px solid #575757;
   box-shadow: 2px 2px 8px #888888;
   background-color: white;
   padding: 25px 25px;
@@ -481,7 +481,7 @@ input:checked + .slider:before {
 
 .course-box {
   height: auto;
-  border: black solid 0.1rem;
+  border: 1px solid #575757;
   box-shadow: 2px 2px 8px #888888;
   background-color: white;
   padding: 25px 25px;

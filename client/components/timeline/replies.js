@@ -12,15 +12,15 @@ const profileImageTwo = {backgroundImage: 'url(' + "http://www.gannett-cdn.com/-
 class ReplyBox extends React.Component {
   render() {
     return (
-        <div className="single-reply-wrapper">
+        <div className="reply-wrapper">
           <div className="comments-collect">
             <div className="reply-section">
-                <div className="single-reply">
-                  <div className="single-comment-head">
-                    <div className="single-comment-profilePic" style={this.props.image}></div>
+                <div className="reply">
+                  <div className="comment-head">
+                    <div className="comment-profilePic" style={this.props.image}></div>
                     <p>{this.props.author}</p>
                   </div>
-                    <div className="single-reply-content">
+                    <div className="reply-content">
                       {this.props.body}
                     </div>
                   <div className="interact-bar comment-bar">
