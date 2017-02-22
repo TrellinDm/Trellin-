@@ -29,7 +29,8 @@
   left: 8%;
   top: 105px;
   padding: 15px;
-  height: 400px;
+  height: auto;
+  min-height: 400px;
   border: 1px solid #575757;
   box-shadow: 2px 2px 8px #888888;
   display: flex;
@@ -218,8 +219,6 @@
   font-size: 1rem;
   width: 90%;
   min-height: 150px;
-  //border-top: 1px solid rgba(0,0,0, .1);
-  //border-bottom: 1px solid rgba(0,0,0, .1);
   margin: 69px 0 33px 0;
   background: rgba(0,0,0, .03);
   background-color: white;
@@ -239,7 +238,6 @@
 .reply-section{
   position: relative;
   padding: 15px 10px 5px 10px;
-  // width: 97.8%;
   min-height: 100px;
   background-color: white;
   border: solid lightgray 1px;
