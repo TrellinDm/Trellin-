@@ -19,29 +19,20 @@ class Trello extends Component {
         .then( res => {
           console.log(res.data);
           this.props.updateList( res.data)
-
-          
         })
-
-
-
-
-
   }
 
   render() {
     return (
-    <div>
-      <div className='trello'>
-        <List/>
+      <div className='trello-bg'>
+        <div className="table-container">
+          <div>
+            <List />
+          </div><br/><br/>
+          <div className='cards'></div>
+        </div>
 
       </div>
-      <br/>
-      <br/>
-    <div className='cards'>
-
-    </div>
-    </div>
     )
   }
 }
