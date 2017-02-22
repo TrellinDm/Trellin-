@@ -16,11 +16,14 @@ module.exports = {
   },
 
   GetAll: function (req, res) {
-    console.log('hello');
-    db.get_lists(function (err, result) {
-        console.log(err);
-        console.log(result);
+    console.log(req);
+    db.get_cards(function (err, result) {
+      if (err) {
+        res.status(500).send(err);
+      }
+      else {
         res.status(200).json(result)
+      }
     })
   }
 }
