@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 class CreateCommentBox extends React.Component {
 
@@ -16,9 +17,15 @@ class CreateCommentBox extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   createNewMessage(message,userid,listid,messageType) {
-    let data = {message: message,userid:userid,listid:listid,messageType:messageType}
+    let data = {
+      message: message,
+      userid: this.props.user.id ? this.props.user.id : userid,
+      listid: listid,
+      messageType:messageType
+    }
+    console.log(this.props.user.id);
     axios.post('/createNewMessage', data).then(res => {
-      console.log(this.state.value)
+
       console.log(res.data);
     })
   }
@@ -46,4 +53,9 @@ class CreateCommentBox extends React.Component {
   }
 }
 
-export default CreateCommentBox;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+export default connect(mapStateToProps, {})(CreateCommentBox);
