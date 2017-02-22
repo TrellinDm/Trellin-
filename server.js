@@ -121,6 +121,16 @@ app.get('/auth/logout', function(req, res) {
 
 //`````````````````````PROFILE ENDPOINTS```````````````````````
 app.post('/getUserInformation', profileCtrl.getUserInformation);
+app.post('/setAwards', profileCtrl.setAwards);
+app.post('/setCertifications', profileCtrl.setCertifications);
+app.post('/setCourses', profileCtrl.setCourses);
+app.post('/setEducation', profileCtrl.setEducation);
+app.post('/setExperience', profileCtrl.setExperience);
+app.post('/setLanguage', profileCtrl.setLanguage);
+app.post('/setPersonal', profileCtrl.setPersonal);
+app.post('/setSkills', profileCtrl.setSkills);
+app.post('/setSummary', profileCtrl.setSummary);
+app.post('/setVolunteer', profileCtrl.setVolunteer);
 
 
 app.listen(app.get('port'), function () {

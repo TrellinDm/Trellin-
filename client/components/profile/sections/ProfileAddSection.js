@@ -11,6 +11,7 @@ import VolunteerForm from '../../../../client/components/profile/forms/Volunteer
 import EducationForm from '../../../../client/components/profile/forms/EducationForm.js';
 import { connect } from 'react-redux';
 
+
 class ProfileAddSection extends Component {
 
 	render () {
@@ -29,7 +30,7 @@ class ProfileAddSection extends Component {
 			</div>
 		)
 	}
-};
+}
 
 function mapStateToProps(state) {
   return {

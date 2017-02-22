@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 
+
 export default class ProfileSkills extends Component {
-	render () {
+
+	render() {
 		return (
-			<div className="skills-box">
-				<div className="title-text-gray">Skills & Endorsements</div>
-				<div className="box-info">User's skills and endorsements go here....</div>
+			
+			<div className="education-box">
+				<div className="title-text-gray">Skills<div className="gray-pencil"></div></div>
+				<div className="box-info">User's education goes here....
+				</div>
 				<div className="bottom-add">
-					<div className="bottom-add-text">Add skill
-					</div>
+					<div className="bottom-add-text">Add skill</div>
 				</div>
 			</div>
 		)
 	}
 }
-

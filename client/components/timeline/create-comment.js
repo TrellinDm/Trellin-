@@ -33,13 +33,13 @@ class CreateCommentBox extends React.Component {
 
   render() {
     return (
-        <div>
+        <div className="comment-box">
           <div className="comment-header">
-            <p>Post to timeline</p>
+            <p className="comment-header-title"> Post to timeline </p>
           </div>
           <form onSubmit={this.handleSubmit}>
-            <textarea className="comment-box" placeholder="Write comment here..." value={this.state.value} onChange={this.handleChange}/>
-            <input type="submit"className="post-button" />
+            <textarea className="comment-input" placeholder="Write comment here..." value={this.state.value} onChange={this.handleChange}/>
+            <input type="submit" className="timeline-bottom-add timeline-bottom-add-text" />
           </form>
         </div>
     );

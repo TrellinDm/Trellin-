@@ -1,3 +1,3 @@
-insert into awards (id, skill)
-values ($1, $2);
+insert into skills (id, skill)
+values ($1, $2)
 returning *;

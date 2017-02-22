@@ -1,51 +1,251 @@
-
-/*Comment container*/
-.comment-container{
-  width: 750px;
-  /*margin: 10px;*/
-}
-.comment-header{
-  background: lightblue;
-  width: 100.4%;
-}
-.comment-header p{
-  padding: 10px;
-  background: lightblue;
-  font-size: 1.2rem;
-  color: rgba(0,0,0, .6);
-  margin: 10px 0 0 0;
-}
-.comment-box{
+.container-Timeline{
+  margin:0 5%;
   width:100%;
-  height: 100px;
-  resize: none;
+  clear:both;
+  padding-top: 105px;
+  }
+
+// Left and Right columns within .container
+.timeline-col-left {
+  width:25%;
+  }
+
+.timeline-col-mid {
+  width:40%;
+  margin: 0 25%;
+  }
+
+.timeline-col-right {
+  width:25%;
+  }
+
+////////
+/// Profile Box
+////////
+.profile-box {
+  width: 20%;
+  background-color: white;
+  position: fixed;
+  left: 8%;
+  top: 105px;
+  padding: 15px;
+  height: 400px;
+  border: 1px solid #575757;
+  box-shadow: 2px 2px 8px #888888;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  }
+
+.timeline-profile-pic {
+  background: url('https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg') center no-repeat;
+  background-size: contain;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  }
+
+.list-btn {
+  position: absolute;
+  top: 86%;
+  left: 32%;
+  width: 120px;
+  margin-bottom: 60px;
+  }
+
+.trello-lists{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 103%;
+  height:100%;
+  background-color: white;
+  }
+
+.trello-lists div{
+  padding: 20px;
+  border: 1px solid #575757;
+  box-shadow: 2px 2px 8px #888888;
+  }
+
+.trello-button{
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  z-index: 1;
+  }
+
+//Text
+.profile-text-lg {
+  font-size: 18px;
+  color: #4b4b4b;
+  text-align: center;
+  font-weight: bold;
+  }
+
+.profile-link {
+  font-size: 16px;
+  text-decoration: none;
+  color: #0077B5;
+  line-height: 28px;
+  }
+
+.list-text {
+  font-size: 18px;
+  color: #4b4b4b;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 18px;
+  }
+
+.profile-name-wrap {
+  text-align: center;
+  width: 100%;
+  padding: 18px;
+  border-bottom: 1px solid rgba(0,0,0, .2);
+  }
+
+.profile-name-wrap p{
+  margin: 0;
+  font-size: 1.5rem;
+  }
+
+.profile-name-wrap p span{
+  text-decoration: underline;
+  }
+
+.profile-name-wrap .edit-profile{
+  font-size: 1.7rem;
+  text-align: center;
+  color: #0077B5;
+  }
+
+
+
+////////
+/// Comment Box
+////////
+.comment-box{
+  width: 100%;
+  height: 180px;
   font-size: 1rem;
-  margin: 0px 0 0 0;
-  padding: 0px;
-}
-.post-button{
-  background: lightblue;
-  border: none;
-  padding: 5px 10px;
-  font-size: 1rem;
-  opacity: .7;
-  float:right;
-  margin: 0 0 30px;
-}
-.post-button:hover{
-  background: lightblue;
-  opacity: 1;
-}
-.single-comment-container{
+  background-color: white;
+  border: 1px solid #575757;
+  box-shadow: 2px 2px 8px #888888;
+  }
+
+.comment-container{
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: 35px 0 0 0;
+  margin: 15px 0 0 0;
   min-height: 200px;
   width: 100%;
-  border: 1px solid rgba(0,0,0, .2);
-}
+  border: 1px solid #575757;
+  border-bottom: none;
+  background-color: white;
+  height: auto;
+  box-shadow: 2px 2px 8px #888888;
+  }
+
+.comment-header p{
+  padding: 10px;
+  background: #c7c7c7;
+  font-weight: bold;
+  }
+
+.comment-header-title {
+  text-align: center;
+  color: #4b4b4b;
+  font-size: 16px;
+  }
+
+.comment-input {
+  position: relative;
+  resize: none;
+  width: 99.1%;
+  height: 127px;
+  font-size: 16px;
+  }
+
+//Class for the section slide down menu
+.comment-reveal {
+  border: 1px solid #575757;
+  box-shadow: 2px 2px 8px #888888;
+  margin-bottom: 2%;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(51, 114, 165, 0.82);
+  font-size: 14px;
+  line-height: 35px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  }
+
+.post-button{
+  background-color: rgba(51, 114, 165, 0.82);
+  padding: 6px 10px;
+  width: 100%;
+  float:right;
+  border: 1px solid #1b5480;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 13px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+  font-weight: bold;
+  color: white;
+  box-sizing: border-box;
+  margin: 0 0 20px 0;
+  }
+
+
+
+// Link, text, and hover styling at bottom of info boxes
+.timeline-bottom-add {
+  width: 100%;
+  height: 38px;
+  background-color: rgba(51, 114, 165, 0.82);
+  border-radius: 3px;
+  box-sizing: border-box;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  color: white;
+  box-shadow: 2px 2px 8px #888888;
+  padding: 6px 10px;
+  float:right;
+  border: 1px solid #1b5480;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  }
+
+.timeline-bottom-add:hover {
+  background-color: rgb(202, 223, 255);
+  cursor: pointer;
+  color: #000;
+  }
+
+.timeline-bottom-add-text {
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  font-weight: bolder;
+  width: 100%;
+  color: white;
+  }
+
+.timeline-bottom-add-text:hover {
+  color: #000;
+  cursor: pointer;
+  }
+
+
+
+
+
 .post-reply{
   position: absolute;
   border: none;
@@ -56,23 +256,27 @@
   margin: 0 0 30px;
   bottom: -26px ;
   right: 4px;
-}
+  }
+
 .post-reply button{
   background: rgba(0,0,0, 0);
   border: none;
   margin-left: 10px;
   border-bottom: 1px solid rgba(0,0,0, .2);
-}
+  }
+
 .post-reply button:hover{
   background: rgba(0,0,0, 0);
   border: none;
   margin-left: 10px;
   border-bottom: 1px solid rgba(0,0,0, .8);
-}
+  }
+
 .post-reply button img{
   width: 15px;
   margin: 0 0 -4px 0;
-}
+  }
+
 .interact-bar{
   position: absolute;
   border: none;
@@ -82,12 +286,15 @@
   float:right;
   margin: 0 0 30px;
   bottom: -26px ;
-  left: 0px;
-}
-.single-comment-head p{
+  left: 0;
+  height: auto;
+  }
+
+.comment-head p{
   padding: 0 0 0 10px;
-}
-.single-comment-head {
+  }
+
+.comment-head {
   top: 0;
   position: absolute;
   display: flex;
@@ -96,118 +303,102 @@
   width: 100%;
   background: rgba(0,0,0, .07);
   font-size: 1.2rem;
-}
-.single-comment-profilePic{
-  background-image: url('http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg');
-  background-position: center;
+  }
+
+.comment-profilePic{
+  background: url('https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg') center no-repeat;
   background-size: cover;
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  margin: 0 0 0 10px;
-}
-.single-comment-body{
+  margin: 0 15px 0 10px;
+  }
+
+.comment-body{
   padding: 10px 5px;
   font-size: 1rem;
   width: 90%;
   min-height: 150px;
-  border-top: 1px solid rgba(0,0,0, .1);
-  border-bottom: 1px solid rgba(0,0,0, .1);
   margin: 69px 0 33px 0;
   background: rgba(0,0,0, .03);
-}
+  background-color: white;
+  border: solid rgba(0,0,0, .1) 1px;
+  }
+
 .interact-basic{
   display: inline-block;
   margin: 0 0 0 10px;
   opacity: .7;
-}
+  }
+
 .interact-basic:hover{
   opacity: 1;
-}
+  }
+
 .reply-section{
   position: relative;
   padding: 15px 10px 5px 10px;
-  // width: 97.8%;
   min-height: 100px;
-  background: rgba(0,0,0, .07);
-}
-.single-reply{
+  background-color: white;
+  border: solid lightgray 1px;
+  }
+
+.reply{
   position: relative;
   font-size: 1rem;
   border-bottom: 1px solid rgba(0,0,0, .3);
   padding: 5px 5px 40px 5px;
-}
+  }
+
 .comment-bar{
-      width: 97.6%;
+  width: 97.6%;
   display: flex;
   bottom: -30px;
   padding: 8px;
   border-top: 1px solid rgba(0,0,0, .2);
-}
-.single-reply-content{
+  }
+
+.reply-content{
   margin: 65px 10px 10px 10px;
-}
+  }
+
 .horizontal-line{
   margin: 40px 0 0 -5%;
   width: 110%;
   height: 2px;
   background-color: rgba(0,0,0, .2);
-}
-// Timeline Section
-.timelineSection{
-  display: flex;
-  justify-content: center;
-}
-.centerTimeline{
-  width: 700px;
-  height: auto;
+  }
 
-}
-// left SIIIIDE
+////////
+/// Connection Box
+////////
+.connection-box {
+  position: fixed;
+  top: 105px;
+  left: 72%;
+  width: 20%;
+  height: auto;
+  background-color: white;
+  border: 1px solid #575757;
+  box-shadow: 2px 2px 8px #888888;
+  padding: 5px 10px 20px 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 400px;
+  }
+
 .timeline-profileInfo{
   margin: 20px;
-  width: 350px;
+  padding: 5px;
+  width: auto;
   height: 400px;
-  border: 1px solid black;
+  border: 1px solid #575757;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.timeline-profileInfo .profile-image{
-  margin: 20px 0 0 0;
-  padding: 10px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 1px solid black;
-}
-.timeline-contactList{
-  margin: 20px 20px 10px 20px;
-  width: 250px;
-  height: 400px;
-  border: 1px solid black;
-}
-.profile-name-wrap:first-child{
-  margin: 50px;
-}
-.profile-name-wrap {
-  text-align: center;
-  width: 80%;
-  padding: 10px;
-  border-bottom: 1px solid rgba(0,0,0, .2);
-}
-.profile-name-wrap p{
-  margin: 0;
-  font-size: 1.5rem;
-}
-.profile-name-wrap p span{
-  text-decoration: underline;
-}
-.profile-name-wrap .edit-profile{
-  font-size: 1.2rem;
-  text-align: center;
-  color: #0077B5;
-}
+  }
+
 .timeline-contact-wrap{
   padding: 5px;
   border-bottom: 1px solid rgba(0,0,0, .2);
@@ -216,37 +407,29 @@
   justify-content: flex-start;
   align-items: center;
   width: 90%;
-}
+  }
 .timeline-contact-wrap p{
   margin: 0 0 0 0;
-}
+  }
 .timeline-contact-wrap .single-comment-profilePic{
   margin: 0 10px 0 0;
-}
+  }
 .profileInfo-title{
   font-size: 2rem;
   margin: 10px;
   width: 70%;
   text-align: center;
   border-bottom: 1px solid rgba(0,0,0, .1);
-}
-.trello-lists{
-  position: absolute;
-  width: 400px;
-  right: 0;
-  height:100%;
-  background: lightblue;
-}
-.trello-lists div{
-  padding: 20px;
-  border:1px solid rgba(0,0,0, .2);
-}
-.trello-button{
-  position: absolute;
-  right: 20px;
-  top: 40px;
-  z-index: 1;
-}
+  }
+
+
+
+
+
+
+
+
+
 .messages-button{
   position: absolute;
   right: 20px;
