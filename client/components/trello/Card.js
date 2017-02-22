@@ -13,8 +13,7 @@ class Card extends Component {
 
     this.state = {
       content: '',
-      list_id: this.props.listId,
-      allCards: []
+      list_id: this.props.id
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +29,7 @@ class Card extends Component {
   postCard() {
 
     axios.post('/card', this.state).then(res => {
-      this.props.saveCards(res.data)
+      this.props.updateCards(res.data)
 
       })
   }
@@ -46,7 +45,7 @@ componentDidMount() {
 renderCard() {
   if (this.props.list.cardObj[this.props.id]) {
     var grid = this.props.list.cardObj[this.props.id].map((elm, i) => {
-      console.log(elm);
+      
      return (<li key={i}>{elm.content} : {elm.id}</li>)
    })
    return grid
