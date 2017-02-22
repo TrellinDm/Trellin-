@@ -51,17 +51,20 @@ class Timeline extends Component {
           {/*Left profile box*/}
           <div className="timeline-col-left">
             <div className="profile-box">
-              <div className="profile-image comment-profilePic"></div>
+              <div className="timeline-profile-pic"></div>
               <div className="profile-name-wrap">
-                <p>Welcome, John Doe</p>
+                <div className="profile-text-lg">Welcome, John Doe</div>
                 <Link to="/profile" className="profile-link"> View Profile </Link>
               </div>
               <div className="profile-name-wrap">
-                <p><span>15</span> Connections</p>
+                <div className="profile-text-lg">Connections: <span>15</span></div>
                 <Link to="/connections" className="profile-link"> My Network </Link>
               </div>
-              <button className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </button>
-	            {listNodes}
+              <div>
+                <div className="list-text">Saved Lists</div>
+                <button className="list-btn button-gray" onClick={this.listClick.bind(this)}> {listsButton} </button>
+	              {listNodes}
+              </div>
             </div>
           </div>
           
