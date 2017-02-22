@@ -26,7 +26,7 @@ class CommentBox extends Component {
 				else {
 					$(this).toggleClass("active").next().stop().slideUp("slow")
 					flag = false;
-					$(this).text('View Comments');
+					$(this).text('View Comments ▼');
 				}
 			});
 		});
@@ -54,7 +54,7 @@ class CommentBox extends Component {
             </div>
           </div>
   
-          <button className="comment-reveal" > View Comments </button>
+          <button className="comment-reveal" > View Comments ▼ </button>
           <div className="toggle_container" >
             <div className="block">
               <ReplyBox className="comment-profilePic" author="Jack black" body={exampleComment}/>

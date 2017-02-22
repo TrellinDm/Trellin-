@@ -39,7 +39,7 @@ class CreateCommentBox extends React.Component {
           </div>
           <form onSubmit={this.handleSubmit}>
             <textarea className="comment-input" placeholder="Write comment here..." value={this.state.value} onChange={this.handleChange}/>
-            <input type="submit" className="post-button" />
+            <input type="submit" className="timeline-bottom-add timeline-bottom-add-text" />
           </form>
         </div>
     );
