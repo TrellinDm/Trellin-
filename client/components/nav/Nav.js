@@ -14,7 +14,7 @@ class Nav extends Component {
 		super(props);
 		this.state = {
 			menu: false
-		}
+		};
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.toggleResults = this.toggleResults.bind(this);
 		this.handleClick = this.handleClick.bind(this);
@@ -43,8 +43,8 @@ class Nav extends Component {
 	}
 
 	render() {
-		var connections = this.props.connections.map((conn, i) => {
-			var name = conn.first + " " + conn.last;
+		const connections = this.props.connections.map((conn, i) => {
+			const name = conn.first + " " + conn.last;
       return (
 				<Link key={i} to="/profile">
 					<div className="search-result" onClick={this.toggleResults}>
@@ -89,7 +89,7 @@ class Nav extends Component {
 
 const mapDispatchToProps = {
   toggleResults: toggleResults
-}
+};
 
 function mapStateToProps(state) {
   return {
