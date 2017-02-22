@@ -7,10 +7,12 @@ import axios from 'axios';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
+
 class Timeline extends Component {
   constructor(){
     super();
     this.state = {
+	    menu: false,
       showLists: false,
       messages:  []
     };
@@ -58,9 +60,14 @@ class Timeline extends Component {
           {/*Left profile box*/}
           <div className="timeline-col-left">
             <div className="profile-box">
-              <div className="timeline-profile-pic"></div>
+              <div className="timeline-profile-pic">
+	              { this.props.user.picture ? (<img className='timeline-profile-pic' src={this.props.user.picture}/>)
+		              :
+		              (<img className='timeline-profile-pic' src='https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'/>)
+	              }
+              </div>
               <div className="profile-name-wrap">
-                <div className="profile-text-lg">Welcome, John Doe</div>
+                <div className="profile-text-lg"> {this.props.user.display_name ? (<div className="profile-text-lg">Welcome, {this.props.user.display_name} </div>) : (<div className="profile-text-lg">Welcome, John Doe </div>)}</div>
                 <Link to="/profile" className="profile-link"> View Profile </Link>
               </div>
               <div className="profile-name-wrap">
@@ -116,10 +123,13 @@ class Timeline extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  }
+
+function mapStateToProps(state) {
+	return {
+		connections: state.search.updatedConnections,
+		showResults: state.search.showResults,
+		user: state.user
+	}
 }
 
-export default connect(mapStateToProps, {})(Timeline);
+export default connect(mapStateToProps)(Timeline);
