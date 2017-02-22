@@ -185,6 +185,11 @@
   cursor: pointer;
   }
 
+.comment-reveal:hover {
+  background-color: #2D6285;
+  cursor: pointer;
+  }
+
 .post-button{
   background-color: rgba(51, 114, 165, 0.82);
   padding: 6px 10px;
@@ -223,9 +228,8 @@
   }
 
 .timeline-bottom-add:hover {
-  background-color: rgb(202, 223, 255);
+  background-color: #2D6285;
   cursor: pointer;
-  color: #000;
   }
 
 .timeline-bottom-add-text {
@@ -237,10 +241,6 @@
   color: white;
   }
 
-.timeline-bottom-add-text:hover {
-  color: #000;
-  cursor: pointer;
-  }
 
 
 

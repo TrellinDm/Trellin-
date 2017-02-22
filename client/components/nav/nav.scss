@@ -52,7 +52,7 @@
   height: 85px;
   right: 0;
   position: absolute;
-  margin-right: 55px;
+  margin-right: 43px;
   width: 250px;
 }
 
@@ -73,20 +73,20 @@
   margin-bottom: 3px;
 }
 
-.navBar .navRight .profile-icon {
-  // background-image: url('http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg');
-  // background-position: center;
-  // background-size: cover;
-  height: 35px;
-  width: 35px;
+.profile-icon-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 46px;
+  }
+
+.image-icon {
+  height: 23px;
+  width: 23px;
   border-radius: 50%;
 }
 
-.image-icon {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-}
 .me-hover:hover {
   cursor: pointer
 }
@@ -95,7 +95,7 @@
   z-index: 100;
   width: 130px;
   height: 85px;
-  margin-top: 85px;
+  margin-top: 155px;
   background: #293e4a;
   display: flex;
   flex-direction: column;
@@ -114,6 +114,30 @@
   text-decoration: none;
   color: #e1e9ed;
 }
+
+.profile-settings {
+  z-index: 100;
+  width: 130px;
+  height: 85px;
+  margin-top: 85px;
+  background: #293e4a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 0;
+  }
+
+.profile-settings img {
+  width: 26px;
+  margin-bottom: 2px;
+  }
+
+.profile-settings a {
+  text-decoration: none;
+  color: #e1e9ed;
+  }
 
 .search-results a {
   text-decoration: none;

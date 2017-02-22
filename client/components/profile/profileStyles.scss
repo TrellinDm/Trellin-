@@ -17,6 +17,9 @@ hr {
 .title-text {
   font-size: 26px;
   font-weight: bold;
+  position: absolute;
+  top: 66px;
+  width: 100%;
   }
 
 // Titles to info boxes
@@ -122,9 +125,8 @@ hr {
   }
 
 .bottom-add:hover {
-  background-color: rgb(202, 223, 255);
+  background-color: #2D6285;
   cursor: pointer;
-  color: #000;
   }
 
 .bottom-add-text {
@@ -137,7 +139,6 @@ hr {
   }
 
 .bottom-add-text:hover {
-  color: #000;
   cursor: pointer;
   }
 
@@ -243,7 +244,7 @@ input:checked + .slider:before {
   }
 
 .profile-pic-container {
-  width: 35%;
+  width: 30%;
   display: inline-block;
   padding: 2% 1% 1% 1%;
   margin:0 auto;
@@ -255,11 +256,12 @@ input:checked + .slider:before {
   background: url('https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg') center no-repeat;
   background-size: contain;
   width: 100%;
-  height: 190px;
+  height: 170px;
+  border-radius: 4px;
   }
 
 .header-info-container {
-  width: 65%;
+  width: 70%;
   display: inline-block;
   padding: 1% 1% 1% 1%;
   margin:0 auto;
@@ -340,9 +342,8 @@ input:checked + .slider:before {
   }
 
 .reveal:hover {
-  background-color: rgb(202, 223, 255);
+  background-color: #2D6285;
   cursor: pointer;
-  color: #000;
   }
 
 .reveal-text {

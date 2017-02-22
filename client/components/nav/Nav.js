@@ -11,7 +11,7 @@ import './nav.scss';
 
 class Nav extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			menu: false
 		}
@@ -65,13 +65,14 @@ class Nav extends Component {
           <Link to="/connections"><img src={network} />My Network</Link>
           <Link id="trell-card" to="/trello"><img src={trellcard} />Trello</Link>
           <div className="me-hover" onClick={this.toggleMenu}>
-            <div className="profile-icon">
-					{ this.props.user.picture ? (<img className='image-icon' src={this.props.user.picture}/>)
-						:
-						(<img className='image-icon' src='http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg'/>)
-		 			}
-            </div>
-            <a>Me</a>
+		      <div className="profile-icon-box">
+			      { this.props.user.picture ? (<img className='image-icon' src={this.props.user.picture}/>)
+				      :
+				      (<img className='image-icon' src='https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'/>)
+			      }
+			      <a> {this.props.user.display_name ? (<a> {this.props.user.display_name} </a>) : (<a> Sign In </a>)}</a>
+		      </div>
+           
           </div>
         </div>
       </div>
