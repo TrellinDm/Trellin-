@@ -54,6 +54,7 @@
     "react-skylight": "^0.4.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "underscore": "^1.8.3"
   }
 }

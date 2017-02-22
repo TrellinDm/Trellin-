@@ -18,8 +18,10 @@ module.exports = {
     let type = data.messageType;
     let message = data.message;
     let messageid = 3;
-    db.createNewMessage([userid, messageid, message,listid, type ], function (err, result) {
-        // console.log(result)
+    db.createNewMessage([userid, messageid, message, listid, type ], function (err, result) {
+        if (err) {
+          console.log(err);
+        }
         res.status(200).send(result)
     })
   }
