@@ -67,7 +67,7 @@ class ProfileLanguage extends Component {
 
 		var languages = this.props.languageArray.map((lang, i) => {
 		return (
-			<div key={i}>
+			<div key={i} className="language-div">
 				{lang.language ? (
 					<div>{lang.language}</div>
 				) : (

@@ -69,8 +69,7 @@ module.exports = {
       req.body.license_no,
       req.body.certification_url,
       req.body.begdate,
-      req.body.enddate,
-      req.body.expire
+      req.body.enddate
     ];
     db.setCertifications(newCertifications, function(err, result) {
       res.status(200).send(result);
