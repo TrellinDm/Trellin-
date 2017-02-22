@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {newMessage} from '../../reducers/messageReducer'
 
 class CreateCommentBox extends React.Component {
 
@@ -23,10 +24,9 @@ class CreateCommentBox extends React.Component {
       listid: listid,
       messageType:messageType
     }
-    console.log(this.props.user.id);
     axios.post('/createNewMessage', data).then(res => {
+      this.props.newMessage(res.data)
 
-      console.log(res.data);
     })
   }
   handleChange(event) {
@@ -58,4 +58,8 @@ const mapStateToProps = state => {
     user: state.user
   }
 }
-export default connect(mapStateToProps, {})(CreateCommentBox);
+
+const mapDispatchToActions = {
+  newMessage
+}
+export default connect(mapStateToProps, mapDispatchToActions)(CreateCommentBox);

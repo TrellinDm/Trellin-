@@ -1,19 +1,36 @@
-// const NEW_MESSAGE = 'NEW_MESSAGE';
+const All_MESSAGES = 'All_MESSAGES';
+const NEW_MESSAGE = 'NEW_MESSAGE';
 
 const message = { };
 
 export default (state = message, action) => {
-console.log(action);
+
+  console.log(action);
   switch (action.type) {
-    case NEW_MESSAGE:
+    case All_MESSAGES:
       return Object.assign({}, state, action.payload)
+
+    case NEW_MESSAGE:
+    console.log(action.payload);
+    console.log(state);
+      return Object.assign({}, state, action.payload)
+
+
+    default: return state
   }
 }
 
+export function allMessages(data) {
+  return {
+    type: All_MESSAGES,
+    payload: data
+  }
+}
+
+
 export function newMessage (data) {
-  console.log('he');
   return {
     type: NEW_MESSAGE,
-    payload: messageInfo
+    payload: data
   }
 }
