@@ -9,14 +9,22 @@ class Settings extends Component {
     console.log(this.props.user);
 
     return (
-      <div className="account-settings">
-        <img src={Logout} />
-        <Link to="/login"></Link>
-        {this.props.user.id ? ( <a href='/auth/logout'>Sign Out</a>)
-          :
-          (<a href='/auth'>Sign In</a>)
-        }
-
+      <div>
+        <div className="account-settings">
+          <img src={Logout} />
+          <Link to="/login"></Link>
+		      {this.props.user.id ? ( <a href='/auth/logout'>Sign Out</a>)
+			      :
+			      (<a href='/auth'>Sign In</a>)
+		      }
+        </div>
+        
+        <Link to="/profile" className="profile-settings">
+          <img src={Logout} />
+          {/*<Link to="/profile"></Link>*/}
+          <a >Profile</a>
+        </Link>
+        
       </div>
     )
   }

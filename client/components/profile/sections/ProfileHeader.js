@@ -3,36 +3,18 @@ import NamePopup from '../headlineForms/NamePopup';
 import HeadlinePopup from '../headlineForms/HeadlinePopup';
 import IndustryPopup from '../headlineForms/IndustryPopup';
 import SkyLight from 'react-skylight';
-
+import { connect } from 'react-redux';
 
 class ProfileHeader extends Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      name: false,
-      headline: false,
-      industry: false
-    };
-	
-	  this.toggleName = this.toggleName.bind(this);
-	  this.toggleHeadline = this.toggleHeadline.bind(this);
-	  this.toggleIndustry = this.toggleIndustry.bind(this);
-  }
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			menu: false
+		};
+	}
   
-	toggleName() {
-    this.setState({name : !this.state.name})
-	}
-
-	toggleHeadline() {
-    this.setState({headline : !this.state.headline})
-	}
-
-	toggleIndustry() {
-		this.setState({industry : !this.state.industry})
-	}
 	
-  
   render() {
 	
 	  const style = {
@@ -54,13 +36,18 @@ class ProfileHeader extends Component {
       <div className="header-box">
 	      
         <div className="profile-pic-container">
-          <div className="profile-pic"></div>
+          <div className="profile-pic">
+	          { this.props.user.picture ? (<img className='profile-pic' src={this.props.user.picture}/>)
+		          :
+		          (<img className='profile-pic' src='https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'/>)
+	          }
+          </div>
         </div>
 	      
         <div className="header-info-container">
           <div className="profile-name">
             {/*<div onClick={this.toggleName} className="popup">*/}
-              <span className="title-text">John Doe</span>
+	          <div className="title-text"> {this.props.user.display_name ? (<div className="title-text"> {this.props.user.display_name} </div>) : (<div className="title-text"> John Doe </div>)}</div>
               {/*<div className="pencil-lg"></div>*/}
             {/*</div>*/}
             {this.state.name ? <NamePopup /> : null}
@@ -87,7 +74,7 @@ class ProfileHeader extends Component {
         </div>
 	      
 				<div>
-					<button onClick={() => this.refs.profile.show()} className="button-dark-blue title-text" > Edit profile</button>
+					<button onClick={() => this.refs.profile.show()} className="button-dark-blue" > Edit profile</button>
 						<SkyLight dialogStyles={style} hideOnOverlayClicked ref="profile" title="Edit profile">
 							<div>
 								<div className="form-title">Profile Picture</div>
@@ -123,4 +110,14 @@ class ProfileHeader extends Component {
   }
 }
 
-export default ProfileHeader;
+
+function mapStateToProps(state) {
+	return {
+		connections: state.search.updatedConnections,
+		showResults: state.search.showResults,
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps)(ProfileHeader);
+
