@@ -17,7 +17,7 @@ export default (state = initialState, action = [] ) => {
 
 
     case SAVE_LIST:
-      let arr = Array.from(state.lists);
+      let arr = Array.from(state.listObj);
       arr.push(action.data)
       return Object.assign({}, state, {listObj: arr})
 
@@ -35,7 +35,15 @@ export default (state = initialState, action = [] ) => {
       return Object.assign({}, state, {cardObj: cards});
 
     case UPDATE_CARDS:
-      return Object.assign({}, state, {cardObj: action.data})
+      console.log(action.data );
+      cards = Object.assign({}, state.cardObj )
+      if (!cards[action.data[0].list_id]) {
+        cards[action.data[0].list_id] = action.data
+      }else {
+        cards[action.data[0].list_id].push(action.data[0]);
+      }
+      console.log(cards);
+      return Object.assign({}, state, {cardObj: cards})
 
     default: return state
   }
