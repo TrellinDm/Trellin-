@@ -1,9 +1,11 @@
 import React, {Component } from 'react';
 import List from './List';
+import Card from './Card';
 import {connect} from 'react-redux';
 import './List.scss';
 import axios from 'axios';
 import {updateList} from '../../reducers/listReducer'
+import {saveCards} from '../../reducers/listReducer'
 
 class Trello extends Component {
   constructor(props) {
@@ -11,34 +13,48 @@ class Trello extends Component {
 
   }
   componentDidMount() {
-    console.log(this.props.list);
+    console.log(this.props.listObj);
 
       axios.get('/lists')
         .then( res => {
           console.log(res.data);
           this.props.updateList( res.data)
+
+          
         })
+
+
+
 
 
   }
 
   render() {
     return (
+    <div>
       <div className='trello'>
         <List/>
+
       </div>
+      <br/>
+      <br/>
+    <div className='cards'>
+
+    </div>
+    </div>
     )
   }
 }
 
 const mapStateToProps = state => {
  return {
-   list: state.list
+   listObj: state.list
  }
 }
 
 const mapDispatchToActions = {
- updateList
+ updateList,
+ saveCards
 }
 
 export default connect(mapStateToProps, mapDispatchToActions)(Trello);
