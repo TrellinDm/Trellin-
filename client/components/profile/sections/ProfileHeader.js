@@ -8,15 +8,15 @@ import { connect } from 'react-redux';
 class ProfileHeader extends Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			menu: false
 		};
 	}
-  
-	
+
+
   render() {
-	
+
 	  const style = {
 		  width: '50%',
 		  height: 'auto',
@@ -26,15 +26,15 @@ class ProfileHeader extends Component {
 		  padding: '30px',
 		  color: 'black'
 	  };
-	
-	
+
+
 	  var current = ['devmountain ', 'some other place'];
 	  var education = ['devmountain ', 'some other place'];
 	  var connectionNum = 283;
-    
+
     return (
       <div className="header-box">
-	      
+
         <div className="profile-pic-container">
           <div className="profile-pic">
 	          { this.props.user.picture ? (<img className='profile-pic' src={this.props.user.picture}/>)
@@ -43,7 +43,7 @@ class ProfileHeader extends Component {
 	          }
           </div>
         </div>
-	      
+
         <div className="header-info-container">
           <div className="profile-name">
             {/*<div onClick={this.toggleName} className="popup">*/}
@@ -52,37 +52,35 @@ class ProfileHeader extends Component {
             {/*</div>*/}
             {this.state.name ? <NamePopup /> : null}
           </div>
-          <div className="add-text-blue" >Add Headline
-		        
-          </div>
-          <div className="profile-headline">
-            {/*<div onClick={this.toggleHeadline} className="popup profile-text">Devmountain</div>*/}
-            {this.state.headline ? <HeadlinePopup /> : null}
-          </div>
-          
-          <div className="profile-industry profile-text">
-            {/*<div onClick={this.toggleIndustry} className="popup">Industry/Location</div>*/}
-            {this.state.industry ? <IndustryPopup /> : null}
-          </div>
-          
-	        <div className="profile-text"><span className="sm-gray-text">Current</span> {current}</div>
-	        <div className="profile-text"><span className="sm-gray-text">Education</span> {education}</div>
-          <div className="connections-float-R">
+					<div className="header-mid">
+						<div className="add-text-blue" >Add Headline</div>
+	          <div className="profile-headline">
+	            {/*<div onClick={this.toggleHeadline} className="popup profile-text">Devmountain</div>*/}
+	            {this.state.headline ? <HeadlinePopup /> : null}
+	          </div>
+	          <div className="profile-industry profile-text">
+	            {/*<div onClick={this.toggleIndustry} className="popup">Industry/Location</div>*/}
+	            {this.state.industry ? <IndustryPopup /> : null}
+	          </div>
+		        <div className="profile-text"><span className="sm-gray-text">Current</span> {current}</div>
+		        <div className="profile-text"><span className="sm-gray-text">Education</span> {education}</div>
+					</div>
+					<div className="connections-float-R">
             <div className="connections-num">{connectionNum}</div>
             <div className="sm-gray-text">connections</div>
           </div>
         </div>
-	      
+
 				<div>
-					<button onClick={() => this.refs.profile.show()} className="button-dark-blue" > Edit profile</button>
+					{/* <button onClick={() => this.refs.profile.show()} className="button-dark-blue" > Edit profile</button> */}
 						<SkyLight dialogStyles={style} hideOnOverlayClicked ref="profile" title="Edit profile">
 							<div>
 								<div className="form-title">Profile Picture</div>
-								
+
 								<input type="file" id="file-input" />
 								<p id="status" />
 								<img id="preview" src="/images/default.png" />
-								
+
 								<form method="POST" action="/save-header" >
 									<input className="form-input" type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png" />
 									<div className="form-title">Full Name</div>
@@ -104,7 +102,7 @@ class ProfileHeader extends Component {
 							</div>
 						</SkyLight>
 				</div>
-	      
+
       </div>
     )
   }
@@ -120,4 +118,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(ProfileHeader);
-

@@ -213,3 +213,17 @@
   border-left: solid 6px #0077b5;
 }
 
+@media (max-width: 645px) {
+  .navBar .navLeft .searchBar {
+    width: 180px;
+  }
+}
+
+@media (max-width: 510px) {
+  .navBar .navLeft .searchBar {
+    margin-top: 70px;
+    margin-left: -146px;
+    border: solid 1px;
+    width: 256px;
+  }
+}
