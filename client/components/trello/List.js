@@ -1,5 +1,6 @@
 import React, {Component } from 'react';
-import {saveList} from '../../reducers/listReducer'
+import {saveList} from '../../reducers/listReducer';
+import {saveCards} from '../../reducers/listReducer';
 import {connect} from 'react-redux';
 import './List.scss';
 import axios from 'axios';
@@ -16,7 +17,16 @@ class List extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.postList = this.postList.bind(this);
     // this.props.updateList = this.props.updateList.bind(this);
+
   }
+
+  // componentDidMount() {
+  //   axios.get('/cards')
+  //     .then(res => {
+  //       console.log(res.data);
+  //       this.props.saveCards(res.data)
+  //     })
+  // }
 
   handleChange(e) {
     this.state.newList = e.target.value
@@ -43,15 +53,17 @@ class List extends Component {
   //     return <li key={i}>{elm.title}</li>
   // })
 
+
+
     return (
 
       <div className='allList'>
 
-        {this.props.list.all.map( (elm, i) =>{
+        {this.props.list.map( (elm, i) =>{
           return (<div className='list' key={elm.id}>
           <h3>{elm.title}</h3>
           <br/>
-          <Card listId={elm.id}/>
+          <Card id={elm.id} />
           </div>)
         })}
 
@@ -70,13 +82,15 @@ class List extends Component {
 
  const mapStateToProps = state => {
   return {
-    list: state.list
+    list: state.list.listObj,
+    cards: state.list.cardObj
   }
 }
 
 
 const mapDispatchToActions = {
-  saveList
+  saveList,
+  saveCards
 }
 
 export default connect(mapStateToProps, mapDispatchToActions)(List);

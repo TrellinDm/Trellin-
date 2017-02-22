@@ -48,7 +48,7 @@ app.post('/list', listCtrl.Create);
 var cardCtrl = require('./server/cardCtrl');
 
 app.post('/card', cardCtrl.Create);
-
+app.get('/cards', cardCtrl.GetAll);
 
 //----------------------auth0-------------\\
 passport.use(new Auth0Strategy({
