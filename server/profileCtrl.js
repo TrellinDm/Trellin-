@@ -80,14 +80,16 @@ module.exports = {
     var newEducation = [
       req.body.id,
       req.body.school,
+      req.body.begdate,
+      req.body.enddate,
       req.body.degree,
       req.body.field,
       req.body.grade,
-      req.body.activities,
-      req.body.begdate,
-      req.body.enddate
+      req.body.activities
     ];
+    console.log(newEducation);
     db.setEducation(newEducation, function(err, result) {
+      console.log(err);
       res.status(200).send(result);
     });
   },
