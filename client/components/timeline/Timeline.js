@@ -5,6 +5,7 @@ import CreateCommentBox from './create-comment.js';
 import './messaging.scss';
 import axios from 'axios';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
 class Timeline extends Component {
   constructor(){
@@ -15,7 +16,13 @@ class Timeline extends Component {
     };
   }
   componentDidMount() {
-      axios.post('/getMessages').then(res => {
+    if (!this.props.user.id) {
+      var id = 3
+    }
+    else {
+      id = this.props.user.id
+    }
+      axios.get('/getMessages/' + id).then(res => {
         console.log(res.data);
         this.setState({
           messages: res.data
@@ -47,7 +54,7 @@ class Timeline extends Component {
     return (
       <div className="profile-background">
         <div className="container-Timeline">
-          
+
           {/*Left profile box*/}
           <div className="timeline-col-left">
             <div className="profile-box">
@@ -67,13 +74,13 @@ class Timeline extends Component {
               </div>
             </div>
           </div>
-          
+
           {/*Middle comments box*/}
           <div className="timeline-col-mid">
             <CreateCommentBox />
             {listMessages}
           </div>
-          
+
           {/*Right connections box*/}
           <div className="timeline-col-right">
             <div className="connection-box">
@@ -97,11 +104,11 @@ class Timeline extends Component {
             </div>
           </div>
         </div>
-        
+
       </div>
     );
   }
-  
+
   listClick() {
     this.setState({
       showLists: !this.state.showLists
@@ -109,4 +116,10 @@ class Timeline extends Component {
   }
 }
 
-export default Timeline;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps, {})(Timeline);
