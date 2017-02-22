@@ -116,7 +116,7 @@ hr {
 .bottom-add {
   width: 100%;
   height: 38px;
-  background-color: rgba(51, 114, 165, 0.82);
+  background-color: #0077B5;
   border-radius: 3px;
   border: 1px solid #7f7f7f;
   box-sizing: border-box;
@@ -269,11 +269,6 @@ input:checked + .slider:before {
   clear:both;
   }
 
-.popup:hover {
-  cursor: pointer;
-  background-color: rgb(202, 223, 255);
-  }
-
 .name-popup-box {
   position: relative;
   width: 15vw;
@@ -333,7 +328,7 @@ input:checked + .slider:before {
   margin-bottom: 2%;
   width: 100%;
   height: 40px;
-  background-color: rgba(51, 114, 165, 0.82);
+  background-color: #0077B5;
   cursor: pointer;
   border-radius: 4px;
   box-sizing: border-box;
