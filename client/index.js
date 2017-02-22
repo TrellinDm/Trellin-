@@ -8,11 +8,11 @@ import rootReducer from './rootReducer';
 
 
 let store = createStore(
-  rootReducer,
-  compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  )
+  rootReducer
+  // compose(
+  //   applyMiddleware(thunk),
+  //   window.devToolsExtension ? window.devToolsExtension() : f => f
+  // )
 )
 
 import Routes from './Routes';

@@ -26,8 +26,6 @@ class Profile extends Component {
       this.props.addInfo(res.data);
     });
 
-
-
 	  $(document).ready(function() {
 		  $(".toggle_container").hide();
 		  $("button.reveal").click(function() {
@@ -40,12 +38,7 @@ class Profile extends Component {
 			  return false;
 		  });
 	  });
-
-
   }
-
-
-
 
   render() {
     return (
@@ -56,7 +49,7 @@ class Profile extends Component {
             <div><span className="sm-text-gray">Add a section to your profile - </span><span className="smlr-text-gray">be discovered for your next career step.</span></div>
 
             <div className="section-view-more">
-              <button className="reveal"> View More  ▼ </button><div className="toggle_container"><div className="block"> <ProfileAddSection /> </div></div>
+              <button className="reveal reveal-text"> View More  ▼ </button><div className="toggle_container"><div className="block"> <ProfileAddSection /> </div></div>
             </div>
 
             {this.props.summaryShow ? <ProfileSummary /> : null}
@@ -69,6 +62,7 @@ class Profile extends Component {
             {this.props.experienceShow ? <ProfileExperience /> : null}
             {this.props.personalShow ? <ProfilePersonal /> : null}
             {this.props.volunteerShow ? <ProfileVolunteer /> : null}
+
           </div>
           <div className="profile-col-right">
             <ProfileSidebar />

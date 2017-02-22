@@ -1,25 +1,30 @@
 // import '../App.js';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import CommentBox from './comments.js';
 import CreateCommentBox from './create-comment.js';
 import './messaging.scss';
 import axios from 'axios';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
-const profileImageThree = {backgroundImage: 'url(' + 'http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg' + ')'}
-const profileImageOne = {backgroundImage: 'url(' + "http://kingofwallpapers.com/jack-black/jack-black-005.jpg" + ')'}
-const profileImageTwo = {backgroundImage: 'url(' + "http://www.gannett-cdn.com/-mm-/67c23b55d461f83e96855358c4bee23b00420bd6/c=334-0-5437-3836&r=x404&c=534x401/local/-/media/USATODAY/USATODAY/2014/04/03//1396538883000-James-Franco.jpg" + ')'}
 
-class Timeline extends React.Component {
+class Timeline extends Component {
   constructor(){
     super();
     this.state = {
+	    menu: false,
       showLists: false,
       messages:  []
     };
   }
   componentDidMount() {
-      axios.post('/getMessages').then(res => {
+    if (!this.props.user.id) {
+      var id = 3
+    }
+    else {
+      id = this.props.user.id
+    }
+      axios.get('/getMessages/' + id).then(res => {
         console.log(res.data);
         this.setState({
           messages: res.data
@@ -33,7 +38,7 @@ class Timeline extends React.Component {
         return (
           <CommentBox key={i} author={mes.userid} body={mes.message} />
         )
-      })
+      });
 
     let listNodes;
     let listsButton = 'Show Lists';
@@ -49,42 +54,68 @@ class Timeline extends React.Component {
     listsButton = 'hide lists';
     }
     return (
-      <section className="timelineSection">
-        <div className="timeline-profileInfo">
-          <div className="profile-image single-comment-profilePic" style={profileImageThree}></div>
-          <div className="profile-name-wrap">
-            <p>Welcome, Marcus!</p>
-            <Link to="/profile">View Profile</Link>
+      <div className="profile-background">
+        <div className="container-Timeline">
+
+          {/*Left profile box*/}
+          <div className="timeline-col-left">
+            <div className="profile-box">
+              <div className="timeline-profile-pic">
+	              { this.props.user.picture ? (<img className='timeline-profile-pic' src={this.props.user.picture}/>)
+		              :
+		              (<img className='timeline-profile-pic' src='https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'/>)
+	              }
+              </div>
+              <div className="profile-name-wrap">
+                <div className="profile-text-lg"> {this.props.user.display_name ? (<div className="profile-text-lg">Welcome, {this.props.user.display_name} </div>) : (<div className="profile-text-lg">Welcome, John Doe </div>)}</div>
+                <Link to="/profile" className="profile-link"> View Profile </Link>
+              </div>
+              <div className="profile-name-wrap">
+                <div className="profile-text-lg">Connections: <span>15</span></div>
+                <Link to="/connections" className="profile-link"> My Network </Link>
+              </div>
+              <div>
+                <div className="list-text">Saved Lists</div>
+                <button className="list-btn button-gray" onClick={this.listClick.bind(this)}> {listsButton} </button>
+	              {listNodes}
+              </div>
+            </div>
           </div>
-          <div className="profile-name-wrap">
-            <p><span>15</span> Connections</p>
-            <p className="edit-profile">My Network</p>
+
+          {/*Middle comments box*/}
+          <div className="timeline-col-mid">
+            <CreateCommentBox />
+            {listMessages}
+          </div>
+
+          {/*Right connections box*/}
+          <div className="timeline-col-right">
+            <div className="connection-box">
+              <div className="profileInfo-title">Connections</div>
+              <div className="timeline-contact-wrap">
+                <div className="comment-profilePic"></div>
+                <p>Marcus Ogden</p>
+              </div>
+              <div className="timeline-contact-wrap">
+                <div className="comment-profilePic"></div>
+                <p>Erik Golden</p>
+              </div>
+              <div className="timeline-contact-wrap">
+                <div className="comment-profilePic"></div>
+                <p>Marc-Andy Noel Jeune</p>
+              </div>
+              <div className="timeline-contact-wrap">
+                <div className="comment-profilePic"></div>
+                <p>William Cox</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="centerTimeline">
-          <CreateCommentBox/>
-          {listMessages}
-        </div>
-        <div className="timeline-profileInfo">
-          <div className="profileInfo-title">Connections</div>
-          <div className="timeline-contact-wrap">
-            <div className="single-comment-profilePic"></div>
-            <p>Marcus Ogden</p>
-          </div>
-          <div className="timeline-contact-wrap">
-            <div className="single-comment-profilePic" style={profileImageOne}></div>
-            <p>Jack Black</p>
-          </div>
-          <div className="timeline-contact-wrap">
-            <div className="single-comment-profilePic" style={profileImageTwo}></div>
-            <p>Jack Black</p>
-          </div>
-        </div>
-        <button className="trello-button" onClick={this.listClick.bind(this)}> {listsButton} </button>
-        {listNodes}
-      </section>
+
+      </div>
     );
   }
+
   listClick() {
     this.setState({
       showLists: !this.state.showLists
@@ -92,4 +123,13 @@ class Timeline extends React.Component {
   }
 }
 
-export default Timeline;
+
+function mapStateToProps(state) {
+	return {
+		connections: state.search.updatedConnections,
+		showResults: state.search.showResults,
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps)(Timeline);

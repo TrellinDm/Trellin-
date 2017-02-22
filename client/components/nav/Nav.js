@@ -7,20 +7,22 @@ import Settings from './Settings';
 import Search from './Search';
 import { connect } from 'react-redux';
 import {toggleResults} from '../../reducers/searchReducer';
+import {toggleMenu} from '../../reducers/searchReducer';
 import './nav.scss';
 
 class Nav extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			menu: false
-		}
+		};
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.toggleResults = this.toggleResults.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 	}
 
 	toggleMenu() {
+		console.log("there");
 		this.setState({ menu: !this.state.menu });
 	}
 
@@ -31,6 +33,12 @@ class Nav extends Component {
 	handleClick(e) {
 		if (e.target.className !== 'search-result' && this.props.showResults) {
 			this.props.toggleResults();
+		}
+		if (e.target.className !== 'me-hover' && e.target.className !== 'image-icon' && e.target.className !== 'icon-text') {
+			console.log(e.target.className);
+			this.setState({
+				menu: false
+			});
 		}
 	}
 
@@ -43,8 +51,8 @@ class Nav extends Component {
 	}
 
 	render() {
-		var connections = this.props.connections.map((conn, i) => {
-			var name = conn.first + " " + conn.last;
+		const connections = this.props.connections.map((conn, i) => {
+			const name = conn.first + " " + conn.last;
       return (
 				<Link key={i} to="/profile">
 					<div className="search-result" onClick={this.toggleResults}>
@@ -56,39 +64,43 @@ class Nav extends Component {
     });
 		return (
 			<div>
-      <div className="navBar">
-        <div className="navLeft">
-          <Link to="/timeline"><img src={logo} /></Link>
-          <Search />
-        </div>
-        <div className="navRight">
-          <Link to="/connections"><img src={network} />My Network</Link>
-          <Link id="trell-card" to="/trello"><img src={trellcard} />Trello</Link>
-          <div className="me-hover" onClick={this.toggleMenu}>
-            <div className="profile-icon">
-					{ this.props.user.picture ? (<img className='image-icon' src={this.props.user.picture}/>)
-						:
-						(<img className='image-icon' src='http://res.cloudinary.com/devmountain-discover/image/upload/v1486891391/marcus-ogden_b16vtd.jpg'/>)
-		 			}
-            </div>
-            <a>Me</a>
-          </div>
-        </div>
-      </div>
-			<div>
-				{this.state.menu ? <Settings /> : null}
+	      <div className="navBar">
+	        <div className="navLeft">
+	          <Link to="/timeline"><img src={logo} /></Link>
+	          <Search />
+	        </div>
+	        <div className="navRight">
+		        <div className="network-icon-box">
+			        <Link to="/connections"><img src={network} /> Network </Link>
+		        </div>
+		        <div className="trello-icon-box">
+			        <Link id="trell-card" to="/trello"><img src={trellcard} /> Trello </Link>
+		        </div>
+	          <div className="me-hover" onClick={this.toggleMenu}>
+				      <div className="profile-icon-box">
+					      { this.props.user.picture ? (<img className='image-icon' src={this.props.user.picture}/>)
+						      :
+						      (<img className='image-icon' onClick={this.toggleMenu} src='https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'/>)
+					      }
+					      <a> {this.props.user.display_name ? (<a className="icon-text" onClick={this.toggleMenu}> {this.props.user.display_name} </a>) : (<a className="icon-text" onClick={this.toggleMenu}> Sign In </a>)}</a>
+				      </div>
+	          </div>
+	        </div>
+	      </div>
+				<div>
+					{this.state.menu ? <Settings /> : null}
+				</div>
+				<div className="search-results">
+					{this.props.showResults ? connections : null}
+				</div>
 			</div>
-			<div className="search-results">
-				{this.props.showResults ? connections : null}
-			</div>
-		</div>
 		)
 	}
 }
 
 const mapDispatchToProps = {
   toggleResults: toggleResults
-}
+};
 
 function mapStateToProps(state) {
   return {
