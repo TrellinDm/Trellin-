@@ -1,3 +1,30 @@
+.language-div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px gainsboro;
+  padding: 10px 20px 10px 20px;
+}
+
+.awards-div {
+  border-bottom: solid 1px gainsboro;
+  padding: 10px 20px 10px 20px;
+}
+
+.skills-div {
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-div {
+  padding: 5px 10px;
+  background: rgba(51, 114, 165, 0.82);
+  color: white;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
 //Makes the hr line light gray
 hr {
   display: block;
@@ -24,8 +51,8 @@ hr {
 
 // Titles to info boxes
 .title-text-gray {
-  padding-top: 25px;
-  padding-left: 25px;
+  padding-top: 20px;
+  padding-left: 20px;
   font-size: 26px;
   color: #afb2b5;
   }
@@ -80,6 +107,7 @@ hr {
 // Outer container holding the info boxes
 .container{
   margin:0 auto;
+  display: flex;
   width:60%;
   overflow:auto;
   clear:both;
@@ -94,20 +122,19 @@ hr {
   }
 
 .profile-col-right {
-  width:30%;
-  float:left;
+  min-width: 280px;
   }
 
 // container within info box to hold user data
 .box-info {
   width: 100%;
   line-height: 25px;
-  padding: 22px 4% 30px 4%;
   }
 
 
 .header-box,.experience-box,.certifications-box,.education-box,.skills-box,.following-box {
-  border: 1px solid #575757;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  border: solid 1px gainsboro;
   margin: 0 2% 2% 0;
   border-radius: 4px;
   }
@@ -115,12 +142,10 @@ hr {
 // Link, text, and hover styling at bottom of info boxes
 .bottom-add {
   width: 100%;
+  border: none;
   height: 38px;
-  background-color: rgba(51, 114, 165, 0.82);
+  background-color: #0077B5;
   border-radius: 3px;
-  border: 1px solid #7f7f7f;
-  box-sizing: border-box;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
   color: white;
   }
 
@@ -238,7 +263,7 @@ input:checked + .slider:before {
 .header-box {
   padding: 10px 10px;
   height: auto;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   background-color: white;
   line-height: 25px;
   }
@@ -267,11 +292,6 @@ input:checked + .slider:before {
   margin:0 auto;
   overflow:auto;
   clear:both;
-  }
-
-.popup:hover {
-  cursor: pointer;
-  background-color: rgb(202, 223, 255);
   }
 
 .name-popup-box {
@@ -328,12 +348,13 @@ input:checked + .slider:before {
 
 //Class for the section slide down menu
 .reveal    {
-  box-shadow: 2px 2px 8px #888888;
+  border: solid 1px gainsboro;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   margin-top: 2%;
   margin-bottom: 2%;
   width: 100%;
   height: 40px;
-  background-color: rgba(51, 114, 165, 0.82);
+  background-color: #0077B5;
   cursor: pointer;
   border-radius: 4px;
   box-sizing: border-box;
@@ -366,18 +387,18 @@ input:checked + .slider:before {
 .add-section-box {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   height: auto;
-  margin: 1.5% 0.5% 2% -1%;
   border-radius: 4px;
   }
 
 .add-section {
-  width: 48%;
+  width: 49%;
   height: 148px;
-  margin: 0 .5% 1.5% 1%;
+  margin-bottom: 10px;
   background-color: white;
-  border: 1px solid #575757;
-  box-shadow: 2px 2px 8px #888888;
+  border: solid 1px gainsboro;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   border-radius: 4px;
   }
 
@@ -496,8 +517,8 @@ input:checked + .slider:before {
 //////
 .sidebar-box {
   height: auto;
-  border: 1px solid #575757;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  border: solid 1px gainsboro;
   background-color: white;
   padding: 25px 25px;
   margin-bottom: 15px;
@@ -505,8 +526,8 @@ input:checked + .slider:before {
 
 .course-box {
   height: auto;
-  border: 1px solid #575757;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  border: solid 1px gainsboro;
   background-color: white;
   padding: 25px 25px;
   }
@@ -571,7 +592,7 @@ input:checked + .slider:before {
 .experience-box {
   height: auto;
   background-color: white;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   margin-top: 5px;
   }
 
@@ -581,7 +602,7 @@ input:checked + .slider:before {
 .certifications-box {
   height: auto;
   background-color: white;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   }
 
 //////
@@ -590,7 +611,7 @@ input:checked + .slider:before {
 .education-box {
   height: auto;
   background-color: white;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   }
 
 //////
@@ -599,7 +620,7 @@ input:checked + .slider:before {
 .skills-box {
   height: auto;
   background-color: white;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   border-radius: 4px;
   }
 
@@ -609,7 +630,7 @@ input:checked + .slider:before {
 .following-box {
   height: auto;
   background-color: white;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   }
 
 //////
