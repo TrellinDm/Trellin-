@@ -46,8 +46,8 @@ renderCard() {
   if (this.props.list.cardObj[this.props.id]) {
     var grid = this.props.list.cardObj[this.props.id].map((elm, i) => {
       
-     return (<li key={i}>{elm.content} : {elm.id}</li>)
-   })
+     return (<div className="card" key={i}>{elm.content} : {elm.id}</div>)
+   });
    return grid
   }
 }
@@ -58,12 +58,12 @@ renderCard() {
     return (
 
       <div>
-        <ul>
+        <div>
           {this.renderCard()}
-      </ul>
+      </div>
         <div >
-          <input className='input-main' onChange={this.handleChange} />
-          <button onClick={this.postCard} className='button-gray'>Add Card</button>
+          <input className='input-table' onChange={this.handleChange} />
+          <button onClick={this.postCard} className='button-dark-blue'>Add Card</button>
         </div>
       </div>
     )

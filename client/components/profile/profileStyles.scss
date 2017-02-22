@@ -1,12 +1,12 @@
 .language-div {
   display: flex;
   justify-content: space-between;
-  border-bottom: solid 1px gainsboro;
+  border-bottom: solid 1px #bebebe;
   padding: 10px 20px 10px 20px;
 }
 
 .awards-div {
-  border-bottom: solid 1px gainsboro;
+  border-bottom: solid 1px #bebebe;
   padding: 10px 20px 10px 20px;
 }
 
@@ -117,7 +117,7 @@ hr {
 // Left and Right columns within .container
 .profile-col-left {
   overflow:auto;
-  width:70%;
+  //width:70%;
   float:left;
   }
 

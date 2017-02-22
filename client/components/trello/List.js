@@ -57,24 +57,21 @@ class List extends Component {
 
     return (
 
-      <div className='allList'>
+      <div>
   
-        <div className='addList'>
-          <input className='input-main' onChange={this.handleChange} />
-          <button onClick={this.postList} className='button-gray'>Create list</button>
+        <div>
+          <div>
+            <input className='input-table' onChange={this.handleChange} />
+          </div>
+          <button onClick={this.postList} className='button-dark-blue'>Create list</button>
         </div>
-        
         {this.props.list.map( (elm, i) =>{
-          return (<div className='list' key={elm.id}>
-          <h3>{elm.title}</h3>
-          <br/>
-          <Card id={elm.id} />
-          </div>)
+          return (<div className="table-container"><div className='list' key={elm.id}>
+            <h3>{elm.title}</h3>
+            <br/>
+            <Card className="card" id={elm.id} />
+          </div></div>)
         })}
-
-
-
-       
       </div>
     )
   }
