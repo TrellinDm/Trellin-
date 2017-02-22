@@ -52,51 +52,53 @@ function storeInfo(state, userInfo) {
 
 export default function reducer(state=initialState, action) {
   switch (action.type) {
-    case ADDINFO:
-      var newState = storeInfo(state, action.payload);
-      return Object.assign({}, newState);
-    case ADDAWARD:
-      state.awardsArray.unshift(action.payload);
-      state.awardsShow = true;
-      return Object.assign({}, state);
-    case ADDCERT:
-      state.certificationsArray.unshift(action.payload);
-      state.certificationsShow = true;
-      return Object.assign({}, state);
-    case ADDCOURSE:
-      state.coursesArray.unshift(action.payload);
-      state.coursesShow = true;
-      return Object.assign({}, state);
-    case ADDEDU:
-      state.educationArray.unshift(action.payload);
-      state.educationShow = true;
-      return Object.assign({}, state);
-    case ADDEXP:
-      state.experienceArray.unshift(action.payload);
-      state.experienceShow = true;
-      return Object.assign({}, state);
-    case ADDLANG:
-      state.languageArray.unshift(action.payload);
-      state.languageShow = true;
-      return Object.assign({}, state);
-    case ADDPERS:
-      state.personalArray.unshift(action.payload);
-      state.personalShow = true;
-      return Object.assign({}, state);
-    case ADDSKILL:
-      state.skillsArray.unshift(action.payload);
-      state.skillsShow = true;
-      return Object.assign({}, state);
-    case ADDSUMMARY:
-      state.summaryArray.unshift(action.payload);
-      state.summaryShow = true;
-      return Object.assign({}, state);
-    case ADDVOLUN:
-      state.volunteerArray.unshift(action.payload);
-      state.volunteerShow = true;
-      return Object.assign({}, state);
-    default: return state;
-  }
+   case ADDINFO:
+     var stateCopy = Object.assign({}, state);
+     var newState = storeInfo(stateCopy, action.payload);
+     return Object.assign({}, state, newState);
+   case ADDAWARD:
+     var awards = Array.from(state.awardsArray);
+     awards.unshift(action.payload);
+     return Object.assign({}, state, {awardsArray: awards, awardsShow: true});
+   case ADDCERT:
+     var certifications = Array.from(state.certificationsArray);
+     certifications.unshift(action.payload);
+     return Object.assign({}, state, {certificationsArray: certifications, certificationsShow: true});
+   case ADDCOURSE:
+     var courses = Array.from(state.coursesArray);
+     courses.unshift(action.payload);
+     return Object.assign({}, state, {coursesArray: courses, coursesShow: true});
+   case ADDEDU:
+     var education = Array.from(state.educationArray);
+     education.unshift(action.payload);
+     return Object.assign({}, state, {educationArray: education, educationShow: true});
+   case ADDEXP:
+     var experience = Array.from(state.experienceArray);
+     experience.unshift(action.payload);
+     return Object.assign({}, state, {experienceArray: experience, experienceShow: true});
+   case ADDLANG:
+     var language = Array.from(state.languageArray);
+     language.unshift(action.payload);
+     return Object.assign({}, state, {languageArray: language, languageShow: true});
+   case ADDPERS:
+     var personal = Array.from(state.personalArray);
+     personal.unshift(action.payload);
+     return Object.assign({}, state, {personalArray: personal, personalShow: true});
+   case ADDSKILL:
+     var skills = Array.from(state.skillsArray);
+     skills.unshift(action.payload);
+     return Object.assign({}, state, {skillsArray: skills, skillsShow: true});
+   case ADDSUMMARY:
+     var summary = Array.from(state.summaryArray);
+     summary.unshift(action.payload);
+     return Object.assign({}, state, {summaryArray: summary, summaryShow: true});
+   case ADDVOLUN:
+     var volunteer = Array.from(state.volunteerArray);
+     volunteer.unshift(action.payload);
+     return Object.assign({}, state, {volunteerArray: volunteer, volunteerShow: true});
+   default:
+     return state;
+ }
 }
 
 export function addInfo(userInfo) {
