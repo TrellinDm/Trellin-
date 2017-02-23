@@ -25,6 +25,10 @@
   border-radius: 10px;
 }
 
+.header-mid {
+
+}
+
 //Makes the hr line light gray
 hr {
   display: block;
@@ -44,7 +48,6 @@ hr {
 .title-text {
   font-size: 26px;
   font-weight: bold;
-  position: absolute;
   top: 66px;
   width: 100%;
   }
@@ -106,19 +109,16 @@ hr {
 
 // Outer container holding the info boxes
 .container{
-  margin:0 auto;
+  margin: auto;
   display: flex;
-  width:60%;
-  overflow:auto;
-  clear:both;
+  width:80%;
+  max-width: 1000px;
   padding-top: 105px;
   }
 
 // Left and Right columns within .container
 .profile-col-left {
-  overflow:auto;
-  width:70%;
-  float:left;
+  min-width: 455px;
   }
 
 .profile-col-right {
@@ -133,10 +133,10 @@ hr {
 
 
 .header-box,.experience-box,.certifications-box,.education-box,.skills-box,.following-box {
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   border: solid 1px #bebebe;
+  box-shadow: 0px 2px 1px #bebebe;
   margin: 0 2% 2% 0;
-  border-radius: 4px;
+  border-radius: 2px;
   }
 
 // Link, text, and hover styling at bottom of info boxes
@@ -145,7 +145,9 @@ hr {
   border: none;
   height: 38px;
   background-color: #0077B5;
-  border-radius: 3px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin-bottom: -1px;
   color: white;
   }
 
@@ -263,35 +265,30 @@ input:checked + .slider:before {
 .header-box {
   padding: 10px 10px;
   height: auto;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 1px #bebebe;
+  display: flex;
+  justify-content: flex-start;
   background-color: white;
   line-height: 25px;
   }
 
 .profile-pic-container {
-  width: 30%;
   display: inline-block;
-  padding: 2% 1% 1% 1%;
-  margin:0 auto;
-  overflow:auto;
-  clear:both;
+  padding: 5px;
   }
 
 .profile-pic {
   background: url('https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg') center no-repeat;
   background-size: contain;
-  width: 100%;
   height: 170px;
-  border-radius: 4px;
+  border-radius: 2px;
   }
 
 .header-info-container {
-  width: 70%;
-  display: inline-block;
-  padding: 1% 1% 1% 1%;
-  margin:0 auto;
-  overflow:auto;
-  clear:both;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
   }
 
 .name-popup-box {
@@ -329,7 +326,6 @@ input:checked + .slider:before {
   }
 
 .connections-float-R {
-  float: right;
   line-height: 15px;
   }
 
@@ -343,20 +339,19 @@ input:checked + .slider:before {
 .sm-gray-text {
   font-size: 11px;
   color: #afb2b5;
-  text-align: center;
+  text-align: right;
   }
 
 //Class for the section slide down menu
 .reveal    {
   border: solid 1px gainsboro;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   margin-top: 2%;
   margin-bottom: 2%;
   width: 100%;
   height: 40px;
   background-color: #0077B5;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 2px;
   box-sizing: border-box;
   text-shadow: 0 1px 1px rgba(0,0,0,0.35);
   color: white;
@@ -389,7 +384,7 @@ input:checked + .slider:before {
   flex-wrap: wrap;
   justify-content: space-between;
   height: auto;
-  border-radius: 4px;
+  border-radius: 2px;
   }
 
 .add-section {
@@ -398,15 +393,15 @@ input:checked + .slider:before {
   margin-bottom: 10px;
   background-color: white;
   border: solid 1px gainsboro;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-  border-radius: 4px;
+  box-shadow: 0px 2px 1px #bebebe;
+  border-radius: 2px;
   }
 
 .section-view-more {
   height: auto;
   line-height: 25px;
   margin: 0 2% 0 0;
-  border-radius: 4px;
+  border-radius: 2px;
   }
 
 .section-info {
@@ -517,7 +512,7 @@ input:checked + .slider:before {
 //////
 .sidebar-box {
   height: auto;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 1px #bebebe;
   border: solid 1px gainsboro;
   background-color: white;
   padding: 25px 25px;
@@ -526,7 +521,7 @@ input:checked + .slider:before {
 
 .course-box {
   height: auto;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 1px #bebebe;
   border: solid 1px gainsboro;
   background-color: white;
   padding: 25px 25px;
@@ -592,7 +587,7 @@ input:checked + .slider:before {
 .experience-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 1px #bebebe;
   margin-top: 5px;
   }
 
@@ -602,7 +597,7 @@ input:checked + .slider:before {
 .certifications-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 1px #bebebe;
   }
 
 //////
@@ -611,7 +606,7 @@ input:checked + .slider:before {
 .education-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 1px #bebebe;
   }
 
 //////
@@ -620,8 +615,8 @@ input:checked + .slider:before {
 .skills-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-  border-radius: 4px;
+  box-shadow: 0px 2px 1px #bebebe;
+  border-radius: 2px;
   }
 
 //////
@@ -630,7 +625,7 @@ input:checked + .slider:before {
 .following-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 1px #bebebe;
   }
 
 //////
@@ -641,7 +636,7 @@ input:checked + .slider:before {
   position: absolute;
   bottom: 25px;
   right: 25px;
-  border-radius: 4px;
+  border-radius: 2px;
   }
 
 .float-left {
@@ -677,4 +672,29 @@ input:checked + .slider:before {
   right: 0;
   bottom: 0;
   background: white;
+  }
+
+  @media (max-width: 482px) {
+    .profile-col-left {
+      min-width: inherit;
+    }
+    .sm-gray-text {
+      display: none;
+    }
+  }
+
+  @media (max-width: 555px) {
+    .container {
+      width: inherit;
+      margin-left: 7px;
+    }
+  }
+
+  @media (max-width: 920px) {
+    .container {
+      display: block;
+    }
+    .profile-col-right {
+      display: none;
+    }
   }
