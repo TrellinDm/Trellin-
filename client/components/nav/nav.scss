@@ -129,8 +129,7 @@
 .account-settings {
   z-index: 100;
   width: 115px;
-  height: 65px;
-  margin-top: 130px;
+  margin-top: 65px;
   background: #293e4a;
   display: flex;
   flex-direction: column;
@@ -154,15 +153,12 @@
   z-index: 100;
   width: 115px;
   height: 65px;
-  margin-top: 65px;
   background: #293e4a;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
   right: 0;
-  text-decoration: none;
   }
 
 .profile-settings img {
@@ -218,6 +214,46 @@
   border-left: solid 2px #293e4a;
 }
 
+.logout-menu {
+  display: flex;
+  height: 65px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#trello-menu {
+  display: none;
+}
+
+#network-menu {
+  display: none;
+}
+
+@media (max-width: 880px) {
+  .trello-icon-box {
+    display: none;
+  }
+  #trello-menu {
+    display: flex;
+  }
+  .navBar .navRight {
+    width: 192px;
+  }
+}
+
+@media (max-width: 742px) {
+  .network-icon-box {
+    display: none;
+  }
+  #network-menu {
+    display: flex;
+  }
+  .navBar .navRight {
+    width: 94px;
+  }
+}
+
 @media (max-width: 645px) {
   .navBar .navLeft .searchBar {
     width: 180px;
@@ -226,9 +262,14 @@
 
 @media (max-width: 510px) {
   .navBar .navLeft .searchBar {
-    margin-top: 70px;
+    margin-top: 75px;
     margin-left: -146px;
     border: solid 1px;
     width: 256px;
+  }
+  .search-results {
+    margin-top: 118px;
+    margin-left: 0px;
+    width: 415px;
   }
 }

@@ -66,7 +66,7 @@ class Nav extends Component {
 			<div>
 	      <div className="navBar">
 	        <div className="navLeft">
-	          <Link to="/timeline"><img src={logo} /></Link>
+	          <Link to="/"><img src={logo} /></Link>
 	          <Search />
 	        </div>
 	        <div className="navRight">
