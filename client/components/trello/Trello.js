@@ -25,7 +25,9 @@ class Trello extends Component {
   render() {
     return (
       <div className='trello-bg'>
-        <List />
+        
+          <List />
+
       </div>
     )
   }
