@@ -23,10 +23,10 @@ class Trello extends Component {
 
   render() {
     return (
-      <div className='trello-bg'>
-        
+      <div className='outer-table-container'>
+        <div className="list-wrapper">
           <List />
-
+        </div>
       </div>
     )
   }
@@ -36,7 +36,7 @@ const mapStateToProps = state => {
  return {
    listObj: state.list
  }
-}
+};
 
 const mapDispatchToActions = {
  updateList,
