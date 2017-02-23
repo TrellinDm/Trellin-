@@ -1,21 +1,13 @@
 const All_MESSAGES = 'All_MESSAGES';
 const NEW_MESSAGE = 'NEW_MESSAGE';
-
 const message = { };
 
 export default (state = message, action) => {
-
-  console.log(action);
   switch (action.type) {
     case All_MESSAGES:
       return Object.assign({}, state, action.payload)
-
     case NEW_MESSAGE:
-    console.log(action.payload);
-    console.log(state);
       return Object.assign({}, state, action.payload)
-
-
     default: return state
   }
 }
@@ -26,7 +18,6 @@ export function allMessages(data) {
     payload: data
   }
 }
-
 
 export function newMessage (data) {
   return {

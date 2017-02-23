@@ -13,11 +13,8 @@ import './main.scss';
     super(props)
     if(!this.props.user.id) {
       axios.get('/auth/me').then( res => {
-console.log(res);
-
         this.props.saveId(res.data)
       }).catch( err => {
-        console.log('not logged in');
       })
     }
   }

@@ -1,9 +1,19 @@
 import React, {Component} from 'react';
-import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
+import {deleteSummary} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileSummary extends Component {
+	
+	constructor(props) {
+		super(props)
+	}
+	
+	deleteSummary() {
+	axios.delete('/delete/summary/' + 1).then((res) => {
+		this.props.deleteSummary();
+	});
+}
 
 	render() {
 
@@ -18,16 +28,20 @@ class ProfileSummary extends Component {
 		};
 		var summary = this.props.summaryArray.map((summ, i) => {
 			return (<div key={i} className="awards-div">{summ.summary}</div>);
-		})
+		});
 		return (
 			//Language section box
 			<div className="education-box">
-				<div className="title-text-gray">Summary<div className="trash"></div></div>
+				<div className="title-text-gray" onClick={this.deleteSummary.bind(this)}>Summary<div className="trash"></div></div>
 				<div className="box-info">{summary}</div>
 			</div>
 		)
 	}
 }
+
+const mapDispatchToProps = {
+	deleteSummary: deleteSummary
+};
 
 function mapStateToProps(state) {
 	return {
@@ -35,4 +49,4 @@ function mapStateToProps(state) {
 	}
 }
 
-export default connect(mapStateToProps)(ProfileSummary);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileSummary);
