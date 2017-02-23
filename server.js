@@ -107,6 +107,9 @@ var timelineCtrl = require('./server/timelineCtrl');
 var ConnectionCtrl = require('./server/ConnectionCtrl');
 var listCtrl = require('./server/listCtrl');
 var profileCtrl = require('./server/profileCtrl');
+var userCtrl = require('./server/userCtrl');
+
+app.put('/setProfile', userCtrl.setProfile);
 
 //------------------Timeline Endpoint-----------------------
 app.get('/getMessages/:id', timelineCtrl.getMessages);
