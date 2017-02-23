@@ -67,7 +67,7 @@ class ProfileHeader extends Component {
 					</div>
 					<div className="connections-float-R">
             <div className="connections-num">{connectionNum}</div>
-            <div className="sm-gray-text">connections</div>
+            <div className="sm-gray-text" id="connections-sm-gray-text">connections</div>
           </div>
         </div>
 
