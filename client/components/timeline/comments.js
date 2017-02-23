@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import ReplyBox from './replies.js';
 import './messaging.scss';
 import $ from 'jquery';
+import SkyLight from 'react-skylight';
+import {saveReply} from '../../reducers/timelineReducer';
+import axios from 'axios';
+import {connect} from 'react-redux'
 
 
 const exampleComment = "This is the comment I am using as an example of a single imported comment";
@@ -12,7 +16,22 @@ const chevronImg = "https://d30y9cdsu7xlg0.cloudfront.net/png/221782-200.png";
 
 
 class CommentBox extends Component {
-  
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      reply: '',
+      message_id: this.props.user.id ? this.props.user.id : 68
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.newReply = this.newReply.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ reply: e.target.value })
+  }
+
 	componentDidMount() {
 		$(document).ready(function() {
 			let flag = false;
@@ -31,7 +50,18 @@ class CommentBox extends Component {
 			});
 		});
 	}
-  
+
+  handleChange(e) {
+    this.setState({reply: e.target.value});
+  }
+
+  newReply() {
+    axios.post('/reply', this.state).then( res => {
+      console.log(res);
+      // this.props.saveReply(res.data);
+    })
+  }
+
   render() {
     return (
         <div className="comment-wrapper">
@@ -41,11 +71,19 @@ class CommentBox extends Component {
               <p>{this.props.author}</p>
             </div>
             <div className="comment-body">{this.props.body}</div>
+
               <div className="post-reply">
-                <button className="">Edit</button>
-                <button className="">Reply</button>
+                {/*<button className="">Edit</button>*/}
+                <button onClick={() => this.refs.reply.show()} className="">
+                  Reply
+                </button>
                 <button className="">Pin to list <img src={chevronImg} /></button>
               </div>
+              <SkyLight hideOnOverlayClicked ref="reply" title="Leave a Reply">
+                <input className="form-input" type="text" onChange={this.handleChange}/>
+                <button className="button-dark-blue" onClick={(event) => { this.newReply(); this.refs.reply.hide()}}>Reply</button>
+              </SkyLight>
+
             <div className="interact-bar">
               <div className="interact-basic interact-likes">{likesNum} Likes</div>
               <div className="interact-basic ">|</div>
@@ -53,7 +91,7 @@ class CommentBox extends Component {
               </div>
             </div>
           </div>
-  
+
           <button className="comment-reveal" > View Comments ▼ </button>
           <div className="toggle_container" >
             <div className="block">
@@ -62,10 +100,18 @@ class CommentBox extends Component {
               <div className="horizontal-line"></div>
             </div>
           </div>
-          
         </div>
     );
   }
 }
 
-export default CommentBox;
+const mapDispatchToActions = {
+  saveReply
+}
+
+const mapStateToProps = state => {
+  return {
+    user:state.user
+  }
+}
+export default connect(mapStateToProps, mapDispatchToActions)(CommentBox);

@@ -112,7 +112,7 @@ var profileCtrl = require('./server/profileCtrl');
 app.get('/getMessages/:id', timelineCtrl.getMessages);
 app.post('/createNewMessage', timelineCtrl.createNewMessage);
 app.post('/getConnections', ConnectionCtrl.getConnections);
-
+app.post('/reply', timelineCtrl.createReply);
 //------------------------LIST ENDPOINTS-----------------------
 app.get('/lists', listCtrl.GetAll);
 app.post('/list', listCtrl.Create);
