@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route, hashHistory } from "react-router";
+import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
 
 import Login from './components/login/Login';
@@ -14,7 +14,7 @@ export default (
   <Router history={hashHistory}>
     <Route path="/login" component={Login} />
     <Route path="/" component={App}>
-      <Route path="/timeline" component={Timeline}/>
+      <IndexRoute component={Timeline}/>
       <Route path="/profile" component={Profile}/>
       <Route path="/trello" component={Trello}/>
       <Route path="/connections" component={Connections}/>
