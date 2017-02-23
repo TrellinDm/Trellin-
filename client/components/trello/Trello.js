@@ -14,7 +14,6 @@ class Trello extends Component {
   }
   componentDidMount() {
     console.log(this.props.listObj);
-
       axios.get('/lists')
         .then( res => {
           console.log(res.data);
