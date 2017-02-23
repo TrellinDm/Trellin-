@@ -1,5 +1,4 @@
 .container-Timeline{
-  margin:0 5%;
   width:100%;
   clear:both;
   padding-top: 105px;
@@ -12,7 +11,7 @@
 
 .timeline-col-mid {
   width:40%;
-  margin: 0 25%;
+  margin: 0 30%;
   }
 
 .timeline-col-right {
@@ -30,8 +29,9 @@
   top: 105px;
   padding: 15px;
   height: 400px;
-  border: 1px solid #575757;
-  box-shadow: 2px 2px 8px #888888;
+  border: solid 1px #bebebe;
+  border-radius: 3px;
+  box-shadow: 0px 2px 1px #bebebe;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -64,8 +64,8 @@
 
 .trello-lists div{
   padding: 20px;
-  border: 1px solid #575757;
-  box-shadow: 2px 2px 8px #888888;
+  border: solid 1px #bebebe;
+  box-shadow: 0px 2px 1px #bebebe;
   }
 
 .trello-button{
@@ -130,8 +130,9 @@
   height: 180px;
   font-size: 1rem;
   background-color: white;
-  border: 1px solid #575757;
-  box-shadow: 2px 2px 8px #888888;
+  border: solid 1px #bebebe;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0px 2px 1px #bebebe;
   }
 
 .comment-container{
@@ -142,11 +143,11 @@
   margin: 15px 0 0 0;
   min-height: 200px;
   width: 100%;
-  border: 1px solid #575757;
-  border-bottom: none;
   background-color: white;
   height: auto;
-  box-shadow: 2px 2px 8px #888888;
+  border: solid 1px #bebebe;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0px 2px 1px #bebebe;
   }
 
 .comment-header p{
@@ -171,8 +172,8 @@
 
 //Class for the section slide down menu
 .comment-reveal {
-  border: 1px solid #575757;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 1px #bebebe;
+  border-radius: 0 0 3px 3px;
   margin-bottom: 2%;
   width: 100%;
   height: 40px;
@@ -213,11 +214,11 @@
   width: 100%;
   height: 38px;
   background-color: #0077B5;
-  border-radius: 3px;
+  border-radius: 0 0 3px 3px;
   box-sizing: border-box;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
   color: white;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 0px 2px 1px #bebebe;
   padding: 6px 10px;
   float:right;
   border: 1px solid #1b5480;
@@ -237,14 +238,10 @@
   line-height: 22px;
   text-align: center;
   font-weight: bolder;
+  margin-top: -4px;
   width: 100%;
   color: white;
   }
-
-
-
-
-
 
 .post-reply{
   position: absolute;
@@ -296,6 +293,7 @@
 
 .comment-head {
   top: 0;
+  border-radius: 3px 3px 0 0;
   position: absolute;
   display: flex;
   align-items: center;
@@ -340,7 +338,7 @@
   padding: 15px 10px 5px 10px;
   min-height: 100px;
   background-color: white;
-  border: solid lightgray 1px;
+  border: solid 1px #bebebe;
   }
 
 .reply{
@@ -379,8 +377,9 @@
   width: 20%;
   height: auto;
   background-color: white;
-  border: 1px solid #575757;
-  box-shadow: 2px 2px 8px #888888;
+  border: solid 1px #bebebe;
+  box-shadow: 0px 2px 1px #bebebe;
+  border-radius: 3px;
   padding: 5px 10px 20px 10px;
   display: flex;
   align-items: center;
@@ -421,14 +420,6 @@
   text-align: center;
   border-bottom: 1px solid rgba(0,0,0, .1);
   }
-
-
-
-
-
-
-
-
 
 .messages-button{
   position: absolute;
