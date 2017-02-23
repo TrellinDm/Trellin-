@@ -110,7 +110,7 @@ class ProfilePersonal extends Component {
 		return (
 
 			<div className="education-box">
-				<div className="title-text-gray">Personal Details<div className="gray-pencil"></div></div>
+				<div className="title-text-gray">Personal Details<div className="trash"></div></div>
 				<div className="box-info">
 					{personals}
 				</div>

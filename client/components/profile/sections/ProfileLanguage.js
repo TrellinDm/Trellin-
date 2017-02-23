@@ -100,7 +100,7 @@ class ProfileLanguage extends Component {
 
 		return (
 			<div className="education-box">
-				<div className="title-text-gray">Language<div className="gray-pencil"></div></div>
+				<div className="title-text-gray">Language<div className="trash"></div></div>
 				<div className="box-info">
 					{languages}
 				</div>

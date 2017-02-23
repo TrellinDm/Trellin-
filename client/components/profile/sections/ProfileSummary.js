@@ -22,7 +22,7 @@ class ProfileSummary extends Component {
 		return (
 			//Language section box
 			<div className="education-box">
-				<div className="title-text-gray">Summary<div className="gray-pencil"></div></div>
+				<div className="title-text-gray">Summary<div className="trash"></div></div>
 				<div className="box-info">{summary}</div>
 			</div>
 		)

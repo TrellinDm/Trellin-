@@ -236,7 +236,7 @@ class ProfileVolunteer extends Component {
 		});
 		return (
 			<div className="education-box">
-				<div className="title-text-gray">Volunteering Experience<div className="gray-pencil"></div></div>
+				<div className="title-text-gray">Volunteering Experience<div className="trash"></div></div>
 				<div className="box-info">
 					{volunteers}
 				</div>

@@ -49,7 +49,7 @@ class ProfileSkills extends Component {
 		return (
 
 			<div className="education-box">
-				<div className="title-text-gray">Skills<div className="gray-pencil"></div></div>
+				<div className="title-text-gray">Skills<div className="trash"></div></div>
 				<div className="skills-div">
 					{skills}
 				</div>

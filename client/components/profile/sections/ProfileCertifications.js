@@ -262,7 +262,7 @@ class ProfileCertifications extends Component {
 
 		return (
 			<div className="certifications-box">
-				<div className="title-text-gray">Certifications<div className="gray-pencil"></div></div>
+				<div className="title-text-gray">Certifications<div className="trash"></div></div>
 				<div className="box-info">
 					{certificates}
 				</div>

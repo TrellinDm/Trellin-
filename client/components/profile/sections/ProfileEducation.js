@@ -304,7 +304,7 @@ class ProfileEducation extends Component {
 		});
 		return (
 			<div className="education-box">
-				<div className="title-text-gray">Education<div className="gray-pencil"></div></div>
+				<div className="title-text-gray">Education<div className="trash"></div></div>
 					<div className="box-info">
 						{educations}
 					</div>

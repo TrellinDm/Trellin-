@@ -260,7 +260,7 @@ class ProfileExperience extends Component {
 		});
 		return (
 			<div className="experience-box">
-				<div className="title-text-gray">Experience<div className="gray-pencil"></div></div>
+				<div className="title-text-gray">Experience<div className="trash"></div></div>
 				<div className="box-info">
 					{experiences}
 				</div>

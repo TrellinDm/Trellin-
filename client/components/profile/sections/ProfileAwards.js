@@ -200,7 +200,7 @@ class ProfileAwards extends Component {
 		});
 		return (
 			<div className="education-box">
-				<div className="title-text-gray">Honors & Awards<div className="gray-pencil"></div></div>
+				<div className="title-text-gray">Honors & Awards<div className="trash"></div></div>
 					<div className="box-info">
 						{awards}
 					</div>
