@@ -45,7 +45,7 @@ componentDidMount() {
 renderCard() {
   if (this.props.list.cardObj[this.props.id]) {
     var grid = this.props.list.cardObj[this.props.id].map((elm, i) => {
-      
+
      return (<div className="card" key={i}>{elm.content}</div>)
    });
    return grid
