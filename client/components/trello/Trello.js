@@ -23,17 +23,11 @@ class Trello extends Component {
 
   render() {
     return (
-    <div>
-      <div className='trello'>
-        <List/>
+      <div className='trello-bg'>
+        
+          <List />
 
       </div>
-      <br/>
-      <br/>
-    <div className='cards'>
-
-    </div>
-    </div>
     )
   }
 }

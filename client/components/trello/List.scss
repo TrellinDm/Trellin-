@@ -1,31 +1,90 @@
- .trello {
-   background-color: #0077B5;
-   width: 100%;
-   height: 97vh;
-   display: flex;
-   position: absolute;
-    top: 85px;
+.list-wrapper {
+  width: 270px;
+  margin: 0 5px;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  }
+
+
+
+
+
+
+
+
+.card {
+  padding: 5px;
+  margin: 10px 0;
+  box-shadow: 0px 2px 1px #bebebe;
+  border: solid 1px #bebebe;
+  background: #EEEEEE;
+  border-radius: 3px;
+  }
+
+.trello-bg {
+  padding-top: 85px;
  }
 
+.outer-table-container {
+  height: auto;
+  width: auto;
+  overflow: auto;
+  }
 
-.allList {
+.table-container {
+  //height: auto;
   display: flex;
-  width: 100%;
+  //float: left;
+  //display: inline-block;
+  width: auto;
+  //overflow: auto;
+  height: auto;
+  //padding: 2% 5%;
+  }
 
-
-}
 .list {
-  margin: 20px;
-  width: 225px;
-  background-color: #caccce;
-  height: 300px;
+  //position: relative;
+  //margin: 0 8px 35px 8px;
+  //width: 276px;
+  //box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  //border: solid 1px #bebebe;
+  //background-color: white;
+  ////height: auto;
+  //border-radius: 4px;
+  //padding: 10px;
+
+  background: #E2E4E6;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-height: 100%;
+  position: relative;
+  white-space: normal;
 }
 
-.addList {
-  margin: 25px 0;
-}
 
 .cards {
   bottom: 2px;
   position: absolute;
 }
+
+.input-table {
+  border: 1px solid #ccc;
+  background: #fdfdfd;
+  border-radius: 2px;
+  padding: 5px 6px 4px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) inset;
+  color: #333;
+  width: 182px;
+  margin: 10px 0;
+  }

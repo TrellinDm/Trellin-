@@ -1,12 +1,12 @@
 .language-div {
   display: flex;
   justify-content: space-between;
-  border-bottom: solid 1px gainsboro;
+  border-bottom: solid 1px #bebebe;
   padding: 10px 20px 10px 20px;
 }
 
 .awards-div {
-  border-bottom: solid 1px gainsboro;
+  border-bottom: solid 1px #bebebe;
   padding: 10px 20px 10px 20px;
 }
 
@@ -118,6 +118,9 @@ hr {
 
 // Left and Right columns within .container
 .profile-col-left {
+  overflow:auto;
+  //width:70%;
+  float:left;
   min-width: 455px;
   }
 
@@ -133,8 +136,8 @@ hr {
 
 
 .header-box,.experience-box,.certifications-box,.education-box,.skills-box,.following-box {
+  border: solid 1px #bebebe;
   box-shadow: 0px 2px 1px #bebebe;
-  border: solid 1px gainsboro;
   margin: 0 2% 2% 0;
   border-radius: 2px;
   }
