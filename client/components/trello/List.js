@@ -59,14 +59,14 @@ class List extends Component {
 
       <div>
   
-        <div>
+        <div className="input-box">
           <div>
             <input className='input-table' onChange={this.handleChange} />
           </div>
           <button onClick={this.postList} className='button-dark-blue'>Create list</button>
         </div>
         {this.props.list.map( (elm, i) =>{
-          return (<div className="table-container"><div className='list' key={elm.id}>
+          return (<div className="list-wrapper"><div className='list' key={elm.id}>
             <h3>{elm.title}</h3>
             <br/>
             <Card className="card" id={elm.id} />
