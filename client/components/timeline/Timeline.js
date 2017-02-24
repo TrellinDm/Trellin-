@@ -25,7 +25,7 @@ console.log(this.props.message);
 
     var listMessages = this.props.message.map((mes, i) => {
       return (
-        <CommentBox key={i} author={mes.userid} body={mes.message} />
+        <CommentBox key={i} author={mes.userid} body={mes}  />
       )
     });
 
