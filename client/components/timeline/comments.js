@@ -5,7 +5,8 @@ import $ from 'jquery';
 import SkyLight from 'react-skylight';
 import {saveReply} from '../../reducers/timelineReducer';
 import axios from 'axios';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {allReplies} from '../../reducers/timelineReducer';
 
 
 const exampleComment = "This is the comment I am using as an example of a single imported comment";
@@ -21,7 +22,8 @@ class CommentBox extends Component {
 
     this.state = {
       reply: '',
-      message_id: this.props.user.id ? this.props.user.id : 68
+      message_id: 68,
+      userid: this.props.user.id ? this.props.user.id : 3
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -33,6 +35,11 @@ class CommentBox extends Component {
   }
 
 	componentDidMount() {
+    axios.get('/replies').then( res =>{
+      this.props.allReplies(res.data)
+
+    })
+
 		$(document).ready(function() {
 			let flag = false;
 			$(".toggle_container").hide();
@@ -60,6 +67,14 @@ class CommentBox extends Component {
       console.log(res);
       // this.props.saveReply(res.data);
     })
+  }
+
+  loop() {
+    let grid = this.props.timeline.replies.map( (elm, i) => {
+      return(<ReplyBox className="comment-profilePic"  body={elm}/>)
+
+    })
+    return  grid;
   }
 
   render() {
@@ -95,8 +110,10 @@ class CommentBox extends Component {
           <button className="comment-reveal" > View Comments ▼ </button>
           <div className="toggle_container" >
             <div className="block">
-              <ReplyBox className="comment-profilePic" author="Jack black" body={exampleComment}/>
-              <ReplyBox className="comment-profilePic" author="James Franco" body={exampleComment}/>
+
+              {this.loop()}
+
+
               <div className="horizontal-line"></div>
             </div>
           </div>
@@ -106,12 +123,14 @@ class CommentBox extends Component {
 }
 
 const mapDispatchToActions = {
-  saveReply
+  saveReply,
+  allReplies
 }
 
 const mapStateToProps = state => {
   return {
-    user:state.user
+    user:state.user,
+    timeline: state.message
   }
 }
 export default connect(mapStateToProps, mapDispatchToActions)(CommentBox);

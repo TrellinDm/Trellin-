@@ -1,10 +1,13 @@
 const All_MESSAGES = 'All_MESSAGES';
 const NEW_MESSAGE = 'NEW_MESSAGE';
 const SAVE_REPLY = 'SAVE_REPLY';
+const All_REPLIES = 'All_REPLIES';
 
-const message = { };
+const initialState = {
+  replies: []
+};
 
-export default (state = message, action) => {
+export default (state = initialState, action) => {
 
   console.log(action);
   switch (action.type) {
@@ -12,13 +15,10 @@ export default (state = message, action) => {
       return Object.assign({}, state, action.payload)
 
     case NEW_MESSAGE:
-    console.log(action.payload);
-    console.log(state);
       return Object.assign({}, state, action.payload)
 
-    case NEW_MESSAGE:
-      console.log(action.payload);
-      return Object.assign({}, state, action.payload)
+    case All_REPLIES:
+      return Object.assign({}, state, {replies: action.payload})
 
     default: return state
   }
@@ -42,6 +42,13 @@ export function newMessage (data) {
 export function saveReply(data) {
   return {
     type: SAVE_REPLY,
+    payload: data
+  }
+}
+
+export function allReplies(data) {
+  return {
+    type: All_REPLIES,
     payload: data
   }
 }

@@ -116,13 +116,13 @@ app.get('/getMessages/:id', timelineCtrl.getMessages);
 app.post('/createNewMessage', timelineCtrl.createNewMessage);
 app.post('/getConnections', ConnectionCtrl.getConnections);
 app.post('/reply', timelineCtrl.createReply);
+app.get('/replies', timelineCtrl.getReply)
 //------------------------LIST ENDPOINTS-----------------------
 app.get('/lists', listCtrl.GetAll);
 app.post('/list', listCtrl.Create);
 
 //======================Cards Endpoints========================
 var cardCtrl = require('./server/cardCtrl');
-
 app.post('/card', cardCtrl.Create);
 app.get('/cards', cardCtrl.GetAll);
 
