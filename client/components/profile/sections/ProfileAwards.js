@@ -129,7 +129,7 @@ class ProfileAwards extends Component {
 	}
 		
 	deleteAwards(){
-		axios.delete('/delete/awards/' +1).then((res) => {
+		axios.delete('/delete/awards/' + 1).then((res) => {
 			this.props.deleteAwards();
 		})
 	}

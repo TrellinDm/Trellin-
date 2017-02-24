@@ -19,15 +19,6 @@ class Timeline extends Component {
       connections: []
     };
   }
- //  componentDidMount() {
- //    axios.get('/getMessages').then(res => {
- //      axios.get('/getConnections', {id: this.props.user.id}).then((conns) => {
- //        console.log(conns);
- //        this.setState({connections: conns});
- //        this.props.allMessages(res.data);
- //      });
- //    });
- // }
 
   render() {
 console.log(this.props.message);

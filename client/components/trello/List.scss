@@ -1,6 +1,10 @@
+.table-header {
+  max-width: 19vw;
+  }
+
 .list-wrapper {
   width: 270px;
-  margin: 0 8px;
+  margin: 0 14px;
   height: 100%;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -14,12 +18,16 @@
   }
 
 .card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 5px;
   margin: 10px 0;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 2px 1px #bebebe;
   border: solid 1px #bebebe;
   background: #EEEEEE;
   border-radius: 3px;
+  overflow: auto;
   }
 
 .outer-table-container {
@@ -29,16 +37,17 @@
 .list {
   position: relative;
   margin: 0 8px 35px 8px;
-  width: 276px;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  width: 290px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   border: solid 1px #bebebe;
   background-color: white;
   border-radius: 4px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  max-height: 100%;
   white-space: normal;
+  max-height: 78vh;
+  overflow: auto;
 }
 
 .cards {
@@ -47,14 +56,15 @@
 }
 
 .input-box {
-  padding: 0 0 10px 10px;
-  width: auto;
+  width: 290px;
   height: auto;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  padding: 0 8px;
+  margin-left: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border: solid 1px #bebebe;
   background-color: white;
+  border-radius: 3px;
   }
 
 .input-table {
@@ -64,6 +74,32 @@
   padding: 5px 6px 4px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) inset;
   color: #333;
-  width: 182px;
-  margin: 10px 0;
+  width: 159px;
+  margin: 10px 5px 10px 0;
+  font-size: 14px;
+  }
+
+.delete-x {
+  float: right;
+  background: url('../../../client/src/gray-x.png') center no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+  }
+
+.trello-trash {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 10px;
+  margin-top: 10px;
+  background: white url('../../../client/src/delete-gray-30.png') no-repeat center;
+  background-size: contain;
+  width: 27px;
+  height: 27px;
+  }
+
+.trello-trash:hover {
+  background: gray url('../../../client/src/delete-white.png');
+  background-size: contain;
   }

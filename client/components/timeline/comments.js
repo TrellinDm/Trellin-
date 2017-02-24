@@ -57,8 +57,6 @@ class CommentBox extends Component {
 
   newReply() {
     axios.post('/reply', this.state).then( res => {
-      console.log(res);
-      // this.props.saveReply(res.data);
     })
   }
 

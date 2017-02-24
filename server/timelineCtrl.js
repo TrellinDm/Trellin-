@@ -8,7 +8,6 @@ module.exports = {
     });
   },
   createNewMessage: function (req, res) {
-    // console.log(req.body)
     let data = req.body
     let userid = data.userid;
     let listid = data.listid;
@@ -17,17 +16,14 @@ module.exports = {
     let messageid = 3;
     db.createNewMessage([userid, messageid, message, listid, type ], function (err, result) {
         if (err) {
-          console.log(err);
         }
         res.status(200).send(result)
     })
   },
 
   createReply: function (req, res) {
-    console.log(req.body);
     db.createReply([req.body.reply, req.body.message_id], function (err, result) {
       if (err) {
-        console.log(err);
         res.status(500).send(err);
       }
       else {

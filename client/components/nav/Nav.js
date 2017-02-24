@@ -22,7 +22,6 @@ class Nav extends Component {
 	}
 
 	toggleMenu() {
-		console.log("there");
 		this.setState({ menu: !this.state.menu });
 	}
 
@@ -35,7 +34,6 @@ class Nav extends Component {
 			this.props.toggleResults();
 		}
 		if (e.target.className !== 'me-hover' && e.target.className !== 'image-icon' && e.target.className !== 'icon-text') {
-			console.log(e.target.className);
 			this.setState({
 				menu: false
 			});
@@ -82,7 +80,7 @@ class Nav extends Component {
 						      :
 						      (<img className='image-icon' onClick={this.toggleMenu} src='https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'/>)
 					      }
-					      <a> {this.props.user.display_name ? (<a className="icon-text" onClick={this.toggleMenu}> {this.props.user.display_name} </a>) : (<a className="icon-text" onClick={this.toggleMenu}> Sign In </a>)}</a>
+					      <div> {this.props.user.display_name ? (<a className="icon-text" onClick={this.toggleMenu}> {this.props.user.display_name} </a>) : (<a className="icon-text" onClick={this.toggleMenu}> Sign In </a>)}</div>
 				      </div>
 	          </div>
 	        </div>
