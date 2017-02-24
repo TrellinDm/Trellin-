@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import $ from 'jquery';
 
 
@@ -7,10 +8,6 @@ class ProfileSidebar extends Component {
 	super(props);
 		this.fillMeter=this.fillMeter.bind(this)
 	}
-	
-	componentDidMount() {
-		this.fillMeter(94);
-}
 	
 
 	// Beginner 0-25
@@ -45,6 +42,11 @@ class ProfileSidebar extends Component {
 
 	
 	render () {
+		const total = 44;
+		const percent = this.props.profileStrength/total * 100;
+		console.log(percent);
+		this.fillMeter(percent);
+		
 		return (
 			
 			<div>
@@ -75,4 +77,11 @@ class ProfileSidebar extends Component {
 }
 
 
-export default ProfileSidebar;
+function mapStateToProps(state) {
+	return {
+		profileStrength: state.profile.profileStrength,
+		profileTotal: state.profile.profileTotal
+	}
+}
+
+export default connect(mapStateToProps)(ProfileSidebar);

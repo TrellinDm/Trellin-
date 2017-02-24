@@ -4,6 +4,8 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addAward} from '../../../reducers/profileReducer';
 import {deleteAwards} from '../../../reducers/profileReducer';
+import {profileStrength} from '../../../reducers/profileReducer';
+import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 
@@ -16,6 +18,8 @@ class ProfileAwards extends Component {
 			activeAward2: false,
 			activeAward3: false,
 			activeAward4: false,
+			activeAward5: false,
+			count: 0,
 			addAwar: {
 				title: '',
 				associated: '',
@@ -58,6 +62,13 @@ class ProfileAwards extends Component {
 	}
 	hideAward4() {
 		this.setState({activeAward4: false})
+	}
+	
+	showAward5() {
+		this.setState({activeAward5: true})
+	}
+	hideAward5() {
+		this.setState({activeAward5: false})
 	}
 
 	addNewAward() {
@@ -131,7 +142,13 @@ class ProfileAwards extends Component {
 	deleteAwards(){
 		axios.delete('/delete/awards/' + 1).then((res) => {
 			this.props.deleteAwards();
-		})
+		});
+		var count = this.state.count;
+		this.props.profileStrengthDelete(count);
+	}
+	
+	saveCount(count) {
+		this.setState ({count: count})
 	}
 
 	render() {
@@ -147,6 +164,29 @@ class ProfileAwards extends Component {
 		};
 
 		var awards = this.props.awardsArray.map((awar, i) => {
+			var count = 0;
+			if (awar.title) {
+				count++;
+			}
+			if (awar.associated) {
+				count++;
+			}
+			if (awar.issuer) {
+				count++;
+			}
+			if (awar.recieved) {
+				count++;
+			}
+			if (awar.description) {
+				count++;
+			}
+			if(count !== this.state.count) {
+				if (count > 5) {
+					count = 5;
+				}
+				this.saveCount(count);
+				this.props.profileStrength(count);
+			}
 			return (
 				<div key={i} className="awards-div">
 					{awar.title ? (
@@ -188,11 +228,24 @@ class ProfileAwards extends Component {
 							</ToolTip>
 						</div>
 					)}
+					{awar.recieved? (
+							<div>{awar.recieved}</div>
+						) : (
+							<div className="add-text-blue">Add Date
+								<div onMouseEnter={this.showAward4.bind(this)} onMouseLeave={this.hideAward4.bind(this)} id="Award4" className="question-icon"></div>
+								<ToolTip active={this.state.activeAward4} position="right" arrow="center" parent="#Award4">
+									<div className="popup-pad">
+										<div className="sm-text">Date</div>
+										<div className="profile-text">Text here...</div>
+									</div>
+								</ToolTip>
+							</div>
+						)}
 					{awar.description ? (
 						<div>{awar.description}</div>
 					) : (
 						<div className="add-text-blue">Add Description
-							<div onMouseEnter={this.showAward4.bind(this)} onMouseLeave={this.hideAward4.bind(this)} id="Award4" className="question-icon"></div>
+							<div onMouseEnter={this.showAward5.bind(this)} onMouseLeave={this.hideAward5.bind(this)} id="Award4" className="question-icon"></div>
 							<ToolTip active={this.state.activeAward4} position="right" arrow="center" parent="#Award4">
 								<div className="popup-pad">
 									<div className="sm-text">Description</div>
@@ -238,7 +291,9 @@ class ProfileAwards extends Component {
 
 const mapDispatchToProps = {
   addAward: addAward,
-	deleteAwards: deleteAwards
+	deleteAwards: deleteAwards,
+	profileStrength: profileStrength,
+	profileStrengthDelete: profileStrengthDelete
 };
 
 function mapStateToProps(state) {
