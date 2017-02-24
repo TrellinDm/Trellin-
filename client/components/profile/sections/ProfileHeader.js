@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import NamePopup from '../headlineForms/NamePopup';
-import HeadlinePopup from '../headlineForms/HeadlinePopup';
-import IndustryPopup from '../headlineForms/IndustryPopup';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {updateUser} from '../../../reducers/userReducer';
@@ -30,15 +27,11 @@ class ProfileHeader extends Component {
 	}
 
 	editHeader() {
-		console.log(this.state.profile);
 		this.state.profile.location = this.state.profile.city + ", " + this.state.profile.state;
 		this.state.profile.first = this.state.profile.name.split(' ')[0];
 		this.state.profile.last = this.state.profile.name.split(' ')[1];
-		console.log(this.props.user.id);
 		this.state.profile.id = this.props.user.id;
 		axios.put('/setProfile', this.state.profile).then((res) => {
-			console.log('logging res');
-			console.log(res);
 			this.props.updateUser(this.state.profile);
 		});
 	}

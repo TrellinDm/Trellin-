@@ -90,7 +90,6 @@ class ProfileEducation extends Component {
 	addNewEducation() {
 		var education = this.state.addEduc;
 		education.id = 1;
-		console.log(education);
 		axios.post('/setEducation', education).then(() => {
 			this.props.addEducation(this.state.addEduc);
 		});

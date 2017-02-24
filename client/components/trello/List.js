@@ -8,16 +8,15 @@ import Card from './Card';
 
 class List extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       newList: ''
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.postList = this.postList.bind(this);
     // this.props.updateList = this.props.updateList.bind(this);
-
   }
 
   // componentDidMount() {
@@ -37,7 +36,6 @@ class List extends Component {
   var self  = this
     axios.post('/list', this.state).then(res => {//work with arrow function
       //but if you use function it will not with function
-        console.log(res.data);
         this.props.saveList(
            res.data[0]
         )

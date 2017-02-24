@@ -56,7 +56,6 @@ class ProfileVolunteer extends Component {
 	addNewVolunteer() {
 		var volunteer = this.state.addVolu;
 		volunteer.id = 1;
-		console.log(volunteer);
 		axios.post('/setVolunteer', volunteer).then(() => {
 			this.props.addVolunteer(this.state.addVolu);
 		});

@@ -27,9 +27,7 @@ class Timeline extends Component {
       id = this.props.user.id
     }
       axios.get('/getMessages/' + id).then(res => {
-        console.log(res.data);
         this.props.allMessages(res.data);
-        console.log(this.state.messages)
       })
  }
 

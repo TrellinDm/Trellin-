@@ -17,7 +17,6 @@ class Connections extends Component {
 
   render() {
     var test = this.props.connections.map((conn, i) => {
-      console.log(conn);
       var name = conn.first + " " + conn.last;
       return (
         <div className="connection-bg">

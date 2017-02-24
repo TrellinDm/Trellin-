@@ -13,9 +13,7 @@ module.exports = {
   },
 
   GetAll: function (req, res) {
-    console.log('hello');
     db.get_lists(function (err, result) {
-        console.log(result);
         res.status(200).json(result)
     })
   }

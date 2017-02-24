@@ -12,8 +12,6 @@ module.exports = {
       req.body.industry
     ]
     db.setProfile(update, function(err, result) {
-      console.log('loggin error');
-      console.log(err);
       res.status(200).send(result);
     })
   }
