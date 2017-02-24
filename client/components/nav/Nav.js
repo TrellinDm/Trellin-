@@ -80,7 +80,7 @@ class Nav extends Component {
 						      :
 						      (<img className='image-icon' onClick={this.toggleMenu} src='https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'/>)
 					      }
-					      <a> {this.props.user.display_name ? (<a className="icon-text" onClick={this.toggleMenu}> {this.props.user.display_name} </a>) : (<a className="icon-text" onClick={this.toggleMenu}> Sign In </a>)}</a>
+					      <div> {this.props.user.display_name ? (<a className="icon-text" onClick={this.toggleMenu}> {this.props.user.display_name} </a>) : (<a className="icon-text" onClick={this.toggleMenu}> Sign In </a>)}</div>
 				      </div>
 	          </div>
 	        </div>

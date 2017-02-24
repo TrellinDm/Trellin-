@@ -3,10 +3,11 @@ const SAVE_LIST = 'SAVE_LIST';
 const SAVE_CARDS = 'SAVE_CARDS';
 const UPDATE_CARDS = 'UPDATE_CARDS';
 const REMTABLE = 'REMTABLE';
+const REMCARD = 'REMCARD';
 
 const initialState = {
   listObj: [],
-  cardObj: {}
+  cardObj: []
   };
 
 export default (state = initialState, action = [] ) => {
@@ -36,13 +37,21 @@ export default (state = initialState, action = [] ) => {
       }
       return Object.assign({}, state, {cardObj: cards});
     case REMTABLE:
-	    var arr = Array.from(state.listObj);
-	    arr.forEach((list, i) => {
+	    let tableArr = Array.from(state.listObj);
+	    tableArr.forEach((list, i) => {
 	      if ( action.payload === list.id ) {
-	        arr.splice(i, 1);
+	        tableArr.splice(i, 1);
         }
       });
-	    return Object.assign({}, state, {listObj: arr});
+	    return Object.assign({}, state, {listObj: tableArr});
+	  case REMCARD:
+		  let cardArr = Array.from(state.listObj);
+		  cardArr.forEach((list, i) => {
+			  if ( action.payload === list.id ) {
+				  cardArr.splice(i, 1);
+			  }
+		  });
+		  return Object.assign({}, state, {cardObj: cardArr});
     default: return state
   }
 
@@ -80,6 +89,13 @@ export function updateCards (data) {
 export function deleteTable (id) {
 	return {
 		type: REMTABLE,
+		payload: id
+	}
+}
+
+export function deleteCard (id) {
+	return {
+		type: REMCARD,
 		payload: id
 	}
 }

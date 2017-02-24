@@ -2,6 +2,7 @@ import React, {Component } from 'react';
 import {connect} from 'react-redux';
 import {saveCards} from '../../reducers/listReducer';
 import {updateCards} from '../../reducers/listReducer';
+import {deleteCard} from '../../reducers/listReducer';
 import axios from 'axios';
 
 
@@ -40,10 +41,16 @@ class Card extends Component {
 renderCard() {
   if (this.props.list.cardObj[this.props.id]) {
     var grid = this.props.list.cardObj[this.props.id].map((elm, i) => {
-     return (<div className="card" key={i}>{elm.content} <div className="delete-x"></div> </div>)
+     return (<div onClick={() => {this.deleteCard(elm.id)}} className="card" key={i}>{elm.content} <div className="delete-x"></div> </div>)
    });
    return grid
   }
+}
+
+deleteCard(id) {
+	axios.delete('/delete/card/' + id).then((res) => {
+		this.props.deleteCard(id);
+	})
 }
   
   render() {
@@ -69,8 +76,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToActions = {
-saveCards,
-updateCards
+  saveCards,
+  updateCards,
+  deleteCard: deleteCard
 };
 
 export default connect(mapStateToProps, mapDispatchToActions)(Card);
