@@ -36,7 +36,6 @@ module.exports = {
         });
       });
     });
-
   },
 
   setLanguage: function(req, res) {

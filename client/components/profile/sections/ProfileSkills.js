@@ -3,6 +3,8 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addSkill} from '../../../reducers/profileReducer';
 import {deleteSkills} from '../../../reducers/profileReducer';
+import {profileStrength} from '../../../reducers/profileReducer';
+import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileSkills extends Component {
@@ -10,10 +12,13 @@ class ProfileSkills extends Component {
 		super(props);
 
 		this.state = {
-			skill: ''
-		}
+			skill: '',
+			count: 0
+		};
+		
 		this.addNewSkill = this.addNewSkill.bind(this);
 		this.saveSkill = this.saveSkill.bind(this);
+		this.saveCount = this.saveCount.bind(this);
 	}
 
 	addNewSkill() {
@@ -31,8 +36,15 @@ class ProfileSkills extends Component {
 	deleteSkills() {
 		axios.delete('/delete/skills/' + 1).then ((res) => {
 			this.props.deleteSkills();
-		})
+		});
+		var count = this.state.count;
+		this.props.profileStrengthDelete(count);
 	}
+	
+	saveCount(count) {
+		this.setState ({count: count})
+	}
+	
 
 	render() {
 
@@ -47,6 +59,17 @@ class ProfileSkills extends Component {
 		};
 
 		var skills = this.props.skillsArray.map((sklz, i) => {
+			var count = 0;
+			if (sklz.skill) {
+				count++;
+			}
+			if(count !== this.state.count) {
+				if (count > 1) {
+					count = 1;
+				}
+				this.saveCount(count);
+				this.props.profileStrength(count);
+			}
 			return (
 				<div key={i} className="skill-div">
 					{sklz.skill}
@@ -77,7 +100,9 @@ class ProfileSkills extends Component {
 
 const mapDispatchToProps = {
   addSkill: addSkill,
-	deleteSkills: deleteSkills
+	deleteSkills: deleteSkills,
+	profileStrength: profileStrength,
+	profileStrengthDelete: profileStrengthDelete
 };
 
 function mapStateToProps(state) {

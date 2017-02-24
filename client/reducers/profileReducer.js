@@ -19,6 +19,8 @@ const REMLANGUAGES = 'profile/REMLANGUAGES';
 const REMPERSONAL = 'profile/REMLANGUAGE';
 const REMSKILLS = 'profile/REMSKILLS';
 const REMVOLUNTEER = 'profile/REMVOLUNTEER';
+const PRFSTR = 'profile/PRFSTR';
+const PRFSTRDEL = 'profile/PRFSTRDEL';
 
 const initialState = {
   languageShow: false,
@@ -45,12 +47,10 @@ const initialState = {
 };
 
 function storeInfo(state, userInfo) {
-  state.profileStrength = 0;
-  for (var prop in userInfo) {
+  for (let prop in userInfo) {
     if (userInfo[prop].length > 0) {
-      state.profileStrength++;
-      var show = prop + 'Show';
-      var array = prop + 'Array';
+      let show = prop + 'Show';
+      let array = prop + 'Array';
       state[show] = true;
       userInfo[prop].forEach(function(item, i) {
         state[array].unshift(userInfo[prop][i]);
@@ -63,47 +63,47 @@ function storeInfo(state, userInfo) {
 export default function reducer(state=initialState, action) {
   switch (action.type) {
    case ADDINFO:
-     var stateCopy = Object.assign({}, state);
-     var newState = storeInfo(stateCopy, action.payload);
+     let stateCopy = Object.assign({}, state);
+     let newState = storeInfo(stateCopy, action.payload);
      return Object.assign({}, state, newState);
    case ADDAWARD:
-     var awards = Array.from(state.awardsArray);
+     let awards = Array.from(state.awardsArray);
      awards.unshift(action.payload);
      return Object.assign({}, state, {awardsArray: awards, awardsShow: true});
    case ADDCERT:
-     var certifications = Array.from(state.certificationsArray);
+     let certifications = Array.from(state.certificationsArray);
      certifications.unshift(action.payload);
      return Object.assign({}, state, {certificationsArray: certifications, certificationsShow: true});
    case ADDCOURSE:
-     var courses = Array.from(state.coursesArray);
+     let courses = Array.from(state.coursesArray);
      courses.unshift(action.payload);
      return Object.assign({}, state, {coursesArray: courses, coursesShow: true});
    case ADDEDU:
-     var education = Array.from(state.educationArray);
+     let education = Array.from(state.educationArray);
      education.unshift(action.payload);
      return Object.assign({}, state, {educationArray: education, educationShow: true});
    case ADDEXP:
-     var experience = Array.from(state.experienceArray);
+     let experience = Array.from(state.experienceArray);
      experience.unshift(action.payload);
      return Object.assign({}, state, {experienceArray: experience, experienceShow: true});
    case ADDLANG:
-     var language = Array.from(state.languageArray);
+     let language = Array.from(state.languageArray);
      language.unshift(action.payload);
      return Object.assign({}, state, {languageArray: language, languageShow: true});
    case ADDPERS:
-     var personal = Array.from(state.personalArray);
+     let personal = Array.from(state.personalArray);
      personal.unshift(action.payload);
      return Object.assign({}, state, {personalArray: personal, personalShow: true});
    case ADDSKILL:
-     var skills = Array.from(state.skillsArray);
+     let skills = Array.from(state.skillsArray);
      skills.unshift(action.payload);
      return Object.assign({}, state, {skillsArray: skills, skillsShow: true});
    case ADDSUMMARY:
-     var summary = Array.from(state.summaryArray);
+     let summary = Array.from(state.summaryArray);
      summary.unshift(action.payload);
      return Object.assign({}, state, {summaryArray: summary, summaryShow: true});
    case ADDVOLUN:
-     var volunteer = Array.from(state.volunteerArray);
+     let volunteer = Array.from(state.volunteerArray);
      volunteer.unshift(action.payload);
      return Object.assign({}, state, {volunteerArray: volunteer, volunteerShow: true});
    case REMSUMMARY:
@@ -126,6 +126,16 @@ export default function reducer(state=initialState, action) {
      return Object.assign({}, state, {skillsArray: [], skillsShow: false});
    case REMVOLUNTEER:
      return Object.assign({}, state, {volunteerArray: [], volunteerShow: false});
+    case PRFSTR:
+      var profileCount = state.profileStrength;
+      profileCount += action.count;
+      console.log(profileCount);
+	    return Object.assign({}, state, {profileStrength: profileCount});
+	  case PRFSTRDEL:
+		  var profileCount = state.profileStrength;
+		  profileCount -= action.count;
+		  console.log(profileCount);
+		  return Object.assign({}, state, {profileStrength: profileCount});
    default:
      return state;
  }
@@ -265,6 +275,20 @@ export function deleteVolunteer() {
 export function deleteExperiences() {
 	return {
 		type: REMEXPERIENCE
+	}
+}
+
+export function profileStrength(count) {
+  return {
+    type: PRFSTR,
+    count: count
+  }
+}
+
+export function profileStrengthDelete(count) {
+	return {
+		type: PRFSTRDEL,
+		count: count
 	}
 }
 
