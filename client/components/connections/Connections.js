@@ -8,20 +8,19 @@ import './connections.scss';
 class Connections extends Component {
 
   componentDidMount() {
-    axios.post('/getConnections', {
-      id: 1
-    }).then(res => {
-      this.props.setConnections(res.data);
-    });
+    // axios.post('/getConnections', {
+    //   id: 1
+    // }).then(res => {
+    //   this.props.setConnections(res.data);
+    // });
   }
 
   render() {
-    var test = this.props.connections.map((conn, i) => {
-      console.log(conn);
-      var name = conn.first + " " + conn.last;
+    let test = this.props.connections.map((conn, i) => {
+      let name = conn.first + " " + conn.last;
       return (
-        <div className="connection-bg">
-          <div key={i} className="conn section-shadow">
+        <div key={i} className="connection-bg">
+          <div className="conn section-shadow">
             <img src={conn.s3} />
             <div className="conn-info">
               <p>{name}</p>
@@ -30,8 +29,8 @@ class Connections extends Component {
             <Link to="/profile"><button className="button-connect">View Profile</button></Link>
           </div>
         </div>
-        
-        
+
+
       )
     });
     return (

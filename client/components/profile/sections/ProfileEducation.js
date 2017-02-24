@@ -3,6 +3,7 @@ import ToolTip from 'react-portal-tooltip';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addEducation} from '../../../reducers/profileReducer';
+import {deleteEducation} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileEducation extends Component {
@@ -89,7 +90,6 @@ class ProfileEducation extends Component {
 	addNewEducation() {
 		var education = this.state.addEduc;
 		education.id = 1;
-		console.log(education);
 		axios.post('/setEducation', education).then(() => {
 			this.props.addEducation(this.state.addEduc);
 		});
@@ -193,6 +193,11 @@ class ProfileEducation extends Component {
 		});
 	}
 
+	deleteEducation() {
+		axios.delete('/delete/education/' + 1).then((res) => {
+			this.props.deleteEducation();
+		})
+	}
 
 	render () {
 
@@ -304,7 +309,7 @@ class ProfileEducation extends Component {
 		});
 		return (
 			<div className="education-box">
-				<div className="title-text-gray">Education<div className="gray-pencil"></div></div>
+				<div className="title-text-gray" onClick={this.deleteEducation.bind(this)}>Education<div className="trash"></div></div>
 					<div className="box-info">
 						{educations}
 					</div>
@@ -338,8 +343,9 @@ class ProfileEducation extends Component {
 }
 
 const mapDispatchToProps = {
-  addEducation: addEducation
-}
+  addEducation: addEducation,
+	deleteEducation: deleteEducation
+};
 
 function mapStateToProps(state) {
 	return {

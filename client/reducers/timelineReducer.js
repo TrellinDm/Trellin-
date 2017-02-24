@@ -4,33 +4,46 @@ const SAVE_REPLY = 'SAVE_REPLY';
 const All_REPLIES = 'All_REPLIES';
 
 const initialState = {
+  messages: [],
   replies: []
 };
 
-export default (state = initialState, action) => {
+function filterConnMess(mess, conns) {
+  var filteredMessages = []
+  conns.forEach( (elm, i) => {
+    mess.forEach( el => {
+      if (el.userid === elm.connection_id || elm.id === el.userid) {
+        filteredMessages.push(el);
+      }
+    })
+  });
+  return filteredMessages;
+}
 
-  console.log(action);
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case All_MESSAGES:
-      return Object.assign({}, state, action.payload)
-
+    console.log(action.mess);
+    console.log(action.conns);
+    var arr = filterConnMess(action.mess, action.conns);
+      return Object.assign({}, state, {messages: arr});
     case NEW_MESSAGE:
-      return Object.assign({}, state, action.payload)
+      return Object.assign({}, state, action.payload);
 
-    case All_REPLIES:
-      return Object.assign({}, state, {replies: action.payload})
-
-    default: return state
+      case All_REPLIES:
+        return Object.assign({}, state, {replies: action.payload})
+    default: return state;
   }
 }
 
-export function allMessages(data) {
+export function allMessages(mess, conns) {
   return {
     type: All_MESSAGES,
-    payload: data
+    mess: mess,
+    conns: conns
   }
 }
-
 
 export function newMessage (data) {
   return {

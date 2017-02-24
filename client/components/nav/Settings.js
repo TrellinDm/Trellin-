@@ -14,15 +14,15 @@ class Settings extends Component {
         <div className="account-settings">
           <Link to="/connections" className="profile-settings" id="network-menu">
             <img src={network} />
-            <a>Network</a>
+            <div>Network</div>
           </Link>
           <Link to="/trello" className="profile-settings" id="trello-menu">
             <img src={trellcard} />
-            <a>Trello</a>
+            <div>Trello</div>
           </Link>
           <Link to="/profile" className="profile-settings">
             <div className="profile-icon"/>
-            <a>Profile</a>
+            <div>Profile</div>
           </Link>
           <div className="logout-menu">
             <img src={Logout} />

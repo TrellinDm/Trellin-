@@ -24,7 +24,7 @@ class AwardsForm extends Component {
 	}
 
 	addNewAward() {
-		var awards = this.state;
+		let awards = this.state;
 		awards.id = 1;
 		axios.post('/setAwards', awards).then(() => {
 			this.props.addAward(this.state);

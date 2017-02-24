@@ -1,0 +1,1 @@
+delete from volunteer where id = $1;

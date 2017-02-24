@@ -4,26 +4,26 @@ let db = app.get('db');
 module.exports = {
 
   getUserInformation: function(req, res) {
-    var userInfo = {};
-    db.getLanguage(req.body.id, function(err, response) {
+    let userInfo = {};
+    db.profileGets.getLanguage(req.body.id, function(err, response) {
       userInfo.language = response;
-      db.getSummary(req.body.id, function(err, response) {
+      db.profileGets.getSummary(req.body.id, function(err, response) {
         userInfo.summary = response;
-        db.getCertifications(req.body.id, function(err, response) {
+        db.profileGets.getCertifications(req.body.id, function(err, response) {
           userInfo.certifications = response;
-          db.getEducation(req.body.id, function(err, response) {
+          db.profileGets.getEducation(req.body.id, function(err, response) {
             userInfo.education = response;
-            db.getSkills(req.body.id, function(err, response) {
+            db.profileGets.getSkills(req.body.id, function(err, response) {
               userInfo.skills = response;
-              db.getExperience(req.body.id, function(err, response) {
+              db.profileGets.getExperience(req.body.id, function(err, response) {
                 userInfo.experience = response;
-                db.getPersonal(req.body.id, function(err, response) {
+                db.profileGets.getPersonal(req.body.id, function(err, response) {
                   userInfo.personal = response;
-                  db.getVolunteer(req.body.id, function(err, response) {
+                  db.profileGets.getVolunteer(req.body.id, function(err, response) {
                     userInfo.volunteer = response;
-                    db.getAwards(req.body.id, function(err, response) {
+                    db.profileGets.getAwards(req.body.id, function(err, response) {
                       userInfo.awards = response;
-                      db.getCourses(req.body.id, function(err, response) {
+                      db.profileGets.getCourses(req.body.id, function(err, response) {
                         userInfo.courses = response;
                         res.status(200).send(userInfo);
                       });
@@ -40,29 +40,28 @@ module.exports = {
   },
 
   setLanguage: function(req, res) {
-    console.log(req.body);
-    var newLanguage = [
+    let newLanguage = [
       req.body.id,
       req.body.language,
       req.body.proficiency
     ];
-    db.setLanguage(newLanguage, function(err, result) {
+    db.profileSets.setLanguage(newLanguage, function(err, result) {
       res.status(200).send(result);
     });
   },
 
   setSummary: function(req, res) {
-    var newSummary = [
+    let newSummary = [
       req.body.id,
       req.body.summary
     ];
-    db.setSummary(newSummary, function(err, result) {
+    db.profileSets.setSummary(newSummary, function(err, result) {
       res.status(200).send(result);
     });
   },
 
   setCertifications: function(req, res) {
-    var newCertifications = [
+    let newCertifications = [
       req.body.id,
       req.body.name,
       req.body.authority,
@@ -71,13 +70,13 @@ module.exports = {
       req.body.begdate,
       req.body.enddate
     ];
-    db.setCertifications(newCertifications, function(err, result) {
+    db.profileSets.setCertifications(newCertifications, function(err, result) {
       res.status(200).send(result);
     });
   },
 
   setEducation: function(req, res) {
-    var newEducation = [
+    let newEducation = [
       req.body.id,
       req.body.school,
       req.body.begdate,
@@ -87,25 +86,24 @@ module.exports = {
       req.body.grade,
       req.body.activities
     ];
-    console.log(newEducation);
-    db.setEducation(newEducation, function(err, result) {
-      console.log(err);
+
+    db.profileSets.setEducation(newEducation, function(err, result) {
       res.status(200).send(result);
     });
   },
 
   setSkills: function(req, res) {
-    var newSkills = [
+    let newSkills = [
       req.body.id,
       req.body.skill
     ];
-    db.setSkills(newSkills, function(err, result) {
+    db.profileSets.setSkills(newSkills, function(err, result) {
       res.status(200).send(result);
     });
   },
 
   setExperience: function(req, res) {
-    var newExperience = [
+    let newExperience = [
       req.body.id,
       req.body.title,
       req.body.company,
@@ -114,13 +112,13 @@ module.exports = {
       req.body.current,
       req.body.description
     ];
-    db.setExperience(newExperience, function(err, result) {
+    db.profileSets.setExperience(newExperience, function(err, result) {
       res.status(200).send(result);
     });
   },
 
   setVolunteer: function(req, res) {
-    var newVolunteer = [
+    let newVolunteer = [
       req.body.id,
       req.body.organization,
       req.body.role,
@@ -130,24 +128,24 @@ module.exports = {
       req.body.current,
       req.body.description
     ];
-    db.setVolunteer(newVolunteer, function(err, result) {
+    db.profileSets.setVolunteer(newVolunteer, function(err, result) {
       res.status(200).send(result);
     });
   },
 
   setPersonal: function(req, res) {
-    var newPersonal = [
+    let newPersonal = [
       req.body.id,
       req.body.birthday,
       req.body.marital
     ];
-    db.setPersonal(newPersonal, function(err, result) {
+    db.profileSets.setPersonal(newPersonal, function(err, result) {
       res.status(200).send(result);
     });
   },
 
   setAwards: function(req, res) {
-    var newAwards = [
+    let newAwards = [
       req.body.id,
       req.body.title,
       req.body.associated,
@@ -155,21 +153,83 @@ module.exports = {
       req.body.recieved,
       req.body.description
     ];
-    db.setAwards(newAwards, function(err, result) {
+    db.profileSets.setAwards(newAwards, function(err, result) {
       res.status(200).send(result);
     });
   },
 
   setCourses: function(req, res) {
-    var newCourses = [
+    let newCourses = [
       req.body.id,
       req.body.name,
       req.body.course_no,
       req.body.associated
     ];
-    db.setCourses(newCourses, function(err, result) {
+    db.profileSets.setCourses(newCourses, function(err, result) {
       res.status(200).send(result);
     });
-  }
+  },
+  
+  deleteSummary: function(req, res) {
+    db.deleteSections.deleteSummary(req.params.id, function(err, result) {
+      res.status(200).send('Successfully deleted summary');
+    });
+  },
 
-}
+  deleteAwards: function(req, res) {
+    db.deleteSections.deleteAwards(req.params.id, function(err, result) {
+      res.status(200).send('Successfully deleted awards');
+    })
+  },
+  
+  deleteCertifications: function(req, res) {
+    db.deleteSections.deleteCertifications(req.params.id, function(err, result) {
+      res.status(200).send('Successfully deleted certifications');
+    })
+  },
+  
+  deleteCourses: function(req, res) {
+    db.deleteSections.deleteCourses(req.params.id, function(err, result) {
+      res.status(200).send('Successfully deleted courses');
+    })
+  },
+  
+  deleteEducation: function(req, res) {
+    db.deleteSections.deleteEducation(req.params.id, function(err, result) {
+      res.status(200).send('Successfully deleted education');
+    })
+  },
+  
+  deleteExperiences: function(req, res) {
+    db.deleteSections.deleteExperiences(req.params.id, function(err, result) {
+      res.status(200).send('Successfully delete experiences');
+    })
+  },
+  
+  deleteLanguages: function(req, res) {
+    db.deleteSections.deleteLanguages(req.params.id, function(err, result) {
+      res.status(200).send('Successfully deleted languages');
+    })
+  },
+  
+  deletePersonal: function(req, res) {
+    db.deleteSections.deletePersonal(req.params.id, function(err, result) {
+      res.status(200).send('Successfully deleted personal details');
+    })
+  },
+  
+  deleteSkills: function(req, res) {
+    db.deleteSections.deleteSkills(req.params.id, function(err, result) {
+      res.status(200).send('Successfully deleted skills');
+    })
+  },
+  
+  deleteVolunteer: function(req, res) {
+    db.deleteSections.deleteVolunteer(req.params.id, function(err, result) {
+      res.status(200).send('Successfully deleted volunteer experience');
+    })
+  }
+  
+  
+  
+};

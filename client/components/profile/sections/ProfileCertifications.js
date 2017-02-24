@@ -3,6 +3,7 @@ import ToolTip from 'react-portal-tooltip';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addCertification} from '../../../reducers/profileReducer';
+import {deleteCertifications} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileCertifications extends Component {
@@ -78,7 +79,6 @@ class ProfileCertifications extends Component {
 
 	addNewCertification() {
 		var certification = this.state.addCert;
-		console.log(certification);
 		certification.id = 1;
 		axios.post('/setCertifications', certification).then(() => {
 			this.props.addCertification(this.state.addCert);
@@ -160,6 +160,12 @@ class ProfileCertifications extends Component {
 				enddate: this.state.addCert.enddate,
 				certification_url: e.target.value
 			}
+		});
+	}
+	
+	deleteCertifications() {
+		axios.delete('/delete/certifications/' + 1).then((res) => {
+			this.props.deleteCertifications()
 		});
 	}
 
@@ -262,7 +268,7 @@ class ProfileCertifications extends Component {
 
 		return (
 			<div className="certifications-box">
-				<div className="title-text-gray">Certifications<div className="gray-pencil"></div></div>
+				<div className="title-text-gray" onClick={this.deleteCertifications.bind(this)}>Certifications<div className="trash"></div></div>
 				<div className="box-info">
 					{certificates}
 				</div>
@@ -302,8 +308,9 @@ class ProfileCertifications extends Component {
 }
 
 const mapDispatchToProps = {
-  addCertification: addCertification
-}
+  addCertification: addCertification,
+	deleteCertifications: deleteCertifications
+};
 
 function mapStateToProps(state) {
 	return {

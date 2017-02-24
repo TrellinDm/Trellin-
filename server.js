@@ -1,15 +1,15 @@
-var express = require('express');
+const express = require('express');
 // var path = require('path')
-var bodyParser = require('body-parser');
-var cors 		= require('cors');
-var massive = require('massive');
-var session = require('express-session');
-var passport = require('passport');
-var Auth0Strategy = require('passport-auth0');
-var config = require('./config');
-var jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const cors 		= require('cors');
+const massive = require('massive');
+const session = require('express-session');
+const passport = require('passport');
+const Auth0Strategy = require('passport-auth0');
+const config = require('./config');
+const jwt = require('jsonwebtoken');
 
-var app = module.exports = express();
+const app = module.exports = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
@@ -17,7 +17,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   cookie: {maxAge: 1000 * 60 * 60 * 24}
-}))
+}));
 app.set('port', (process.env.PORT || 8080));
 
 app.use(passport.initialize());
@@ -26,9 +26,9 @@ app.use(passport.session());
 app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname + '/build'));
 
-var connect = massive.connectSync({connectionString: "postgres://inyrrfgq:n44M05nu0byEfJ26llJ2UFUdlgzWMk0M@babar.elephantsql.com:5432/inyrrfgq"});
+const connect = massive.connectSync({connectionString: "postgres://inyrrfgq:n44M05nu0byEfJ26llJ2UFUdlgzWMk0M@babar.elephantsql.com:5432/inyrrfgq"});
 app.set('db', connect);
-var db = app.get('db');
+const db = app.get('db');
 
 
 
@@ -41,11 +41,9 @@ passport.use(new Auth0Strategy({
 }, function (accessToken, refreshToken, extraParams, profile, done) {
 
   db.get_userById([profile.id.toString()], function (err, user) {
-    console.log(user);
     user = user[0];
     if(!user) {
       db.insert_user([profile.id, profile.displayName, profile.picture, profile._json.email], function(err, user) {
-        console.log(user);
         return done(err, user[0])
       })
     }
@@ -76,7 +74,6 @@ passport.deserializeUser(function(obj, done) {
     //
     //   return done(null, tem);
     // })
-    console.log(obj);
     return done(null, obj);
 
 });
@@ -94,25 +91,25 @@ app.get('/auth/me', function(req,res,next){
     return res.status(404).send('user not found');
 
   return res.status(200).send(req.user);
-})
+});
 
 app.get('/auth/logout', function(req, res) {
   req.logout();
   res.redirect('/');
-})
+});
 
 
 
-var timelineCtrl = require('./server/timelineCtrl');
-var ConnectionCtrl = require('./server/ConnectionCtrl');
-var listCtrl = require('./server/listCtrl');
-var profileCtrl = require('./server/profileCtrl');
-var userCtrl = require('./server/userCtrl');
+const timelineCtrl = require('./server/timelineCtrl');
+const ConnectionCtrl = require('./server/ConnectionCtrl');
+const listCtrl = require('./server/listCtrl');
+const profileCtrl = require('./server/profileCtrl');
+const userCtrl = require('./server/userCtrl');
 
 app.put('/setProfile', userCtrl.setProfile);
 
 //------------------Timeline Endpoint-----------------------
-app.get('/getMessages/:id', timelineCtrl.getMessages);
+app.get('/getMessages/', timelineCtrl.getMessages);
 app.post('/createNewMessage', timelineCtrl.createNewMessage);
 app.post('/getConnections', ConnectionCtrl.getConnections);
 app.post('/reply', timelineCtrl.createReply);
@@ -138,8 +135,20 @@ app.post('/setPersonal', profileCtrl.setPersonal);
 app.post('/setSkills', profileCtrl.setSkills);
 app.post('/setSummary', profileCtrl.setSummary);
 app.post('/setVolunteer', profileCtrl.setVolunteer);
+app.delete('/delete/summary/:id', profileCtrl.deleteSummary);
+app.delete('/delete/awards/:id', profileCtrl.deleteAwards);
+app.delete('/delete/certifications/:id', profileCtrl.deleteCertifications);
+app.delete('/delete/courses/:id', profileCtrl.deleteCourses);
+app.delete('/delete/education/:id', profileCtrl.deleteEducation);
+app.delete('/delete/experiences/:id', profileCtrl.deleteExperiences);
+app.delete('/delete/languages/:id', profileCtrl.deleteLanguages);
+app.delete('/delete/personal/:id', profileCtrl.deletePersonal);
+app.delete('/delete/skills/:id', profileCtrl.deleteSkills);
+app.delete('/delete/volunteer/:id', profileCtrl.deleteVolunteer);
+app.delete('/delete/table/:id', listCtrl.deleteTable);
+app.delete('/delete/card/:id', listCtrl.deleteCard);
 
 
 app.listen(app.get('port'), function () {
   console.log('Running localhost', app.get('port'));
-})
+});

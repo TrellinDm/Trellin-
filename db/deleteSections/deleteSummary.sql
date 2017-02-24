@@ -1,0 +1,1 @@
+delete from summary where id = $1;

@@ -3,15 +3,11 @@ let db = app.get('db');
 
 module.exports = {
   getMessages: function (req, res) {
-    console.log(req.params.id);
-    db.getMessages([req.params.id], function (err, result) {
-        // console.log(err);
-        // console.log(result);
+    db.getMessages(function (err, result) {
         res.status(200).send(result)
-    })
+    });
   },
   createNewMessage: function (req, res) {
-    // console.log(req.body)
     let data = req.body
     let userid = data.userid;
     let listid = data.listid;
@@ -20,14 +16,12 @@ module.exports = {
     let messageid = 3;
     db.createNewMessage([userid, messageid, message, listid, type ], function (err, result) {
         if (err) {
-          console.log(err);
         }
         res.status(200).send(result)
     })
   },
 
   createReply: function (req, res) {
-    console.log(req.body);
     db.createReply([req.body.reply, req.body.message_id, req.body.userid], function (err, result) {
       if (err) {
         console.log(err);
@@ -42,7 +36,6 @@ module.exports = {
   getReply: function (req, res) {
     db.getReplies(function (err, result) {
       if (err) {
-        console.log(err);
         res.status(500).send(err);
       }
       else {

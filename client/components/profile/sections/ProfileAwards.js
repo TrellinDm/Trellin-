@@ -3,6 +3,7 @@ import ToolTip from 'react-portal-tooltip';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addAward} from '../../../reducers/profileReducer';
+import {deleteAwards} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 
@@ -126,7 +127,12 @@ class ProfileAwards extends Component {
 			}
 		});
 	}
-
+		
+	deleteAwards(){
+		axios.delete('/delete/awards/' + 1).then((res) => {
+			this.props.deleteAwards();
+		})
+	}
 
 	render() {
 
@@ -200,7 +206,7 @@ class ProfileAwards extends Component {
 		});
 		return (
 			<div className="education-box">
-				<div className="title-text-gray">Honors & Awards<div className="gray-pencil"></div></div>
+				<div className="title-text-gray" onClick={this.deleteAwards.bind(this)}>Honors & Awards<div className="trash"></div></div>
 					<div className="box-info">
 						{awards}
 					</div>
@@ -229,9 +235,11 @@ class ProfileAwards extends Component {
 	}
 }
 
+
 const mapDispatchToProps = {
-  addAward: addAward
-}
+  addAward: addAward,
+	deleteAwards: deleteAwards
+};
 
 function mapStateToProps(state) {
 	return {

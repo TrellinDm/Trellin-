@@ -3,6 +3,7 @@ import ToolTip from 'react-portal-tooltip';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addPersonal} from '../../../reducers/profileReducer';
+import {deletePersonal} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfilePersonal extends Component {
@@ -62,7 +63,12 @@ class ProfilePersonal extends Component {
 		});
 	}
 
-
+	deletePersonal() {
+		axios.delete('/delete/personal/' + 1).then((res) => {
+			this.props.deletePersonal();
+		})
+	}
+	
 	render() {
 
 		// Style formatting of form popup container
@@ -110,7 +116,7 @@ class ProfilePersonal extends Component {
 		return (
 
 			<div className="education-box">
-				<div className="title-text-gray">Personal Details<div className="gray-pencil"></div></div>
+				<div className="title-text-gray" onClick={this.deletePersonal.bind(this)}>Personal Details<div className="trash"></div></div>
 				<div className="box-info">
 					{personals}
 				</div>
@@ -122,7 +128,7 @@ class ProfilePersonal extends Component {
 					<input className="form-input" type="date" id="myMonth" onChange={this.saveBirthday} />
 					<div className="form-title">Marital status</div>
 					<select className="form-input" name="status" onChange={this.saveMarital}>
-						<option value=""></option>
+						<option value="" />
 						<option value="single">Single</option>
 						<option value="married">Married</option>
 						<option value="divorced">Divorced</option>
@@ -138,8 +144,9 @@ class ProfilePersonal extends Component {
 }
 
 const mapDispatchToProps = {
-  addPersonal: addPersonal
-}
+  addPersonal: addPersonal,
+	deletePersonal: deletePersonal
+};
 
 function mapStateToProps(state) {
 	return {

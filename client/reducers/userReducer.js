@@ -18,7 +18,6 @@ export default (state = user, action) => {
         action.data.city = action.data.location.split(', ')[0];
         action.data.state = action.data.location.split(', ')[1];
       }
-      console.log(action.data);
       return Object.assign({}, state, action.data);
       break;
     case UPDATE:

@@ -1,0 +1,1 @@
+delete from awards where id = $1;
