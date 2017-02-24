@@ -29,9 +29,9 @@
   top: 105px;
   padding: 15px;
   height: 400px;
-  border: solid 1px #bebebe;
   border-radius: 3px;
-  box-shadow: 0px 2px 1px #bebebe;
+  border: solid 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -65,7 +65,7 @@
 .trello-lists div{
   padding: 20px;
   border: solid 1px #bebebe;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   }
 
 .trello-button{
@@ -130,9 +130,9 @@
   height: 180px;
   font-size: 1rem;
   background-color: white;
-  border: solid 1px #bebebe;
   border-radius: 3px 3px 0 0;
-  box-shadow: 0px 2px 1px #bebebe;
+  border: solid 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   }
 
 .comment-container{
@@ -145,9 +145,9 @@
   width: 100%;
   background-color: white;
   height: auto;
-  border: solid 1px #bebebe;
   border-radius: 3px 3px 0 0;
-  box-shadow: 0px 2px 1px #bebebe;
+  border: solid 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   }
 
 .comment-header p{
@@ -172,7 +172,7 @@
 
 //Class for the section slide down menu
 .comment-reveal {
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border-radius: 0 0 3px 3px;
   margin-bottom: 2%;
   width: 100%;
@@ -218,7 +218,7 @@
   box-sizing: border-box;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
   color: white;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   padding: 6px 10px;
   float:right;
   border: 1px solid #1b5480;
@@ -378,7 +378,7 @@
   height: auto;
   background-color: white;
   border: solid 1px #bebebe;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   padding: 5px 10px 20px 10px;
   display: flex;

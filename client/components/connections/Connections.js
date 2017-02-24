@@ -19,7 +19,7 @@ class Connections extends Component {
     let test = this.props.connections.map((conn, i) => {
       let name = conn.first + " " + conn.last;
       return (
-        <div key={i} className="connection-bg">
+        <div key={i}>
           <div className="conn section-shadow">
             <img src={conn.s3} />
             <div className="conn-info">
@@ -29,12 +29,43 @@ class Connections extends Component {
             <Link to="/profile"><button className="button-connect">View Profile</button></Link>
           </div>
         </div>
-
-
       )
     });
     return (
-      <div className="connections">{test}</div>
+      <div className="connection-bg">
+        <div className="connection-top-box">
+          <div className="connection-header">Suggested Connections</div>
+          <div className="connection-wrapper">
+            <div className="connections">{test}</div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+          </div>
+        </div>
+        <div className="connection-bottom-box">
+          <div className="connection-header">My Connections</div>
+          <div className="connection-wrapper">
+            <div className="connections">{test}</div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+            <div className="connection-item"></div>
+          </div>
+        </div>
+      </div>
     )
   }
 }

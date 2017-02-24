@@ -10,7 +10,7 @@ import './main.scss';
  class App extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     if(!this.props.user.id) {
       axios.get('/auth/me').then( res => {
         axios.post('/getConnections', {id: res.data.id}).then((conns) => {
@@ -40,11 +40,11 @@ const mapStateToProps = state => {
   return {
     user: state.user
   }
-}
+};
 
 const mapDispatchToActions = {
   saveId: saveId,
   allMessages: allMessages
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToActions)(App)
