@@ -41,9 +41,7 @@ class List extends Component {
     return (
       <div>
         <div className="input-box">
-          <div>
-            <input className='input-table' onChange={this.handleChange} />
-          </div>
+          <input className='input-table' onChange={this.handleChange} />
           <button onClick={this.postList} className='button-dark-blue'>Create list</button>
         </div>
         {this.props.list.map( (elm, i) =>{

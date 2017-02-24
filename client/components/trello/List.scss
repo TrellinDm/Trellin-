@@ -4,7 +4,7 @@
 
 .list-wrapper {
   width: 270px;
-  margin: 0 8px;
+  margin: 0 14px;
   height: 100%;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -37,7 +37,7 @@
 .list {
   position: relative;
   margin: 0 8px 35px 8px;
-  width: 276px;
+  width: 290px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   border: solid 1px #bebebe;
   background-color: white;
@@ -46,7 +46,7 @@
   display: flex;
   flex-direction: column;
   white-space: normal;
-  max-height: 74vh;
+  max-height: 78vh;
   overflow: auto;
 }
 
@@ -56,14 +56,15 @@
 }
 
 .input-box {
-  padding: 0 0 10px 10px;
-  width: auto;
+  width: 290px;
   height: auto;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 0 8px;
+  margin-left: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border: solid 1px #bebebe;
   background-color: white;
+  border-radius: 3px;
   }
 
 .input-table {
@@ -73,8 +74,9 @@
   padding: 5px 6px 4px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) inset;
   color: #333;
-  width: 182px;
-  margin: 10px 0;
+  width: 159px;
+  margin: 10px 5px 10px 0;
+  font-size: 14px;
   }
 
 .delete-x {
