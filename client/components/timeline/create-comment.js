@@ -35,7 +35,6 @@ class CreateCommentBox extends React.Component {
    }
 
   handleSubmit(event) {
-    console.log(this.state);
     this.createNewMessage(this.state.value,this.state.userid,this.state.listid,this.state.messageType)
     event.preventDefault();
   }

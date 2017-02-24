@@ -79,7 +79,6 @@ class ProfileCertifications extends Component {
 
 	addNewCertification() {
 		var certification = this.state.addCert;
-		console.log(certification);
 		certification.id = 1;
 		axios.post('/setCertifications', certification).then(() => {
 			this.props.addCertification(this.state.addCert);

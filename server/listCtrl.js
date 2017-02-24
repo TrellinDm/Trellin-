@@ -13,10 +13,17 @@ module.exports = {
   },
 
   GetAll: function (req, res) {
-    console.log('hello');
     db.get_lists(function (err, result) {
-        console.log(result);
         res.status(200).json(result)
     })
+  },
+  
+  deleteTable: function(req, res) {
+    db.deleteCards([req.params.id], function(err, result) {
+	    db.deleteTable([req.params.id], function(err, result) {
+		    res.status(200).json(result);
+	    })
+    })
   }
-}
+  
+};

@@ -145,6 +145,7 @@ app.delete('/delete/languages/:id', profileCtrl.deleteLanguages);
 app.delete('/delete/personal/:id', profileCtrl.deletePersonal);
 app.delete('/delete/skills/:id', profileCtrl.deleteSkills);
 app.delete('/delete/volunteer/:id', profileCtrl.deleteVolunteer);
+app.delete('/delete/table/:id', listCtrl.deleteTable);
 
 
 app.listen(app.get('port'), function () {

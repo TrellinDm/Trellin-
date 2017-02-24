@@ -10,15 +10,12 @@ import {saveCards} from '../../reducers/listReducer'
 class Trello extends Component {
   constructor(props) {
     super(props)
-
   }
+  
   componentDidMount() {
-    console.log(this.props.listObj);
-      axios.get('/lists')
-        .then( res => {
-          console.log(res.data);
-          this.props.updateList( res.data)
-        })
+    axios.get('/lists').then( res => {
+      this.props.updateList( res.data)
+    })
   }
 
   render() {

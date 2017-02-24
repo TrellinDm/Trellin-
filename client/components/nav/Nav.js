@@ -22,7 +22,6 @@ class Nav extends Component {
 	}
 
 	toggleMenu() {
-		console.log("there");
 		this.setState({ menu: !this.state.menu });
 	}
 
@@ -35,7 +34,6 @@ class Nav extends Component {
 			this.props.toggleResults();
 		}
 		if (e.target.className !== 'me-hover' && e.target.className !== 'image-icon' && e.target.className !== 'icon-text') {
-			console.log(e.target.className);
 			this.setState({
 				menu: false
 			});
