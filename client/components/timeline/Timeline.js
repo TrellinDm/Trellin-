@@ -6,7 +6,6 @@ import './messaging.scss';
 import axios from 'axios';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
-import {allMessages} from '../../reducers/timelineReducer';
 import _ from 'underscore';
 
 
@@ -16,27 +15,19 @@ class Timeline extends Component {
     this.state = {
 	    menu: false,
       showLists: false,
-      messages:  []
+      messages:  [],
+      connections: []
     };
   }
-  componentDidMount() {
-    if (!this.props.user.id) {
-      var id = 3
-    }
-    else {
-      id = this.props.user.id
-    }
-      axios.get('/getMessages/' + id).then(res => {
-        this.props.allMessages(res.data);
-      })
- }
 
   render() {
-    let listMessages = _.map(this.props.message, function(mes, i) {
-        return (
-          <CommentBox key={mes.id} author={mes.userid} body={mes.message} />
-        )
-      });
+console.log(this.props.message);
+
+    var listMessages = this.props.message.map((mes, i) => {
+      return (
+        <CommentBox key={i} author={mes.userid} body={mes.message} />
+      )
+    });
 
     let listNodes;
     let listsButton = 'Show Lists';
@@ -127,11 +118,11 @@ function mapStateToProps(state) {
 		connections: state.search.updatedConnections,
 		showResults: state.search.showResults,
 		user: state.user,
-    message: state.message
+    message: state.message.messages
 	}
 }
 
-const mapDispatchToActions = {
-  allMessages
-}
-export default connect(mapStateToProps, mapDispatchToActions)(Timeline);
+// const mapDispatchToActions = {
+//   allMessages
+// }
+export default connect(mapStateToProps)(Timeline);

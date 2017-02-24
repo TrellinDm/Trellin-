@@ -18,10 +18,10 @@ class ReplyBox extends React.Component {
                 <div className="reply">
                   <div className="comment-head">
                     <div className="comment-profilePic" style={this.props.image}></div>
-                    <p>{this.props.author}</p>
+                    <p>{this.props.body.userid}</p>
                   </div>
                     <div className="reply-content">
-                      {this.props.body}
+                       {this.props.body.content}
                     </div>
                   <div className="interact-bar comment-bar">
                     <div className="interact-basic interact-likes">{likesNum} Likes</div>

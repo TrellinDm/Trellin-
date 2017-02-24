@@ -3,9 +3,9 @@ let db = app.get('db');
 
 module.exports = {
   getMessages: function (req, res) {
-    db.getMessages([req.params.id], function (err, result) {
+    db.getMessages(function (err, result) {
         res.status(200).send(result)
-    })
+    });
   },
   createNewMessage: function (req, res) {
     let data = req.body
@@ -22,7 +22,19 @@ module.exports = {
   },
 
   createReply: function (req, res) {
-    db.createReply([req.body.reply, req.body.message_id], function (err, result) {
+    db.createReply([req.body.reply, req.body.message_id, req.body.userid], function (err, result) {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      }
+      else {
+        res.status(200).json(result);
+      }
+    })
+  },
+
+  getReply: function (req, res) {
+    db.getReplies(function (err, result) {
       if (err) {
         res.status(500).send(err);
       }
