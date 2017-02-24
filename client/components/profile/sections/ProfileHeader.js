@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {updateUser} from '../../../reducers/userReducer';
+import {profileStrength} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileHeader extends Component {

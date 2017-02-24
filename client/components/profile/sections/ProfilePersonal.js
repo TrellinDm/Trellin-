@@ -4,6 +4,8 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addPersonal} from '../../../reducers/profileReducer';
 import {deletePersonal} from '../../../reducers/profileReducer';
+import {profileStrength} from '../../../reducers/profileReducer';
+import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfilePersonal extends Component {
@@ -13,6 +15,7 @@ class ProfilePersonal extends Component {
 		this.state = {
 			activePersonal1: false,
 			activePersonal2: false,
+			count: 0,
 			addPers: {
 				birthday: '',
 				marital: ''
@@ -66,7 +69,13 @@ class ProfilePersonal extends Component {
 	deletePersonal() {
 		axios.delete('/delete/personal/' + 1).then((res) => {
 			this.props.deletePersonal();
-		})
+		});
+		var count = this.state.count;
+		this.props.profileStrengthDelete(count);
+	}
+	
+	saveCount(count) {
+		this.setState ({count: count})
 	}
 	
 	render() {
@@ -82,6 +91,20 @@ class ProfilePersonal extends Component {
 		};
 
 		var personals = this.props.personalArray.map((pers, i) => {
+			var count = 0;
+			if (pers.birthday) {
+				count++;
+			}
+			if (pers.marital) {
+				count++;
+			}
+			if(count !== this.state.count) {
+				if (count > 2) {
+					count = 2;
+				}
+				this.saveCount(count);
+				this.props.profileStrength(count);
+			}
 			return (
 				<div key={i} className="awards-div">
 					{pers.birthday ? (
@@ -145,7 +168,9 @@ class ProfilePersonal extends Component {
 
 const mapDispatchToProps = {
   addPersonal: addPersonal,
-	deletePersonal: deletePersonal
+	deletePersonal: deletePersonal,
+	profileStrength: profileStrength,
+	profileStrengthDelete: profileStrengthDelete
 };
 
 function mapStateToProps(state) {

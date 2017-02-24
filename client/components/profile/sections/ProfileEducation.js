@@ -4,6 +4,8 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addEducation} from '../../../reducers/profileReducer';
 import {deleteEducation} from '../../../reducers/profileReducer';
+import {profileStrength} from '../../../reducers/profileReducer';
+import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileEducation extends Component {
@@ -18,6 +20,7 @@ class ProfileEducation extends Component {
 			activeEducation4: false,
 			activeEducation5: false,
 			activeEducation6: false,
+			count: 0,
 			addEduc: {
 				school: '',
 				degree: '',
@@ -196,7 +199,13 @@ class ProfileEducation extends Component {
 	deleteEducation() {
 		axios.delete('/delete/education/' + 1).then((res) => {
 			this.props.deleteEducation();
-		})
+		});
+		var count = this.state.count;
+		this.props.profileStrengthDelete(count);
+	}
+	
+	saveCount(count) {
+		this.setState ({count: count})
 	}
 
 	render () {
@@ -211,6 +220,35 @@ class ProfileEducation extends Component {
 		};
 
 		var educations = this.props.educationArray.map((educ, i) => {
+			var count = 0;
+			if (educ.school) {
+				count++;
+			}
+			if (educ.degree) {
+				count++;
+			}
+			if (educ.field) {
+				count++;
+			}
+			if (educ.begdate) {
+				count++;
+			}
+			if (educ.enddate) {
+				count++;
+			}
+			if (educ.grade) {
+				count++;
+			}
+			if (educ.activities) {
+				count++;
+			}
+			if(count !== this.state.count) {
+				if (count > 7) {
+					count = 7;
+				}
+				this.saveCount(count);
+				this.props.profileStrength(count);
+			}
 			return (
 				<div key={i} className="awards-div">
 					{educ.school ? (
@@ -344,7 +382,9 @@ class ProfileEducation extends Component {
 
 const mapDispatchToProps = {
   addEducation: addEducation,
-	deleteEducation: deleteEducation
+	deleteEducation: deleteEducation,
+	profileStrength: profileStrength,
+	profileStrengthDelete: profileStrengthDelete
 };
 
 function mapStateToProps(state) {
