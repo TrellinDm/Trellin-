@@ -1,6 +1,7 @@
 const All_MESSAGES = 'All_MESSAGES';
 const NEW_MESSAGE = 'NEW_MESSAGE';
 const SAVE_REPLY = 'SAVE_REPLY';
+const All_REPLIES = 'All_REPLIES';
 
 const initialState = {
   messages: [],
@@ -19,6 +20,7 @@ function filterConnMess(mess, conns) {
   return filteredMessages;
 }
 
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case All_MESSAGES:
@@ -28,6 +30,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {messages: arr});
     case NEW_MESSAGE:
       return Object.assign({}, state, action.payload);
+
+      case All_REPLIES:
+        return Object.assign({}, state, {replies: action.payload})
     default: return state;
   }
 }
@@ -50,6 +55,13 @@ export function newMessage (data) {
 export function saveReply(data) {
   return {
     type: SAVE_REPLY,
+    payload: data
+  }
+}
+
+export function allReplies(data) {
+  return {
+    type: All_REPLIES,
     payload: data
   }
 }
