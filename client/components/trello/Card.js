@@ -40,7 +40,7 @@ class Card extends Component {
 renderCard() {
   if (this.props.list.cardObj[this.props.id]) {
     var grid = this.props.list.cardObj[this.props.id].map((elm, i) => {
-     return (<div className="card" key={i}>{elm.content}</div>)
+     return (<div className="card" key={i}>{elm.content} <div className="delete-x"></div> </div>)
    });
    return grid
   }
@@ -51,8 +51,8 @@ renderCard() {
       <div>
         <div>
           {this.renderCard()}
-      </div>
-        <div >
+        </div>
+        <div>
           <input className='input-table' onChange={this.handleChange} />
           <button onClick={this.postCard} className='button-dark-blue'>Add Card</button>
         </div>
