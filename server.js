@@ -109,7 +109,7 @@ var userCtrl = require('./server/userCtrl');
 app.put('/setProfile', userCtrl.setProfile);
 
 //------------------Timeline Endpoint-----------------------
-app.get('/getMessages/:id', timelineCtrl.getMessages);
+app.get('/getMessages/', timelineCtrl.getMessages);
 app.post('/createNewMessage', timelineCtrl.createNewMessage);
 app.post('/getConnections', ConnectionCtrl.getConnections);
 app.post('/reply', timelineCtrl.createReply);

@@ -3,12 +3,9 @@ let db = app.get('db');
 
 module.exports = {
   getMessages: function (req, res) {
-    console.log(req.params.id);
-    db.getMessages([req.params.id], function (err, result) {
-        // console.log(err);
-        // console.log(result);
+    db.getMessages(function (err, result) {
         res.status(200).send(result)
-    })
+    });
   },
   createNewMessage: function (req, res) {
     // console.log(req.body)
