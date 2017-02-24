@@ -4,7 +4,7 @@ import list from './reducers/listReducer';
 import connections from './reducers/connectionsReducer';
 import user from './reducers/userReducer';
 import profile from './reducers/profileReducer';
-import message from './reducers/messageReducer';
+import message from './reducers/timelineReducer';
 
 export default combineReducers({
   search,

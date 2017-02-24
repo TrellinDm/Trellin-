@@ -24,5 +24,18 @@ module.exports = {
         }
         res.status(200).send(result)
     })
+  },
+
+  createReply: function (req, res) {
+    console.log(req.body);
+    db.createReply([req.body.reply, req.body.message_id], function (err, result) {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      }
+      else {
+        res.status(200).json(result);
+      }
+    })
   }
 }

@@ -104,12 +104,15 @@ var timelineCtrl = require('./server/timelineCtrl');
 var ConnectionCtrl = require('./server/ConnectionCtrl');
 var listCtrl = require('./server/listCtrl');
 var profileCtrl = require('./server/profileCtrl');
+var userCtrl = require('./server/userCtrl');
+
+app.put('/setProfile', userCtrl.setProfile);
 
 //------------------Timeline Endpoint-----------------------
 app.get('/getMessages/:id', timelineCtrl.getMessages);
 app.post('/createNewMessage', timelineCtrl.createNewMessage);
 app.post('/getConnections', ConnectionCtrl.getConnections);
-
+app.post('/reply', timelineCtrl.createReply);
 //------------------------LIST ENDPOINTS-----------------------
 app.get('/lists', listCtrl.GetAll);
 app.post('/list', listCtrl.Create);

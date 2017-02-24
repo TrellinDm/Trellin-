@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {newMessage} from '../../reducers/messageReducer'
+import {newMessage} from '../../reducers/timelineReducer'
 
 class CreateCommentBox extends React.Component {
 
@@ -29,9 +29,11 @@ class CreateCommentBox extends React.Component {
 
     })
   }
+
   handleChange(event) {
      this.setState({value: event.target.value});
    }
+
   handleSubmit(event) {
     console.log(this.state);
     this.createNewMessage(this.state.value,this.state.userid,this.state.listid,this.state.messageType)

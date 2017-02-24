@@ -6,7 +6,7 @@ import './messaging.scss';
 import axios from 'axios';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
-import {allMessages} from '../../reducers/messageReducer';
+import {allMessages} from '../../reducers/timelineReducer';
 import _ from 'underscore';
 
 
@@ -36,7 +36,7 @@ class Timeline extends Component {
   render() {
     let listMessages = _.map(this.props.message, function(mes, i) {
         return (
-          <CommentBox key={i} author={mes.userid} body={mes.message} />
+          <CommentBox key={mes.id} author={mes.userid} body={mes.message} />
         )
       });
 

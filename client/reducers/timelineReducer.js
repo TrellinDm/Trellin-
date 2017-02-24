@@ -1,5 +1,7 @@
 const All_MESSAGES = 'All_MESSAGES';
 const NEW_MESSAGE = 'NEW_MESSAGE';
+const SAVE_REPLY = 'SAVE_REPLY';
+
 const message = { };
 
 export default (state = message, action) => {
@@ -8,6 +10,11 @@ export default (state = message, action) => {
       return Object.assign({}, state, action.payload)
     case NEW_MESSAGE:
       return Object.assign({}, state, action.payload)
+
+    case NEW_MESSAGE:
+      console.log(action.payload);
+      return Object.assign({}, state, action.payload)
+    
     default: return state
   }
 }
@@ -22,6 +29,13 @@ export function allMessages(data) {
 export function newMessage (data) {
   return {
     type: NEW_MESSAGE,
+    payload: data
+  }
+}
+
+export function saveReply(data) {
+  return {
+    type: SAVE_REPLY,
     payload: data
   }
 }
