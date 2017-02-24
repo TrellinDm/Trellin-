@@ -8,11 +8,11 @@ import './connections.scss';
 class Connections extends Component {
 
   componentDidMount() {
-    axios.post('/getConnections', {
-      id: 1
-    }).then(res => {
-      this.props.setConnections(res.data);
-    });
+    // axios.post('/getConnections', {
+    //   id: 1
+    // }).then(res => {
+    //   this.props.setConnections(res.data);
+    // });
   }
 
   render() {
@@ -29,8 +29,8 @@ class Connections extends Component {
             <Link to="/profile"><button className="button-connect">View Profile</button></Link>
           </div>
         </div>
-        
-        
+
+
       )
     });
     return (

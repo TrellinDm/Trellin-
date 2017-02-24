@@ -1,2 +1,1 @@
-select * from messages
-where userid = $1
+select * from messages;
