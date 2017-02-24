@@ -10,11 +10,6 @@ export default (state = message, action) => {
       return Object.assign({}, state, action.payload)
     case NEW_MESSAGE:
       return Object.assign({}, state, action.payload)
-
-    case NEW_MESSAGE:
-      console.log(action.payload);
-      return Object.assign({}, state, action.payload)
-    
     default: return state
   }
 }
