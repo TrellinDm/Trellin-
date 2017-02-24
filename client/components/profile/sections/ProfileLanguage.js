@@ -3,6 +3,7 @@ import ToolTip from 'react-portal-tooltip';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addLanguage} from '../../../reducers/profileReducer';
+import {deleteLanguages} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileLanguage extends Component {
@@ -50,6 +51,12 @@ class ProfileLanguage extends Component {
 
 	saveProficiency(e) {
 		this.setState({ addLang: { language: this.state.addLang.language, proficiency: e.target.value }});
+	}
+	
+	deleteLanguages() {
+		axios.delete('/delete/languages/' + 1).then((res) => {
+			this.props.deleteLanguages();
+		})
 	}
 
 
@@ -100,7 +107,7 @@ class ProfileLanguage extends Component {
 
 		return (
 			<div className="education-box">
-				<div className="title-text-gray">Language<div className="gray-pencil"></div></div>
+				<div className="title-text-gray" onClick={this.deleteLanguages.bind(this)}>Language<div className="trash"></div></div>
 				<div className="box-info">
 					{languages}
 				</div>
@@ -127,8 +134,9 @@ class ProfileLanguage extends Component {
 }
 
 const mapDispatchToProps = {
-  addLanguage: addLanguage
-}
+  addLanguage: addLanguage,
+	deleteLanguages: deleteLanguages
+};
 
 function mapStateToProps(state) {
 	return {

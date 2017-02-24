@@ -3,7 +3,9 @@ import ToolTip from 'react-portal-tooltip';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addExperience} from '../../../reducers/profileReducer';
+import {deleteExperiences} from '../../../reducers/profileReducer';
 import axios from 'axios';
+
 
 class ProfileExperience extends Component {
 	constructor(props){
@@ -161,6 +163,12 @@ class ProfileExperience extends Component {
 			}
 		});
 	}
+	
+	deleteExperiences() {
+		axios.delete('/delete/experiences/' + 1).then((res) => {
+			this.props.deleteExperiences();
+		})
+	}
 
 	render () {
 
@@ -260,7 +268,7 @@ class ProfileExperience extends Component {
 		});
 		return (
 			<div className="experience-box">
-				<div className="title-text-gray">Experience<div className="gray-pencil"></div></div>
+				<div className="title-text-gray" onClick={this.deleteExperiences.bind(this)}>Experience<div className="trash"></div></div>
 				<div className="box-info">
 					{experiences}
 				</div>
@@ -300,8 +308,9 @@ class ProfileExperience extends Component {
 }
 
 const mapDispatchToProps = {
-  addExperience: addExperience
-}
+  addExperience: addExperience,
+	deleteExperiences: deleteExperiences
+};
 
 function mapStateToProps(state) {
 	return {

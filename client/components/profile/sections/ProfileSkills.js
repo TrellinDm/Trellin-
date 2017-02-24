@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addSkill} from '../../../reducers/profileReducer';
+import {deleteSkills} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileSkills extends Component {
@@ -26,6 +27,12 @@ class ProfileSkills extends Component {
 	saveSkill(e) {
 		this.setState({ skill: e.target.value });
 	}
+	
+	deleteSkills() {
+		axios.delete('/delete/skills/' + 1).then ((res) => {
+			this.props.deleteSkills();
+		})
+	}
 
 	render() {
 
@@ -49,7 +56,7 @@ class ProfileSkills extends Component {
 		return (
 
 			<div className="education-box">
-				<div className="title-text-gray">Skills<div className="gray-pencil"></div></div>
+				<div className="title-text-gray" onClick={this.deleteSkills.bind(this)}>Skills<div className="trash"></div></div>
 				<div className="skills-div">
 					{skills}
 				</div>
@@ -69,8 +76,9 @@ class ProfileSkills extends Component {
 }
 
 const mapDispatchToProps = {
-  addSkill: addSkill
-}
+  addSkill: addSkill,
+	deleteSkills: deleteSkills
+};
 
 function mapStateToProps(state) {
 	return {

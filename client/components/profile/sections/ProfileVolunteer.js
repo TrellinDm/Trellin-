@@ -3,6 +3,7 @@ import ToolTip from 'react-portal-tooltip';
 import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addVolunteer} from '../../../reducers/profileReducer';
+import {deleteVolunteer} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileVolunteer extends Component {
@@ -138,6 +139,12 @@ class ProfileVolunteer extends Component {
 			}
 		});
 	}
+	
+	deleteVolunteer() {
+		axios.delete('/delete/volunteer/' + 1).then((res) => {
+			this.props.deleteVolunteer();
+		})
+	}
 
 	render() {
 
@@ -236,7 +243,7 @@ class ProfileVolunteer extends Component {
 		});
 		return (
 			<div className="education-box">
-				<div className="title-text-gray">Volunteering Experience<div className="gray-pencil"></div></div>
+				<div className="title-text-gray" onClick={this.deleteVolunteer.bind(this)}>Volunteering Experience<div className="trash"></div></div>
 				<div className="box-info">
 					{volunteers}
 				</div>
@@ -277,8 +284,9 @@ class ProfileVolunteer extends Component {
 }
 
 const mapDispatchToProps = {
-  addVolunteer: addVolunteer
-}
+  addVolunteer: addVolunteer,
+	deleteVolunteer: deleteVolunteer
+};
 
 function mapStateToProps(state) {
 	return {

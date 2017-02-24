@@ -9,6 +9,16 @@ const ADDPERS = 'profile/ADDPERS';
 const ADDSKILL = 'profile/ADDSKILL';
 const ADDSUMMARY = 'profile/ADDSUMMARY';
 const ADDVOLUN = 'profile/ADDVOLUN';
+const REMSUMMARY = 'profile/REMSUMMARY';
+const REMAWARDS = 'profile/REMAWARDS';
+const REMCERTIFICATIONS = 'profile/REMCERTIFICATIONS';
+const REMCOURSES = 'profile/REMCOURSES';
+const REMEDUCATION = 'profile/REMEDUCATION';
+const REMEXPERIENCE = 'profile/REMEXPERIENCE';
+const REMLANGUAGES = 'profile/REMLANGUAGES';
+const REMPERSONAL = 'profile/REMLANGUAGE';
+const REMSKILLS = 'profile/REMSKILLS';
+const REMVOLUNTEER = 'profile/REMVOLUNTEER';
 
 const initialState = {
   languageShow: false,
@@ -32,7 +42,7 @@ const initialState = {
   personalArray: [],
   volunteerArray: [],
   profileStrength: 0
-}
+};
 
 function storeInfo(state, userInfo) {
   state.profileStrength = 0;
@@ -96,6 +106,26 @@ export default function reducer(state=initialState, action) {
      var volunteer = Array.from(state.volunteerArray);
      volunteer.unshift(action.payload);
      return Object.assign({}, state, {volunteerArray: volunteer, volunteerShow: true});
+   case REMSUMMARY:
+     return Object.assign({}, state, {summaryArray: [], summaryShow: false});
+   case REMAWARDS:
+     return Object.assign({}, state, {awardsArray: [], awardsShow: false});
+   case REMCERTIFICATIONS:
+     return Object.assign({}, state, {certificationsArray: [], certificationsShow: false});
+   case REMCOURSES:
+     return Object.assign({}, state, {coursesArray: [], coursesShow: false});
+   case REMEDUCATION:
+     return Object.assign({}, state, {educationArray: [], educationShow: false});
+   case REMEXPERIENCE:
+     return Object.assign({}, state, {experienceArray: [], experienceShow: false});
+   case REMLANGUAGES:
+     return Object.assign({}, state, {languageArray: [], languageShow: false});
+   case REMPERSONAL:
+     return Object.assign({}, state, {personalArray: [], personalShow: false});
+   case REMSKILLS:
+     return Object.assign({}, state, {skillsArray: [], skillsShow: false});
+   case REMVOLUNTEER:
+     return Object.assign({}, state, {volunteerArray: [], volunteerShow: false});
    default:
      return state;
  }
@@ -177,3 +207,69 @@ export function addVolunteer(volun) {
     payload: volun
   }
 }
+
+export function deleteSummary() {
+  return {
+    type: REMSUMMARY
+  }
+}
+
+export function deleteAwards() {
+  return {
+    type: REMAWARDS
+  }
+}
+
+export function deleteCertifications() {
+  return {
+    type: REMCERTIFICATIONS
+  }
+}
+
+export function deleteCourses() {
+  return {
+    type: REMCOURSES
+  }
+}
+
+export function deleteEducation() {
+  return {
+    type: REMEDUCATION
+  }
+}
+
+export function deletePersonal() {
+  return {
+    type: REMPERSONAL
+  }
+}
+
+export function deleteLanguages() {
+  return {
+    type: REMLANGUAGES
+  }
+}
+
+export function deleteSkills() {
+  return {
+    type: REMSKILLS
+  }
+}
+
+export function deleteVolunteer() {
+  return {
+    type: REMVOLUNTEER
+  }
+}
+
+export function deleteExperiences() {
+	return {
+		type: REMEXPERIENCE
+	}
+}
+
+
+
+
+
+

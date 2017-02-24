@@ -1,0 +1,1 @@
+delete from certifications where id = $1;

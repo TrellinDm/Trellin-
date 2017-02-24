@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ToolTip from 'react-portal-tooltip';
 import SkyLight from 'react-skylight';
-import {addCourse} from '../../../reducers/profileReducer';
+import {addCourses} from '../../../reducers/profileReducer';
+import {deleteCourses} from '../../../reducers/profileReducer';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -83,6 +84,12 @@ class ProfileCourses extends Component {
 			}
 		});
 	}
+	
+	deleteCourses() {
+		axios.delete('/delete/courses/' + 1).then((res) => {
+			this.props.deleteCourses();
+		});
+	}
 
 
 	render() {
@@ -145,7 +152,7 @@ class ProfileCourses extends Component {
 		return (
 
 			<div className="education-box">
-				<div className="title-text-gray">Courses<div className="gray-pencil"></div></div>
+				<div className="title-text-gray" onClick={this.deleteCourses.bind(this)}>Courses<div className="trash"></div></div>
 				<div className="box-info">
 					{courses}
 				</div>
@@ -169,8 +176,9 @@ class ProfileCourses extends Component {
 }
 
 const mapDispatchToProps = {
-  addCourse: addCourse
-}
+  // addCourse: addCourse,
+	deleteCourses: deleteCourses
+};
 
 function mapStateToProps(state) {
 	return {

@@ -41,11 +41,9 @@ passport.use(new Auth0Strategy({
 }, function (accessToken, refreshToken, extraParams, profile, done) {
 
   db.get_userById([profile.id.toString()], function (err, user) {
-    console.log(user);
     user = user[0];
     if(!user) {
       db.insert_user([profile.id, profile.displayName, profile.picture, profile._json.email], function(err, user) {
-        console.log(user);
         return done(err, user[0])
       })
     }
@@ -76,7 +74,6 @@ passport.deserializeUser(function(obj, done) {
     //
     //   return done(null, tem);
     // })
-    console.log(obj);
     return done(null, obj);
 
 });
@@ -94,12 +91,12 @@ app.get('/auth/me', function(req,res,next){
     return res.status(404).send('user not found');
 
   return res.status(200).send(req.user);
-})
+});
 
 app.get('/auth/logout', function(req, res) {
   req.logout();
   res.redirect('/');
-})
+});
 
 
 
@@ -138,8 +135,18 @@ app.post('/setPersonal', profileCtrl.setPersonal);
 app.post('/setSkills', profileCtrl.setSkills);
 app.post('/setSummary', profileCtrl.setSummary);
 app.post('/setVolunteer', profileCtrl.setVolunteer);
+app.delete('/delete/summary/:id', profileCtrl.deleteSummary);
+app.delete('/delete/awards/:id', profileCtrl.deleteAwards);
+app.delete('/delete/certifications/:id', profileCtrl.deleteCertifications);
+app.delete('/delete/courses/:id', profileCtrl.deleteCourses);
+app.delete('/delete/education/:id', profileCtrl.deleteEducation);
+app.delete('/delete/experiences/:id', profileCtrl.deleteExperiences);
+app.delete('/delete/languages/:id', profileCtrl.deleteLanguages);
+app.delete('/delete/personal/:id', profileCtrl.deletePersonal);
+app.delete('/delete/skills/:id', profileCtrl.deleteSkills);
+app.delete('/delete/volunteer/:id', profileCtrl.deleteVolunteer);
 
 
 app.listen(app.get('port'), function () {
   console.log('Running localhost', app.get('port'));
-})
+});
