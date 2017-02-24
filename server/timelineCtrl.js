@@ -4,6 +4,7 @@ let db = app.get('db');
 module.exports = {
   getMessages: function (req, res) {
     db.getMessages(function (err, result) {
+  
         res.status(200).send(result)
     });
   },

@@ -8,12 +8,16 @@ const initialState = {
   replies: []
 };
 
-function filterConnMess(mess, conns) {
+function filterConnMess(mess, conns, id) {
   var filteredMessages = []
-  conns.forEach( (elm, i) => {
-    mess.forEach( el => {
-      if (el.userid === elm.connection_id || elm.id === el.userid) {
-        filteredMessages.push(el);
+  mess.forEach( (me, i) => {
+    if (me.userid == id) {
+      filteredMessages.push(me);
+    }
+    console.log(conns);
+    conns.forEach( co => {
+      if ( me.userid == co.connection_id ) {
+        filteredMessages.push(me);
       }
     })
   });
@@ -24,24 +28,31 @@ function filterConnMess(mess, conns) {
 export default (state = initialState, action) => {
   switch (action.type) {
     case All_MESSAGES:
-    console.log(action.mess);
-    console.log(action.conns);
-    var arr = filterConnMess(action.mess, action.conns);
+    var arr = filterConnMess(action.mess, action.conns, action.currId);
+    console.log(arr);
       return Object.assign({}, state, {messages: arr});
     case NEW_MESSAGE:
-      return Object.assign({}, state, action.payload);
+      let mesg = Array.from(state.messages)
+      mesg.push(action.payload[0])
+      return Object.assign({}, state, {messages: mesg});
 
       case All_REPLIES:
         return Object.assign({}, state, {replies: action.payload})
+
+      case SAVE_REPLY:
+       let rpls = Array.from(state.replies)
+       rpls.push(action.payload[0])
+        return Object.assign({}, state, {replies: rpls})
     default: return state;
   }
 }
 
-export function allMessages(mess, conns) {
+export function allMessages(mess, conns, id) {
   return {
     type: All_MESSAGES,
     mess: mess,
-    conns: conns
+    conns: conns,
+    currId: id
   }
 }
 

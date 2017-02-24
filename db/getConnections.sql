@@ -1,4 +1,4 @@
-select * from user_info
+select * from users
 inner join connections
-on user_info.id = connections.connection_id
-where connections.id = $1;
+on users.id = connections.id
+where users.id = $1;

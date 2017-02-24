@@ -17,7 +17,7 @@ import './main.scss';
           res.data.connections = conns.data;
           axios.get('/getMessages').then((mess) => {
             this.props.saveId(res.data);
-            this.props.allMessages(mess.data, conns.data);
+            this.props.allMessages(mess.data, conns.data, res.data.id);
           });
         })
       }).catch( err => {
