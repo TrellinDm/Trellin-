@@ -2,5 +2,5 @@ node_modules
 config.js
 build
 .idea
-!build/index.html
 log.md
+!build/index.html
