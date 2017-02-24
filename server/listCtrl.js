@@ -24,6 +24,12 @@ module.exports = {
 		    res.status(200).json(result);
 	    })
     })
-  }
+  },
+	
+	deleteCard: function(req, res) {
+		db.deleteCard([req.params.id], function(err, result) {
+      res.status(200).json(result);
+		})
+	}
   
 };

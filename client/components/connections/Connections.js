@@ -16,11 +16,11 @@ class Connections extends Component {
   }
 
   render() {
-    var test = this.props.connections.map((conn, i) => {
-      var name = conn.first + " " + conn.last;
+    let test = this.props.connections.map((conn, i) => {
+      let name = conn.first + " " + conn.last;
       return (
-        <div className="connection-bg">
-          <div key={i} className="conn section-shadow">
+        <div key={i} className="connection-bg">
+          <div className="conn section-shadow">
             <img src={conn.s3} />
             <div className="conn-info">
               <p>{name}</p>

@@ -1,15 +1,15 @@
-var express = require('express');
+const express = require('express');
 // var path = require('path')
-var bodyParser = require('body-parser');
-var cors 		= require('cors');
-var massive = require('massive');
-var session = require('express-session');
-var passport = require('passport');
-var Auth0Strategy = require('passport-auth0');
-var config = require('./config');
-var jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const cors 		= require('cors');
+const massive = require('massive');
+const session = require('express-session');
+const passport = require('passport');
+const Auth0Strategy = require('passport-auth0');
+const config = require('./config');
+const jwt = require('jsonwebtoken');
 
-var app = module.exports = express();
+const app = module.exports = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
@@ -17,7 +17,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   cookie: {maxAge: 1000 * 60 * 60 * 24}
-}))
+}));
 app.set('port', (process.env.PORT || 8080));
 
 app.use(passport.initialize());
@@ -26,9 +26,9 @@ app.use(passport.session());
 app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname + '/build'));
 
-var connect = massive.connectSync({connectionString: "postgres://inyrrfgq:n44M05nu0byEfJ26llJ2UFUdlgzWMk0M@babar.elephantsql.com:5432/inyrrfgq"});
+const connect = massive.connectSync({connectionString: "postgres://inyrrfgq:n44M05nu0byEfJ26llJ2UFUdlgzWMk0M@babar.elephantsql.com:5432/inyrrfgq"});
 app.set('db', connect);
-var db = app.get('db');
+const db = app.get('db');
 
 
 
@@ -100,11 +100,11 @@ app.get('/auth/logout', function(req, res) {
 
 
 
-var timelineCtrl = require('./server/timelineCtrl');
-var ConnectionCtrl = require('./server/ConnectionCtrl');
-var listCtrl = require('./server/listCtrl');
-var profileCtrl = require('./server/profileCtrl');
-var userCtrl = require('./server/userCtrl');
+const timelineCtrl = require('./server/timelineCtrl');
+const ConnectionCtrl = require('./server/ConnectionCtrl');
+const listCtrl = require('./server/listCtrl');
+const profileCtrl = require('./server/profileCtrl');
+const userCtrl = require('./server/userCtrl');
 
 app.put('/setProfile', userCtrl.setProfile);
 
@@ -146,6 +146,7 @@ app.delete('/delete/personal/:id', profileCtrl.deletePersonal);
 app.delete('/delete/skills/:id', profileCtrl.deleteSkills);
 app.delete('/delete/volunteer/:id', profileCtrl.deleteVolunteer);
 app.delete('/delete/table/:id', listCtrl.deleteTable);
+app.delete('/delete/card/:id', listCtrl.deleteCard);
 
 
 app.listen(app.get('port'), function () {
