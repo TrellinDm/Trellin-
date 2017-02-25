@@ -22,7 +22,7 @@ class CommentBox extends Component {
 
     this.state = {
       reply: '',
-      message_id: 68,
+      message_id: this.props.body.id,
       userid: this.props.user.id ? this.props.user.id : 3
     }
 
@@ -64,12 +64,18 @@ class CommentBox extends Component {
 
   newReply() {
     axios.post('/reply', this.state).then( res => {
+      console.log(res.data, 'comm');
+      this.props.saveReply(res.data)
     })
   }
 
   loop() {
     let grid = this.props.timeline.replies.map( (elm, i) => {
-      return(<ReplyBox className="comment-profilePic"  body={elm}/>)
+      console.log(elm.message_id, this.props.body.id);
+      if (elm.message_id == this.props.body.id) {
+        return(<ReplyBox className="comment-profilePic" key={i} body={elm}/>)
+      }
+
 
     })
     return  grid;
@@ -83,7 +89,7 @@ class CommentBox extends Component {
               <div className="comment-profilePic"></div>
               <p>{this.props.author}</p>
             </div>
-            <div className="comment-body">{this.props.body}</div>
+            <div className="comment-body">{this.props.body.message}</div>
 
               <div className="post-reply">
                 {/*<button className="">Edit</button>*/}
