@@ -64,14 +64,12 @@ class CommentBox extends Component {
 
   newReply() {
     axios.post('/reply', this.state).then( res => {
-      console.log(res.data, 'comm');
       this.props.saveReply(res.data)
     })
   }
 
   loop() {
     let grid = this.props.timeline.replies.map( (elm, i) => {
-      console.log(elm.message_id, this.props.body.id);
       if (elm.message_id == this.props.body.id) {
         return(<ReplyBox className="comment-profilePic" key={i} body={elm}/>)
       }
