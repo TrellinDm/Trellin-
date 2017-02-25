@@ -27,7 +27,7 @@ class CertificationsForm extends Component {
 
 	addNewCertification() {
 		var certification = this.state;
-		certification.id = 1;
+		certification.id = this.props.user.id;
 		axios.post('/setCertifications', certification).then(() => {
 			this.props.addCertification(this.state);
 		});
@@ -120,4 +120,10 @@ const mapDispatchToProps = {
   addCertification: addCertification
 }
 
-export default connect(null, mapDispatchToProps)(CertificationsForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CertificationsForm);

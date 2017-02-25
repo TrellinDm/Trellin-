@@ -19,7 +19,7 @@ class LanguageForm extends Component {
 
 	addNewLanguage() {
 		var language = this.state;
-		language.id = 1;
+		language.id = this.props.user.id;
 		axios.post('/setLanguage', language).then(() => {
 			this.props.addLanguage(this.state);
 		});
@@ -34,7 +34,7 @@ class LanguageForm extends Component {
 	}
 
 	render() {
-		
+
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
@@ -84,4 +84,10 @@ const mapDispatchToProps = {
   addLanguage: addLanguage
 }
 
-export default connect(null, mapDispatchToProps)(LanguageForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LanguageForm);

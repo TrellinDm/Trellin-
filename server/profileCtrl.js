@@ -168,7 +168,7 @@ module.exports = {
       res.status(200).send(result);
     });
   },
-  
+
   deleteSummary: function(req, res) {
     db.deleteSections.deleteSummary(req.params.id, function(err, result) {
       res.status(200).send('Successfully deleted summary');
@@ -180,55 +180,55 @@ module.exports = {
       res.status(200).send('Successfully deleted awards');
     })
   },
-  
+
   deleteCertifications: function(req, res) {
     db.deleteSections.deleteCertifications(req.params.id, function(err, result) {
       res.status(200).send('Successfully deleted certifications');
     })
   },
-  
+
   deleteCourses: function(req, res) {
     db.deleteSections.deleteCourses(req.params.id, function(err, result) {
       res.status(200).send('Successfully deleted courses');
     })
   },
-  
+
   deleteEducation: function(req, res) {
     db.deleteSections.deleteEducation(req.params.id, function(err, result) {
       res.status(200).send('Successfully deleted education');
     })
   },
-  
+
   deleteExperiences: function(req, res) {
     db.deleteSections.deleteExperiences(req.params.id, function(err, result) {
       res.status(200).send('Successfully delete experiences');
     })
   },
-  
+
   deleteLanguages: function(req, res) {
     db.deleteSections.deleteLanguages(req.params.id, function(err, result) {
       res.status(200).send('Successfully deleted languages');
     })
   },
-  
+
   deletePersonal: function(req, res) {
     db.deleteSections.deletePersonal(req.params.id, function(err, result) {
       res.status(200).send('Successfully deleted personal details');
     })
   },
-  
+
   deleteSkills: function(req, res) {
     db.deleteSections.deleteSkills(req.params.id, function(err, result) {
       res.status(200).send('Successfully deleted skills');
     })
   },
-  
+
   deleteVolunteer: function(req, res) {
     db.deleteSections.deleteVolunteer(req.params.id, function(err, result) {
       res.status(200).send('Successfully deleted volunteer experience');
     })
   }
-  
-  
-  
+
+
+
 };

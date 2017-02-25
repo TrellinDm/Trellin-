@@ -17,7 +17,7 @@ class ProfilePersonal extends Component {
 			activePersonal2: false,
 			count: 0,
 			addPers: {
-				birthday: '',
+				birthday: null,
 				marital: ''
 			}
 		};
@@ -42,7 +42,7 @@ class ProfilePersonal extends Component {
 
 	addNewPersonal() {
 		var personal = this.state.addPers;
-		personal.id = 1;
+		personal.id = this.props.user.id;
 		axios.post('/setPersonal', personal).then(() => {
 			this.props.addPersonal(this.state.addPers);
 		});
@@ -67,17 +67,17 @@ class ProfilePersonal extends Component {
 	}
 
 	deletePersonal() {
-		axios.delete('/delete/personal/' + 1).then((res) => {
+		axios.delete('/delete/personal/' + this.props.user.id).then((res) => {
 			this.props.deletePersonal();
 		});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}
-	
+
 	render() {
 
 		// Style formatting of form popup container
@@ -175,7 +175,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		personalArray: state.profile.personalArray
+		personalArray: state.profile.personalArray,
+		user: state.user
 	}
 }
 

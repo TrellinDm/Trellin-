@@ -58,7 +58,7 @@ class ProfileVolunteer extends Component {
 
 	addNewVolunteer() {
 		var volunteer = this.state.addVolu;
-		volunteer.id = 1;
+		volunteer.id = this.props.user.id;
 		axios.post('/setVolunteer', volunteer).then(() => {
 			this.props.addVolunteer(this.state.addVolu);
 		});
@@ -141,15 +141,15 @@ class ProfileVolunteer extends Component {
 			}
 		});
 	}
-	
+
 	deleteVolunteer() {
-		axios.delete('/delete/volunteer/' + 1).then((res) => {
+		axios.delete('/delete/volunteer/' + this.props.user.id).then((res) => {
 			this.props.deleteVolunteer();
 		});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}
@@ -326,7 +326,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		volunteerArray: state.profile.volunteerArray
+		volunteerArray: state.profile.volunteerArray,
+		user: state.user
 	}
 }
 

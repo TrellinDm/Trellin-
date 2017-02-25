@@ -52,7 +52,7 @@ class ProfileCourses extends Component {
 
 	addNewCourse() {
 		var course = this.state.addCrse;
-		course.id = 1;
+		course.id = this.props.user.id;
 		axios.post('/setCourses', course).then(() => {
 			this.props.addCourse(this.state.addCrse);
 		});
@@ -87,15 +87,15 @@ class ProfileCourses extends Component {
 			}
 		});
 	}
-	
+
 	deleteCourses() {
-		axios.delete('/delete/courses/' + 1).then((res) => {
+		axios.delete('/delete/courses/' + this.props.user.id).then((res) => {
 			this.props.deleteCourses();
 		});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}
@@ -209,7 +209,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		coursesArray: state.profile.coursesArray
+		coursesArray: state.profile.coursesArray,
+		user: state.user
 	}
 }
 

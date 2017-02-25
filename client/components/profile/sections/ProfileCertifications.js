@@ -24,8 +24,8 @@ class ProfileCertifications extends Component {
 				name: '',
 				authority: '',
 				license_no: '',
-				begdate: '',
-				enddate: '',
+				begdate: null,
+				enddate: null,
 				certification_url: ''
 			}
 		};
@@ -82,7 +82,7 @@ class ProfileCertifications extends Component {
 
 	addNewCertification() {
 		var certification = this.state.addCert;
-		certification.id = 1;
+		certification.id = this.props.user.id;
 		axios.post('/setCertifications', certification).then(() => {
 			this.props.addCertification(this.state.addCert);
 		});
@@ -165,15 +165,15 @@ class ProfileCertifications extends Component {
 			}
 		});
 	}
-	
+
 	deleteCertifications() {
-		axios.delete('/delete/certifications/' + 1).then((res) => {
+		axios.delete('/delete/certifications/' + this.props.user.id).then((res) => {
 			this.props.deleteCertifications()
 		});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}
@@ -351,7 +351,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		certificationsArray: state.profile.certificationsArray
+		certificationsArray: state.profile.certificationsArray,
+		user: state.user
 	}
 }
 

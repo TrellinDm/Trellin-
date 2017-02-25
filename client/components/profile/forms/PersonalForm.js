@@ -19,7 +19,7 @@ class PersonalForm extends Component {
 
 	addNewPersonal() {
 		var personal = this.state;
-		personal.id = 1;
+		personal.id = this.props.user.id;
 		axios.post('/setPersonal', personal).then(() => {
 			this.props.addPersonal(this.state);
 		});
@@ -34,7 +34,7 @@ class PersonalForm extends Component {
 	}
 
 	render() {
-		
+
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
@@ -84,4 +84,10 @@ const mapDispatchToProps = {
   addPersonal: addPersonal
 }
 
-export default connect(null, mapDispatchToProps)(PersonalForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalForm);

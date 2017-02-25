@@ -15,7 +15,7 @@ class ProfileSkills extends Component {
 			skill: '',
 			count: 0
 		};
-		
+
 		this.addNewSkill = this.addNewSkill.bind(this);
 		this.saveSkill = this.saveSkill.bind(this);
 		this.saveCount = this.saveCount.bind(this);
@@ -23,7 +23,7 @@ class ProfileSkills extends Component {
 
 	addNewSkill() {
 		var skill = this.state;
-		skill.id = 1;
+		skill.id = this.props.user.id;
 		axios.post('/setSkills', skill).then(() => {
 			this.props.addSkill(this.state);
 		});
@@ -32,19 +32,19 @@ class ProfileSkills extends Component {
 	saveSkill(e) {
 		this.setState({ skill: e.target.value });
 	}
-	
+
 	deleteSkills() {
-		axios.delete('/delete/skills/' + 1).then ((res) => {
+		axios.delete('/delete/skills/' + this.props.user.id).then ((res) => {
 			this.props.deleteSkills();
 		});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}
-	
+
 
 	render() {
 
@@ -107,7 +107,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		skillsArray: state.profile.skillsArray
+		skillsArray: state.profile.skillsArray,
+		user: state.user
 	}
 }
 

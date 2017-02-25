@@ -24,7 +24,7 @@ class ProfileAwards extends Component {
 				title: '',
 				associated: '',
 				issuer: '',
-				recieved: '',
+				recieved: null,
 				description: ''
 			}
 		};
@@ -63,7 +63,7 @@ class ProfileAwards extends Component {
 	hideAward4() {
 		this.setState({activeAward4: false})
 	}
-	
+
 	showAward5() {
 		this.setState({activeAward5: true})
 	}
@@ -73,7 +73,7 @@ class ProfileAwards extends Component {
 
 	addNewAward() {
 		var awards = this.state.addAwar;
-		awards.id = 1;
+		awards.id = this.props.user.id;
 		axios.post('/setAwards', awards).then(() => {
 			this.props.addAward(this.state.addAwar);
 		});
@@ -138,15 +138,15 @@ class ProfileAwards extends Component {
 			}
 		});
 	}
-		
+
 	deleteAwards(){
-		axios.delete('/delete/awards/' + 1).then((res) => {
+		axios.delete('/delete/awards/' + this.props.user.id).then((res) => {
 			this.props.deleteAwards();
 		});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}
@@ -217,7 +217,7 @@ class ProfileAwards extends Component {
 					)}
 					{awar.issuer ? (
 						<div>{awar.issuer}</div>
-					) : ( 
+					) : (
 						<div className="add-text-blue">Add Issuer
 							<div onMouseEnter={this.showAward3.bind(this)} onMouseLeave={this.hideAward3.bind(this)} id="Award3" className="question-icon"></div>
 							<ToolTip active={this.state.activeAward3} position="right" arrow="center" parent="#Award3">
@@ -298,7 +298,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		awardsArray: state.profile.awardsArray
+		awardsArray: state.profile.awardsArray,
+		user: state.user
 	}
 }
 

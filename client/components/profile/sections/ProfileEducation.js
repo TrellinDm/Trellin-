@@ -92,7 +92,7 @@ class ProfileEducation extends Component {
 
 	addNewEducation() {
 		var education = this.state.addEduc;
-		education.id = 1;
+		education.id = this.props.user.id;
 		axios.post('/setEducation', education).then(() => {
 			this.props.addEducation(this.state.addEduc);
 		});
@@ -197,13 +197,13 @@ class ProfileEducation extends Component {
 	}
 
 	deleteEducation() {
-		axios.delete('/delete/education/' + 1).then((res) => {
+		axios.delete('/delete/education/' + this.props.user.id).then((res) => {
 			this.props.deleteEducation();
 		});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}
@@ -389,7 +389,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		educationArray: state.profile.educationArray
+		educationArray: state.profile.educationArray,
+		user: state.user
 	}
 }
 

@@ -17,7 +17,7 @@ class SummaryForm extends Component {
 
 	addNewSummary() {
 		var summary = this.state;
-		summary.id = 1;
+		summary.id = this.props.user.id;
 		axios.post('/setSummary', summary).then(() => {
 			this.props.addSummary(this.state);
 		});
@@ -28,7 +28,7 @@ class SummaryForm extends Component {
 	}
 
 	render() {
-		
+
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
@@ -71,4 +71,10 @@ const mapDispatchToProps = {
   addSummary: addSummary
 }
 
-export default connect(null, mapDispatchToProps)(SummaryForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SummaryForm);

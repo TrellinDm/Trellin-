@@ -27,7 +27,7 @@ class ExperienceForm extends Component {
 
 	addNewExperience() {
 		var experience = this.state;
-		experience.id = 1;
+		experience.id = this.props.user.id;
 		axios.post('/setExperience', experience).then(() => {
 			this.props.addExperience(this.state);
 		});
@@ -58,7 +58,7 @@ class ExperienceForm extends Component {
 	}
 
 	render() {
-		
+
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
@@ -119,4 +119,10 @@ const mapDispatchToProps = {
   addExperience: addExperience
 }
 
-export default connect(null, mapDispatchToProps)(ExperienceForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExperienceForm);

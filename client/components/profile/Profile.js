@@ -22,7 +22,7 @@ import $ from 'jquery';
 class Profile extends Component {
 
   componentDidMount() {
-    axios.post('/getUserInformation', {id: 1}).then(res => {
+    axios.post('/getUserInformation', {id: this.props.user.id}).then(res => {
       this.props.addInfo(res.data);
     });
 
@@ -88,7 +88,8 @@ function mapStateToProps(state) {
 	  skillsShow: state.profile.skillsShow,
 	  experienceShow: state.profile.experienceShow,
 	  personalShow: state.profile.personalShow,
-	  volunteerShow: state.profile.volunteerShow
+	  volunteerShow: state.profile.volunteerShow,
+    user: state.user
   }
 }
 
