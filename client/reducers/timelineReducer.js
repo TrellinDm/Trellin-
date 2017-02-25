@@ -14,7 +14,6 @@ function filterConnMess(mess, conns, id) {
     if (me.userid == id) {
       filteredMessages.push(me);
     }
-    console.log(conns);
     conns.forEach( co => {
       if ( me.userid == co.connection_id ) {
         filteredMessages.push(me);
@@ -29,7 +28,6 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case All_MESSAGES:
     var arr = filterConnMess(action.mess, action.conns, action.currId);
-    console.log(arr);
       return Object.assign({}, state, {messages: arr});
     case NEW_MESSAGE:
       let mesg = Array.from(state.messages)

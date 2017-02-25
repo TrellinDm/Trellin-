@@ -2,16 +2,16 @@
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px #bebebe;
-  padding: 10px 20px 10px 20px;
+  padding: 13px 55px 25px 34px;
 }
 
 .awards-div {
   border-bottom: solid 1px #bebebe;
-  padding: 10px 20px 10px 20px;
+  padding: 13px 55px 25px 34px;
 }
 
 .skills-div {
-  padding: 10px 20px 10px 20px;
+  padding: 13px 55px 25px 34px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -152,7 +152,7 @@ hr {
 
 .header-box,.experience-box,.certifications-box,.education-box,.skills-box,.following-box {
   border: solid 1px #bebebe;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   margin: 0 2% 2% 0;
   border-radius: 3px;
   }
@@ -282,7 +282,7 @@ input:checked + .slider:before {
 .header-box {
   padding: 10px 10px;
   height: auto;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   display: flex;
   justify-content: flex-start;
   background-color: white;
@@ -317,7 +317,7 @@ input:checked + .slider:before {
   background-color: #fff;
   text-align: center;
   border: solid #737373 0.5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
   }
 
@@ -373,7 +373,7 @@ input:checked + .slider:before {
   cursor: pointer;
   border-radius: 2px;
   box-sizing: border-box;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   color: white;
   }
 
@@ -415,7 +415,7 @@ input:checked + .slider:before {
   margin-bottom: 10px;
   background-color: white;
   border: solid 1px gainsboro;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border-radius: 2px;
   }
 
@@ -534,7 +534,7 @@ input:checked + .slider:before {
 //////
 .sidebar-box {
   height: auto;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border: solid 1px #bebebe;
   border-radius: 3px;
   background-color: white;
@@ -544,7 +544,7 @@ input:checked + .slider:before {
 
 .course-box {
   height: auto;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border: solid 1px #bebebe;
   border-radius: 3px;
   background-color: white;
@@ -562,7 +562,7 @@ input:checked + .slider:before {
   position: absolute;
   top: 90px;
   left: 0;
-  height: 0px;
+  height: 0;
   width: 90px;
   overflow: hidden;
   }
@@ -611,7 +611,7 @@ input:checked + .slider:before {
 .experience-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   margin-top: 5px;
   }
 
@@ -621,7 +621,7 @@ input:checked + .slider:before {
 .certifications-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   }
 
 //////
@@ -630,7 +630,7 @@ input:checked + .slider:before {
 .education-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   }
 
 //////
@@ -639,7 +639,7 @@ input:checked + .slider:before {
 .skills-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border-radius: 2px;
   }
 
@@ -649,7 +649,7 @@ input:checked + .slider:before {
 .following-box {
   height: auto;
   background-color: white;
-  box-shadow: 0px 2px 1px #bebebe;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   }
 
 //////

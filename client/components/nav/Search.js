@@ -8,16 +8,16 @@ import axios from 'axios';
 class Search extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.getConnections = this.getConnections.bind(this);
   }
 
   componentDidMount() {
-    axios.post('/getConnections', {
-      id: 1
-    }).then(res => {
-      this.props.setInitState(res.data);
-    });
+    // axios.post('/getConnections', {
+    //   id: 1
+    // }).then(res => {
+    //   this.props.setInitState(res.data);
+    // });
   }
 
   getConnections(event) {

@@ -21,7 +21,6 @@ class Timeline extends Component {
   }
 
   render() {
-console.log(this.props.message);
 
     var listMessages = this.props.message.map((mes, i) => {
       return (

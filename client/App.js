@@ -10,15 +10,19 @@ import './main.scss';
  class App extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     if(!this.props.user.id) {
       axios.get('/auth/me').then( res => {
-        axios.post('/getConnections', {id: res.data.id}).then((conns) => {
-          res.data.connections = conns.data;
-          axios.get('/getMessages').then((mess) => {
-            this.props.saveId(res.data);
-            this.props.allMessages(mess.data, conns.data, res.data.id);
-          });
+        axios.post('/getAllConnections', {id: res.data.id}).then((allConns) => {
+          console.log(allConns.data);
+          res.data.allConnections = allConns.data;
+	        axios.post('/getConnections', {id: res.data.id}).then((conns) => {
+		        res.data.connections = conns.data;
+            axios.get('/getMessages').then((mess) => {
+	            this.props.saveId(res.data);
+	            this.props.allMessages(mess.data, conns.data, res.data.id);
+            })
+          })
         })
       }).catch( err => {
       })
@@ -26,7 +30,6 @@ import './main.scss';
   }
 
   render() {
-
     return (
       <div className="App">
         <Nav />
@@ -40,11 +43,11 @@ const mapStateToProps = state => {
   return {
     user: state.user
   }
-}
+};
 
 const mapDispatchToActions = {
   saveId: saveId,
   allMessages: allMessages
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToActions)(App)

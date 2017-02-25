@@ -4,8 +4,6 @@ import {connect} from 'react-redux';
 import {newMessage} from '../../reducers/timelineReducer'
 
 class CreateCommentBox extends React.Component {
-
-
   constructor(){
     super();
     this.state = {
@@ -23,10 +21,9 @@ class CreateCommentBox extends React.Component {
       userid: this.props.user.id ? this.props.user.id : userid,
       listid: listid,
       messageType:messageType
-    }
+    };
     axios.post('/createNewMessage', data).then(res => {
       this.props.newMessage(res.data)
-
     })
   }
 
