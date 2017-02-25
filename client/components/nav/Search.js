@@ -13,11 +13,11 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    axios.post('/getConnections', {
-      id: 1
-    }).then(res => {
-      this.props.setInitState(res.data);
-    });
+    // axios.post('/getConnections', {
+    //   id: 1
+    // }).then(res => {
+    //   this.props.setInitState(res.data);
+    // });
   }
 
   getConnections(event) {

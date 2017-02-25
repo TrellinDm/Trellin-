@@ -1,9 +1,9 @@
 const SAVE_ID = 'user/SAVE_ID';
-const UPDATE = 'user/UPDATE'
+const UPDATE = 'user/UPDATE';
 
 let user = {
   id: null
-}
+};
 
 export default (state = user, action) => {
 

@@ -16,15 +16,16 @@ class Connections extends Component {
   }
 
   render() {
+    console.log(this.props.connections);
     let test = this.props.connections.map((conn, i) => {
       let name = conn.first + " " + conn.last;
       return (
         <div key={i}>
           <div className="conn section-shadow">
-            <img src={conn.s3} />
+            <img className="connection-img" src={conn.picture} />
             <div className="conn-info">
-              <p>{name}</p>
-              <p>{conn.headline}</p>
+              <div className="connection-name">{name}</div>
+              <div className="connection-text">{conn.headline}</div>
             </div>
             <Link to="/profile"><button className="button-connect">View Profile</button></Link>
           </div>
@@ -36,33 +37,13 @@ class Connections extends Component {
         <div className="connection-top-box">
           <div className="connection-header">Suggested Connections</div>
           <div className="connection-wrapper">
-            <div className="connections">{test}</div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
+            {/*<div className="connection-item">{test}</div>*/}
           </div>
         </div>
         <div className="connection-bottom-box">
           <div className="connection-header">My Connections</div>
           <div className="connection-wrapper">
-            <div className="connections">{test}</div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
-            <div className="connection-item"></div>
+            <div className="connection-item">{test}</div>
           </div>
         </div>
       </div>
@@ -75,8 +56,9 @@ const mapDispatchToProps = {
 }
 
 function mapStateToProps(state) {
+  console.log(state.user);
   return {
-    connections: state.connections.connections
+    connections: state.user.connections
   }
 }
 

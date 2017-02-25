@@ -13,6 +13,7 @@ import './main.scss';
     super(props);
     if(!this.props.user.id) {
       axios.get('/auth/me').then( res => {
+        console.log(res.data.id);
         axios.post('/getConnections', {id: res.data.id}).then((conns) => {
           res.data.connections = conns.data;
           axios.get('/getMessages').then((mess) => {
@@ -26,7 +27,6 @@ import './main.scss';
   }
 
   render() {
-
     return (
       <div className="App">
         <Nav />
