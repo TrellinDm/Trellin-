@@ -41,7 +41,7 @@ class Card extends Component {
 renderCard() {
   if (this.props.list.cardObj[this.props.id]) {
     var grid = this.props.list.cardObj[this.props.id].map((elm, i) => {
-     return (<div onClick={() => {this.deleteCard(elm.id)}} className="card" key={i}>{elm.content} <div className="delete-x"></div> </div>)
+     return (<div className="card" key={i}>{elm.content} <div onClick={() => {this.deleteCard(elm.id)}} className="delete-x"></div> </div>)
    });
    return grid
   }
@@ -50,7 +50,8 @@ renderCard() {
 deleteCard(id) {
 	axios.delete('/delete/card/' + id).then((res) => {
 		this.props.deleteCard(id);
-	})
+	});
+	window.location.reload()
 }
   
   render() {

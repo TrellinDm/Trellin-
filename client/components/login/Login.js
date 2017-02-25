@@ -4,8 +4,6 @@ import axios from 'axios';
 class Login extends React.Component {
  constructor(props) {
    super(props)
-
-
  }
 
  // componentDidMount() {
@@ -13,15 +11,9 @@ class Login extends React.Component {
  // }
 
  render() {
-
-
    return (
      <div >
-
-
        <a href='/auth'><h4>Login</h4></a>
-
-
      </div>
    )
  }

@@ -11,7 +11,7 @@
   }
 
 .connection-top-box {
-  width: auto;
+  width: 90%;
   height: auto;
   background-color: white;
   border: solid 1px #a0a0a0;
@@ -19,19 +19,17 @@
   border-radius: 3px;
   display: inline-block;
   margin: 0 40px 40px 40px;
-  min-width: 90%;
   min-height: 310px;
   }
 
 .connection-bottom-box {
-  width: auto;
+  width: 90%;
   height: auto;
   background-color: white;
   border: solid 1px #a0a0a0;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   margin: 0 40px 40px 40px;
-  min-width: 90%;
   min-height: 310px;
   }
 
@@ -66,6 +64,7 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   margin: 5px 5px;
+  min-height: 224px;
   }
 
 .connection-img {

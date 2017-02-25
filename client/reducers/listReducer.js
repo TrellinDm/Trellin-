@@ -45,10 +45,10 @@ export default (state = initialState, action = [] ) => {
       });
 	    return Object.assign({}, state, {listObj: tableArr});
 	  case REMCARD:
-		  let cardArr = Array.from(state.listObj);
+		  let cardArr = Array.from(state.cardObj);
 		  cardArr.forEach((list, i) => {
 			  if ( action.payload === list.id ) {
-				  cardArr.splice(i, 1);
+				  cardArr.slice(i, i+1);
 			  }
 		  });
 		  return Object.assign({}, state, {cardObj: cardArr});

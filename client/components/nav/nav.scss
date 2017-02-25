@@ -48,7 +48,7 @@
 
 .navBar .navRight {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   height: 65px;
   right: 0;
@@ -81,6 +81,7 @@
   align-items: center;
   height: 46px;
   width: 80px;
+  margin-right: 10px;
   }
 
 .network-icon-box {

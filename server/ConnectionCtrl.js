@@ -5,7 +5,6 @@ module.exports = {
   
 	getAllConnections: function(req, res) {
     db.getAllConnections(function(err, allConnections) {
-      console.log(allConnections);
       res.status(200).send(allConnections);
     });
   },

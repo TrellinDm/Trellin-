@@ -60,6 +60,7 @@ class Nav extends Component {
 				</Link>
       )
     });
+		console.log(this.props.user, this.props.user.id)
 		return (
 			<div>
 	      <div className="navBar">
@@ -68,9 +69,10 @@ class Nav extends Component {
 	          <Search />
 	        </div>
 	        <div className="navRight">
-		        <div className="network-icon-box">
-			        <Link to="/connections"><img src={network} /> Network </Link>
-		        </div>
+		        {this.props.user.id === null ? (<div></div>)
+			        :
+			        (<div className="network-icon-box"><Link to="/connections"><img src={network} /> Network </Link></div>)
+		        }
 		        <div className="trello-icon-box">
 			        <Link id="trell-card" to="/trello"><img src={trellcard} /> Trello </Link>
 		        </div>
