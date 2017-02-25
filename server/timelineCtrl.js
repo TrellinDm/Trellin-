@@ -23,7 +23,7 @@ module.exports = {
   },
 
   createReply: function (req, res) {
-    db.createReply([req.body.reply, req.body.message_id, req.body.userid], function (err, result) {
+    db.createReply([req.body.reply, req.body.message_id, req.body.userid, req.body.first, req.body.last], function (err, result) {
       if (err) {
         console.log(err);
         res.status(500).send(err);

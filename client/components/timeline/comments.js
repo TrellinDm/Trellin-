@@ -23,8 +23,8 @@ class CommentBox extends Component {
     this.state = {
       reply: '',
       message_id: this.props.body.id,
-      userid: this.props.user.id ? this.props.user.id : 3
-    }
+      userid: this.props.user.id ? this.props.user.id : 'Unknown'
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.newReply = this.newReply.bind(this);
@@ -84,8 +84,12 @@ class CommentBox extends Component {
         <div className="comment-wrapper">
           <div className="comment-container">
             <div className="comment-head">
-              <div className="comment-profilePic"></div>
-              <p>{this.props.author}</p>
+	            
+	            { this.props.body.picture ? (<img className='comment-profilePic' src={this.props.body.picture}/>)
+		            :
+		            (<div className="comment-placeholder"></div>)
+	            }
+              <p>{this.props.body.first_name} {this.props.body.last_name}</p>
             </div>
             <div className="comment-body">{this.props.body.message}</div>
 
@@ -131,7 +135,7 @@ const mapDispatchToActions = {
 
 const mapStateToProps = state => {
   return {
-    user:state.user,
+    user: state.user,
     timeline: state.message
   }
 }

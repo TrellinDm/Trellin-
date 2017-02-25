@@ -9,7 +9,8 @@ module.exports = {
       req.body.last,
       req.body.headline,
       req.body.location,
-      req.body.industry
+      req.body.industry,
+      req.body.picture
     ];
     db.setProfile(update, function(err, result) {
       res.status(200).send(result);

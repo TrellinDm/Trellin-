@@ -288,7 +288,9 @@
   }
 
 .comment-head p{
-  padding: 0 0 0 10px;
+  font-size: 17px;
+  color: #4b4b4b;
+  font-weight: bold;
   }
 
 .comment-head {
@@ -297,24 +299,33 @@
   position: absolute;
   display: flex;
   align-items: center;
-  height: 60px;
+  height: 55px;
   width: 100%;
   background: rgba(0,0,0, .07);
-  font-size: 1.2rem;
+  font-size: 13px;
+  }
+
+.comment-placeholder{
+  background: url('https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg') center no-repeat;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin: 0 15px 0 10px;
   }
 
 .comment-profilePic{
-  background: url('https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg') center no-repeat;
+  background: center no-repeat;
   background-size: cover;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   margin: 0 15px 0 10px;
   }
 
 .comment-body{
   padding: 10px 5px;
-  font-size: 1rem;
+  font-size: 13px;
   width: 90%;
   min-height: 150px;
   margin: 69px 0 33px 0;
@@ -343,7 +354,7 @@
 
 .reply{
   position: relative;
-  font-size: 1rem;
+  font-size: 13px;
   border-bottom: 1px solid rgba(0,0,0, .3);
   padding: 5px 5px 40px 5px;
   }
