@@ -55,12 +55,12 @@ class Timeline extends Component {
 	              }
               </div>
               <div className="profile-name-wrap">
-                <div className="profile-text-lg"> {this.props.user.display_name ? (<div className="profile-text-lg">Welcome, {this.props.user.display_name} </div>) : (<div className="profile-text-lg">Welcome, John Doe </div>)}</div>
-                <Link to="/profile" className="profile-link"> View Profile </Link>
+                <div className="profile-text-lg"> {this.props.user.display_name ? (<div className="profile-text-lg">Welcome, {this.props.user.display_name} </div>) : (<div className="profile-text-lg">Please Sign In</div>)}</div>
+	              {this.props.user.display_name ? (<Link to="/profile" className="profile-link"> View Profile </Link>) : (<div></div>)}
               </div>
               <div className="profile-name-wrap">
                 <div className="profile-text-lg">Connections: <span>15</span></div>
-                <Link to="/connections" className="profile-link"> My Network </Link>
+	              {this.props.user.display_name ? (<Link to="/connections" className="profile-link"> My Network </Link>) : (<div></div>)}
               </div>
               <div>
                 <div className="list-text">Saved Lists</div>
