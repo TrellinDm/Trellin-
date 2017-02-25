@@ -111,9 +111,10 @@ app.put('/setProfile', userCtrl.setProfile);
 //------------------Timeline Endpoint-----------------------
 app.get('/getMessages/', timelineCtrl.getMessages);
 app.post('/createNewMessage', timelineCtrl.createNewMessage);
+app.post('/getAllConnections', ConnectionCtrl.getAllConnections);
 app.post('/getConnections', ConnectionCtrl.getConnections);
 app.post('/reply', timelineCtrl.createReply);
-app.get('/replies', timelineCtrl.getReply)
+app.get('/replies', timelineCtrl.getReply);
 //------------------------LIST ENDPOINTS-----------------------
 app.get('/lists', listCtrl.GetAll);
 app.post('/list', listCtrl.Create);

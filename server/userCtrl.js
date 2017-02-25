@@ -10,9 +10,9 @@ module.exports = {
       req.body.headline,
       req.body.location,
       req.body.industry
-    ]
+    ];
     db.setProfile(update, function(err, result) {
       res.status(200).send(result);
     })
   }
-}
+};

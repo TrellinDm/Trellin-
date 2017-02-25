@@ -14,21 +14,25 @@
   width: auto;
   height: auto;
   background-color: white;
-  border: solid 1px #bebebe;
+  border: solid 1px #a0a0a0;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   display: inline-block;
   margin: 0 40px 40px 40px;
+  min-width: 90%;
+  min-height: 310px;
   }
 
 .connection-bottom-box {
   width: auto;
   height: auto;
   background-color: white;
-  border: solid 1px #bebebe;
+  border: solid 1px #a0a0a0;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   margin: 0 40px 40px 40px;
+  min-width: 90%;
+  min-height: 310px;
   }
 
 .connection-header {
@@ -65,6 +69,7 @@
   }
 
 .connection-img {
+  border-radius: 2px 2px 0 0;
   width: 100%;
   }
 
@@ -78,17 +83,24 @@
   text-align: center;
   font-weight: 100;
   font-size: 12px;
+  padding-bottom: 6px;
   }
 
-//.connections {
-//  margin-top: 85px;
-//  position: absolute;
-//  display: flex;
-//  padding: 30px;
-//  width: 90%;
-//  height: 400px;
-//  background-color: mediumpurple;
-//}
+.button-connect {
+  color: #fff;
+  background: #0077b5;
+  border: none;
+  text-align: center;
+  padding: 10px;
+  border-radius: 0 0 2px 2px;
+  font-weight: bold;
+  width: 100%;
+  }
+
+.button-connect:hover,.button-connect:focus {
+  background: #046293;
+  cursor: pointer;
+  }
 
 .connections .conn {
   max-width: 175px;

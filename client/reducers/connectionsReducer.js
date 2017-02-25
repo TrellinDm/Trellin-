@@ -2,7 +2,7 @@ const SETCONN = 'SETCONN';
 
 const initialState = {
   connections: []
-}
+};
 
 export default function reducer(state=initialState, action) {
   switch (action.type) {

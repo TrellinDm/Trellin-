@@ -8,7 +8,7 @@ import axios from 'axios';
 class Search extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.getConnections = this.getConnections.bind(this);
   }
 
