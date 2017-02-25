@@ -20,10 +20,7 @@ class Settings extends Component {
             <img src={trellcard} />
             <div>Trello</div>
           </Link>
-          <Link to="/profile" className="profile-settings">
-            <div className="profile-icon"/>
-            <div>Profile</div>
-          </Link>
+	        {this.props.user.display_name ? ( <Link to="/profile" className="profile-settings"><div className="profile-icon"/><div>Profile</div></Link>) : (<div></div>)}
           <div className="logout-menu">
             <img src={Logout} />
             <Link to="/login" />

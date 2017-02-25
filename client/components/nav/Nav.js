@@ -73,9 +73,10 @@ class Nav extends Component {
 			        :
 			        (<div className="network-icon-box"><Link to="/connections"><img src={network} /> Network </Link></div>)
 		        }
-		        <div className="trello-icon-box">
-			        <Link id="trell-card" to="/trello"><img src={trellcard} /> Trello </Link>
-		        </div>
+		        {this.props.user.id === null ? (<div></div>)
+			        :
+			        ( <div className="trello-icon-box"><Link id="trell-card" to="/trello"><img src={trellcard} /> Trello </Link></div>)
+		        }
 	          <div className="me-hover" onClick={this.toggleMenu}>
 				      <div className="profile-icon-box">
 					      { this.props.user.picture ? (<img className='image-icon' src={this.props.user.picture}/>)
