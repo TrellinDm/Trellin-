@@ -9,8 +9,6 @@ import {connect} from 'react-redux';
 import {allReplies} from '../../reducers/timelineReducer';
 
 
-const exampleComment = "This is the comment I am using as an example of a single imported comment";
-const exampleReply = "This is the REPLY REPLY I am using as an example of a single imported comment";
 const CommentNum = 3;
 const likesNum = 12;
 const chevronImg = "https://d30y9cdsu7xlg0.cloudfront.net/png/221782-200.png";
@@ -18,7 +16,7 @@ const chevronImg = "https://d30y9cdsu7xlg0.cloudfront.net/png/221782-200.png";
 
 class CommentBox extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       reply: '',
@@ -73,9 +71,7 @@ class CommentBox extends Component {
       if (elm.message_id == this.props.body.id) {
         return(<ReplyBox className="comment-profilePic" key={i} body={elm}/>)
       }
-
-
-    })
+    });
     return  grid;
   }
 
@@ -84,7 +80,6 @@ class CommentBox extends Component {
         <div className="comment-wrapper">
           <div className="comment-container">
             <div className="comment-head">
-	            
 	            { this.props.body.picture ? (<img className='comment-profilePic' src={this.props.body.picture}/>)
 		            :
 		            (<div className="comment-placeholder"></div>)
@@ -131,12 +126,12 @@ class CommentBox extends Component {
 const mapDispatchToActions = {
   saveReply,
   allReplies
-}
+};
 
 const mapStateToProps = state => {
   return {
     user: state.user,
     timeline: state.message
   }
-}
+};
 export default connect(mapStateToProps, mapDispatchToActions)(CommentBox);

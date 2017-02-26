@@ -41,6 +41,13 @@ class Timeline extends Component {
       </div>
     listsButton = 'hide lists';
     }
+
+	  if (this.props.conns) {
+		  var connectionNum = this.props.conns.length;
+	  } else {
+		  var connectionNum = 0;
+	  }
+
     return (
       <div className="profile-background">
         <div className="container-Timeline">
@@ -49,7 +56,7 @@ class Timeline extends Component {
           <div className="timeline-col-left">
             <div className="profile-box">
               <div className="timeline-profile-pic">
-	              { this.props.user.picture ? (<img className='timeline-profile-pic' src={this.props.user.picture}/>)
+	              {this.props.user.picture ? (<img className='timeline-profile-pic' src={this.props.user.picture}/>)
 		              :
 		              (<img className='timeline-profile-pic' src='https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'/>)
 	              }
@@ -59,7 +66,7 @@ class Timeline extends Component {
 	              {this.props.user.display_name ? (<Link to="/profile" className="profile-link"> View Profile </Link>) : (<div></div>)}
               </div>
               <div className="profile-name-wrap">
-                <div className="profile-text-lg">Connections: <span>15</span></div>
+                <div className="profile-text-lg">Connections: {connectionNum}</div>
 	              {this.props.user.display_name ? (<Link to="/connections" className="profile-link"> My Network </Link>) : (<div></div>)}
               </div>
               <div>
@@ -117,7 +124,8 @@ function mapStateToProps(state) {
 		connections: state.search.updatedConnections,
 		showResults: state.search.showResults,
 		user: state.user,
-    timeline: state.message
+    timeline: state.message,
+		conns: state.user.connections
 	}
 }
 
