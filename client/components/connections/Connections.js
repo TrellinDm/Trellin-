@@ -14,8 +14,6 @@ class Connections extends Component {
   this.renderCard = this.renderCard.bind(this);
   }
 	
-  
-  
 	renderAllCard() {
     if (this.props.user) {
       var cards = this.props.allConnections.map((conn, i) => {
@@ -27,7 +25,7 @@ class Connections extends Component {
               <div className="connection-name">{name}</div>
               <div className="connection-text">{conn.headline}</div>
             </div>
-            <Link to="/profile"><button className="button-connect">View Profile</button></Link>
+            <Link to="/profile"><button className="button-connect">Add Connection</button></Link>
           </div>
         </div>)
       });
