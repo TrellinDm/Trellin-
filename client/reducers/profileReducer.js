@@ -43,7 +43,9 @@ const initialState = {
   experienceArray: [],
   personalArray: [],
   volunteerArray: [],
-  profileStrength: 0
+  profileStrength: 0,
+  current: 'where you currently work...',
+  education: 'where you went/go to school....'
 };
 
 function storeInfo(state, userInfo) {
@@ -52,6 +54,8 @@ function storeInfo(state, userInfo) {
       let show = prop + 'Show';
       let array = prop + 'Array';
       state[show] = true;
+      if (prop === 'experience') { state.current = state[array][0].title; }
+      if (prop === 'education') { state.education = state[array][0].school; }
       userInfo[prop].forEach(function(item, i) {
         state[array].unshift(userInfo[prop][i]);
       });
@@ -81,11 +85,11 @@ export default function reducer(state=initialState, action) {
    case ADDEDU:
      let education = Array.from(state.educationArray);
      education.unshift(action.payload);
-     return Object.assign({}, state, {educationArray: education, educationShow: true});
+     return Object.assign({}, state, {educationArray: education, educationShow: true, education: education[0].school});
    case ADDEXP:
      let experience = Array.from(state.experienceArray);
      experience.unshift(action.payload);
-     return Object.assign({}, state, {experienceArray: experience, experienceShow: true});
+     return Object.assign({}, state, {experienceArray: experience, experienceShow: true, current: experience[0].title});
    case ADDLANG:
      let language = Array.from(state.languageArray);
      language.unshift(action.payload);
@@ -115,9 +119,9 @@ export default function reducer(state=initialState, action) {
    case REMCOURSES:
      return Object.assign({}, state, {coursesArray: [], coursesShow: false});
    case REMEDUCATION:
-     return Object.assign({}, state, {educationArray: [], educationShow: false});
+     return Object.assign({}, state, {educationArray: [], educationShow: false, education: 'where you went/go to school...'});
    case REMEXPERIENCE:
-     return Object.assign({}, state, {experienceArray: [], experienceShow: false});
+     return Object.assign({}, state, {experienceArray: [], experienceShow: false, education: 'where you currently work...'});
    case REMLANGUAGES:
      return Object.assign({}, state, {languageArray: [], languageShow: false});
    case REMPERSONAL:
@@ -291,9 +295,3 @@ export function profileStrengthDelete(count) {
 		count: count
 	}
 }
-
-
-
-
-
-

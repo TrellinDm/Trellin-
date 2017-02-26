@@ -10,7 +10,6 @@ const profileImageTwo = {backgroundImage: 'url(' + "http://www.gannett-cdn.com/-
 
 class ReplyBox extends React.Component {
   render() {
-	  console.log(this.props.body);
     return (
         <div className="reply-wrapper">
           <div className="comments-collect">
