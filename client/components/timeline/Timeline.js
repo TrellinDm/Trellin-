@@ -22,7 +22,7 @@ class Timeline extends Component {
 
   render() {
 
-    var listMessages = this.props.message.map((mes, i) => {
+    var listMessages = this.props.timeline.messages.map((mes, i) => {
       return (
         <CommentBox key={i} author={mes.userid} body={mes}  />
       )
@@ -117,7 +117,7 @@ function mapStateToProps(state) {
 		connections: state.search.updatedConnections,
 		showResults: state.search.showResults,
 		user: state.user,
-    message: state.message.messages
+    timeline: state.message
 	}
 }
 
