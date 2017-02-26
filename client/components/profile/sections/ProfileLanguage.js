@@ -42,7 +42,7 @@ class ProfileLanguage extends Component {
 
 	addNewLanguage() {
 		var language = this.state.addLang;
-		language.id = 1;
+		language.id = this.props.user.id;
 		axios.post('/setLanguage', language).then(() => {
 			this.props.addLanguage(this.state.addLang);
 		});
@@ -55,15 +55,15 @@ class ProfileLanguage extends Component {
 	saveProficiency(e) {
 		this.setState({ addLang: { language: this.state.addLang.language, proficiency: e.target.value }});
 	}
-	
+
 	deleteLanguages() {
-		axios.delete('/delete/languages/' + 1).then((res) => {
+		axios.delete('/delete/languages/' + this.props.user.id).then((res) => {
 			this.props.deleteLanguages();
 		});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}
@@ -164,7 +164,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		languageArray: state.profile.languageArray
+		languageArray: state.profile.languageArray,
+		user: state.user
 	}
 }
 

@@ -22,9 +22,6 @@ import $ from 'jquery';
 class Profile extends Component {
 
   componentDidMount() {
-    axios.post('/getUserInformation', {id: 1}).then(res => {
-      this.props.addInfo(res.data);
-    });
 
 	  $(document).ready(function() {
 		  $(".toggle_container").hide();
@@ -88,7 +85,8 @@ function mapStateToProps(state) {
 	  skillsShow: state.profile.skillsShow,
 	  experienceShow: state.profile.experienceShow,
 	  personalShow: state.profile.personalShow,
-	  volunteerShow: state.profile.volunteerShow
+	  volunteerShow: state.profile.volunteerShow,
+    user: state.user
   }
 }
 

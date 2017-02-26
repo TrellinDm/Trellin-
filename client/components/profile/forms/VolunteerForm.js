@@ -12,8 +12,8 @@ class VolunteerForm extends Component {
 			organization: '',
 			role: '',
 			cause: '',
-			begdate: '',
-			enddate: '',
+			begdate: null,
+			enddate: null,
 			description: ''
 		}
 		this.addNewVolunteer = this.addNewVolunteer.bind(this);
@@ -27,7 +27,7 @@ class VolunteerForm extends Component {
 
 	addNewVolunteer() {
 		var volunteer = this.state;
-		volunteer.id = 1;
+		volunteer.id = this.props.user.id;
 		axios.post('/setVolunteer', volunteer).then(() => {
 			this.props.addVolunteer(this.state);
 		});
@@ -121,4 +121,10 @@ const mapDispatchToProps = {
   addVolunteer: addVolunteer
 }
 
-export default connect(null, mapDispatchToProps)(VolunteerForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(VolunteerForm);

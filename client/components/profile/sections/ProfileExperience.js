@@ -25,8 +25,8 @@ class ProfileExperience extends Component {
 				title: '',
 				location: '',
 				company: '',
-				begdate: '',
-				enddate: '',
+				begdate: null,
+				enddate: null,
 				description: ''
 			}
 		};
@@ -83,7 +83,7 @@ class ProfileExperience extends Component {
 
 	addNewExperience() {
 		var experience = this.state.addExpr;
-		experience.id = 1;
+		experience.id = this.props.user.id;
 		axios.post('/setExperience', experience).then(() => {
 			this.props.addExperience(this.state.addExpr);
 		});
@@ -166,15 +166,15 @@ class ProfileExperience extends Component {
 			}
 		});
 	}
-	
+
 	deleteExperiences() {
-		axios.delete('/delete/experiences/' + 1).then((res) => {
+		axios.delete('/delete/experiences/' + this.props.user.id).then((res) => {
 			this.props.deleteExperiences();
 		});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}
@@ -351,7 +351,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		experienceArray: state.profile.experienceArray
+		experienceArray: state.profile.experienceArray,
+		user: state.user
 	}
 }
 

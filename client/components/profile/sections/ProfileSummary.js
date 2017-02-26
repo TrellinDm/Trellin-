@@ -6,23 +6,23 @@ import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileSummary extends Component {
-	
+
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			count: 0
 		}
 	}
-	
+
 	deleteSummary() {
-	axios.delete('/delete/summary/' + 1).then((res) => {
+	axios.delete('/delete/summary/' + this.props.user.id).then((res) => {
 		this.props.deleteSummary();
 	});
 		var count = this.state.count;
 		this.props.profileStrengthDelete(count);
 	}
-	
+
 	saveCount(count) {
 		this.setState ({count: count})
 	}

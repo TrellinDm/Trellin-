@@ -14,8 +14,8 @@ class EducationForm extends Component {
 			field: '',
 			grade: '',
 			activities: '',
-			begdate: '',
-			enddate: ''
+			begdate: null,
+			enddate: null
 		}
 		this.addNewEducation = this.addNewEducation.bind(this);
 		this.saveSchool = this.saveSchool.bind(this);
@@ -29,7 +29,7 @@ class EducationForm extends Component {
 
 	addNewEducation() {
 		var education = this.state;
-		education.id = 1;
+		education.id = this.props.user.id;
 		axios.post('/setEducation', education).then(() => {
 			this.props.addEducation(this.state);
 		});
@@ -121,4 +121,10 @@ const mapDispatchToProps = {
   addEducation: addEducation
 }
 
-export default connect(null, mapDispatchToProps)(EducationForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EducationForm);

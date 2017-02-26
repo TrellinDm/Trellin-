@@ -12,7 +12,7 @@ class AwardsForm extends Component {
 			title: '',
 			associated: '',
 			issuer: '',
-			recieved: '',
+			recieved: null,
 			description: ''
 		}
 		this.addNewAward = this.addNewAward.bind(this);
@@ -25,7 +25,7 @@ class AwardsForm extends Component {
 
 	addNewAward() {
 		let awards = this.state;
-		awards.id = 1;
+		awards.id = this.props.user.id;
 		axios.post('/setAwards', awards).then(() => {
 			this.props.addAward(this.state);
 		});
@@ -52,7 +52,7 @@ class AwardsForm extends Component {
 	}
 
 	render() {
-		
+
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
@@ -105,5 +105,10 @@ const mapDispatchToProps = {
   addAward: addAward
 }
 
-export default connect(null, mapDispatchToProps)(AwardsForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(AwardsForm);

@@ -21,7 +21,7 @@ class CoursesForm extends Component {
 
 	addNewCourse() {
 		var course = this.state;
-		course.id = 1;
+		course.id = this.props.user.id;
 		axios.post('/setCourses', course).then(() => {
 			this.props.addCourse(this.state);
 		});
@@ -40,7 +40,7 @@ class CoursesForm extends Component {
 	}
 
 	render() {
-		
+
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
@@ -87,4 +87,10 @@ const mapDispatchToProps = {
   addCourse: addCourse
 }
 
-export default connect(null, mapDispatchToProps)(CoursesForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesForm);

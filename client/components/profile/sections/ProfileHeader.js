@@ -124,9 +124,14 @@ class ProfileHeader extends Component {
 	  };
 
 
-	  var current = ['devmountain ', 'some other place'];
-	  var education = ['devmountain ', 'some other place'];
-	  var connectionNum = 283;
+	  var current = this.props.current;
+	  var education = this.props.education;
+		if (this.props.conns) {
+			var connectionNum = this.props.conns.length;
+		} else {
+			var connectionNum = 0;
+		}
+
 
     return (
       <div className="header-box">
@@ -227,7 +232,10 @@ function mapStateToProps(state) {
 	return {
 		connections: state.search.updatedConnections,
 		showResults: state.search.showResults,
-		user: state.user
+		user: state.user,
+		current: state.profile.current,
+		education: state.profile.education,
+		conns: state.user.connections
 	}
 }
 

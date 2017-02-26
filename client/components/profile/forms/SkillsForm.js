@@ -17,7 +17,7 @@ class SkillsForm extends Component {
 
 	addNewSkill() {
 		var skill = this.state;
-		skill.id = 1;
+		skill.id = this.props.user.id;
 		axios.post('/setSkills', skill).then(() => {
 			this.props.addSkill(this.state);
 		});
@@ -28,7 +28,7 @@ class SkillsForm extends Component {
 	}
 
 	render() {
-		
+
 		// Style formatting of form popup container
 		const style = {
 			width: '50%',
@@ -71,4 +71,10 @@ const mapDispatchToProps = {
   addSkill: addSkill
 }
 
-export default connect(null, mapDispatchToProps)(SkillsForm);
+function mapStateToProps(state) {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SkillsForm);
