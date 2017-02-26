@@ -1,15 +1,17 @@
 // import '../App.js';
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 
 const CommentNum = 3
 const likesNum = 12
 
-const profileImageOne = {backgroundImage: 'url(' + "http://kingofwallpapers.com/jack-black/jack-black-005.jpg" + ')'}
-const profileImageTwo = {backgroundImage: 'url(' + "http://www.gannett-cdn.com/-mm-/67c23b55d461f83e96855358c4bee23b00420bd6/c=334-0-5437-3836&r=x404&c=534x401/local/-/media/USATODAY/USATODAY/2014/04/03//1396538883000-James-Franco.jpg" + ')'}
-
 class ReplyBox extends React.Component {
-  render() {
+	constructor(props) {
+		super(props);
+	}
+	
+		render() {
     return (
         <div className="reply-wrapper">
           <div className="comments-collect">
@@ -38,4 +40,9 @@ class ReplyBox extends React.Component {
   }
 }
 
-export default ReplyBox;
+const mapStateToProps = state => {
+	return {
+		user: state.user
+	}
+};
+export default connect(null, mapStateToProps)(ReplyBox);
