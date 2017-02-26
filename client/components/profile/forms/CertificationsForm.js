@@ -12,8 +12,8 @@ class CertificationsForm extends Component {
 			name: '',
 			authority: '',
 			license_no: '',
-			begdate: '',
-			enddate: '',
+			begdate: null,
+			enddate: null,
 			certification_url: ''
 		}
 		this.addNewCertification = this.addNewCertification.bind(this);

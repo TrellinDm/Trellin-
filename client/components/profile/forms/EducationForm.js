@@ -14,8 +14,8 @@ class EducationForm extends Component {
 			field: '',
 			grade: '',
 			activities: '',
-			begdate: '',
-			enddate: ''
+			begdate: null,
+			enddate: null
 		}
 		this.addNewEducation = this.addNewEducation.bind(this);
 		this.saveSchool = this.saveSchool.bind(this);

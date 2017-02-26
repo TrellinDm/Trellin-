@@ -12,8 +12,8 @@ class VolunteerForm extends Component {
 			organization: '',
 			role: '',
 			cause: '',
-			begdate: '',
-			enddate: '',
+			begdate: null,
+			enddate: null,
 			description: ''
 		}
 		this.addNewVolunteer = this.addNewVolunteer.bind(this);

@@ -12,8 +12,8 @@ class ExperienceForm extends Component {
 			title: '',
 			location: '',
 			company: '',
-			begdate: '',
-			enddate: '',
+			begdate: null,
+			enddate: null,
 			description: ''
 		}
 		this.addNewExperience = this.addNewExperience.bind(this);

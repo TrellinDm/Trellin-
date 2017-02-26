@@ -126,7 +126,12 @@ class ProfileHeader extends Component {
 
 	  var current = this.props.current;
 	  var education = this.props.education;
-	  var connectionNum = this.props.conns.length;
+		if (this.props.conns) {
+			var connectionNum = this.props.conns.length;
+		} else {
+			var connectionNum = 0;
+		}
+
 
     return (
       <div className="header-box">

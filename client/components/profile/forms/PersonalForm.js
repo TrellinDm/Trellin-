@@ -9,7 +9,7 @@ class PersonalForm extends Component {
 		super(props);
 
 		this.state = {
-			birthday: '',
+			birthday: null,
 			marital: ''
 		}
 		this.addNewPersonal = this.addNewPersonal.bind(this);

@@ -12,7 +12,7 @@ class AwardsForm extends Component {
 			title: '',
 			associated: '',
 			issuer: '',
-			recieved: '',
+			recieved: null,
 			description: ''
 		}
 		this.addNewAward = this.addNewAward.bind(this);

@@ -22,9 +22,6 @@ import $ from 'jquery';
 class Profile extends Component {
 
   componentDidMount() {
-    axios.post('/getUserInformation', {id: this.props.user.id}).then(res => {
-      this.props.addInfo(res.data);
-    });
 
 	  $(document).ready(function() {
 		  $(".toggle_container").hide();

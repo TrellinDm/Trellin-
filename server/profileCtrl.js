@@ -85,7 +85,6 @@ module.exports = {
       req.body.grade,
       req.body.activities
     ];
-
     db.profileSets.setEducation(newEducation, function(err, result) {
       res.status(200).send(result);
     });

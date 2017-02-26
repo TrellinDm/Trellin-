@@ -54,8 +54,8 @@ function storeInfo(state, userInfo) {
       let show = prop + 'Show';
       let array = prop + 'Array';
       state[show] = true;
-      if (prop === 'experience') { state.current = state[array][0].title; }
-      if (prop === 'education') { state.education = state[array][0].school; }
+      if (prop === 'experience') { state.current = userInfo[prop][0].title; }
+      if (prop === 'education') { state.education = userInfo[prop][0].school; }
       userInfo[prop].forEach(function(item, i) {
         state[array].unshift(userInfo[prop][i]);
       });
@@ -133,12 +133,10 @@ export default function reducer(state=initialState, action) {
     case PRFSTR:
       var profileCount = state.profileStrength;
       profileCount += action.count;
-      console.log(profileCount);
 	    return Object.assign({}, state, {profileStrength: profileCount});
 	  case PRFSTRDEL:
 		  var profileCount = state.profileStrength;
 		  profileCount -= action.count;
-		  console.log(profileCount);
 		  return Object.assign({}, state, {profileStrength: profileCount});
    default:
      return state;
