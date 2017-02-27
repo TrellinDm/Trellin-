@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
-import {setConnections} from '../../reducers/connectionsReducer';
+import { removeSugg } from '../../reducers/connectionsReducer';
 import axios from 'axios';
 import './connections.scss';
 // import ConnectionCard from './ConnectionCard';
@@ -9,14 +9,22 @@ import './connections.scss';
 class Connections extends Component {
 	constructor(props){
 	  super(props);
-	  
+
   this.renderAllCard = this.renderAllCard.bind(this);
   this.renderCard = this.renderCard.bind(this);
+	this.addConnection = this.addConnection.bind(this);
   }
-	
+
+	addConnection(connId) {
+		axios.post('/addConnection', {userId: this.props.user.id, connId: connId}).then(() => {
+			this.props.removeSugg(connId);
+		});
+	}
+
 	renderAllCard() {
     if (this.props.user) {
-      var cards = this.props.allConnections.map((conn, i) => {
+      var cards = this.props.suggestions.map((conn, i) => {
+				console.log(conn);
         let name = conn.first + " " + conn.last;
         return (<div key={i} className="connection-item">
           <div className="conn section-shadow">
@@ -25,18 +33,19 @@ class Connections extends Component {
               <div className="connection-name">{name}</div>
               <div className="connection-text">{conn.headline}</div>
             </div>
-            <Link to="/profile"><button className="button-connect">Add Connection</button></Link>
+            <button className="button-connect" onClick={() => { this.addConnection(conn.id)} }>Add Connection</button>
           </div>
         </div>)
       });
       return cards;
     }
   }
-	
+
 	renderCard() {
 		if (this.props.user) {
 			var card = this.props.connections.map((conn, i) => {
 				let name = conn.first + " " + conn.last;
+				console.log(conn.first);
 				return (<div key={i} className="connection-item">
           <div className="conn section-shadow">
             <img className="connection-img" src={conn.picture}/>
@@ -70,16 +79,16 @@ class Connections extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  setConnections: setConnections
-};
-
 function mapStateToProps(state) {
   return {
-    connections: state.user.connections,
-    allConnections: state.user.allConnections,
+    connections: state.connections.connections,
+    suggestions: state.connections.suggestions,
     user: state.user
   }
+}
+
+const mapDispatchToProps = {
+	removeSugg: removeSugg
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Connections);
