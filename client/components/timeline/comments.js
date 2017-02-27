@@ -7,6 +7,7 @@ import {saveReply} from '../../reducers/timelineReducer';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {allReplies} from '../../reducers/timelineReducer';
+import {updateCards} from '../../reducers/listReducer';
 
 
 const CommentNum = 3;
@@ -26,6 +27,7 @@ class CommentBox extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.newReply = this.newReply.bind(this);
+    this.pinlist = this.pinlist.bind(this)
   }
 
   handleChange(e) {
@@ -75,6 +77,15 @@ class CommentBox extends Component {
     return  grid;
   }
 
+  pinlist() {
+  axios.post('/card', {content: this.props.body.message,
+  list_id: 81}).then(res => {
+    this.props.updateCards(
+      res.data
+      )
+    })
+  }
+
   render() {
     return (
         <div className="comment-wrapper">
@@ -93,7 +104,7 @@ class CommentBox extends Component {
                 <button onClick={() => this.refs.reply.show()} className="">
                   Reply
                 </button>
-                <button className="">Pin to list <img src={chevronImg} /></button>
+                <button onClick={this.pinlist} className="">Pin to list <img src={chevronImg} /></button>
               </div>
               <SkyLight hideOnOverlayClicked ref="reply" title="Leave a Reply">
                 <input className="form-input" type="text" onChange={this.handleChange}/>
@@ -125,7 +136,8 @@ class CommentBox extends Component {
 
 const mapDispatchToActions = {
   saveReply,
-  allReplies
+  allReplies,
+  updateCards
 };
 
 const mapStateToProps = state => {

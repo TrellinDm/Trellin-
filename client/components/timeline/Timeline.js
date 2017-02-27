@@ -22,7 +22,7 @@ class Timeline extends Component {
 
   render() {
 
-    var listMessages = this.props.message.map((mes, i) => {
+    var listMessages = this.props.timeline.messages.map((mes, i) => {
       return (
         <CommentBox key={i} author={mes.userid} body={mes}  />
       )
@@ -41,13 +41,13 @@ class Timeline extends Component {
       </div>
     listsButton = 'hide lists';
     }
-	
+
 	  if (this.props.conns) {
 		  var connectionNum = this.props.conns.length;
 	  } else {
 		  var connectionNum = 0;
 	  }
-    
+
     return (
       <div className="profile-background">
         <div className="container-Timeline">
@@ -124,7 +124,7 @@ function mapStateToProps(state) {
 		connections: state.search.updatedConnections,
 		showResults: state.search.showResults,
 		user: state.user,
-    message: state.message.messages,
+    timeline: state.message,
 		conns: state.user.connections
 	}
 }

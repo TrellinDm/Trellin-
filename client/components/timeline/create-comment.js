@@ -53,7 +53,8 @@ class CreateCommentBox extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    timeline: state.message
   }
 }
 
