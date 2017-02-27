@@ -16,7 +16,8 @@ class ProfileHeader extends Component {
 				headline: this.props.user.headline,
 				city: this.props.user.city,
 				state: this.props.user.state,
-				industry: this.props.user.industry
+				industry: this.props.user.industry,
+				picture: this.props.user.picture
 			}
 		};
 		this.editHeader = this.editHeader.bind(this);
@@ -25,6 +26,7 @@ class ProfileHeader extends Component {
 		this.saveCity = this.saveCity.bind(this);
 		this.saveState = this.saveState.bind(this);
 		this.saveIndustry = this.saveIndustry.bind(this);
+		this.savePicture = this.savePicture.bind(this);
 	}
 
 	editHeader() {
@@ -44,7 +46,8 @@ class ProfileHeader extends Component {
 				headline: this.state.profile.headline,
 				city: this.state.profile.city,
 				state: this.state.profile.state,
-				industry: this.state.profile.industry
+				industry: this.state.profile.industry,
+				picture: this.state.profile.picture
 			}
 		});
 	}
@@ -56,7 +59,8 @@ class ProfileHeader extends Component {
 				headline: e.target.value,
 				city: this.state.profile.city,
 				state: this.state.profile.state,
-				industry: this.state.profile.industry
+				industry: this.state.profile.industry,
+				picture: this.state.profile.picture
 			}
 		});
 	}
@@ -69,7 +73,8 @@ class ProfileHeader extends Component {
 				country: e.target.value,
 				city: this.state.profile.city,
 				state: this.state.profile.state,
-				industry: this.state.profile.industry
+				industry: this.state.profile.industry,
+				picture: this.state.profile.picture
 			}
 		});
 	}
@@ -81,7 +86,8 @@ class ProfileHeader extends Component {
 				headline: this.state.profile.headline,
 				city: e.target.value,
 				state: this.state.profile.state,
-				industry: this.state.profile.industry
+				industry: this.state.profile.industry,
+				picture: this.state.profile.picture
 			}
 		});
 	}
@@ -93,7 +99,8 @@ class ProfileHeader extends Component {
 				headline: this.state.profile.headline,
 				city: this.state.profile.city,
 				state: e.target.value,
-				industry: this.state.profile.industry
+				industry: this.state.profile.industry,
+				picture: this.state.profile.picture
 			}
 		});
 	}
@@ -105,7 +112,21 @@ class ProfileHeader extends Component {
 				headline: this.state.profile.headline,
 				city: this.state.profile.city,
 				state: this.state.profile.state,
-				industry: e.target.value
+				industry: e.target.value,
+				picture: this.state.profile.picture
+			}
+		});
+	}
+
+	savePicture(e) {
+		this.setState({
+			profile: {
+				name: this.state.profile.name,
+				headline: this.state.profile.headline,
+				city: this.state.profile.city,
+				state: this.state.profile.state,
+				industry: this.state.profile.industry,
+				picture: e.target.value
 			}
 		});
 	}
@@ -193,14 +214,18 @@ class ProfileHeader extends Component {
 					{/* <button onClick={() => this.refs.profile.show()} className="button-dark-blue" > Edit profile</button> */}
 						<SkyLight dialogStyles={style} hideOnOverlayClicked ref="profile" title="Edit profile">
 							<div>
-								<div className="form-title">Profile Picture</div>
 
-								<input type="file" id="file-input" />
-								<p id="status" />
-								<img id="preview" src="/images/default.png" />
 
 								<form method="POST" action="/save-header" >
-									<input className="form-input" type="hidden" id="avatar-url" name="avatar-url" value="/images/default.png" />
+									<div className="preview">
+										{this.state.profile.picture ? (
+											<img className="pic-preview" src={this.state.profile.picture} />
+										) : null}
+										<div className="url-preview">
+											<div className="form-title">Profile Picture</div>
+											<input className="form-input" type="text" value={this.state.profile.picture} placeholder="image url..." onChange={this.savePicture}/>
+										</div>
+									</div>
 									<div className="form-title">Full Name</div>
 									<input className="form-input" type="text" name="fullName" value={this.state.profile.name} placeholder="what is your first and last name?" onChange={this.saveName} />
 									<div className="form-title">Headline</div>
