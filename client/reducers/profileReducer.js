@@ -19,8 +19,6 @@ const REMLANGUAGES = 'profile/REMLANGUAGES';
 const REMPERSONAL = 'profile/REMLANGUAGE';
 const REMSKILLS = 'profile/REMSKILLS';
 const REMVOLUNTEER = 'profile/REMVOLUNTEER';
-const PRFSTR = 'profile/PRFSTR';
-const PRFSTRDEL = 'profile/PRFSTRDEL';
 
 const initialState = {
   languageShow: false,
@@ -64,11 +62,28 @@ function storeInfo(state, userInfo) {
   return state;
 }
 
+function calcStrength(state) {
+  var count = 0;
+  for (var stateProp in state) {
+    if (Array.isArray(state[stateProp])) {
+      state[stateProp].forEach((itemInArray) => {
+        for (var arrayProp in itemInArray) {
+          if (itemInArray[arrayProp] && arrayProp !== 'id') {
+            count++;
+          }
+        }
+      });
+    }
+  }
+  return count;
+}
+
 export default function reducer(state=initialState, action) {
   switch (action.type) {
    case ADDINFO:
      let stateCopy = Object.assign({}, state);
      let newState = storeInfo(stateCopy, action.payload);
+     newState.profileStrength = calcStrength(state);
      return Object.assign({}, state, newState);
    case ADDAWARD:
      let awards = Array.from(state.awardsArray);
@@ -130,14 +145,6 @@ export default function reducer(state=initialState, action) {
      return Object.assign({}, state, {skillsArray: [], skillsShow: false});
    case REMVOLUNTEER:
      return Object.assign({}, state, {volunteerArray: [], volunteerShow: false});
-    case PRFSTR:
-      var profileCount = state.profileStrength;
-      profileCount += action.count;
-	    return Object.assign({}, state, {profileStrength: profileCount});
-	  case PRFSTRDEL:
-		  var profileCount = state.profileStrength;
-		  profileCount -= action.count;
-		  return Object.assign({}, state, {profileStrength: profileCount});
    default:
      return state;
  }
@@ -277,19 +284,5 @@ export function deleteVolunteer() {
 export function deleteExperiences() {
 	return {
 		type: REMEXPERIENCE
-	}
-}
-
-export function profileStrength(count) {
-  return {
-    type: PRFSTR,
-    count: count
-  }
-}
-
-export function profileStrengthDelete(count) {
-	return {
-		type: PRFSTRDEL,
-		count: count
 	}
 }

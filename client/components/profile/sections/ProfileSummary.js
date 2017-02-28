@@ -1,30 +1,18 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {deleteSummary} from '../../../reducers/profileReducer';
-import {profileStrength} from '../../../reducers/profileReducer';
-import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileSummary extends Component {
 
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			count: 0
-		}
 	}
 
 	deleteSummary() {
-	axios.delete('/delete/summary/' + this.props.user.id).then((res) => {
-		this.props.deleteSummary();
-	});
-		var count = this.state.count;
-		this.props.profileStrengthDelete(count);
-	}
-
-	saveCount(count) {
-		this.setState ({count: count})
+		axios.delete('/delete/summary/' + this.props.user.id).then((res) => {
+			this.props.deleteSummary();
+		});
 	}
 
 	render() {
@@ -39,17 +27,6 @@ class ProfileSummary extends Component {
 			padding: '30px'
 		};
 		var summary = this.props.summaryArray.map((summ, i) => {
-			var count = 0;
-			if (summ.summary) {
-				count++;
-			}
-			if(count !== this.state.count) {
-				if (count > 1) {
-					count = 1;
-				}
-				this.saveCount(count);
-				this.props.profileStrength(count);
-			}
 			return (<div key={i} className="awards-div">{summ.summary}</div>);
 		});
 		return (
@@ -63,9 +40,7 @@ class ProfileSummary extends Component {
 }
 
 const mapDispatchToProps = {
-	deleteSummary: deleteSummary,
-	profileStrength: profileStrength,
-	profileStrengthDelete: profileStrengthDelete
+	deleteSummary: deleteSummary
 };
 
 function mapStateToProps(state) {
