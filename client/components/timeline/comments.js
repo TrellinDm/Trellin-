@@ -9,8 +9,9 @@ import {connect} from 'react-redux';
 import {allReplies} from '../../reducers/timelineReducer';
 import {updateCards} from '../../reducers/listReducer';
 import {updateList} from '../../reducers/listReducer';
-import { Dropdown, Menu } from 'semantic-ui-react';
+// import { Dropdown, Menu } from 'semantic-ui-react';
 import "../profile/profileStyles.scss";
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 const CommentNum = 3;
 const likesNum = 12;
@@ -21,10 +22,12 @@ class CommentBox extends Component {
   constructor(props) {
     super(props);
 
+
     this.state = {
       reply: '',
       message_id: this.props.body.id,
-      userid: this.props.user.id ? this.props.user.id : 'Unknown'
+      userid: this.props.user.id ? this.props.user.id : 'Unknown',
+      dropdownOpen: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,7 +35,15 @@ class CommentBox extends Component {
     this.pinlist = this.pinlist.bind(this);
     this.getLists = this.getLists.bind(this);
     this.gridList = this.gridList.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
+
+  toggle() {
+   this.setState({
+     dropdownOpen: !this.state.dropdownOpen
+   });
+ }
+
 
   handleChange(e) {
     this.setState({ reply: e.target.value })
@@ -89,7 +100,10 @@ class CommentBox extends Component {
       res.data
       )
     })
+    this.toggle()
   }
+
+
 
   getLists() {
     if (this.props.list.listObj.length < 1) {
@@ -98,24 +112,27 @@ class CommentBox extends Component {
         this.props.updateList( res.data)
       })
     }
+    this.toggle()
   }
 
   gridList() {
-    let gridList = this.props.list.listObj.map( (elm, i) => {//inception :)
-      return (
 
-
-          <Dropdown.Item key={i} onClick={() => this.pinlist(elm.id)}>{elm.title}
-          </Dropdown.Item>
-
-            )
-
-
-    })
     return gridList
   }
 
   render() {
+    if (this.state.dropdownOpen) {
+      var gridList = this.props.list.listObj.map( (elm, i) => {//inception :)
+        return (
+
+             <div  key={i} onClick={() => this.pinlist(elm.id)}>{elm.title}
+            </div>
+
+              )
+      })
+    }
+
+    console.log(this.props.body);
     return (
         <div className="comment-wrapper">
           <div className="comment-container">
@@ -133,25 +150,29 @@ class CommentBox extends Component {
                 <button onClick={() => this.refs.reply.show()} className="">
                   Reply
                 </button>
-                {/* <button className="">
-                  <ul onClick={this.getLists} >
-                    <li >Pin To List</li>
-                    {this.gridList()}
-                    <img src={chevronImg} />
-                  </ul>
-                  </button>*
-                  */}
 
-                  /*<button className="reveal reveal-text" > Pin List </button>
+              <div>
+                 <button className="" onClick={this.getLists}> Pinlist <img src={chevronImg} />
+                 </button>
+                     {gridList}
+              </div>
+
+
+                  {/*<button className="reveal reveal-text" > Pin List </button>
                   <div className="toggle_container">
                     <div className="block">{this.gridList()}jyjyjhjyjtyjt</div>
-                  </div>*/
-
-
+                  </div>*/}
 
 
               </div>
-
+              {/* <Dropdown group isOpen={this.state.dropdownOpen} size="sm" toggle={this.toggle} onClick={this.getLists} >
+                <DropdownToggle caret>
+                  Pinlist
+                </DropdownToggle>
+                <DropdownMenu>
+                {this.gridList()}
+                </DropdownMenu>
+              </Dropdown>*/}
 
               <SkyLight hideOnOverlayClicked ref="reply" title="Leave a Reply">
                 <input className="form-input" type="text" onChange={this.handleChange}/>
