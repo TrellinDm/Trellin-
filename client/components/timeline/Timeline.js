@@ -69,11 +69,7 @@ class Timeline extends Component {
                 <div className="profile-text-lg">Connections: {connectionNum}</div>
 	              {this.props.user.display_name ? (<Link to="/connections" className="profile-link"> My Network </Link>) : (<div></div>)}
               </div>
-              <div>
-                <div className="list-text">Saved Lists</div>
-                <button className="list-btn button-gray" onClick={this.listClick.bind(this)}> {listsButton} </button>
-	              {listNodes}
-              </div>
+
             </div>
           </div>
 
@@ -86,23 +82,12 @@ class Timeline extends Component {
           {/*Right connections box*/}
           <div className="timeline-col-right">
             <div className="connection-box">
-              <div className="profileInfo-title">Connections</div>
-              <div className="timeline-contact-wrap">
-                <div className="comment-profilePic"></div>
-                <p>Marcus Ogden</p>
-              </div>
-              <div className="timeline-contact-wrap">
-                <div className="comment-profilePic"></div>
-                <p>Erik Golden</p>
-              </div>
-              <div className="timeline-contact-wrap">
-                <div className="comment-profilePic"></div>
-                <p>Marc-Andy Noel Jeune</p>
-              </div>
-              <div className="timeline-contact-wrap">
-                <div className="comment-profilePic"></div>
-                <p>William Cox</p>
-              </div>
+              <div className="profileInfo-title">Lists</div>
+                <div>
+                  <div className="list-text">Saved Lists</div>
+                  <button className="list-btn button-gray" onClick={this.listClick.bind(this)}> {listsButton} </button>
+  	              {listNodes}
+                </div>
             </div>
           </div>
         </div>
