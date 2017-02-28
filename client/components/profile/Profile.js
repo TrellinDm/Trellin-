@@ -46,7 +46,10 @@ class Profile extends Component {
             <div><span className="sm-text-gray">Add a section to your profile - </span><span className="smlr-text-gray">be discovered for your next career step.</span></div>
 
             <div className="section-view-more">
-              <button className="reveal reveal-text"> View More  ▼ </button><div className="toggle_container"><div className="block"> <ProfileAddSection /> </div></div>
+              <button className="reveal reveal-text"> View More  ▼ </button>
+              <div className="toggle_container">
+                <div className="block"><ProfileAddSection /></div>
+              </div>
             </div>
 
             {this.props.summaryShow ? <ProfileSummary /> : null}

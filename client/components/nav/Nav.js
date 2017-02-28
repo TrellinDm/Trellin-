@@ -60,7 +60,7 @@ class Nav extends Component {
 				</Link>
       )
     });
-		console.log(this.props.user, this.props.user.id)
+		
 		return (
 			<div>
 	      <div className="navBar">
