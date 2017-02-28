@@ -7,6 +7,7 @@ import { Router, hashHistory } from "react-router";
 import rootReducer from './rootReducer';
 
 
+
 let store = createStore(
   rootReducer,
   compose(

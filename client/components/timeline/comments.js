@@ -8,7 +8,9 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {allReplies} from '../../reducers/timelineReducer';
 import {updateCards} from '../../reducers/listReducer';
-
+import {updateList} from '../../reducers/listReducer';
+import { Dropdown, Menu } from 'semantic-ui-react';
+import "../profile/profileStyles.scss";
 
 const CommentNum = 3;
 const likesNum = 12;
@@ -27,7 +29,9 @@ class CommentBox extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.newReply = this.newReply.bind(this);
-    this.pinlist = this.pinlist.bind(this)
+    this.pinlist = this.pinlist.bind(this);
+    this.getLists = this.getLists.bind(this);
+    this.gridList = this.gridList.bind(this);
   }
 
   handleChange(e) {
@@ -77,13 +81,38 @@ class CommentBox extends Component {
     return  grid;
   }
 
-  pinlist() {
+  pinlist( id) {
   axios.post('/card', {content: this.props.body.message,
-  list_id: 81}).then(res => {
+  list_id: id}).then(res => {
+    console.log('pin');
     this.props.updateCards(
       res.data
       )
     })
+  }
+
+  getLists() {
+    if (this.props.list.listObj.length < 1) {
+      axios.get('/lists').then( res => {
+        console.log(res.data);
+        this.props.updateList( res.data)
+      })
+    }
+  }
+
+  gridList() {
+    let gridList = this.props.list.listObj.map( (elm, i) => {//inception :)
+      return (
+
+
+          <Dropdown.Item key={i} onClick={() => this.pinlist(elm.id)}>{elm.title}
+          </Dropdown.Item>
+
+            )
+
+
+    })
+    return gridList
   }
 
   render() {
@@ -104,8 +133,26 @@ class CommentBox extends Component {
                 <button onClick={() => this.refs.reply.show()} className="">
                   Reply
                 </button>
-                <button onClick={this.pinlist} className="">Pin to list <img src={chevronImg} /></button>
+                {/* <button className="">
+                  <ul onClick={this.getLists} >
+                    <li >Pin To List</li>
+                    {this.gridList()}
+                    <img src={chevronImg} />
+                  </ul>
+                  </button>*
+                  */}
+
+                  /*<button className="reveal reveal-text" > Pin List </button>
+                  <div className="toggle_container">
+                    <div className="block">{this.gridList()}jyjyjhjyjtyjt</div>
+                  </div>*/
+
+
+
+
               </div>
+
+
               <SkyLight hideOnOverlayClicked ref="reply" title="Leave a Reply">
                 <input className="form-input" type="text" onChange={this.handleChange}/>
                 <button className="button-dark-blue" onClick={(event) => { this.newReply(); this.refs.reply.hide()}}>Reply</button>
@@ -137,13 +184,15 @@ class CommentBox extends Component {
 const mapDispatchToActions = {
   saveReply,
   allReplies,
-  updateCards
+  updateCards,
+  updateList
 };
 
 const mapStateToProps = state => {
   return {
     user: state.user,
-    timeline: state.message
+    timeline: state.message,
+    list: state.list
   }
 };
 export default connect(mapStateToProps, mapDispatchToActions)(CommentBox);

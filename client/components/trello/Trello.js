@@ -4,14 +4,14 @@ import Card from './Card';
 import {connect} from 'react-redux';
 import './List.scss';
 import axios from 'axios';
-import {updateList} from '../../reducers/listReducer'
-import {saveCards} from '../../reducers/listReducer'
+import {updateList} from '../../reducers/listReducer';
+import {saveCards} from '../../reducers/listReducer';
 
 class Trello extends Component {
   constructor(props) {
     super(props)
   }
-  
+
   componentDidMount() {
     axios.get('/lists').then( res => {
       this.props.updateList( res.data)
