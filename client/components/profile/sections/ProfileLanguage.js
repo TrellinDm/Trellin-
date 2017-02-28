@@ -4,8 +4,6 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addLanguage} from '../../../reducers/profileReducer';
 import {deleteLanguages} from '../../../reducers/profileReducer';
-import {profileStrength} from '../../../reducers/profileReducer';
-import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileLanguage extends Component {
@@ -15,7 +13,6 @@ class ProfileLanguage extends Component {
 		this.state = {
 			activeLanguage1: false,
 			activeLanguage2: false,
-			count: 0,
 			addLang: {
 				language: '',
 				proficiency: ''
@@ -60,12 +57,6 @@ class ProfileLanguage extends Component {
 		axios.delete('/delete/languages/' + this.props.user.id).then((res) => {
 			this.props.deleteLanguages();
 		});
-		var count = this.state.count;
-		this.props.profileStrengthDelete(count);
-	}
-
-	saveCount(count) {
-		this.setState ({count: count})
 	}
 
 	render() {
@@ -81,20 +72,6 @@ class ProfileLanguage extends Component {
 		};
 
 		var languages = this.props.languageArray.map((lang, i) => {
-			var count = 0;
-			if (lang.language) {
-				count++;
-			}
-			if (lang.proficiency) {
-				count++;
-			}
-			if(count !== this.state.count) {
-				if (count > 2) {
-					count = 2;
-				}
-				this.saveCount(count);
-				this.props.profileStrength(count);
-			}
 		return (
 			<div key={i} className="language-div">
 				{lang.language ? (
@@ -157,9 +134,7 @@ class ProfileLanguage extends Component {
 
 const mapDispatchToProps = {
   addLanguage: addLanguage,
-	deleteLanguages: deleteLanguages,
-	profileStrength: profileStrength,
-	profileStrengthDelete: profileStrengthDelete
+	deleteLanguages: deleteLanguages
 };
 
 function mapStateToProps(state) {

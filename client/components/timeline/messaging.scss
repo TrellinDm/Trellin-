@@ -1,3 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+.timeline-background {
+  display: flex;
+  justify-content: center;
+  background-color: #E9E9E9;
+  text-align: center;
+  }
+
+.welcome-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E9E9E9;
+  text-align: center;
+  height: 100vh;
+
+  }
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 300px;
+  border-radius: 50px;
+  background-color: white;
+
+  //background-image: linear-gradient(to bottom, #E0F8F7, #585858, #fff);
+  }
+//#478DBD
+//linear-gradient(, #478DBD, #3372A5);
+
+.text-gradient {
+  line-height: 1.2;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 55px;
+  background-image: -webkit-gradient( linear, center top, center bottom, color-stop(0.2, #539fd8), color-stop(0.4, #4897cb), color-stop(0.6, #3c7aab), color-stop(0.8, #386a9c), color-stop(1, #3473A6));
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  z-index: 99;
+  }
+
+.logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 415px;
+  height: 179px;
+  background-color: white;
+  border-radius: 60px;
+  }
+
+.logo {
+  width: 85%;
+  height: 140px;
+  background: url('../../src/logo.png') center no-repeat;
+  background-size: cover;
+  background-color: white;
+  border-radius: 5px;
+  }
+
 .container-Timeline{
   width:100%;
   clear:both;

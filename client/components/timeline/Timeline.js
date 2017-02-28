@@ -49,9 +49,9 @@ class Timeline extends Component {
 	  }
 
     return (
-      <div className="profile-background">
-        <div className="container-Timeline">
-
+    <div>
+	    <div className="timeline-background">
+        {this.props.user.picture ? (<div className="container-Timeline">
           {/*Left profile box*/}
           <div className="timeline-col-left">
             <div className="profile-box">
@@ -90,10 +90,21 @@ class Timeline extends Component {
                 </div>
             </div>
           </div>
-        </div>
-
+        </div>)
+        :
+          (<div className="welcome-background">
+            <div className="welcome">
+              <span className="text-gradient">Welcome to</span>
+              <div className="logo-box">
+                <div className="logo">
+                </div>
+              </div>
+            </div>
+          </div>)
+        }
       </div>
-    );
+    </div>
+    )
   }
 
   listClick() {
