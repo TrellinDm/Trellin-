@@ -3,8 +3,6 @@ import ToolTip from 'react-portal-tooltip';
 import SkyLight from 'react-skylight';
 import {addCourses} from '../../../reducers/profileReducer';
 import {deleteCourses} from '../../../reducers/profileReducer';
-import {profileStrength} from '../../../reducers/profileReducer';
-import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -16,7 +14,6 @@ class ProfileCourses extends Component {
 			activeCourse1: false,
 			activeCourse2: false,
 			activeCourse3: false,
-			count: 0,
 			addCrse : {
 				name: '',
 				course_no: '',
@@ -54,7 +51,7 @@ class ProfileCourses extends Component {
 		var course = this.state.addCrse;
 		course.id = this.props.user.id;
 		axios.post('/setCourses', course).then(() => {
-			this.props.addCourse(this.state.addCrse);
+			this.props.addCourses(this.state.addCrse);
 		});
 	}
 
@@ -92,12 +89,6 @@ class ProfileCourses extends Component {
 		axios.delete('/delete/courses/' + this.props.user.id).then((res) => {
 			this.props.deleteCourses();
 		});
-		var count = this.state.count;
-		this.props.profileStrengthDelete(count);
-	}
-
-	saveCount(count) {
-		this.setState ({count: count})
 	}
 
 	render() {
@@ -113,23 +104,6 @@ class ProfileCourses extends Component {
 		};
 
 		var courses = this.props.coursesArray.map((crse, i) => {
-			var count = 0;
-			if (crse.name) {
-				count++;
-			}
-			if (crse.course_no) {
-				count++;
-			}
-			if (crse.associated) {
-				count++;
-			}
-			if(count !== this.state.count) {
-				if (count > 3) {
-					count = 3;
-				}
-				this.saveCount(count);
-				this.props.profileStrength(count);
-			}
 			return (
 				<div key={i} className="awards-div">
 					{crse.name ? (
@@ -201,10 +175,8 @@ class ProfileCourses extends Component {
 }
 
 const mapDispatchToProps = {
-  // addCourse: addCourse,
-	deleteCourses: deleteCourses,
-	profileStrength: profileStrength,
-	profileStrengthDelete: profileStrengthDelete
+  addCourses: addCourses,
+	deleteCourses: deleteCourses
 };
 
 function mapStateToProps(state) {

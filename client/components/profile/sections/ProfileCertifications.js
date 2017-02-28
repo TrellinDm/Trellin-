@@ -4,8 +4,6 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addCertification} from '../../../reducers/profileReducer';
 import {deleteCertifications} from '../../../reducers/profileReducer';
-import {profileStrength} from '../../../reducers/profileReducer';
-import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileCertifications extends Component {
@@ -19,7 +17,6 @@ class ProfileCertifications extends Component {
 			activeCertification4: false,
 			activeCertification5: false,
 			activeCertification6: false,
-			count: 0,
 			addCert: {
 				name: '',
 				authority: '',
@@ -170,12 +167,6 @@ class ProfileCertifications extends Component {
 		axios.delete('/delete/certifications/' + this.props.user.id).then((res) => {
 			this.props.deleteCertifications()
 		});
-		var count = this.state.count;
-		this.props.profileStrengthDelete(count);
-	}
-
-	saveCount(count) {
-		this.setState ({count: count})
 	}
 
 	render () {
@@ -191,32 +182,6 @@ class ProfileCertifications extends Component {
 		};
 
 		var certificates = this.props.certificationsArray.map((cert, i) => {
-			var count = 0;
-			if (cert.name) {
-				count++;
-			}
-			if (cert.authority) {
-				count++;
-			}
-			if (cert.license_no) {
-				count++;
-			}
-			if (cert.begdate) {
-				count++;
-			}
-			if (cert.enddate) {
-				count++;
-			}
-			if (cert.certification_url) {
-				count++;
-			}
-			if(count !== this.state.count) {
-				if (count > 6) {
-					count = 6;
-				}
-				this.saveCount(count);
-				this.props.profileStrength(count);
-			}
 			return (
 				<div key={i} className="awards-div">
 					{cert.name ? (
@@ -344,9 +309,7 @@ class ProfileCertifications extends Component {
 
 const mapDispatchToProps = {
   addCertification: addCertification,
-	deleteCertifications: deleteCertifications,
-	profileStrength: profileStrength,
-	profileStrengthDelete: profileStrengthDelete
+	deleteCertifications: deleteCertifications
 };
 
 function mapStateToProps(state) {

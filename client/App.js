@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {saveId} from './reducers/userReducer';
 import {allMessages} from './reducers/timelineReducer';
 import {addInfo} from './reducers/profileReducer';
+import {sendAllUsers} from './reducers/connectionsReducer';
 import axios from 'axios';
 import Nav from './components/nav/Nav.js';
 import './reset.scss';
@@ -14,10 +15,10 @@ import './main.scss';
     super(props);
     if(!this.props.user.id) {
       axios.get('/auth/me').then( res => {
-        axios.post('/getAllConnections', {id: res.data.id}).then((allConns) => {
-          res.data.allConnections = allConns.data;
-	        axios.post('/getConnections', {id: res.data.id}).then((conns) => {
-		        res.data.connections = conns.data;
+        axios.post('/getConnections', {id: res.data.id}).then((conns) => {
+          res.data.connections = conns.data;
+	        axios.post('/getAllUsers', {id: res.data.id}).then((allUsers) => {
+            this.props.sendAllUsers(allUsers.data, conns.data, res.data.id);
             axios.get('/getMessages').then((mess) => {
 	            this.props.saveId(res.data);
 	            this.props.allMessages(mess.data, conns.data, res.data.id);
@@ -51,7 +52,8 @@ const mapStateToProps = state => {
 const mapDispatchToActions = {
   saveId: saveId,
   allMessages: allMessages,
-  addInfo: addInfo
+  addInfo: addInfo,
+  sendAllUsers: sendAllUsers
 };
 
 export default connect(mapStateToProps, mapDispatchToActions)(App)

@@ -4,8 +4,6 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addExperience} from '../../../reducers/profileReducer';
 import {deleteExperiences} from '../../../reducers/profileReducer';
-import {profileStrength} from '../../../reducers/profileReducer';
-import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 
@@ -20,7 +18,6 @@ class ProfileExperience extends Component {
 			activeExperience4: false,
 			activeExperience5: false,
 			activeExperience6: false,
-			count: 0,
 			addExpr: {
 				title: '',
 				location: '',
@@ -171,12 +168,6 @@ class ProfileExperience extends Component {
 		axios.delete('/delete/experiences/' + this.props.user.id).then((res) => {
 			this.props.deleteExperiences();
 		});
-		var count = this.state.count;
-		this.props.profileStrengthDelete(count);
-	}
-
-	saveCount(count) {
-		this.setState ({count: count})
 	}
 
 	render () {
@@ -192,32 +183,6 @@ class ProfileExperience extends Component {
 		};
 
 		var experiences = this.props.experienceArray.map((expr, i) => {
-			var count = 0;
-			if (expr.title) {
-				count++;
-			}
-			if (expr.location) {
-				count++;
-			}
-			if (expr.company) {
-				count++;
-			}
-			if (expr.begdate) {
-				count++;
-			}
-			if (expr.enddate) {
-				count++;
-			}
-			if (expr.description) {
-				count++;
-			}
-			if(count !== this.state.count) {
-				if (count > 6) {
-					count = 6;
-				}
-				this.saveCount(count);
-				this.props.profileStrength(count);
-			}
 			return (
 				<div key={i} className="awards-div">
 					{expr.title ? (
@@ -344,9 +309,7 @@ class ProfileExperience extends Component {
 
 const mapDispatchToProps = {
   addExperience: addExperience,
-	deleteExperiences: deleteExperiences,
-	profileStrength: profileStrength,
-	profileStrengthDelete: profileStrengthDelete
+	deleteExperiences: deleteExperiences
 };
 
 function mapStateToProps(state) {

@@ -4,8 +4,6 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addVolunteer} from '../../../reducers/profileReducer';
 import {deleteVolunteer} from '../../../reducers/profileReducer';
-import {profileStrength} from '../../../reducers/profileReducer';
-import {profileStrengthDelete} from '../../../reducers/profileReducer';
 import axios from 'axios';
 
 class ProfileVolunteer extends Component {
@@ -19,7 +17,6 @@ class ProfileVolunteer extends Component {
 			activeVolunteer4: false,
 			activeVolunteer5: false,
 			activeVolunteer6: false,
-			count: 0,
 			addVolu: {
 				organization: '',
 				role: '',
@@ -146,12 +143,6 @@ class ProfileVolunteer extends Component {
 		axios.delete('/delete/volunteer/' + this.props.user.id).then((res) => {
 			this.props.deleteVolunteer();
 		});
-		var count = this.state.count;
-		this.props.profileStrengthDelete(count);
-	}
-
-	saveCount(count) {
-		this.setState ({count: count})
 	}
 
 	render() {
@@ -166,32 +157,6 @@ class ProfileVolunteer extends Component {
 		};
 
 		var volunteers = this.props.volunteerArray.map((volu, i) => {
-			var count = 0;
-			if (volu.organization) {
-				count++;
-			}
-			if (volu.role) {
-				count++;
-			}
-			if (volu.cause) {
-				count++;
-			}
-			if (volu.begdate) {
-				count++;
-			}
-			if (volu.enddate) {
-				count++;
-			}
-			if (volu.description) {
-				count++;
-			}
-			if(count !== this.state.count) {
-				if (count > 6) {
-					count = 6;
-				}
-				this.saveCount(count);
-				this.props.profileStrength(count);
-			}
 			return (
 				<div key={i} className="awards-div">
 					{volu.organization ? (
@@ -319,9 +284,7 @@ class ProfileVolunteer extends Component {
 
 const mapDispatchToProps = {
   addVolunteer: addVolunteer,
-	deleteVolunteer: deleteVolunteer,
-	profileStrength: profileStrength,
-	profileStrengthDelete: profileStrengthDelete
+	deleteVolunteer: deleteVolunteer
 };
 
 function mapStateToProps(state) {

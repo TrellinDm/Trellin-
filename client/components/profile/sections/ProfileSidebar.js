@@ -8,18 +8,19 @@ class ProfileSidebar extends Component {
 	super(props);
 		this.fillMeter=this.fillMeter.bind(this)
 	}
-	
+
 
 	// Beginner 0-25
 	// Intermediate 25-50
 	// Expert 50=75
 	// All Star 75-100
+
 	fillMeter(percent) {
 	let pixels = (percent / 100) * 90;
-	$(".fill").css('top', (90 - pixels) + "px");
-	$(".level").css('top', (77 - pixels) + "px");
+	$(".fill").css('top', (82 - pixels) + "px");
+	$(".level").css('top', (67 - pixels) + "px");
 	$(".fill").css('height', pixels + "px");
-	
+
 	if (percent <= 0) {
 		$(".level").css("top", "67px");
 		$(".level").text("Noob");
@@ -40,17 +41,18 @@ class ProfileSidebar extends Component {
 	}
 }
 
-	
+
 	render () {
-		const total = 44;
-		const percent = this.props.profileStrength/total * 100;
-		console.log(percent);
-		this.fillMeter(percent);
-		
+		$(document).ready(() => {
+			const percent = this.props.profileStrength/44 * 100;
+			console.log(percent);
+			this.fillMeter(percent);
+		});
+
 		return (
-			
+
 			<div>
-				<div className="sidebar-box">
+				<div id="test" className="sidebar-box">
 					<h5 className="prof-strength-title">Profile Strength</h5>
 					<div className="profile-strength">
 						<div className="profile-strength-wrap">
@@ -71,7 +73,7 @@ class ProfileSidebar extends Component {
 					<hr/>
 				</div>
 			</div>
-			
+
 		)
 	}
 }
@@ -79,8 +81,7 @@ class ProfileSidebar extends Component {
 
 function mapStateToProps(state) {
 	return {
-		profileStrength: state.profile.profileStrength,
-		profileTotal: state.profile.profileTotal
+		profileStrength: state.profile.profileStrength
 	}
 }
 
