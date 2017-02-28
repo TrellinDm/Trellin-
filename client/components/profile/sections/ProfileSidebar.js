@@ -17,8 +17,8 @@ class ProfileSidebar extends Component {
 
 	fillMeter(percent) {
 	let pixels = (percent / 100) * 90;
-	$(".fill").css('top', (90 - pixels) + "px");
-	$(".level").css('top', (77 - pixels) + "px");
+	$(".fill").css('top', (82 - pixels) + "px");
+	$(".level").css('top', (67 - pixels) + "px");
 	$(".fill").css('height', pixels + "px");
 
 	if (percent <= 0) {
@@ -44,7 +44,8 @@ class ProfileSidebar extends Component {
 
 	render () {
 		$(document).ready(() => {
-			const percent = this.props.profileStrength/40 * 100;
+			const percent = this.props.profileStrength/44 * 100;
+			console.log(percent);
 			this.fillMeter(percent);
 		});
 

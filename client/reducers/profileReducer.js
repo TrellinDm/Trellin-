@@ -66,13 +66,11 @@ function calcStrength(state) {
   var count = 0;
   for (var stateProp in state) {
     if (Array.isArray(state[stateProp])) {
-      state[stateProp].forEach((itemInArray) => {
-        for (var arrayProp in itemInArray) {
-          if (itemInArray[arrayProp] && arrayProp !== 'id') {
-            count++;
-          }
+      for (var arrayProp in state[stateProp][0]) {
+        if (state[stateProp][0][arrayProp] && arrayProp !== 'id') {
+          count++;
         }
-      });
+      }
     }
   }
   return count;
@@ -88,63 +86,103 @@ export default function reducer(state=initialState, action) {
    case ADDAWARD:
      let awards = Array.from(state.awardsArray);
      awards.unshift(action.payload);
-     return Object.assign({}, state, {awardsArray: awards, awardsShow: true});
+     var stateCopy = Object.assign({}, state, {awardsArray: awards, awardsShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case ADDCERT:
      let certifications = Array.from(state.certificationsArray);
      certifications.unshift(action.payload);
-     return Object.assign({}, state, {certificationsArray: certifications, certificationsShow: true});
+     var stateCopy = Object.assign({}, state, {certificationsArray: certifications, certificationsShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case ADDCOURSE:
      let courses = Array.from(state.coursesArray);
      courses.unshift(action.payload);
-     return Object.assign({}, state, {coursesArray: courses, coursesShow: true});
+     var stateCopy = Object.assign({}, state, {coursesArray: courses, coursesShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case ADDEDU:
      let education = Array.from(state.educationArray);
      education.unshift(action.payload);
-     return Object.assign({}, state, {educationArray: education, educationShow: true, education: education[0].school});
+     var stateCopy = Object.assign({}, state, {educationArray: education, educationShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case ADDEXP:
      let experience = Array.from(state.experienceArray);
      experience.unshift(action.payload);
-     return Object.assign({}, state, {experienceArray: experience, experienceShow: true, current: experience[0].title});
+     var stateCopy = Object.assign({}, state, {experienceArray: experience, experienceShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case ADDLANG:
      let language = Array.from(state.languageArray);
      language.unshift(action.payload);
-     return Object.assign({}, state, {languageArray: language, languageShow: true});
+     var stateCopy = Object.assign({}, state, {languageArray: language, languageShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case ADDPERS:
      let personal = Array.from(state.personalArray);
      personal.unshift(action.payload);
-     return Object.assign({}, state, {personalArray: personal, personalShow: true});
+     var stateCopy = Object.assign({}, state, {personalArray: personal, personalShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case ADDSKILL:
      let skills = Array.from(state.skillsArray);
      skills.unshift(action.payload);
-     return Object.assign({}, state, {skillsArray: skills, skillsShow: true});
+     var stateCopy = Object.assign({}, state, {skillsArray: skills, skillsShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case ADDSUMMARY:
      let summary = Array.from(state.summaryArray);
      summary.unshift(action.payload);
-     return Object.assign({}, state, {summaryArray: summary, summaryShow: true});
+     var stateCopy = Object.assign({}, state, {summaryArray: summary, summaryShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case ADDVOLUN:
      let volunteer = Array.from(state.volunteerArray);
      volunteer.unshift(action.payload);
-     return Object.assign({}, state, {volunteerArray: volunteer, volunteerShow: true});
+     var stateCopy = Object.assign({}, state, {volunteerArray: volunteer, volunteerShow: true});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMSUMMARY:
-     return Object.assign({}, state, {summaryArray: [], summaryShow: false});
+     var stateCopy = Object.assign({}, state, {summaryArray: [], summaryShow: false});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMAWARDS:
-     return Object.assign({}, state, {awardsArray: [], awardsShow: false});
+     var stateCopy = Object.assign({}, state, {awardsArray: [], awardsShow: false});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMCERTIFICATIONS:
-     return Object.assign({}, state, {certificationsArray: [], certificationsShow: false});
+     var stateCopy = Object.assign({}, state, {certificationsArray: [], certificationsShow: false});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMCOURSES:
-     return Object.assign({}, state, {coursesArray: [], coursesShow: false});
+     var stateCopy = Object.assign({}, state, {coursesArray: [], coursesShow: false});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMEDUCATION:
-     return Object.assign({}, state, {educationArray: [], educationShow: false, education: 'where you went/go to school...'});
+     var stateCopy = Object.assign({}, state, {educationArray: [], educationShow: false, education: 'where you went/go to school...'});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMEXPERIENCE:
-     return Object.assign({}, state, {experienceArray: [], experienceShow: false, education: 'where you currently work...'});
+     var stateCopy = Object.assign({}, state, {experienceArray: [], experienceShow: false, education: 'where you currently work...'});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMLANGUAGES:
-     return Object.assign({}, state, {languageArray: [], languageShow: false});
+     var stateCopy = Object.assign({}, state, {languageArray: [], languageShow: false});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMPERSONAL:
-     return Object.assign({}, state, {personalArray: [], personalShow: false});
+     var stateCopy = Object.assign({}, state, {personalArray: [], personalShow: false});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMSKILLS:
-     return Object.assign({}, state, {skillsArray: [], skillsShow: false});
+     var stateCopy = Object.assign({}, state, {skillsArray: [], skillsShow: false});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    case REMVOLUNTEER:
-     return Object.assign({}, state, {volunteerArray: [], volunteerShow: false});
+     var stateCopy = Object.assign({}, state, {volunteerArray: [], volunteerShow: false});
+     stateCopy.profileStrength = calcStrength(stateCopy);
+     return Object.assign({}, state, stateCopy);
    default:
      return state;
  }

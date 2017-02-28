@@ -45,7 +45,8 @@ const mapDispatchToProps = {
 
 function mapStateToProps(state) {
 	return {
-		summaryArray: state.profile.summaryArray
+		summaryArray: state.profile.summaryArray,
+		user: state.user
 	}
 }
 
