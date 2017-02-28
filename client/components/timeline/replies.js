@@ -24,13 +24,8 @@ class ReplyBox extends React.Component {
 	                  }
                     <p>{this.props.body.first_name} {this.props.body.last_name}</p>
                   </div>
-                    <div className="reply-content">
-                       {this.props.body.content}
-                    </div>
-                  <div className="interact-bar comment-bar">
-                    <div className="interact-basic interact-likes">{likesNum} Likes</div>
-                    <div className="interact-basic ">|</div>
-                    <div className="interact-basic interact-comments">{CommentNum} Comments</div>
+                  <div className="reply-content">
+                     {this.props.body.content}
                   </div>
                 </div>
             </div>
