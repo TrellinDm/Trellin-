@@ -4,6 +4,9 @@ import {Link} from 'react-router';
 import { removeSugg } from '../../reducers/connectionsReducer';
 import axios from 'axios';
 import './connections.scss';
+import {addConnInfo} from '../../reducers/connProfileReducer';
+import {addConnUser} from '../../reducers/connProfileReducer';
+import {viewConn} from '../../reducers/connProfileReducer';
 // import ConnectionCard from './ConnectionCard';
 
 class Connections extends Component {
@@ -13,6 +16,7 @@ class Connections extends Component {
   this.renderAllCard = this.renderAllCard.bind(this);
   this.renderCard = this.renderCard.bind(this);
 	this.addConnection = this.addConnection.bind(this);
+	this.getConnData = this.getConnData.bind(this);
   }
 
 	addConnection(connId) {
@@ -21,10 +25,22 @@ class Connections extends Component {
 		});
 	}
 
+	getConnData(connId) {
+		this.props.viewConn();
+		axios.post('/getUserInformation', {id: connId}).then((result) => {
+			axios.post('/getConnUser', {id: connId}).then((user) => {
+				axios.post('/getCountConn', {id: connId}).then((count) => {
+					this.props.addConnInfo(result.data);
+					user.data.connCount = count.data;
+					this.props.addConnUser(user.data);
+				});
+			});
+		});
+	}
+
 	renderAllCard() {
     if (this.props.user) {
       var cards = this.props.suggestions.map((conn, i) => {
-				console.log(conn);
         let name = conn.first + " " + conn.last;
         return (<div key={i} className="connection-item">
           <div className="conn section-shadow">
@@ -45,7 +61,6 @@ class Connections extends Component {
 		if (this.props.user) {
 			var card = this.props.connections.map((conn, i) => {
 				let name = conn.first + " " + conn.last;
-				console.log(conn.first);
 				return (<div key={i} className="connection-item">
           <div className="conn section-shadow">
             <img className="connection-img" src={conn.picture}/>
@@ -54,7 +69,7 @@ class Connections extends Component {
               <div className="connection-text">{conn.headline}</div>
             </div>
             <Link to="/profile">
-              <button className="button-connect">View Profile</button>
+              <button className="button-connect" onClick={() => { this.getConnData(conn.connection_id)} }>View Profile</button>
             </Link>
           </div>
         </div>)
@@ -88,7 +103,10 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-	removeSugg: removeSugg
+	removeSugg: removeSugg,
+	addConnInfo: addConnInfo,
+	addConnUser: addConnUser,
+	viewConn: viewConn
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Connections);

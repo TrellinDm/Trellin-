@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {addPersonal} from '../../../reducers/profileReducer';
 import {deletePersonal} from '../../../reducers/profileReducer';
 import axios from 'axios';
+import moment from 'moment';
 
 class ProfilePersonal extends Component {
 	constructor(props){
@@ -80,34 +81,51 @@ class ProfilePersonal extends Component {
 			paddingBottom: '70px',
 			padding: '30px',
 		};
-
-		var personals = this.props.personalArray.map((pers, i) => {
+		var personalArray = [];
+		if (this.props.conn.showConn) {
+			if (this.props.conn.personalArray) {
+				personalArray = this.props.conn.personalArray;
+			} else {
+				personalArray = this.props.personalArray;
+			}
+		} else {
+			personalArray = this.props.personalArray;
+		}
+		var personals = personalArray.map((pers, i) => {
 			return (
 				<div key={i} className="awards-div">
 					{pers.birthday ? (
-						<div>{pers.birthday}</div>
+						<div>{moment(pers.birthday).format('LL')}</div>
 					) : (
-						<div className="add-text-blue">Add Birthday
-							<div onMouseEnter={this.showPersonal1.bind(this)} onMouseLeave={this.hidePersonal1.bind(this)} id="Personal1" className="question-icon"></div>
-							<ToolTip active={this.state.activePersonal1} position="right" arrow="center" parent="#Personal1">
-								<div className="popup-pad">
-									<div className="sm-text">Birthday</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Birthday
+									<div onMouseEnter={this.showPersonal1.bind(this)} onMouseLeave={this.hidePersonal1.bind(this)} id="Personal1" className="question-icon"></div>
+									<ToolTip active={this.state.activePersonal1} position="right" arrow="center" parent="#Personal1">
+										<div className="popup-pad">
+											<div className="sm-text">Birthday</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{pers.marital ? (
 						<div>{pers.marital}</div>
 					) : (
-						<div className="add-text-blue">Add Marital Status
-							<div onMouseEnter={this.showPersonal2.bind(this)} onMouseLeave={this.hidePersonal2.bind(this)} id="Personal2" className="question-icon"></div>
-							<ToolTip active={this.state.activePersonal2} position="right" arrow="center" parent="#Personal2">
-								<div className="popup-pad">
-									<div className="sm-text">Marital Status</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Marital Status
+									<div onMouseEnter={this.showPersonal2.bind(this)} onMouseLeave={this.hidePersonal2.bind(this)} id="Personal2" className="question-icon"></div>
+									<ToolTip active={this.state.activePersonal2} position="right" arrow="center" parent="#Personal2">
+										<div className="popup-pad">
+											<div className="sm-text">Marital Status</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 				</div>
@@ -116,13 +134,19 @@ class ProfilePersonal extends Component {
 		return (
 
 			<div className="education-box">
-				<div className="title-text-gray" onClick={this.deletePersonal.bind(this)}>Personal Details<div className="trash"></div></div>
+				<div className="title-text-gray">Personal Details
+					{this.props.conn.showConn ? null : (
+						<div className="trash" onClick={this.deletePersonal.bind(this)}></div>
+					)}
+				</div>
 				<div className="box-info">
 					{personals}
 				</div>
-				<div className="bottom-add">
-					<div className="bottom-add-text" onClick={() => this.refs.details.show()}>Add personal</div>
-				</div>
+				{this.props.conn.showConn ? null : (
+					<div className="bottom-add">
+						<div className="bottom-add-text" onClick={() => this.refs.details.show()}>Add personal</div>
+					</div>
+				)}
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="details" title="Add Personal Details">
 					<div className="form-title">Birthday</div>
 					<input className="form-input" type="date" id="myMonth" onChange={this.saveBirthday} />
@@ -151,7 +175,8 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
 	return {
 		personalArray: state.profile.personalArray,
-		user: state.user
+		user: state.user,
+		conn: state.connProfile
 	}
 }
 

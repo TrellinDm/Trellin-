@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {addCertification} from '../../../reducers/profileReducer';
 import {deleteCertifications} from '../../../reducers/profileReducer';
 import axios from 'axios';
+import moment from 'moment';
 
 class ProfileCertifications extends Component {
 	constructor(props){
@@ -180,86 +181,119 @@ class ProfileCertifications extends Component {
 			paddingBottom: '70px',
 			padding: '30px',
 		};
-
-		var certificates = this.props.certificationsArray.map((cert, i) => {
+		var certificationsArray = [];
+		if (this.props.conn.showConn) {
+			if (this.props.conn.certificationsArray) {
+				certificationsArray = this.props.conn.certificationsArray;
+			} else {
+				certificationsArray = this.props.certificationsArray;
+			}
+		} else {
+			certificationsArray = this.props.certificationsArray;
+		}
+		var certificates = certificationsArray.map((cert, i) => {
 			return (
 				<div key={i} className="awards-div">
 					{cert.name ? (
 						<div>{cert.name}</div>
 					) : (
-						<div className="add-text-blue">Add Certification Name
-							<div onMouseEnter={this.showCertification1.bind(this)} onMouseLeave={this.hideCertification1.bind(this)} id="certification1" className="question-icon"></div>
-							<ToolTip active={this.state.activeCertification1} position="right" arrow="center" parent="#certification1">
-								<div className="popup-pad">
-									<div className="sm-text">Certification Name</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Certification Name
+									<div onMouseEnter={this.showCertification1.bind(this)} onMouseLeave={this.hideCertification1.bind(this)} id="certification1" className="question-icon"></div>
+									<ToolTip active={this.state.activeCertification1} position="right" arrow="center" parent="#certification1">
+										<div className="popup-pad">
+											<div className="sm-text">Certification Name</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{cert.authority ? (
 						<div>{cert.authority}</div>
 					) : (
-						<div className="add-text-blue">Add Certification Authority
-							<div onMouseEnter={this.showCertification2.bind(this)} onMouseLeave={this.hideCertification2.bind(this)} id="certification2" className="question-icon"></div>
-							<ToolTip active={this.state.activeCertification2} position="right" arrow="center" parent="#certification2">
-								<div className="popup-pad">
-									<div className="sm-text">Certification Authority</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Certification Authority
+									<div onMouseEnter={this.showCertification2.bind(this)} onMouseLeave={this.hideCertification2.bind(this)} id="certification2" className="question-icon"></div>
+									<ToolTip active={this.state.activeCertification2} position="right" arrow="center" parent="#certification2">
+										<div className="popup-pad">
+											<div className="sm-text">Certification Authority</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{cert.license_no ? (
 						<div>{cert.license_no}</div>
 					) : (
-						<div className="add-text-blue">Add License Number
-							<div onMouseEnter={this.showCertification3.bind(this)} onMouseLeave={this.hideCertification3.bind(this)} id="certification3" className="question-icon"></div>
-							<ToolTip active={this.state.activeCertification3} position="right" arrow="center" parent="#certification3">
-								<div className="popup-pad">
-									<div className="sm-text">License Number</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add License Number
+									<div onMouseEnter={this.showCertification3.bind(this)} onMouseLeave={this.hideCertification3.bind(this)} id="certification3" className="question-icon"></div>
+									<ToolTip active={this.state.activeCertification3} position="right" arrow="center" parent="#certification3">
+										<div className="popup-pad">
+											<div className="sm-text">License Number</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{cert.begdate ? (
-						<div>{cert.begdate}</div>
+						<div>{moment(cert.begdate).format('LL')}</div>
 					) : (
-						<div className="add-text-blue">Add Start Date
-							<div onMouseEnter={this.showCertification5.bind(this)} onMouseLeave={this.hideCertification5.bind(this)} id="certification5" className="question-icon"></div>
-							<ToolTip active={this.state.activeCertification5} position="right" arrow="center" parent="#certification5">
-								<div className="popup-pad">
-									<div className="sm-text">Date</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Start Date
+									<div onMouseEnter={this.showCertification5.bind(this)} onMouseLeave={this.hideCertification5.bind(this)} id="certification5" className="question-icon"></div>
+									<ToolTip active={this.state.activeCertification5} position="right" arrow="center" parent="#certification5">
+										<div className="popup-pad">
+											<div className="sm-text">Date</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{cert.enddate ? (
-						<div>{cert.enddate}</div>
+						<div>{moment(cert.enddate).format('LL')}</div>
 					) : (
-						<div className="add-text-blue">Add End Date
-							<div onMouseEnter={this.showCertification6.bind(this)} onMouseLeave={this.hideCertification6.bind(this)} id="certification6" className="question-icon"></div>
-							<ToolTip active={this.state.activeCertification6} position="right" arrow="center" parent="#certification6">
-								<div className="popup-pad">
-									<div className="sm-text">Date</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add End Date
+									<div onMouseEnter={this.showCertification6.bind(this)} onMouseLeave={this.hideCertification6.bind(this)} id="certification6" className="question-icon"></div>
+									<ToolTip active={this.state.activeCertification6} position="right" arrow="center" parent="#certification6">
+										<div className="popup-pad">
+											<div className="sm-text">Date</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{cert.certification_url ? (
 						<div>{cert.certification_url}</div>
 					) : (
-						<div className="add-text-blue">Add Certification URL
-							<div onMouseEnter={this.showCertification4.bind(this)} onMouseLeave={this.hideCertification4.bind(this)} id="certification4" className="question-icon"></div>
-							<ToolTip active={this.state.activeCertification4} position="right" arrow="center" parent="#certification4">
-								<div className="popup-pad">
-									<div className="sm-text">Certification URL</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Certification URL
+									<div onMouseEnter={this.showCertification4.bind(this)} onMouseLeave={this.hideCertification4.bind(this)} id="certification4" className="question-icon"></div>
+									<ToolTip active={this.state.activeCertification4} position="right" arrow="center" parent="#certification4">
+										<div className="popup-pad">
+											<div className="sm-text">Certification URL</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 				</div>
@@ -268,14 +302,20 @@ class ProfileCertifications extends Component {
 
 		return (
 			<div className="certifications-box">
-				<div className="title-text-gray" onClick={this.deleteCertifications.bind(this)}>Certifications<div className="trash"></div></div>
+				<div className="title-text-gray">Certifications
+					{this.props.conn.showConn ? (null) : (
+						<div className="trash" onClick={this.deleteCertifications.bind(this)}></div>
+					)}
+				</div>
 				<div className="box-info">
 					{certificates}
 				</div>
 
-				<div className="bottom-add">
-					<div className="bottom-add-text" onClick={() => this.refs.certification.show()}>Add certificate</div>
-				</div>
+				{this.props.conn.showConn ? (null) : (
+					<div className="bottom-add">
+						<div className="bottom-add-text" onClick={() => this.refs.certification.show()}>Add certificate</div>
+					</div>
+				)}
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="certification" title="Add Certification">
 					<div className="form-title">Certification name</div>
 					<input className="form-input" type="text" onChange={this.saveName}/>
@@ -315,7 +355,8 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
 	return {
 		certificationsArray: state.profile.certificationsArray,
-		user: state.user
+		user: state.user,
+		conn: state.connProfile
 	}
 }
 

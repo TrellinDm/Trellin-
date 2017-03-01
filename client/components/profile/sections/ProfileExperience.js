@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {addExperience} from '../../../reducers/profileReducer';
 import {deleteExperiences} from '../../../reducers/profileReducer';
 import axios from 'axios';
+import moment from 'moment';
 
 
 class ProfileExperience extends Component {
@@ -181,86 +182,119 @@ class ProfileExperience extends Component {
 			paddingBottom: '70px',
 			padding: '30px',
 		};
-
-		var experiences = this.props.experienceArray.map((expr, i) => {
+		var experienceArray = [];
+		if (this.props.conn.showConn) {
+			if (this.props.conn.experienceArray) {
+				experienceArray = this.props.conn.experienceArray;
+			} else {
+				experienceArray = this.props.experienceArray;
+			}
+		} else {
+			experienceArray = this.props.experienceArray;
+		}
+		var experiences = experienceArray.map((expr, i) => {
 			return (
 				<div key={i} className="awards-div">
 					{expr.title ? (
 						<div>{expr.title}</div>
 					) : (
-						<div className="add-text-blue">Add Time Period
-							<div onMouseEnter={this.showExperience1.bind(this)} onMouseLeave={this.hideExperience1.bind(this)} id="Experience1" className="question-icon"></div>
-							<ToolTip active={this.state.activeExperience1} position="right" arrow="center" parent="#Experience1">
-								<div className="popup-pad">
-									<div className="sm-text">Time Period</div>
-									<div className="profile-text">Show how your career has progressed over time</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Time Period
+									<div onMouseEnter={this.showExperience1.bind(this)} onMouseLeave={this.hideExperience1.bind(this)} id="Experience1" className="question-icon"></div>
+									<ToolTip active={this.state.activeExperience1} position="right" arrow="center" parent="#Experience1">
+										<div className="popup-pad">
+											<div className="sm-text">Time Period</div>
+											<div className="profile-text">Show how your career has progressed over time</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{expr.location ? (
 						<div>{expr.location}</div>
 					) : (
-						<div className="add-text-blue">Add Location
-							<div onMouseEnter={this.showExperience2.bind(this)} onMouseLeave={this.hideExperience2.bind(this)} id="Experience2" className="question-icon"></div>
-							<ToolTip active={this.state.activeExperience2} position="right" arrow="center" parent="#Experience2">
-								<div className="popup-pad">
-									<div className="sm-text">Location</div>
-									<div className="profile-text">Members with a location get 3 times more profile views</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Location
+									<div onMouseEnter={this.showExperience2.bind(this)} onMouseLeave={this.hideExperience2.bind(this)} id="Experience2" className="question-icon"></div>
+									<ToolTip active={this.state.activeExperience2} position="right" arrow="center" parent="#Experience2">
+										<div className="popup-pad">
+											<div className="sm-text">Location</div>
+											<div className="profile-text">Members with a location get 3 times more profile views</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{expr.company ? (
 						<div>{expr.company}</div>
 					) : (
-						<div className="add-text-blue">Add Company
-							<div onMouseEnter={this.showExperience4.bind(this)} onMouseLeave={this.hideExperience4.bind(this)} id="Experience4" className="question-icon"></div>
-							<ToolTip active={this.state.activeExperience4} position="right" arrow="center" parent="#Experience4">
-								<div className="popup-pad">
-									<div className="sm-text">Company</div>
-									<div className="profile-text">Members with a company get 2 times more profile views</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Company
+									<div onMouseEnter={this.showExperience4.bind(this)} onMouseLeave={this.hideExperience4.bind(this)} id="Experience4" className="question-icon"></div>
+									<ToolTip active={this.state.activeExperience4} position="right" arrow="center" parent="#Experience4">
+										<div className="popup-pad">
+											<div className="sm-text">Company</div>
+											<div className="profile-text">Members with a company get 2 times more profile views</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{expr.begdate ? (
-						<div>{expr.begdate}</div>
+						<div>{moment(expr.begdate).format('LL')}</div>
 					) : (
-						<div className="add-text-blue">Add Start Date
-							<div onMouseEnter={this.showExperience5.bind(this)} onMouseLeave={this.hideExperience5.bind(this)} id="Experience5" className="question-icon"></div>
-							<ToolTip active={this.state.activeExperience5} position="right" arrow="center" parent="#Experience5">
-								<div className="popup-pad">
-									<div className="sm-text">School Start Date</div>
-									<div className="profile-text">See what your classmates are up to.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Start Date
+									<div onMouseEnter={this.showExperience5.bind(this)} onMouseLeave={this.hideExperience5.bind(this)} id="Experience5" className="question-icon"></div>
+									<ToolTip active={this.state.activeExperience5} position="right" arrow="center" parent="#Experience5">
+										<div className="popup-pad">
+											<div className="sm-text">School Start Date</div>
+											<div className="profile-text">See what your classmates are up to.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{expr.enddate ? (
-						<div>{expr.enddate}</div>
+						<div>{moment(expr.enddate).format('LL')}</div>
 					) : (
-						<div className="add-text-blue">Add End Date
-							<div onMouseEnter={this.showExperience6.bind(this)} onMouseLeave={this.hideExperience6.bind(this)} id="Experience6" className="question-icon"></div>
-							<ToolTip active={this.state.activeExperience6} position="right" arrow="center" parent="#Experience6">
-								<div className="popup-pad">
-									<div className="sm-text">School End Date</div>
-									<div className="profile-text">See what your classmates are up to.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add End Date
+									<div onMouseEnter={this.showExperience6.bind(this)} onMouseLeave={this.hideExperience6.bind(this)} id="Experience6" className="question-icon"></div>
+									<ToolTip active={this.state.activeExperience6} position="right" arrow="center" parent="#Experience6">
+										<div className="popup-pad">
+											<div className="sm-text">School End Date</div>
+											<div className="profile-text">See what your classmates are up to.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{expr.description ? (
 						<div>{expr.description}</div>
 					) : (
-						<div className="add-text-blue">Add Description
-							<div onMouseEnter={this.showExperience3.bind(this)} onMouseLeave={this.hideExperience3.bind(this)} id="Experience3" className="question-icon"></div>
-							<ToolTip active={this.state.activeExperience3} position="right" arrow="center" parent="#Experience3">
-								<div className="popup-pad">
-									<div className="sm-text">Description</div>
-									<div className="profile-text">Recruiters are more likely to reach out to members with a job description.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Description
+									<div onMouseEnter={this.showExperience3.bind(this)} onMouseLeave={this.hideExperience3.bind(this)} id="Experience3" className="question-icon"></div>
+									<ToolTip active={this.state.activeExperience3} position="right" arrow="center" parent="#Experience3">
+										<div className="popup-pad">
+											<div className="sm-text">Description</div>
+											<div className="profile-text">Recruiters are more likely to reach out to members with a job description.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 				</div>
@@ -268,13 +302,19 @@ class ProfileExperience extends Component {
 		});
 		return (
 			<div className="experience-box">
-				<div className="title-text-gray" onClick={this.deleteExperiences.bind(this)}>Experience<div className="trash"></div></div>
+				<div className="title-text-gray">Experience
+					{this.props.conn.showConn ? null : (
+						<div className="trash" onClick={this.deleteExperiences.bind(this)}></div>
+					)}
+				</div>
 				<div className="box-info">
 					{experiences}
 				</div>
-				<div className="bottom-add">
-					<div className="bottom-add-text" onClick={() => this.refs.experience.show()}>Add position</div>
-				</div>
+				{this.props.conn.showConn ? null : (
+					<div className="bottom-add">
+						<div className="bottom-add-text" onClick={() => this.refs.experience.show()}>Add position</div>
+					</div>
+				)}
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="experience" title="Add Experience">
 					<div className="form-title">Title</div>
 					<input className="form-input" type="text" onChange={this.saveTitle}/>
@@ -315,7 +355,8 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
 	return {
 		experienceArray: state.profile.experienceArray,
-		user: state.user
+		user: state.user,
+		conn: state.connProfile
 	}
 }
 

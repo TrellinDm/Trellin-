@@ -4,6 +4,7 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addAward} from '../../../reducers/profileReducer';
 import {deleteAwards} from '../../../reducers/profileReducer';
+import moment from 'moment';
 import axios from 'axios';
 
 
@@ -153,73 +154,104 @@ class ProfileAwards extends Component {
 			paddingBottom: '70px',
 			padding: '30px',
 		};
-
-		var awards = this.props.awardsArray.map((awar, i) => {
+		var awardsArray = [];
+		if (this.props.conn.showConn) {
+			if (this.props.conn.awardsArray) {
+				awardsArray = this.props.conn.awardsArray;
+			} else {
+				awardsArray = this.props.awardsArray;
+			}
+		} else {
+			awardsArray = this.props.awardsArray;
+		}
+		var awards = awardsArray.map((awar, i) => {
 			return (
 				<div key={i} className="awards-div">
+
 					{awar.title ? (
 						<div>{awar.title}</div>
 					) : (
-						<div className="add-text-blue">Add Title
-							<div onMouseEnter={this.showAward1.bind(this)} onMouseLeave={this.hideAward1.bind(this)} id="Award1" className="question-icon"></div>
-							<ToolTip active={this.state.activeAward1} position="right" arrow="center" parent="#Award1">
-								<div className="popup-pad">
-									<div className="sm-text">Title</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Title
+									<div onMouseEnter={this.showAward1.bind(this)} onMouseLeave={this.hideAward1.bind(this)} id="Award1" className="question-icon"></div>
+									<ToolTip active={this.state.activeAward1} position="right" arrow="center" parent="#Award1">
+										<div className="popup-pad">
+											<div className="sm-text">Title</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
+
 					{awar.associated ? (
 						<div>{awar.associated}</div>
 					) : (
-						<div className="add-text-blue">Add Associated with
-							<div onMouseEnter={this.showAward2.bind(this)} onMouseLeave={this.hideAward2.bind(this)} id="Award2" className="question-icon"></div>
-							<ToolTip active={this.state.activeAward2} position="right" arrow="center" parent="#Award2">
-								<div className="popup-pad">
-									<div className="sm-text">Associated with</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Associated with
+									<div onMouseEnter={this.showAward2.bind(this)} onMouseLeave={this.hideAward2.bind(this)} id="Award2" className="question-icon"></div>
+									<ToolTip active={this.state.activeAward2} position="right" arrow="center" parent="#Award2">
+										<div className="popup-pad">
+											<div className="sm-text">Associated with</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{awar.issuer ? (
 						<div>{awar.issuer}</div>
 					) : (
-						<div className="add-text-blue">Add Issuer
-							<div onMouseEnter={this.showAward3.bind(this)} onMouseLeave={this.hideAward3.bind(this)} id="Award3" className="question-icon"></div>
-							<ToolTip active={this.state.activeAward3} position="right" arrow="center" parent="#Award3">
-								<div className="popup-pad">
-									<div className="sm-text">Issuer</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Issuer
+									<div onMouseEnter={this.showAward3.bind(this)} onMouseLeave={this.hideAward3.bind(this)} id="Award3" className="question-icon"></div>
+									<ToolTip active={this.state.activeAward3} position="right" arrow="center" parent="#Award3">
+										<div className="popup-pad">
+											<div className="sm-text">Issuer</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{awar.recieved? (
-							<div>{awar.recieved}</div>
+							<div>{moment(awar.recieved).format('LL')}</div>
 						) : (
-							<div className="add-text-blue">Add Date
-								<div onMouseEnter={this.showAward4.bind(this)} onMouseLeave={this.hideAward4.bind(this)} id="Award4" className="question-icon"></div>
-								<ToolTip active={this.state.activeAward4} position="right" arrow="center" parent="#Award4">
-									<div className="popup-pad">
-										<div className="sm-text">Date</div>
-										<div className="profile-text">Text here...</div>
+							<div>
+								{this.props.conn.showConn ? null : (
+									<div className="add-text-blue">Add Date
+										<div onMouseEnter={this.showAward4.bind(this)} onMouseLeave={this.hideAward4.bind(this)} id="Award4" className="question-icon"></div>
+										<ToolTip active={this.state.activeAward4} position="right" arrow="center" parent="#Award4">
+											<div className="popup-pad">
+												<div className="sm-text">Date</div>
+												<div className="profile-text">Text here...</div>
+											</div>
+										</ToolTip>
 									</div>
-								</ToolTip>
+								)}
 							</div>
 						)}
 					{awar.description ? (
 						<div>{awar.description}</div>
 					) : (
-						<div className="add-text-blue">Add Description
-							<div onMouseEnter={this.showAward5.bind(this)} onMouseLeave={this.hideAward5.bind(this)} id="Award4" className="question-icon"></div>
-							<ToolTip active={this.state.activeAward4} position="right" arrow="center" parent="#Award4">
-								<div className="popup-pad">
-									<div className="sm-text">Description</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Description
+									<div onMouseEnter={this.showAward5.bind(this)} onMouseLeave={this.hideAward5.bind(this)} id="Award4" className="question-icon"></div>
+									<ToolTip active={this.state.activeAward4} position="right" arrow="center" parent="#Award4">
+										<div className="popup-pad">
+											<div className="sm-text">Description</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 				</div>
@@ -227,13 +259,21 @@ class ProfileAwards extends Component {
 		});
 		return (
 			<div className="education-box">
-				<div className="title-text-gray" onClick={this.deleteAwards.bind(this)}>Honors & Awards<div className="trash"></div></div>
+
+					<div className="title-text-gray">Honors & Awards
+						{this.props.conn.showConn ? (null) : (
+							<div className="trash" onClick={this.deleteAwards.bind(this)}></div>
+						)}
+					</div>
+
 					<div className="box-info">
 						{awards}
 					</div>
-				<div className="bottom-add">
-					<div className="bottom-add-text" onClick={() => this.refs.awards.show()}>Add award</div>
-				</div>
+					{this.props.conn.showConn ? (null) : (
+						<div className="bottom-add">
+							<div className="bottom-add-text" onClick={() => this.refs.awards.show()}>Add award</div>
+						</div>
+					)}
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="awards" title="Add Honors and Awards">
 					<div className="form-title">Title</div>
 					<input className="form-input" type="text" onChange={this.saveTitle}/>
@@ -263,9 +303,11 @@ const mapDispatchToProps = {
 };
 
 function mapStateToProps(state) {
+	console.log(state);
 	return {
 		awardsArray: state.profile.awardsArray,
-		user: state.user
+		user: state.user,
+		conn: state.connProfile
 	}
 }
 

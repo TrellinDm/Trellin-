@@ -3,6 +3,8 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {updateUser} from '../../../reducers/userReducer';
 import {profileStrength} from '../../../reducers/profileReducer';
+import {removeSugg} from '../../../reducers/connectionsReducer';
+import {removeConn} from '../../../reducers/connectionsReducer';
 import axios from 'axios';
 
 class ProfileHeader extends Component {
@@ -11,6 +13,7 @@ class ProfileHeader extends Component {
 
 		this.state = {
 			menu: false,
+			showRemove: true,
 			profile: {
 				name: this.props.user.display_name,
 				headline: this.props.user.headline,
@@ -27,6 +30,7 @@ class ProfileHeader extends Component {
 		this.saveState = this.saveState.bind(this);
 		this.saveIndustry = this.saveIndustry.bind(this);
 		this.savePicture = this.savePicture.bind(this);
+		this.removeConnection = this.removeConnection.bind(this);
 	}
 
 	editHeader() {
@@ -131,6 +135,20 @@ class ProfileHeader extends Component {
 		});
 	}
 
+	removeConnection(connId) {
+		this.setState({showRemove: false});
+		axios.post('/removeConnection', {id: this.props.user.id, connId: connId}).then(() => {
+			this.props.removeConn(connId);
+		});
+
+	}
+
+	addConnection(connId) {
+		this.setState({showRemove: true});
+		axios.post('/addConnection', {userId: this.props.user.id, connId: connId}).then(() => {
+			this.props.removeSugg(connId);
+		});
+	}
 
   render() {
 
@@ -144,23 +162,47 @@ class ProfileHeader extends Component {
 		  color: 'black'
 	  };
 
-
-	  var current = this.props.current;
-	  var education = this.props.education;
-		if (this.props.conns) {
-			var connectionNum = this.props.conns.length;
+		var shownUser;
+		if (this.props.showConn) {
+			if (this.props.connUser[0]) {
+				shownUser = this.props.connUser[0];
+			} else {
+				shownUser = this.props.user;
+			}
 		} else {
-			var connectionNum = 0;
+			shownUser = this.props.user;
+		}
+
+		if (this.props.showConn) {
+			var current = this.props.current;
+		  var education = this.props.education;
+		} else {
+			var current = this.props.connCurrent;
+		  var education = this.props.connEducation;
+		}
+
+		if (this.props.showConn) {
+			if (this.props.connUser[0]) {
+				var connectionNum = this.props.connUser.connCount[0].count;
+			}
+		} else {
+			if (this.props.conns) {
+				var connectionNum = this.props.conns.length;
+			} else {
+				var connectionNum = 0;
+			}
 		}
 
 
     return (
+
       <div className="header-box">
 
         <div className="profile-pic-container">
           <div className="profile-pic">
-	          { this.props.user.picture ? (
-							<img className='profile-pic' src={this.props.user.picture}/>
+
+	          { shownUser.picture ? (
+							<img className='profile-pic' src={shownUser.picture}/>
 						) :(
 							<img className='profile-pic' src='https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg'/>
 						)}
@@ -168,15 +210,26 @@ class ProfileHeader extends Component {
         </div>
 
         <div className="header-info-container">
-					<div className="gray-pencil header-edit" onClick={() => this.refs.profile.show()}></div>
+					{this.props.showConn ? (
+						<div>
+							{this.state.showRemove ? (
+								<button className="button-dark-blue header-edit" onClick={() => {this.removeConnection(shownUser.id)}}>Remove</button>
+							) : (
+								<button className="button-dark-blue header-edit" onClick={() => {this.addConnection(shownUser.id)}}>Connect</button>
+							)}
+						</div>
+
+					) : (
+						<div className="gray-pencil header-edit" onClick={() => this.refs.profile.show()}></div>
+					)}
           <div className="profile-name">
 	          <div className="title-text">
-							{this.props.user.first && this.props.user.last ? (
-								<div className="title-text">{this.props.user.first + " " + this.props.user.last}</div>
+							{shownUser.first && shownUser.last ? (
+								<div className="title-text">{shownUser.first + " " + shownUser.last}</div>
 							) : (
 								<div>
-									{this.props.user.display_name ? (
-										<div className="title-text"> {this.props.user.display_name} </div>
+									{shownUser.display_name ? (
+										<div className="title-text"> {shownUser.display_name} </div>
 									) : (
 										<div className="title-text"> John Doe </div>
 									)}
@@ -186,11 +239,11 @@ class ProfileHeader extends Component {
             {/* {this.state.name ? <NamePopup /> : null} */}
           </div>
 					<div className="header-mid">
-						{this.props.user.headline ? (
-							<div>{this.props.user.headline}</div>
+						{shownUser.headline ? (
+							<div>{shownUser.headline}</div>
 						) : (
 							<div className="add-text-blue" >
-								Add Headline
+								{this.props.showConn ? null : <p>Add Headline</p>}
 							</div>
 						)}
 	          <div className="profile-headline">
@@ -250,7 +303,9 @@ class ProfileHeader extends Component {
 }
 
 const mapDispatchToProps = {
-	updateUser: updateUser
+	updateUser: updateUser,
+	removeSugg: removeSugg,
+	removeConn: removeConn
 }
 
 function mapStateToProps(state) {
@@ -260,7 +315,11 @@ function mapStateToProps(state) {
 		user: state.user,
 		current: state.profile.current,
 		education: state.profile.education,
-		conns: state.user.connections
+		connCurrent: state.connProfile.current,
+		connEducation: state.connProfile.education,
+		conns: state.user.connections,
+		showConn: state.connProfile.showConn,
+		connUser: state.connProfile.connUser
 	}
 }
 

@@ -47,8 +47,17 @@ class ProfileSkills extends Component {
 			paddingBottom: '70px',
 			padding: '30px',
 		};
-
-		var skills = this.props.skillsArray.map((sklz, i) => {
+		var skillsArray = [];
+		if (this.props.conn.showConn) {
+			if (this.props.conn.skillsArray) {
+				skillsArray = this.props.conn.skillsArray;
+			} else {
+				skillsArray = this.props.skillsArray;
+			}
+		} else {
+			skillsArray = this.props.skillsArray;
+		}
+		var skills = skillsArray.map((sklz, i) => {
 			return (
 				<div key={i} className="skill-div">
 					{sklz.skill}
@@ -58,13 +67,19 @@ class ProfileSkills extends Component {
 		return (
 
 			<div className="education-box">
-				<div className="title-text-gray" onClick={this.deleteSkills.bind(this)}>Skills<div className="trash"></div></div>
+				<div className="title-text-gray">Skills
+					{this.props.conn.showConn ? null : (
+						<div className="trash" onClick={this.deleteSkills.bind(this)}></div>
+					)}
+				</div>
 				<div className="skills-div">
 					{skills}
 				</div>
-				<div className="bottom-add">
-					<div className="bottom-add-text" onClick={() => this.refs.skills.show()}>Add skill</div>
-				</div>
+				{this.props.conn.showConn ? null : (
+					<div className="bottom-add">
+						<div className="bottom-add-text" onClick={() => this.refs.skills.show()}>Add skill</div>
+					</div>
+				)}
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="skills" title="Add Skills">
 					<div className="form-title">Skills</div>
 					<input className="form-input" type="text" onChange={this.saveSkill}/>
@@ -85,7 +100,8 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
 	return {
 		skillsArray: state.profile.skillsArray,
-		user: state.user
+		user: state.user,
+		conn: state.connProfile
 	}
 }
 

@@ -19,6 +19,24 @@ module.exports = {
     db.addConnection(req.body.userId, req.body.connId, function(err, conn) {
       res.status(200).send(conn);
     });
-  }
+  },
+
+	getConnUser: function(req, res) {
+		db.getUserByUserId(req.body.id, function(err, conn) {
+			res.status(200).send(conn);
+		});
+	},
+
+	getCountConn: function(req, res) {
+		db.getCountConn(req.body.id, function(err, count) {
+			res.status(200).send(count);
+		});
+	},
+
+	removeConnection: function(req, res) {
+		db.removeConnection(req.body.id, req.body.connId, function(err, conn) {
+			res.status(200).send('removed!');
+		});
+	}
 
 };

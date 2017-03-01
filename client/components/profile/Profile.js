@@ -43,25 +43,28 @@ class Profile extends Component {
         <div className="container">
           <div className="profile-col-left">
             <ProfileHeader />
-            <div><span className="sm-text-gray">Add a section to your profile - </span><span className="smlr-text-gray">be discovered for your next career step.</span></div>
-
-            <div className="section-view-more">
-              <button className="reveal reveal-text"> View More  ▼ </button>
-              <div className="toggle_container">
-                <div className="block"><ProfileAddSection /></div>
+            {this.props.showConn ? (null) : (
+              <div><span className="sm-text-gray">Add a section to your profile - </span><span className="smlr-text-gray">be discovered for your next career step.</span></div>
+            )}
+            {this.props.showConn ? (null) : (
+              <div className="section-view-more">
+                <button className="reveal reveal-text"> View More  ▼ </button>
+                <div className="toggle_container">
+                  <div className="block"><ProfileAddSection /></div>
+                </div>
               </div>
-            </div>
+            )}
 
-            {this.props.summaryShow ? <ProfileSummary /> : null}
-            {this.props.languageShow ? <ProfileLanguage /> : null}
-            {this.props.certificationsShow ? <ProfileCertifications /> : null}
-            {this.props.coursesShow ? <ProfileCourses /> : null}
-            {this.props.awardsShow ? <ProfileAwards /> : null}
-            {this.props.educationShow ? <ProfileEducation /> : null}
-            {this.props.skillsShow ? <ProfileSkills /> : null}
-            {this.props.experienceShow ? <ProfileExperience /> : null}
-            {this.props.personalShow ? <ProfilePersonal /> : null}
-            {this.props.volunteerShow ? <ProfileVolunteer /> : null}
+            {this.props.summaryShow || (this.props.conn.summaryShow && this.props.showConn) ? <ProfileSummary /> : null}
+            {this.props.languageShow || (this.props.conn.languageShow && this.props.showConn) ? <ProfileLanguage /> : null}
+            {this.props.certificationsShow || (this.props.conn.certificationsShow && this.props.showConn) ? <ProfileCertifications /> : null}
+            {this.props.coursesShow || (this.props.conn.coursesShow && this.props.showConn) ? <ProfileCourses /> : null}
+            {this.props.awardsShow || (this.props.conn.awardsShow && this.props.showConn) ? <ProfileAwards /> : null}
+            {this.props.educationShow || (this.props.conn.educationShow && this.props.showConn) ? <ProfileEducation /> : null}
+            {this.props.skillsShow || (this.props.conn.skillsShow && this.props.showConn) ? <ProfileSkills /> : null}
+            {this.props.experienceShow || (this.props.conn.experienceShow && this.props.showConn) ? <ProfileExperience /> : null}
+            {this.props.personalShow || (this.props.conn.personalShow && this.props.showConn) ? <ProfilePersonal /> : null}
+            {this.props.volunteerShow || (this.props.conn.volunteerShow && this.props.showConn) ? <ProfileVolunteer /> : null}
 
           </div>
           <div className="profile-col-right">
@@ -89,7 +92,9 @@ function mapStateToProps(state) {
 	  experienceShow: state.profile.experienceShow,
 	  personalShow: state.profile.personalShow,
 	  volunteerShow: state.profile.volunteerShow,
-    user: state.user
+    user: state.user,
+    showConn: state.connProfile.showConn,
+    conn: state.connProfile
   }
 }
 

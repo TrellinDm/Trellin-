@@ -1,5 +1,6 @@
 const SETUSERS = 'SETUSERS';
 const REMSUGG = 'REMSUGG';
+const REMCONN = 'REMCONN';
 
 const initialState = {
   connections: [],
@@ -34,6 +35,15 @@ export default function reducer(state=initialState, action) {
         }
       });
       return Object.assign({}, state, {connections: connArray, suggestions: suggArray});
+    case REMCONN:
+      var suggArray = Array.from(state.suggestions);
+      var connArray = Array.from(state.connections);
+      connArray.forEach((conn, i) => {
+        if (conn.id === action.id) {
+          suggArray.push(connArray.splice(i, 1)[0]);
+        }
+      });
+      return Object.assign({}, state, {connections: connArray, suggestions: suggArray});
     default: return state;
   }
 }
@@ -50,6 +60,13 @@ export function sendAllUsers(users, conns, id) {
 export function removeSugg(id) {
   return {
     type: REMSUGG,
+    id: id
+  }
+}
+
+export function removeConn(id) {
+  return {
+    type: REMCONN,
     id: id
   }
 }
