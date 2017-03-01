@@ -116,6 +116,7 @@ app.post('/addConnection', ConnectionCtrl.addConnection);
 app.post('/getConnections', ConnectionCtrl.getConnections);
 app.post('/getConnUser', ConnectionCtrl.getConnUser);
 app.post('/getCountConn', ConnectionCtrl.getCountConn);
+app.post('/removeConnection', ConnectionCtrl.removeConnection);
 app.post('/reply', timelineCtrl.createReply);
 app.get('/replies', timelineCtrl.getReply);
 //------------------------LIST ENDPOINTS-----------------------

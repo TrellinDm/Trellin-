@@ -3,6 +3,8 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {updateUser} from '../../../reducers/userReducer';
 import {profileStrength} from '../../../reducers/profileReducer';
+import {removeSugg} from '../../../reducers/connectionsReducer';
+import {removeConn} from '../../../reducers/connectionsReducer';
 import axios from 'axios';
 
 class ProfileHeader extends Component {
@@ -11,6 +13,7 @@ class ProfileHeader extends Component {
 
 		this.state = {
 			menu: false,
+			showRemove: true,
 			profile: {
 				name: this.props.user.display_name,
 				headline: this.props.user.headline,
@@ -27,6 +30,7 @@ class ProfileHeader extends Component {
 		this.saveState = this.saveState.bind(this);
 		this.saveIndustry = this.saveIndustry.bind(this);
 		this.savePicture = this.savePicture.bind(this);
+		this.removeConnection = this.removeConnection.bind(this);
 	}
 
 	editHeader() {
@@ -131,6 +135,20 @@ class ProfileHeader extends Component {
 		});
 	}
 
+	removeConnection(connId) {
+		this.setState({showRemove: false});
+		axios.post('/removeConnection', {id: this.props.user.id, connId: connId}).then(() => {
+			this.props.removeConn(connId);
+		});
+
+	}
+
+	addConnection(connId) {
+		this.setState({showRemove: true});
+		axios.post('/addConnection', {userId: this.props.user.id, connId: connId}).then(() => {
+			this.props.removeSugg(connId);
+		});
+	}
 
   render() {
 
@@ -192,7 +210,16 @@ class ProfileHeader extends Component {
         </div>
 
         <div className="header-info-container">
-					{this.props.showConn ? (null) : (
+					{this.props.showConn ? (
+						<div>
+							{this.state.showRemove ? (
+								<button className="button-dark-blue header-edit" onClick={() => {this.removeConnection(shownUser.id)}}>Remove</button>
+							) : (
+								<button className="button-dark-blue header-edit" onClick={() => {this.addConnection(shownUser.id)}}>Connect</button>
+							)}
+						</div>
+
+					) : (
 						<div className="gray-pencil header-edit" onClick={() => this.refs.profile.show()}></div>
 					)}
           <div className="profile-name">
@@ -276,7 +303,9 @@ class ProfileHeader extends Component {
 }
 
 const mapDispatchToProps = {
-	updateUser: updateUser
+	updateUser: updateUser,
+	removeSugg: removeSugg,
+	removeConn: removeConn
 }
 
 function mapStateToProps(state) {

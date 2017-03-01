@@ -31,6 +31,12 @@ module.exports = {
 		db.getCountConn(req.body.id, function(err, count) {
 			res.status(200).send(count);
 		});
+	},
+
+	removeConnection: function(req, res) {
+		db.removeConnection(req.body.id, req.body.connId, function(err, conn) {
+			res.status(200).send('removed!');
+		});
 	}
 
 };

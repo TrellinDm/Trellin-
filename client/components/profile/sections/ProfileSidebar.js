@@ -48,8 +48,6 @@ class ProfileSidebar extends Component {
 			this.fillMeter(percent);
 		});
 
-		console.log(this.props.conn.showConn);
-
 		return (
 
 			<div>
