@@ -26,13 +26,29 @@ class ProfileSummary extends Component {
 			paddingBottom: '70px',
 			padding: '30px'
 		};
-		var summary = this.props.summaryArray.map((summ, i) => {
+		var summaryArray = [];
+		if (this.props.conn.showConn) {
+			if (this.props.conn.summaryArray) {
+				summaryArray = this.props.conn.summaryArray;
+			} else {
+				summaryArray = this.props.summaryArray;
+			}
+		} else {
+			summaryArray = this.props.summaryArray;
+		}
+		var summary = summaryArray.map((summ, i) => {
 			return (<div key={i} className="awards-div">{summ.summary}</div>);
 		});
 		return (
 			//Language section box
 			<div className="education-box">
-				<div className="title-text-gray" onClick={this.deleteSummary.bind(this)}>Summary<div className="trash"></div></div>
+
+					<div className="title-text-gray">Summary
+						{this.props.conn.showConn ? (null) : (
+							<div className="trash" onClick={this.deleteSummary.bind(this)}></div>
+						)}
+					</div>
+
 				<div className="box-info">{summary}</div>
 			</div>
 		)
@@ -46,6 +62,7 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
 	return {
 		summaryArray: state.profile.summaryArray,
+		conn: state.connProfile,
 		user: state.user
 	}
 }

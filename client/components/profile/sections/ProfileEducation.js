@@ -209,99 +209,136 @@ class ProfileEducation extends Component {
 			marginLeft: '-25%',
 			padding: '30px',
 		};
-
-		var educations = this.props.educationArray.map((educ, i) => {
+		var educationArray = [];
+		if (this.props.conn.showConn) {
+			if (this.props.conn.educationArray) {
+				educationArray = this.props.conn.educationArray;
+			} else {
+				educationArray = this.props.educationArray;
+			}
+		} else {
+			educationArray = this.props.educationArray;
+		}
+		var educations = educationArray.map((educ, i) => {
 			return (
 				<div key={i} className="awards-div">
 					{educ.school ? (
 						<div>{educ.school}</div>
 					) : (
-						<div className="add-text-blue">Add School
-							<div onMouseEnter={this.showEducation0.bind(this)} onMouseLeave={this.hideEducation0.bind(this)} id="Education0" className="question-icon"></div>
-							<ToolTip active={this.state.activeEducation0} position="right" arrow="center" parent="#Education0">
-								<div className="popup-pad">
-									<div className="sm-text">School</div>
-									<div className="profile-text">Adding your school helps us make better recommendations for you.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add School
+									<div onMouseEnter={this.showEducation0.bind(this)} onMouseLeave={this.hideEducation0.bind(this)} id="Education0" className="question-icon"></div>
+									<ToolTip active={this.state.activeEducation0} position="right" arrow="center" parent="#Education0">
+										<div className="popup-pad">
+											<div className="sm-text">School</div>
+											<div className="profile-text">Adding your school helps us make better recommendations for you.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{educ.degree ? (
 						<div>{educ.degree}</div>
 					) : (
-						<div className="add-text-blue">Add Degree
-							<div onMouseEnter={this.showEducation1.bind(this)} onMouseLeave={this.hideEducation1.bind(this)} id="Education1" className="question-icon"></div>
-							<ToolTip active={this.state.activeEducation1} position="right" arrow="center" parent="#Education1">
-								<div className="popup-pad">
-									<div className="sm-text">School Degree</div>
-									<div className="profile-text">Adding your degree helps us make better recommendations for you.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Degree
+									<div onMouseEnter={this.showEducation1.bind(this)} onMouseLeave={this.hideEducation1.bind(this)} id="Education1" className="question-icon"></div>
+									<ToolTip active={this.state.activeEducation1} position="right" arrow="center" parent="#Education1">
+										<div className="popup-pad">
+											<div className="sm-text">School Degree</div>
+											<div className="profile-text">Adding your degree helps us make better recommendations for you.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{educ.field ? (
 						<div>{educ.field}</div>
 					) : (
-						<div className="add-text-blue">Add Field of Study
-							<div onMouseEnter={this.showEducation2.bind(this)} onMouseLeave={this.hideEducation2.bind(this)} id="Education2" className="question-icon"></div>
-							<ToolTip active={this.state.activeEducation2} position="right" arrow="center" parent="#Education2">
-								<div className="popup-pad">
-									<div className="sm-text">Field of Study</div>
-									<div className="profile-text">Adding your area of expertise helps you be found for the right opportunities.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Field of Study
+									<div onMouseEnter={this.showEducation2.bind(this)} onMouseLeave={this.hideEducation2.bind(this)} id="Education2" className="question-icon"></div>
+									<ToolTip active={this.state.activeEducation2} position="right" arrow="center" parent="#Education2">
+										<div className="popup-pad">
+											<div className="sm-text">Field of Study</div>
+											<div className="profile-text">Adding your area of expertise helps you be found for the right opportunities.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{educ.begdate ? (
 						<div>{educ.begdate}</div>
 					) : (
-						<div className="add-text-blue">Add Start Date
-							<div onMouseEnter={this.showEducation3.bind(this)} onMouseLeave={this.hideEducation3.bind(this)} id="Education3" className="question-icon"></div>
-							<ToolTip active={this.state.activeEducation3} position="right" arrow="center" parent="#Education3">
-								<div className="popup-pad">
-									<div className="sm-text">School Start Date</div>
-									<div className="profile-text">See what your classmates are up to.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Start Date
+									<div onMouseEnter={this.showEducation3.bind(this)} onMouseLeave={this.hideEducation3.bind(this)} id="Education3" className="question-icon"></div>
+									<ToolTip active={this.state.activeEducation3} position="right" arrow="center" parent="#Education3">
+										<div className="popup-pad">
+											<div className="sm-text">School Start Date</div>
+											<div className="profile-text">See what your classmates are up to.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{educ.enddate ? (
 						<div>{educ.enddate}</div>
 					) : (
-						<div className="add-text-blue">Add End Date
-							<div onMouseEnter={this.showEducation6.bind(this)} onMouseLeave={this.hideEducation6.bind(this)} id="Education6" className="question-icon"></div>
-							<ToolTip active={this.state.activeEducation6} position="right" arrow="center" parent="#Education6">
-								<div className="popup-pad">
-									<div className="sm-text">School End Date</div>
-									<div className="profile-text">See what your classmates are up to.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add End Date
+									<div onMouseEnter={this.showEducation6.bind(this)} onMouseLeave={this.hideEducation6.bind(this)} id="Education6" className="question-icon"></div>
+									<ToolTip active={this.state.activeEducation6} position="right" arrow="center" parent="#Education6">
+										<div className="popup-pad">
+											<div className="sm-text">School End Date</div>
+											<div className="profile-text">See what your classmates are up to.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{educ.grade ? (
 						<div>{educ.grade}</div>
 					) : (
-						<div className="add-text-blue">Add Grade
-							<div onMouseEnter={this.showEducation4.bind(this)} onMouseLeave={this.hideEducation4.bind(this)} id="Education4" className="question-icon"></div>
-							<ToolTip active={this.state.activeEducation4} position="right" arrow="center" parent="#Education4">
-								<div className="popup-pad">
-									<div className="sm-text">Grade</div>
-									<div className="profile-text">See what your classmates are up to.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Grade
+									<div onMouseEnter={this.showEducation4.bind(this)} onMouseLeave={this.hideEducation4.bind(this)} id="Education4" className="question-icon"></div>
+									<ToolTip active={this.state.activeEducation4} position="right" arrow="center" parent="#Education4">
+										<div className="popup-pad">
+											<div className="sm-text">Grade</div>
+											<div className="profile-text">See what your classmates are up to.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{educ.activities ? (
 						<div>{educ.activities}</div>
 					) : (
-						<div className="add-text-blue">Add Activities and Societies
-							<div onMouseEnter={this.showEducation5.bind(this)} onMouseLeave={this.hideEducation5.bind(this)} id="Education5" className="question-icon"></div>
-							<ToolTip active={this.state.activeEducation5} position="right" arrow="center" parent="#Education5">
-								<div className="popup-pad">
-									<div className="sm-text">Activities and Societies</div>
-									<div className="profile-text">See what your classmates are up to.</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Activities and Societies
+									<div onMouseEnter={this.showEducation5.bind(this)} onMouseLeave={this.hideEducation5.bind(this)} id="Education5" className="question-icon"></div>
+									<ToolTip active={this.state.activeEducation5} position="right" arrow="center" parent="#Education5">
+										<div className="popup-pad">
+											<div className="sm-text">Activities and Societies</div>
+											<div className="profile-text">See what your classmates are up to.</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 				</div>
@@ -309,13 +346,19 @@ class ProfileEducation extends Component {
 		});
 		return (
 			<div className="education-box">
-				<div className="title-text-gray" onClick={this.deleteEducation.bind(this)}>Education<div className="trash"></div></div>
+				<div className="title-text-gray">Education
+					{this.props.conn.showConn ? (null) : (
+						<div className="trash" onClick={this.deleteEducation.bind(this)}></div>
+					)}
+				</div>
 					<div className="box-info">
 						{educations}
 					</div>
-				<div className="bottom-add">
-					<div className="bottom-add-text" onClick={() => this.refs.education.show()}>Add education</div>
-				</div>
+					{this.props.conn.showConn ? (null) : (
+						<div className="bottom-add">
+							<div className="bottom-add-text" onClick={() => this.refs.education.show()}>Add education</div>
+						</div>
+					)}
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="education" title="Add Education">
 					<div className="form-title">School</div>
 					<input className="form-input" type="text" onChange={this.saveSchool}/>
@@ -350,7 +393,8 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
 	return {
 		educationArray: state.profile.educationArray,
-		user: state.user
+		user: state.user,
+		conn: state.connProfile
 	}
 }
 

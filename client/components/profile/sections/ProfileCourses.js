@@ -102,47 +102,68 @@ class ProfileCourses extends Component {
 			paddingBottom: '70px',
 			padding: '30px',
 		};
-
-		var courses = this.props.coursesArray.map((crse, i) => {
+		var coursesArray = [];
+		if (this.props.conn.showConn) {
+			if (this.props.conn.coursesArray) {
+				coursesArray = this.props.conn.coursesArray;
+			} else {
+				coursesArray = this.props.coursesArray;
+			}
+		} else {
+			coursesArray = this.props.coursesArray;
+		}
+		var courses = coursesArray.map((crse, i) => {
 			return (
 				<div key={i} className="awards-div">
 					{crse.name ? (
 						<div>{crse.name}</div>
 					) : (
-						<div className="add-text-blue">Add Course Name
-							<div onMouseEnter={this.showCourse1.bind(this)} onMouseLeave={this.hideCourse1.bind(this)} id="course1" className="question-icon"></div>
-							<ToolTip active={this.state.activeCourse1} position="right" arrow="center" parent="#course1">
-								<div className="popup-pad">
-									<div className="sm-text">Course Name</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Course Name
+									<div onMouseEnter={this.showCourse1.bind(this)} onMouseLeave={this.hideCourse1.bind(this)} id="course1" className="question-icon"></div>
+									<ToolTip active={this.state.activeCourse1} position="right" arrow="center" parent="#course1">
+										<div className="popup-pad">
+											<div className="sm-text">Course Name</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{crse.course_no ? (
 						<div>{crse.course_no}</div>
 					) : (
-						<div className="add-text-blue">Add Course Number
-							<div onMouseEnter={this.showCourse2.bind(this)} onMouseLeave={this.hideCourse2.bind(this)} id="course2" className="question-icon"></div>
-							<ToolTip active={this.state.activeCourse2} position="right" arrow="center" parent="#course2">
-								<div className="popup-pad">
-									<div className="sm-text">Course Number</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Course Number
+									<div onMouseEnter={this.showCourse2.bind(this)} onMouseLeave={this.hideCourse2.bind(this)} id="course2" className="question-icon"></div>
+									<ToolTip active={this.state.activeCourse2} position="right" arrow="center" parent="#course2">
+										<div className="popup-pad">
+											<div className="sm-text">Course Number</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{crse.associated ? (
 						<div>{crse.associated}</div>
 					) : (
-						<div className="add-text-blue">Add Associated with
-							<div onMouseEnter={this.showCourse3.bind(this)} onMouseLeave={this.hideCourse3.bind(this)} id="course3" className="question-icon"></div>
-							<ToolTip active={this.state.activeCourse3} position="right" arrow="center" parent="#course3">
-								<div className="popup-pad">
-									<div className="sm-text">Associated with</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Associated with
+									<div onMouseEnter={this.showCourse3.bind(this)} onMouseLeave={this.hideCourse3.bind(this)} id="course3" className="question-icon"></div>
+									<ToolTip active={this.state.activeCourse3} position="right" arrow="center" parent="#course3">
+										<div className="popup-pad">
+											<div className="sm-text">Associated with</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 				</div>
@@ -151,13 +172,19 @@ class ProfileCourses extends Component {
 		return (
 
 			<div className="education-box">
-				<div className="title-text-gray" onClick={this.deleteCourses.bind(this)}>Courses<div className="trash"></div></div>
+				<div className="title-text-gray">Courses
+					{this.props.conn.showConn ? (null) : (
+						<div className="trash" onClick={this.deleteCourses.bind(this)}></div>
+					)}
+				</div>
 				<div className="box-info">
 					{courses}
 				</div>
-				<div className="bottom-add">
-					<div className="bottom-add-text" onClick={() => this.refs.courses.show()}>Add course</div>
-				</div>
+				{this.props.conn.showConn ? (null) : (
+					<div className="bottom-add">
+						<div className="bottom-add-text" onClick={() => this.refs.courses.show()}>Add course</div>
+					</div>
+				)}
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="courses" title="Add Courses">
 					<div className="form-title">Course name</div>
 					<input className="form-input" type="text" onChange={this.saveName}/>
@@ -182,7 +209,8 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
 	return {
 		coursesArray: state.profile.coursesArray,
-		user: state.user
+		user: state.user,
+		conn: state.connProfile
 	}
 }
 

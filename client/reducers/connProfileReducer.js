@@ -42,7 +42,6 @@ function storeInfo(state, userInfo) {
       });
     }
   }
-  console.log(state);
   return state;
 }
 
@@ -62,7 +61,6 @@ export default function reducer(state=initialState, action) {
         action.payload.city = action.payload.location.split(', ')[0];
         action.payload.state = action.payload.location.split(', ')[1];
       }
-      console.log(action.payload);
       return Object.assign({}, state, {connUser: action.payload});
     case VIEWCONN:
       return Object.assign({}, state, {showConn: !state.showConn});
@@ -78,7 +76,6 @@ export function addConnInfo(data) {
 }
 
 export function addConnUser(data) {
-  console.log(data);
   return {
     type: ADDCONNUSER,
     payload: data

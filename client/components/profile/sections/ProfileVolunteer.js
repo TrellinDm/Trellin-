@@ -155,86 +155,119 @@ class ProfileVolunteer extends Component {
 			paddingBottom: '70px',
 			padding: '30px',
 		};
-
-		var volunteers = this.props.volunteerArray.map((volu, i) => {
+		var volunteerArray = [];
+		if (this.props.conn.showConn) {
+			if (this.props.conn.volunteerArray) {
+				volunteerArray = this.props.conn.volunteerArray;
+			} else {
+				volunteerArray = this.props.volunteerArray;
+			}
+		} else {
+			volunteerArray = this.props.volunteerArray;
+		}
+		var volunteers = volunteerArray.map((volu, i) => {
 			return (
 				<div key={i} className="awards-div">
 					{volu.organization ? (
 						<div>{volu.organization}</div>
 					) : (
-						<div className="add-text-blue">Add Organization
-							<div onMouseEnter={this.showVolunteer1.bind(this)} onMouseLeave={this.hideVolunteer1.bind(this)} id="Volunteer1" className="question-icon"></div>
-							<ToolTip active={this.state.activeVolunteer1} position="right" arrow="center" parent="#Volunteer1">
-								<div className="popup-pad">
-									<div className="sm-text">Organization</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Organization
+									<div onMouseEnter={this.showVolunteer1.bind(this)} onMouseLeave={this.hideVolunteer1.bind(this)} id="Volunteer1" className="question-icon"></div>
+									<ToolTip active={this.state.activeVolunteer1} position="right" arrow="center" parent="#Volunteer1">
+										<div className="popup-pad">
+											<div className="sm-text">Organization</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{volu.role ? (
 						<div>{volu.role}</div>
 					) : (
-						<div className="add-text-blue">Add Role
-							<div onMouseEnter={this.showVolunteer2.bind(this)} onMouseLeave={this.hideVolunteer2.bind(this)} id="Volunteer2" className="question-icon"></div>
-							<ToolTip active={this.state.activeVolunteer2} position="right" arrow="center" parent="#Volunteer2">
-								<div className="popup-pad">
-									<div className="sm-text">Role</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Role
+									<div onMouseEnter={this.showVolunteer2.bind(this)} onMouseLeave={this.hideVolunteer2.bind(this)} id="Volunteer2" className="question-icon"></div>
+									<ToolTip active={this.state.activeVolunteer2} position="right" arrow="center" parent="#Volunteer2">
+										<div className="popup-pad">
+											<div className="sm-text">Role</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{volu.cause ? (
 						<div>{volu.cause}</div>
 					) : (
-						<div className="add-text-blue">Add Cause
-							<div onMouseEnter={this.showVolunteer4.bind(this)} onMouseLeave={this.hideVolunteer4.bind(this)} id="Volunteer4" className="question-icon"></div>
-							<ToolTip active={this.state.activeVolunteer4} position="right" arrow="center" parent="#Volunteer4">
-								<div className="popup-pad">
-									<div className="sm-text">Cause</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Cause
+									<div onMouseEnter={this.showVolunteer4.bind(this)} onMouseLeave={this.hideVolunteer4.bind(this)} id="Volunteer4" className="question-icon"></div>
+									<ToolTip active={this.state.activeVolunteer4} position="right" arrow="center" parent="#Volunteer4">
+										<div className="popup-pad">
+											<div className="sm-text">Cause</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{volu.begdate ? (
 						<div>{volu.begdate}</div>
 					) : (
-						<div className="add-text-blue">Add Start Date
-							<div onMouseEnter={this.showVolunteer3.bind(this)} onMouseLeave={this.hideVolunteer3.bind(this)} id="Volunteer3" className="question-icon"></div>
-							<ToolTip active={this.state.activeVolunteer3} position="right" arrow="center" parent="#Volunteer3">
-								<div className="popup-pad">
-									<div className="sm-text">Date</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Start Date
+									<div onMouseEnter={this.showVolunteer3.bind(this)} onMouseLeave={this.hideVolunteer3.bind(this)} id="Volunteer3" className="question-icon"></div>
+									<ToolTip active={this.state.activeVolunteer3} position="right" arrow="center" parent="#Volunteer3">
+										<div className="popup-pad">
+											<div className="sm-text">Date</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{volu.enddate ? (
 						<div>{volu.enddate}</div>
 					) : (
-						<div className="add-text-blue">Add End Date
-							<div onMouseEnter={this.showVolunteer6.bind(this)} onMouseLeave={this.hideVolunteer6.bind(this)} id="Volunteer6" className="question-icon"></div>
-							<ToolTip active={this.state.activeVolunteer6} position="right" arrow="center" parent="#Volunteer6">
-								<div className="popup-pad">
-									<div className="sm-text">Date</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add End Date
+									<div onMouseEnter={this.showVolunteer6.bind(this)} onMouseLeave={this.hideVolunteer6.bind(this)} id="Volunteer6" className="question-icon"></div>
+									<ToolTip active={this.state.activeVolunteer6} position="right" arrow="center" parent="#Volunteer6">
+										<div className="popup-pad">
+											<div className="sm-text">Date</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 					{volu.description ? (
 						<div>{volu.description}</div>
 					) : (
-						<div className="add-text-blue">Add Description
-							<div onMouseEnter={this.showVolunteer5.bind(this)} onMouseLeave={this.hideVolunteer5.bind(this)} id="Volunteer5" className="question-icon"></div>
-							<ToolTip active={this.state.activeVolunteer5} position="right" arrow="center" parent="#Volunteer5">
-								<div className="popup-pad">
-									<div className="sm-text">Description</div>
-									<div className="profile-text">Text here...</div>
+						<div>
+							{this.props.conn.showConn ? null : (
+								<div className="add-text-blue">Add Description
+									<div onMouseEnter={this.showVolunteer5.bind(this)} onMouseLeave={this.hideVolunteer5.bind(this)} id="Volunteer5" className="question-icon"></div>
+									<ToolTip active={this.state.activeVolunteer5} position="right" arrow="center" parent="#Volunteer5">
+										<div className="popup-pad">
+											<div className="sm-text">Description</div>
+											<div className="profile-text">Text here...</div>
+										</div>
+									</ToolTip>
 								</div>
-							</ToolTip>
+							)}
 						</div>
 					)}
 				</div>
@@ -242,14 +275,20 @@ class ProfileVolunteer extends Component {
 		});
 		return (
 			<div className="education-box">
-				<div className="title-text-gray" onClick={this.deleteVolunteer.bind(this)}>Volunteering Experience<div className="trash"></div></div>
+				<div className="title-text-gray">Volunteering Experience
+					{this.props.conn.showConn ? null : (
+						<div className="trash" onClick={this.deleteVolunteer.bind(this)}></div>
+					)}
+				</div>
 				<div className="box-info">
 					{volunteers}
 				</div>
-				<div className="bottom-add">
-					<div className="bottom-add-text" onClick={() => this.refs.volunteer.show()}>Add volunteer
+				{this.props.conn.showConn ? null : (
+					<div className="bottom-add">
+						<div className="bottom-add-text" onClick={() => this.refs.volunteer.show()}>Add volunteer
+						</div>
 					</div>
-				</div>
+				)}
 				<SkyLight dialogStyles={style} hideOnOverlayClicked ref="volunteer" title="Add Volunteering Experience">
 					<div className="form-title">Organization</div>
 					<input className="form-input" type="text" onChange={this.saveOrganization}/>
@@ -290,7 +329,8 @@ const mapDispatchToProps = {
 function mapStateToProps(state) {
 	return {
 		volunteerArray: state.profile.volunteerArray,
-		user: state.user
+		user: state.user,
+		conn: state.connProfile
 	}
 }
 
