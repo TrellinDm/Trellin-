@@ -25,8 +25,6 @@ class CommentBox extends Component {
 
     this.state = {
       reply: '',
-      message_id: this.props.body.id,
-      userid: this.props.user.id ? this.props.user.id : 'Unknown',
       dropdownOpen: false
     };
 
@@ -78,7 +76,14 @@ class CommentBox extends Component {
   }
 
   newReply() {
-    axios.post('/reply', this.state).then( res => {
+    let data = {
+      reply: this.state.reply,
+      message_id: this.props.body.id ? this.props.body.id : 'Unknown',
+      userid: this.props.user.id ? this.props.user.id : 'Unknown',
+      first_name: this.props.user.first_name ? this.props.user.first_name : this.props.user.display_name,
+      picture: this.props.user.picture
+    }
+    axios.post('/reply', data).then( res => {
       this.props.saveReply(res.data)
     })
   }
@@ -121,6 +126,7 @@ class CommentBox extends Component {
   }
 
   render() {
+    console.log(this.props.user);
     if (this.state.dropdownOpen) {
       var gridList = this.props.list.listObj.map( (elm, i) => {//inception :)
         return (
@@ -132,7 +138,7 @@ class CommentBox extends Component {
       })
     }
 
-    console.log(this.props.body);
+
     return (
         <div className="comment-wrapper">
           <div className="comment-container">
