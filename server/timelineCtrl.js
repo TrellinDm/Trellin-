@@ -4,7 +4,7 @@ let db = app.get('db');
 module.exports = {
   getMessages: function (req, res) {
     db.getMessages(function (err, result) {
-  
+
         res.status(200).send(result)
     });
   },
@@ -15,15 +15,16 @@ module.exports = {
     let type = data.messageType;
     let message = data.message;
     let messageid = 3;
-    db.createNewMessage([userid, messageid, message, listid, type ], function (err, result) {
+    db.createNewMessage([userid, messageid, message, listid, type, data.first_name, data.picture ], function (err, result) {
         if (err) {
+          console.log(err);
         }
         res.status(200).send(result)
     })
   },
 
   createReply: function (req, res) {
-    db.createReply([req.body.reply, req.body.message_id, req.body.userid, req.body.first, req.body.last], function (err, result) {
+    db.createReply([req.body.reply, req.body.message_id, req.body.userid, req.body.first_name, req.body.picture], function (err, result) {
       if (err) {
         console.log(err);
         res.status(500).send(err);

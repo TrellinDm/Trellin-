@@ -23,8 +23,11 @@ class Timeline extends Component {
   render() {
 
     var listMessages = this.props.timeline.messages.map((mes, i) => {
+      if (!mes) {
+        mes = []
+      }
       return (
-        <CommentBox key={i} author={mes.userid} body={mes}  />
+        <CommentBox key={i}  body={mes}  />
       )
     });
 

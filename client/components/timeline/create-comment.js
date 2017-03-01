@@ -20,8 +20,11 @@ class CreateCommentBox extends React.Component {
       message: message,
       userid: this.props.user.id ? this.props.user.id : userid,
       listid: listid,
-      messageType:messageType
+      messageType:messageType,
+      first_name: this.props.user.first_name ? this.props.user.first_name : this.props.user.display_name,
+      picture: this.props.user.picture
     };
+
     axios.post('/createNewMessage', data).then(res => {
       this.props.newMessage(res.data)
     })

@@ -18,11 +18,9 @@ const likesNum = 12;
 class CommentBox extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       reply: '',
-      message_id: this.props.body.id,
-      userid: this.props.user.id ? this.props.user.id : 'Unknown',
       dropdownOpen: false
     };
 
@@ -72,7 +70,14 @@ class CommentBox extends Component {
   }
 
   newReply() {
-    axios.post('/reply', this.state).then( res => {
+    let data = {
+      reply: this.state.reply,
+      message_id: this.props.body.id ? this.props.body.id : 'Unknown',
+      userid: this.props.user.id ? this.props.user.id : 'Unknown',
+      first_name: this.props.user.first_name ? this.props.user.first_name : this.props.user.display_name,
+      picture: this.props.user.picture
+    }
+    axios.post('/reply', data).then( res => {
       this.props.saveReply(res.data)
     })
   }
@@ -95,7 +100,7 @@ class CommentBox extends Component {
     });
     this.toggle()
   }
-  
+
   getLists() {
     if (this.props.list.listObj.length < 1) {
       axios.get('/lists').then( res => {
@@ -110,6 +115,7 @@ class CommentBox extends Component {
   }
 
   render() {
+    console.log(this.props.user);
     if (this.state.dropdownOpen) {
       var gridList = this.props.list.listObj.map( (elm, i) => {//inception :)
         return (
@@ -117,7 +123,7 @@ class CommentBox extends Component {
 	      )
       })
     }
-    
+
     return (
         <div className="comment-wrapper">
           <div className="comment-container">
@@ -141,7 +147,7 @@ class CommentBox extends Component {
               <input className="form-input" type="text" onChange={this.handleChange}/>
               <button className="button-dark-blue" onClick={(event) => { this.newReply(); this.refs.reply.hide()}}>Reply</button>
             </SkyLight>
-            
+
           </div>
 
           <button className="comment-reveal" > View Comments ▼ </button>
