@@ -4,6 +4,7 @@ import SkyLight from 'react-skylight';
 import { connect } from 'react-redux';
 import {addAward} from '../../../reducers/profileReducer';
 import {deleteAwards} from '../../../reducers/profileReducer';
+import moment from 'moment';
 import axios from 'axios';
 
 
@@ -220,7 +221,7 @@ class ProfileAwards extends Component {
 						</div>
 					)}
 					{awar.recieved? (
-							<div>{awar.recieved}</div>
+							<div>{moment(awar.recieved).format('LL')}</div>
 						) : (
 							<div>
 								{this.props.conn.showConn ? null : (

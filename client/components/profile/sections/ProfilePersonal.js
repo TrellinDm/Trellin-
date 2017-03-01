@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {addPersonal} from '../../../reducers/profileReducer';
 import {deletePersonal} from '../../../reducers/profileReducer';
 import axios from 'axios';
+import moment from 'moment';
 
 class ProfilePersonal extends Component {
 	constructor(props){
@@ -94,7 +95,7 @@ class ProfilePersonal extends Component {
 			return (
 				<div key={i} className="awards-div">
 					{pers.birthday ? (
-						<div>{pers.birthday}</div>
+						<div>{moment(pers.birthday).format('LL')}</div>
 					) : (
 						<div>
 							{this.props.conn.showConn ? null : (

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {addVolunteer} from '../../../reducers/profileReducer';
 import {deleteVolunteer} from '../../../reducers/profileReducer';
 import axios from 'axios';
+import moment from 'moment';
 
 class ProfileVolunteer extends Component {
 	constructor(props){
@@ -220,7 +221,7 @@ class ProfileVolunteer extends Component {
 						</div>
 					)}
 					{volu.begdate ? (
-						<div>{volu.begdate}</div>
+						<div>{moment(volu.begdate).format('LL')}</div>
 					) : (
 						<div>
 							{this.props.conn.showConn ? null : (
@@ -237,7 +238,7 @@ class ProfileVolunteer extends Component {
 						</div>
 					)}
 					{volu.enddate ? (
-						<div>{volu.enddate}</div>
+						<div>{moment(volu.enddate).format('LL')}</div>
 					) : (
 						<div>
 							{this.props.conn.showConn ? null : (

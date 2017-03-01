@@ -48,19 +48,25 @@ class ProfileSidebar extends Component {
 			this.fillMeter(percent);
 		});
 
+		console.log(this.props.conn.showConn);
+
 		return (
 
 			<div>
 				<div id="test" className="sidebar-box">
-					<h5 className="prof-strength-title">Profile Strength</h5>
-					<div className="profile-strength">
-						<div className="profile-strength-wrap">
-							<div className="mask">
-								<div className="fill"></div>
-							</div>
-							<span className="level"/>
+					{this.props.conn.showConn ? (null) : (
+						<div>
+							<h5 className="prof-strength-title">Profile Strength</h5>
+							<div className="profile-strength">
+								<div className="profile-strength-wrap">
+									<div className="mask">
+										<div className="fill"></div>
+									</div>
+									<span className="level"/>
+								</div>
+							</div><hr/>
 						</div>
-					</div><hr/>
+					)}
 					<div className="advertisement"></div>
 					<hr/>
 					<span className="sm-text">Who's Viewed Your Profile</span>
@@ -80,7 +86,8 @@ class ProfileSidebar extends Component {
 
 function mapStateToProps(state) {
 	return {
-		profileStrength: state.profile.profileStrength
+		profileStrength: state.profile.profileStrength,
+		conn: state.connProfile
 	}
 }
 

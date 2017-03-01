@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {addExperience} from '../../../reducers/profileReducer';
 import {deleteExperiences} from '../../../reducers/profileReducer';
 import axios from 'axios';
+import moment from 'moment';
 
 
 class ProfileExperience extends Component {
@@ -246,7 +247,7 @@ class ProfileExperience extends Component {
 						</div>
 					)}
 					{expr.begdate ? (
-						<div>{expr.begdate}</div>
+						<div>{moment(expr.begdate).format('LL')}</div>
 					) : (
 						<div>
 							{this.props.conn.showConn ? null : (
@@ -263,7 +264,7 @@ class ProfileExperience extends Component {
 						</div>
 					)}
 					{expr.enddate ? (
-						<div>{expr.enddate}</div>
+						<div>{moment(expr.enddate).format('LL')}</div>
 					) : (
 						<div>
 							{this.props.conn.showConn ? null : (

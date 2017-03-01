@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {addCertification} from '../../../reducers/profileReducer';
 import {deleteCertifications} from '../../../reducers/profileReducer';
 import axios from 'axios';
+import moment from 'moment';
 
 class ProfileCertifications extends Component {
 	constructor(props){
@@ -245,7 +246,7 @@ class ProfileCertifications extends Component {
 						</div>
 					)}
 					{cert.begdate ? (
-						<div>{cert.begdate}</div>
+						<div>{moment(cert.begdate).format('LL')}</div>
 					) : (
 						<div>
 							{this.props.conn.showConn ? null : (
@@ -262,7 +263,7 @@ class ProfileCertifications extends Component {
 						</div>
 					)}
 					{cert.enddate ? (
-						<div>{cert.enddate}</div>
+						<div>{moment(cert.enddate).format('LL')}</div>
 					) : (
 						<div>
 							{this.props.conn.showConn ? null : (

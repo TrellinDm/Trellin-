@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {addEducation} from '../../../reducers/profileReducer';
 import {deleteEducation} from '../../../reducers/profileReducer';
 import axios from 'axios';
+import moment from 'moment';
 
 class ProfileEducation extends Component {
 	constructor(props){
@@ -274,7 +275,7 @@ class ProfileEducation extends Component {
 						</div>
 					)}
 					{educ.begdate ? (
-						<div>{educ.begdate}</div>
+						<div>{moment(educ.begdate).format('LL')}</div>
 					) : (
 						<div>
 							{this.props.conn.showConn ? null : (
@@ -291,7 +292,7 @@ class ProfileEducation extends Component {
 						</div>
 					)}
 					{educ.enddate ? (
-						<div>{educ.enddate}</div>
+						<div>{moment(educ.enddate).format('LL')}</div>
 					) : (
 						<div>
 							{this.props.conn.showConn ? null : (
