@@ -115,7 +115,6 @@ class CommentBox extends Component {
   }
 
   render() {
-    console.log(this.props.user);
     if (this.state.dropdownOpen) {
       var gridList = this.props.list.listObj.map( (elm, i) => {//inception :)
         return (

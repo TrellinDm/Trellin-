@@ -114,6 +114,8 @@ app.post('/createNewMessage', timelineCtrl.createNewMessage);
 app.post('/getAllUsers', ConnectionCtrl.getAllUsers);
 app.post('/addConnection', ConnectionCtrl.addConnection);
 app.post('/getConnections', ConnectionCtrl.getConnections);
+app.post('/getConnUser', ConnectionCtrl.getConnUser);
+app.post('/getCountConn', ConnectionCtrl.getCountConn);
 app.post('/reply', timelineCtrl.createReply);
 app.get('/replies', timelineCtrl.getReply);
 //------------------------LIST ENDPOINTS-----------------------

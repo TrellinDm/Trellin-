@@ -45,7 +45,6 @@ class ProfileSidebar extends Component {
 	render () {
 		$(document).ready(() => {
 			const percent = this.props.profileStrength/41 * 100;
-			console.log(percent);
 			this.fillMeter(percent);
 		});
 

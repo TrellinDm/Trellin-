@@ -5,6 +5,7 @@ import connections from './reducers/connectionsReducer';
 import user from './reducers/userReducer';
 import profile from './reducers/profileReducer';
 import message from './reducers/timelineReducer';
+import connProfile from './reducers/connProfileReducer';
 
 export default combineReducers({
   search,
@@ -12,5 +13,6 @@ export default combineReducers({
   connections,
   user,
   profile,
-  message
+  message,
+  connProfile
 });

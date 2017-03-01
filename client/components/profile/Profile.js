@@ -43,14 +43,17 @@ class Profile extends Component {
         <div className="container">
           <div className="profile-col-left">
             <ProfileHeader />
-            <div><span className="sm-text-gray">Add a section to your profile - </span><span className="smlr-text-gray">be discovered for your next career step.</span></div>
-
-            <div className="section-view-more">
-              <button className="reveal reveal-text"> View More  ▼ </button>
-              <div className="toggle_container">
-                <div className="block"><ProfileAddSection /></div>
+            {this.props.showConn ? (null) : (
+              <div><span className="sm-text-gray">Add a section to your profile - </span><span className="smlr-text-gray">be discovered for your next career step.</span></div>
+            )}
+            {this.props.showConn ? (null) : (
+              <div className="section-view-more">
+                <button className="reveal reveal-text"> View More  ▼ </button>
+                <div className="toggle_container">
+                  <div className="block"><ProfileAddSection /></div>
+                </div>
               </div>
-            </div>
+            )}
 
             {this.props.summaryShow ? <ProfileSummary /> : null}
             {this.props.languageShow ? <ProfileLanguage /> : null}
@@ -89,7 +92,8 @@ function mapStateToProps(state) {
 	  experienceShow: state.profile.experienceShow,
 	  personalShow: state.profile.personalShow,
 	  volunteerShow: state.profile.volunteerShow,
-    user: state.user
+    user: state.user,
+    showConn: state.connProfile.showConn
   }
 }
 
