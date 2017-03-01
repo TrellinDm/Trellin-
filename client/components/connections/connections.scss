@@ -57,6 +57,8 @@
   }
 
 .connection-item {
+  display: flex;
+  flex-direction: column-reverse;
   width: 138px;
   height: auto;
   background-color: #EEEEEE;
@@ -70,6 +72,8 @@
 .connection-img {
   border-radius: 2px 2px 0 0;
   width: 100%;
+  min-height: 135px;
+  max-height: 135;
   }
 
 .connection-name {
