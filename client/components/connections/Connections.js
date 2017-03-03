@@ -49,7 +49,7 @@ class Connections extends Component {
               <div className="connection-name">{name}</div>
               <div className="connection-text">{conn.headline}</div>
             </div>
-            <button className="button-connect" onClick={() => { this.addConnection(conn.id)} }>Add Connection</button>
+            <button className="button-connect" onClick={() => {this.addConnection(conn.id);} }>Add Connection</button>
           </div>
         </div>)
       });
@@ -79,6 +79,7 @@ class Connections extends Component {
 	}
 
   render() {
+		console.log('Rendering Connections');
     return (
       <div className="connection-bg">
         <div className="connection-top-box">
