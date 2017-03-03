@@ -31,7 +31,9 @@ export default function reducer(state=initialState, action) {
       var connArray = Array.from(state.connections);
       suggArray.forEach((sugg, i) => {
         if (sugg.id === action.id) {
-          connArray.push(suggArray.splice(i, 1)[0]);
+          var temp = suggArray.splice(i, 1)[0];
+          temp.connection_id = sugg.id;
+          connArray.push(temp);
         }
       });
       return Object.assign({}, state, {connections: connArray, suggestions: suggArray});
@@ -39,7 +41,7 @@ export default function reducer(state=initialState, action) {
       var suggArray = Array.from(state.suggestions);
       var connArray = Array.from(state.connections);
       connArray.forEach((conn, i) => {
-        if (conn.id === action.id) {
+        if (conn.connection_id === action.id) {
           suggArray.push(connArray.splice(i, 1)[0]);
         }
       });

@@ -1,4 +1,5 @@
 const VIEWCONN = 'VIEWCONN';
+const VIEWYOU = 'VIEWYOU';
 const ADDCONN = 'ADDCONN';
 const ADDCONNUSER = 'ADDCONNUSER';
 
@@ -30,6 +31,28 @@ const initialState = {
 }
 
 function storeInfo(state, userInfo) {
+
+  state.languageShow = false;
+  state.summaryShow = false;
+  state.certificationsShow = false;
+  state.coursesShow = false;
+  state.awardsShow = false;
+  state.educationShow = false;
+  state.skillsShow = false;
+  state.experienceShow = false;
+  state.personalShow = false;
+  state.volunteerShow = false;
+  state.languageArray = [];
+  state.summaryArray = [];
+  state.certificationsArray = [];
+  state.coursesArray = [];
+  state.awardsArray = [];
+  state.educationArray = [];
+  state.skillsArray = [];
+  state.experienceArray = [];
+  state.personalArray = [];
+  state.volunteerArray = [];
+
   for (let prop in userInfo) {
     if (userInfo[prop].length > 0) {
       let show = prop + 'Show';
@@ -63,7 +86,9 @@ export default function reducer(state=initialState, action) {
       }
       return Object.assign({}, state, {connUser: action.payload});
     case VIEWCONN:
-      return Object.assign({}, state, {showConn: !state.showConn});
+      return Object.assign({}, state, {showConn: true});
+    case VIEWYOU:
+      return Object.assign({}, state, {showConn: false});
     default: return state;
   }
 }
@@ -85,5 +110,11 @@ export function addConnUser(data) {
 export function viewConn() {
   return {
     type: VIEWCONN
+  }
+}
+
+export function viewYou() {
+  return {
+    type: VIEWYOU
   }
 }

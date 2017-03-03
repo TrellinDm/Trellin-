@@ -135,10 +135,10 @@ class ProfileHeader extends Component {
 		});
 	}
 
-	removeConnection(connId) {
+	removeConnection() {
 		this.setState({showRemove: false});
-		axios.post('/removeConnection', {id: this.props.user.id, connId: connId}).then(() => {
-			this.props.removeConn(connId);
+		axios.post('/removeConnection', {id: this.props.user.id, connId: this.props.connUser[0].id}).then(() => {
+			this.props.removeConn(this.props.connUser[0].id);
 		});
 
 	}
@@ -151,7 +151,7 @@ class ProfileHeader extends Component {
 	}
 
   render() {
-
+		console.log('Rendering ProfileHeader');
 	  const style = {
 		  width: '50%',
 		  height: 'auto',
@@ -213,7 +213,7 @@ class ProfileHeader extends Component {
 					{this.props.showConn ? (
 						<div>
 							{this.state.showRemove ? (
-								<button className="button-dark-blue header-edit" onClick={() => {this.removeConnection(shownUser.id)}}>Remove</button>
+								<button className="button-dark-blue header-edit" onClick={() => {this.removeConnection()}}>Remove</button>
 							) : (
 								<button className="button-dark-blue header-edit" onClick={() => {this.addConnection(shownUser.id)}}>Connect</button>
 							)}

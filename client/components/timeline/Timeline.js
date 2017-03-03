@@ -7,6 +7,7 @@ import axios from 'axios';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import _ from 'underscore';
+import {viewYou} from '../../reducers/connProfileReducer';
 
 
 class Timeline extends Component {
@@ -18,6 +19,11 @@ class Timeline extends Component {
       messages:  [],
       connections: []
     };
+    this.viewYou = this.viewYou.bind(this);
+  }
+
+  viewYou() {
+    this.props.viewYou();
   }
 
   render() {
@@ -66,7 +72,7 @@ class Timeline extends Component {
               </div>
               <div className="profile-name-wrap">
                 <div className="profile-text-lg"> {this.props.user.display_name ? (<div className="profile-text-lg">Welcome, {this.props.user.display_name} </div>) : (<div className="profile-text-lg">Please Sign In</div>)}</div>
-	              {this.props.user.display_name ? (<Link to="/profile" className="profile-link"> View Profile </Link>) : (<div></div>)}
+	              {this.props.user.display_name ? (<Link to="/profile" onClick={this.viewYou} className="profile-link"> View Profile </Link>) : (<div></div>)}
               </div>
               <div className="profile-name-wrap">
                 <div className="profile-text-lg">Connections: {connectionNum}</div>
@@ -128,7 +134,7 @@ function mapStateToProps(state) {
 	}
 }
 
-// const mapDispatchToActions = {
-//   allMessages
-// }
-export default connect(mapStateToProps)(Timeline);
+const mapDispatchToProps = {
+  viewYou: viewYou
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Timeline);

@@ -4,8 +4,19 @@ import Logout from '../../src/logout.svg';
 import {connect} from 'react-redux';
 import network from '../../src/network.svg';
 import trellcard from '../../src/trellcard.svg';
+import {viewYou} from '../../reducers/connProfileReducer';
 
 class Settings extends Component {
+
+  constructor(props) {
+    super(props)
+    this.viewYou = this.viewYou.bind(this);
+  }
+
+  viewYou() {
+    console.log('view you?');
+    this.props.viewYou();
+  }
 
   render() {
 
@@ -20,7 +31,11 @@ class Settings extends Component {
             <img src={trellcard} />
             <div>Trello</div>
           </Link>
-	        {this.props.user.display_name ? ( <Link to="/profile" className="profile-settings"><div className="profile-icon"/><div>Profile</div></Link>) : (<div></div>)}
+	        {this.props.user.display_name ? (
+            <Link to="/profile" onClick={this.viewYou} className="profile-settings">
+              <div className="profile-icon" />
+              <div>Profile</div>
+            </Link>) : (<div></div>)}
           <div className="logout-menu">
             <img src={Logout} />
             <Link to="/login" />
@@ -41,4 +56,8 @@ const mapStateToProps= (state) =>{
   }
 };
 
-export default connect(mapStateToProps)(Settings);
+const mapDispatchToProps = {
+  viewYou: viewYou
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);
